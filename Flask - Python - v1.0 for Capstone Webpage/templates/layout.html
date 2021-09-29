@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>              <!-- WWebpage links or javascript/css content are held within 'head' tags-->
+        <title>Flask App Draft 1.0 </title>
+        <link rel = "stylesheet" href = "{{url_for('static', filename='css/main.css')}}">
+    </head>
+
+    <body>                                                 <!-- Webpage content starts at the body tag-->
+    <div class = "container">
+        <h1 class = "logo"> Ricky's web app </h1>
+        <strong><nav>
+            <ul class = "menu">
+                <li><a href ="{{ url_for('home') }}">Home</a></li>       <!--This line triggers the 'home' python function, when user clicks 'home' button!-->
+                <li><a href ="{{ url_for('about') }}">About</a></li>     <!--This line triggers the 'about' python function, when user clicks 'about' button!-->
+            </ul>
+        </nav></strong>
+    </div>
+    <meta charset="UTF-8">
+
+<div class = "container">
+    {%block content%}           <!-- This allows us to create 'child' & base Inheritance classes for this file... AKA our 'about' & 'home' html files are inherited from this file as 'child' templates. -->
+    {%endblock%}
+</div>
+</body>
+
+
+</html>
