@@ -1,0 +1,118 @@
+{%extends "layout.html"%}
+{%block content%}
+
+<hgroup>
+    <h2 class="h2">FH Calculator - <span> Updated 9.30.21</span></h2>
+</hgroup>
+
+<div class="form">
+    <form action="/data" method="POST">
+
+        <!--
+           PEDIGREE SELECTION: DATA LIST, LIST-SELECTION FOR PEDIGREE COUNT
+       -->
+
+        <label for="pedigree-count-choice">Select the number of patient pedigrees: </label>
+        <input list="pedigree-count-list" id="pedigree-count-choice" placeholder="Family Pedigrees"
+               name="pedigree-count-choice">
+
+        <datalist id="pedigree-count-list">
+            <option value="1 Pedigree">
+            <option value="2 Pedigrees">
+            <option value="3 Pedigrees">
+            <option value="4 Pedigrees">
+            <option value="5 Pedigrees">
+            <option value="6 Pedigrees">
+            <option value="7 Pedigrees">
+            <option value="8 Pedigrees">
+            <option value="9 Pedigrees">
+        </datalist>
+        <br><br>
+        <br><br>
+
+
+        <!-- PATIENT ATTRIBUTE INPUT !-->
+
+        <!--ATTRIBUTE 1 - AGE-->
+        <label for="patient_age">Patient Age: </label>
+        <input type="number" id="patient_age" name="patient_age"
+               min="0" max="110" placeholder="Age">
+        <br><br>
+
+        <!--ATTRIBUTE 2 - GENDER/SEX-->
+        <label for="patient_sex">Patient Sex:</label>
+        <input list="patient_sex_options" id="patient_sex" name="patient_sex"
+               placeholder="Gender">
+        <datalist id="patient_sex_options">
+            <option value="Male">
+            <option value="Female">
+            <option value="Other">
+        </datalist>
+        <br><br>
+
+        <!-- ATTRIBUTE 3 - LDL CHOLESTEROL LEVELS!-->
+        <label for="ldl-chol">Recent LDL-Level(s):</label>
+        <input type="number" id="ldl-chol" name="ldl-chol"
+               min="0" max="300" placeholder="LDL-C Level">
+        <br><br>
+
+        <!--ATTRIBUTE 4 - TOTAL-CHOL LEVELS!-->
+        <label>Recent Total-C Level(s): </label>
+        <input type="number" id="tot-chol" name="tot-chol"
+               min="0" max="300" placeholder="TOT-C Level">
+        <br><br>
+
+        <!-- ATTRIBUTE 5 - CLINICAL CAD STATUS -->
+        <label for="clin-cad-status">Patient Family Diagnosed with Clinical CAD: </label>
+        <input list="clin-cad-stat-options" id="clin-cad-status" name="clin-cad-status"
+               placeholder="CAD Diagnosis Status">
+        <datalist id="clin-cad-stat-options">
+            <option value="Known: Patient has history of Clinical CAD">
+            <option value="Known: Patient does not have history of Clinical CAD">
+            <option value="Unknown: Patient is unsure of history of Clinical CAD">
+        </datalist>
+        <br><br>
+
+        <!-- ATTRIBUTE 6 - CLINICAL CAD AGE -->
+        <label>Enter Age of Clinical Cad Diagnosis: </label>
+        <input type="number" id="clin_cad_age" name="clin_cad_age"
+               min="0" max="110" placeholder="CAD Diagnosis Age">
+        <br><br>
+
+        <!-- ATTRIBUTE 7 - TENDON XANTHOMA STATUS -->
+        <label for="tx_status">Patient Tendon Xanthoma Status: </label>
+        <input list="tx_status_options" id="tx_status" name="tx_status"
+               placeholder="TX Status">
+        <datalist id="tx_status_options">
+            <option value="Known: Patient has History of TX">
+            <option value="Known: Patient has no History of TX">
+            <option value="Unknown: Patient is unsure of TX">
+        </datalist>
+        <br><br>
+
+        <!-- ATTRIBUTE 8 - PATIENT DNA STATUS -->
+        <label>Patient DNA DX Status: </label>
+        <input list="dna_dx_options" id="dna_dx_status" name="dna_dx_status"
+               placeholder="DNA_DX Status">
+        <datalist id="dna_dx_options">'
+            <option value="Known: Patient has trace of DNA_DX">
+            <option value="Known: Patient has no trace of DNA_DX">
+            <option value="Unknown: Patient is unsure of DNA_DX">
+        </datalist>
+        <br><br>
+
+        <br><br>
+        <input type="submit" value="Generate Results">
+        <!-- NEXT LINE OF CODE REPRESENTS THE SUBMISSION 'BUTTON'. 'BUTTON' REQUIRES JAVASCRIPT TO GENERATE FUNCTION... TO ADD NEXT TIME!-->
+        <!--            <input class="results_submission" type="button" value="Generate Results">-->
+
+    </form>
+
+    <!-- Start of WebFreeCounter Code -->
+    <label>Page Views: </label>
+    <a href="https://www.webfreecounter.com/" target="_blank"><img
+            src="https://www.webfreecounter.com/hit.php?id=gupdxqo&nd=5&style=1" border="0" alt="free counter"></a>
+    <!-- End of WebFreeCounter Code -->
+</div>
+
+{%endblock%}
