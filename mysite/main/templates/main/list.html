@@ -1,10 +1,19 @@
+<!-- LIST.HTML: THE PAGE THAT PROVIDES THE HTML LOGIC REQUIRED FOR USERS TO ADD/ITEMS INTO A FORM -->
+<!-- PURPOSE: CREATE A FORM THAT NOT ONLY ALLOWS USER TO INPUT ITEMS, BUT ALSO DISPLAYS ITEMS THEY INPUT ... -->
+<!-- VERSION: 2.0 -->
+<!-- DATE: 10.1.21 -->
 {% extends "main/base.html" %}
 
 {% block title%}View List{% endblock %}
 
 {% block content %}
     <h1>{{ls.name}}</h1>
+<!-- STEP 1 - CREATING THE FORM TO COLLECT & DISPLAY USER INPUT -->
 
+    <!-- CREATING THE FORM FOR USER INPUT && INCLUDING THE 'P0ST' METHOD,
+         WHICH ENSURES IT CAN BE POSTED BACK TO OUR VIEW.HTML FILE FOR USER TO SEE -->
+    <form method = "post" action = "#">
+        {% csrf_token %}
         <!-- DISPLAYING A LIST BY CREATING A 'FOR' WITHIN OUR HTML CODE -->
         <ul>
             <!-- FOR EACH ITEM IN OUR SET LIST.... -->
@@ -12,13 +21,48 @@
 
                 <!-- ... IF ITEM IS COMPLETE PRINT FOLLOWING MESSAGE ... -->
                 {% if item.complete == True %}
-                    <li>{{item.text}} - COMPLETE</li>
+
+                    <!-- CREATING LOGIC TO LEAVE THE DEFAULT VALUE OF OUR COMPLETE ITEMS AS 'CHECKED' -->
+                    <li>
+                        <!-- 'CHECKBOX' AS USER INPUT TYPE && MARKING THE VALUE OF THE ITEM AS 'CLICKED' -->
+                        <input type = "checkbox"
+                               , value = "clicked"
+                               , name = "c{{item.id}}" checked>  <!-- PASSING THE DYNAMIC ID OF THE ITEM FOR THE NAME &&
+                                                                       PUTTING DEFAULT VALUE AS 'CHECKED'-->
+                        {{item.text}}
+                    </li>
 
                 <!-- ... ELSE IF ITEM IS NOT COMPLETE -->
                 {% else %}
-                    <li>{{item.text}} - INCOMPLETE</li>
+                    <!-- REPEATING LOGIC ABOVE, EXCEPT NOT HAVING THE CHECKBOX CHECKED AS A DEFAULT VALUE -->
+                    <li>
+                        <!-- CHECKBOX AS USER INPUT TYPE && MARKING THE CLICKED VALUE ITEM AS 'CLICKED' -->
+                        <input type = "checkbox"
+                               , value = "clicked"
+                               , name = "c{{item.id}}">         <!-- PASSING DYNAMIC NAME OF THE ITEM FOR THE NAME -->
+                        {{item.text}}
+                    </li>
+
                 {% endif %}
             {% endfor %}
         </ul>
+
+<!-- STEP 2 - CREATE BUTTONS FOR USER TO SAVE/INPUT THE ITEMS THEY CREATED IN THE FORM -->
+    <!-- 2 BUTTONS: SAVE & ADD ITEM -->
+
+        <!-- BUTTON 1: 'SAVE' -->
+        <!-- BUTTON TYPE && MARKING THE NAME OF BUTTON HTML OBJECT WE'RE CREATING -->
+        <button type = "submit"
+                , name = "save"
+                , value = "save"> Save </button>    <!-- THE VALUE & DISPLAY NAME OF THE BUTTON -->
+
+        <input type = "text", name = "new">
+
+        <!-- BUTTON 2: 'ADD ITEM' -->
+        <!-- BUTTON TYPE && MARKING OBJECT NAME AS 'NEWITEM' -->
+        <button type = "submit"
+                , name = "newItem"
+                , value = "newItem">Add Item</button>   <!-- VALUE & DISPLAY NAME OF BUTTON -->
+    </form>
 
 {% endblock %}

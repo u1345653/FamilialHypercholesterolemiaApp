@@ -1,7 +1,7 @@
 ########################################################################################################################
 ###                            VIEWS FILE FOR CREATING DIFFERENT VIEWS OF OUR APPLICATION                            ###
 ###                         PURPOSE: TRANSPOSING FH CALCULATOR FRAMEWORK TO DJANGO WEB APP                           ###
-###                                        DATE: 9.30.21 ---- VERSION: 4.0                                           ###
+###                                        DATE: 10.1.21 ---- VERSION: 4.0                                           ###
 ########################################################################################################################
 ###                VIEWS PAGE IS WHERE WE WILL DEVELOP OUR HTTPS REQUESTS FOR VIEWS ON OUR WEB APPLICATION           ###
 
@@ -22,6 +22,29 @@ def index(response                                # PASSING THE HTTP RESPONSE IN
 
     ls = ToDoList.objects.get(id=id)
 
+    if response.method == "POST":                 # CONDITIONAL HANDLING LOGIC OF USER INPUT FORM ITEMS
+        print(response.POST)                      # TEMPORARILY PRINTING THE POSTED RESPONSE FOR TESTING
+
+        if response.POST.get("save"):
+            for item in ls.item_set.all():
+                if response.POST.get("c" + str(item.id)) == "clicked":
+                    item.complete = True
+
+                else:
+                    item.complete = False
+
+                item.save()
+
+        elif response.POST.get("newItem"):
+            txt = response.POST.get("new")
+
+            if len(txt) > 2:
+                ls.item_set.create(text=txt,
+                                   complete = False)
+            else:
+                print("invalid")
+
+            pass
 
     return render( response                 # FUNCTION 1 - RENDERING LIST.HTML FILE
                   , "main/list.html"
