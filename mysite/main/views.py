@@ -1,7 +1,7 @@
 ########################################################################################################################
 ###                            VIEWS FILE FOR CREATING DIFFERENT VIEWS OF OUR APPLICATION                            ###
 ###                         PURPOSE: TRANSPOSING FH CALCULATOR FRAMEWORK TO DJANGO WEB APP                           ###
-###                                        DATE: 9.30.21 ---- VERSION: 2.0                                           ###
+###                                        DATE: 9.30.21 ---- VERSION: 3.0                                           ###
 ########################################################################################################################
 ###                VIEWS PAGE IS WHERE WE WILL DEVELOP OUR HTTPS REQUESTS FOR VIEWS ON OUR WEB APPLICATION           ###
 
@@ -15,15 +15,15 @@ from .models import ToDoList, Item           # IMPORT OUR MODELS TODOLIST/ ITEM,
 # DYNAMIC EX1: PASSING OBJECT'S 'NAME' ATTRIBUTE FROM THE TODOLIST CLASS THROUGH FUNCTION
 # , THEN GETTING & PRINTING IT & ASSOCIATED ATTRIBUTES ON THE CORRESPONDING WEBPAGE.
 
-def index(response                                 # PASSING THE HTTP RESPONSE INTO OUR INDEX FUNCTION
-          , name):                                 # PASSING THE UNIQUE TODOLIST ID THROUGH OUR INDEX FUNCTION
+def index(response                                # PASSING THE HTTP RESPONSE INTO OUR INDEX FUNCTION
+          , id):                                  # PASSING THE UNIQUE TODOLIST ID THROUGH OUR INDEX FUNCTION
 
-    ls = ToDoList.objects.get(name=name)           # VARIABLE 1: NAME, WHICH GETS THE NAME OF THE OBJECT FROM URL
+    ls = ToDoList.objects.get(id=id)
 
-    item = ls.item_set.get(id=1)                   # VARIABLE 2: ITEM, WHICH GETS THE ID ASSOCIATED WITH URL
-
-    return HttpResponse("<h1>%s</h1><br></br><p></p>%s" %( ls.name          # DYNAMIC RETURN ITEM 1 - ITEM NAME
-                                                           , str(item.text) ) )    # DYNAMIC ITEM 2 - ITEM TEXT
+    # RETURNING AN INSTANCE OF THE RENDER CLASS, WHICH GENERATES THE HTML FILE DESCRIBED
+    return render( response
+                  , "main/list.html"
+                  , {"ls" : ls} )
 
 ## DYNAMIC EX2: PASSING THE 'NAME' ATTRIBUTE FROM THE TODOLIST CLASS, THEN GETTING & PRINTING IT DYNAMICALLY
 # IF USER TYPES IN 'TIM'S LIST' AT END OF URL, WE CAN USE THAT TO DISPLAY THE NAME OF THAT TODOLIST OBJECT ON PAGE
@@ -31,3 +31,8 @@ def index(response                                 # PASSING THE HTTP RESPONSE I
 #     , name)
 #     name = ToDoList.objects.get(name=name)
 #     return HttpResponse("<h1>%s</h1>" % ls.name)
+
+def home(response):
+    return render( response
+                  , "main/home.html"
+                  , {} )

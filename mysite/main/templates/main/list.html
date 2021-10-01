@@ -1,0 +1,24 @@
+{% extends "main/base.html" %}
+
+{% block title%}View List{% endblock %}
+
+{% block content %}
+    <h1>{{ls.name}}</h1>
+
+        <!-- DISPLAYING A LIST BY CREATING A 'FOR' WITHIN OUR HTML CODE -->
+        <ul>
+            <!-- FOR EACH ITEM IN OUR SET LIST.... -->
+            {% for item in ls.item_set.all %}
+
+                <!-- ... IF ITEM IS COMPLETE PRINT FOLLOWING MESSAGE ... -->
+                {% if item.complete == True %}
+                    <li>{{item.text}} - COMPLETE</li>
+
+                <!-- ... ELSE IF ITEM IS NOT COMPLETE -->
+                {% else %}
+                    <li>{{item.text}} - INCOMPLETE</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+
+{% endblock %}
