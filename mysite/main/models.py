@@ -1,7 +1,7 @@
 ########################################################################################################################
 ###               MODELS.PY IS USED TO CONFIGURE ANY DATA MODELS WE WANT TO INCORPORATE INTO OUR WEBSITE             ###
 ###               PURPOSE: CREATE FIRST DRAFT OF DATA MODEL, TO EVENTUALLY INCLUDE THE FH CALC DATA MODEL            ###
-###                                             VERSION: 1.0; DATE: 9.28.21                                          ###
+###                                             VERSION: 2.0; DATE: 9.30.21                                          ###
 ########################################################################################################################
 
 ### STEP 1 - IMPORT DJANGO'S MODELS CLASS, WHICH ALLOWS US TO BUILD DATA MODEL CLASSES TO TRANSPOSE TO WEB APP
