@@ -24,6 +24,11 @@ urlpatterns = [
     # DEFINING PATH 2 - HOME PAGE -- NOTE THAT "" AS THE LEADING ARGUMENT TELLS US THIS IS THE DEFAULT URL PATH
     path(""
          , views.home
-         , name="home")
+         , name="home"),
+
+    # PATH 3 - CREATE PAGE -- ALLOWING USERS TO CREATE  & VIEW LISTS
+    path("create/"
+         , views.create
+         , name="create")
 
 ]

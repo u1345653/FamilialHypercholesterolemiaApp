@@ -1,14 +1,16 @@
 ########################################################################################################################
 ###                            VIEWS FILE FOR CREATING DIFFERENT VIEWS OF OUR APPLICATION                            ###
 ###                         PURPOSE: TRANSPOSING FH CALCULATOR FRAMEWORK TO DJANGO WEB APP                           ###
-###                                        DATE: 9.30.21 ---- VERSION: 3.0                                           ###
+###                                        DATE: 9.30.21 ---- VERSION: 4.0                                           ###
 ########################################################################################################################
 ###                VIEWS PAGE IS WHERE WE WILL DEVELOP OUR HTTPS REQUESTS FOR VIEWS ON OUR WEB APPLICATION           ###
 
 ### STEP 1 - IMPORTING DJANGO LIBRARY'S & CLASSES FOR PT. 1
 from django.shortcuts import render
-from django.http import HttpResponse         # LIBRARY THAT MAPS VIEWS DEFINED IN FUNCTIONS BELOW TO CORRESPONDING PAGES
+from django.http import (HttpResponse        # LIBRARY THAT MAPS VIEWS DEFINED IN FUNCTIONS BELOW TO CORRESPONDING PAGES
+    , HttpResponseRedirect)                  # ALLOWS US TO SHOW A RESPONSE REDIRECT WITHIN OUR BROWSER
 from .models import ToDoList, Item           # IMPORT OUR MODELS TODOLIST/ ITEM, TO 'GET' THE TODOLIST FROM THE ID
+from .forms import CreateNewList             # IMPORT OUR FORMS OBJECT, TO PASS THE FORM OBJECT INTO OUR HTML CODE
 
 
 ### STEP 2 - CREATE DYNAMIC FUNCTION REPRESENTS A VIEW; NOTE THE INCLUSION OF ADDITIONAL PARAMETER FOR DYNAMIC ABILITY
@@ -20,8 +22,8 @@ def index(response                                # PASSING THE HTTP RESPONSE IN
 
     ls = ToDoList.objects.get(id=id)
 
-    # RETURNING AN INSTANCE OF THE RENDER CLASS, WHICH GENERATES THE HTML FILE DESCRIBED
-    return render( response
+
+    return render( response                 # FUNCTION 1 - RENDERING LIST.HTML FILE
                   , "main/list.html"
                   , {"ls" : ls} )
 
@@ -32,7 +34,26 @@ def index(response                                # PASSING THE HTTP RESPONSE IN
 #     name = ToDoList.objects.get(name=name)
 #     return HttpResponse("<h1>%s</h1>" % ls.name)
 
-def home(response):
+
+def home(response):                          # FUNCTION 2 - RENDERING HOME.HTML FILE
     return render( response
                   , "main/home.html"
                   , {} )
+
+def create(response):                        # FUNCTION 3 - RENDERING CREATE.HTML FILE
+
+    if response.method == "POST":                     # CONDITIONAL STATEMENT FOR 'POST' METHOD
+        form = CreateNewList(response.POST)           # HOLDS A DICTIONARY THAT SAVES THE VALUES THE USER TYPES IN THEM
+
+        if form.is_valid():                            # CONDITIONAL STATEMENT FOR IF THE FORM INFO IS VALID
+            n = form.cleaned_data["name"]              # CREATING A VALID THAT CLEANS THE DATA WITH AN ENTRY IN OUR FORM
+            t = ToDoList(name=n)
+            t.save()
+
+        return HttpResponseRedirect("/%i" %t.id)          # RETURNING VALUE OF USERS FORM INPUT FOR THEM TO VIEW
+
+    else:
+        form = CreateNewList()                             # CALLING THE CREATED CLASS, SINCE OUTPUT IS DEPENDENT ON IT
+    return render ( response
+                    , "main/create.html"
+                    , {"form" : form } )
