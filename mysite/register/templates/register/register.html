@@ -1,0 +1,20 @@
+<!--  PURPOSE: CREATION OF THE REGISTER.HTML WEBPAGE, WHICH IS STILL AN EXTENSION OF OUR BASE.HTML FILE FROM 'MAIN' -->
+<!--  DATE: 10.1.21; VERSION: 1.0 -->
+
+<!--  VERSION GOAL: CREATE FULLY-FUNCTIONAL 4-FIELD USER LOGIN PAGE, WHICH ALLOWS FOR USER INPUT & CREATES PROFILE -->
+{% extends "main/base.html" %}
+
+{% block title %}Create an Account{% endblock %}
+
+<!-- VERSION MODIFICATION: NOTE THE ADDITION OF THE CRISPY_FORM_TAGS VARIABLE ABOVE OUR BLOCK CONTENT;
+     PRE-BUILT DJANGO LIBRARY WE INCLUDED IN OUR APPS.PY FILE, AS IT HAS MANY PRE-BUILT FUNCIONALITIES-->
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <form method = "POST" class = "form-group">
+        {% csrf_token %}
+        <!-- INSTANTIATE THE FORM VARIABLE, BY ADDING A '|', THEN THE WORD CRISPY... CHANGED THE ENTIRE SITE -->
+        {{ form|crispy }}
+        <button type = "submit" class = "btn btn-success">Register</button>
+    </form>
+{% endblock %}

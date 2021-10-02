@@ -1,7 +1,7 @@
 ########################################################################################################################
 ###                     URLS FILE FOR REPRESENTING THE DIFFERENT ADDRESSES WE SERVE VIEWS TO                         ###
-###                         PURPOSE: TRANSPOSING FH CALCULATOR FRAMEWORK TO DJANGO WEB APP                           ###
-###                                        DATE: 9.30.21 ---- VERSION: 2.0                                           ###
+###                     PURPOSE: MODIFYING THE URLS TO ACCOMMODATE A FICTIONAL USER REGISTER                         ###
+###                                        DATE: 10.1.21 ---- VERSION: 3.0                                           ###
 ########################################################################################################################
 ###                URLS PAGE IS WHERE WE WILL DEFINE THE PATHS TO OUR DIFFERENT WEB APP WEB PAGES.
 ###                LISTED URLS WILL DEFINE WHICH VIEWS ARE USED BASED ON GIVEN VIEWS WE WANT, AS WE DETERMINE
@@ -30,5 +30,4 @@ urlpatterns = [
     path("create/"
          , views.create
          , name="create")
-
 ]

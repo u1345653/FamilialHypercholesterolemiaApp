@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main.apps.MainConfig',         # NOTE ADDITION OF OUR MAIN.APPS APPLICATIONS FILE
+    'register.apps.RegisterConfig',
+    'crispy_forms',
 ]
                                     # IMPORTANT TO NOTE THE NEED TO RUN THE MANAGE.PY 'MIGRATE' CMD COMMAND TO 'MIGRATE' THE CHANGES MADE IN OUR SETTINGS.PY FILE
 
@@ -125,3 +127,5 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CRISPY_TEMPLATE_PACK="bootstrap4"
