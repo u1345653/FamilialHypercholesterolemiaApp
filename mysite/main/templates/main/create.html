@@ -1,5 +1,7 @@
 <!-- CREATE.HTML IS WHERE WE WILL BE DISPLAYING THE ACTUAL FORM OBJECTS CRATED IN DJANGO TO OUR WEB USERS -->
-
+<!-- PURPOSE: USE THE BOOTSTRAP MODULE ADD-INS TO STYLIZE THE CREATE.HTML PAGE -->
+<!-- VERSION: 2.0 -->
+<!-- DATE: 10.1.21 -->
 
 {% extends 'main/base.html' %}
 
@@ -7,13 +9,23 @@
 
 <!-- OVERRIDING BASE.HTMLS CONTENT BLOCK WITH OUR FORMS CONTENT BLOCK AS DEFINED BELOW -->
 {% block content %}
-Create Page
 
 <!-- NOTE: INSTEAD OF HAVING EACH ELEMENT OF A FORM DESCRIBED BELOW, WE CAN ACTUALLY JUST PASS A FORM OBJECT -->
-<form method="post" action="/create/">
+<h3>Create Page</h3>
+<form method="post" action="/create/" class = "form-group">
     <!-- PASSING TOKEN, SO THAT OUR FORM CAN BE SUBMITTED WITHOUT GENERATING AN ERROR -->
     {% csrf_token %}
-    {{form.as_p}}           <!-- FORMS CAN INCLUDE MANY DIFFERENT METHODS TO CHANGE THE DISPLAY... 'AS_P' SPACES IT -->
-    <button type = "submit", name="save">Create New</button>
+
+    <!-- BOOTSTRAP ADDITION 1 -- CREATING AN CLASS FOR AN INPUT GROUP-->
+    <div class = "input-group mb-3">
+        <!-- BOOTSTRAP ADDITION 2 -- CLASS THAT ENABLES THE CREATED BUTTON TO EASILY MESS WITH THE TEXT INPUT -->
+        <div class = "input-group-prepend">
+            <!-- CREATING A BUTTON WITH THE BOOTSTRAP BUTTON ATTRIBUTES/PARAMETERS -->
+            <button type = "submit"
+                    , name = "save" class = "btn btn-success">Create New</button>
+        </div>
+        {{form.name}}     <!-- GRABBING JUST THE FORMS NAME ATTRIBUTE WHEN SUBMITTED -->
+
+    </div>
 </form>
 {% endblock %}

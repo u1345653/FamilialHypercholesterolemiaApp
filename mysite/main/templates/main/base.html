@@ -3,9 +3,10 @@
 <!--      THIS IS ENABLED WHEN OTHER .HTML FILES 'INHERIT' THE BASE TEMPLATE WITH A FEW LINES OF CODE -->
                                     <!--  DATE: 10.1.21; VERSION: 2.0 -->
 
-<!--  VERSION GOAL - CREATING SIDEBAR WITHIN OUR DJANGO PROJECT. SIDEBAR WILL BE CREATED IN BASE.HTML FILE,
-TO THEN EXTEND TO ALL OTHER PAGES WITHIN OUR WEBSITE-->
-
+<!--  VERSION GOAL - EMBEDDING THE CSS FRAMEWORK, BOOTSTRAP INTO OUR CODE TO DRASTICALLY EASE THE DESIGN AND
+      WORK REQUIRED TO MAKE A SEAMLESS DESIGN INTERFACE
+      BOOTSTRAP RESOURCES: https://getbootstrap.com/docs/4.3/getting-started/introduction/ -->
+<!doctype html>
 <html>
   <head>
     <!-- CSS & DYNAMIC LINKING TEMPLATES ALWAYS ARE PLACED IN THE HTML FILE BEFORE THE <BODY></BODY> TAGS!-->
@@ -46,6 +47,14 @@ TO THEN EXTEND TO ALL OTHER PAGES WITHIN OUR WEBSITE-->
       }
     </style>
 
+        <!-- BOOTSTRAP ADD IN 2 - DESCRIBING THE METADATA CHARACTER SET & ENSURING DEVICE IS MOBILE-FRIENDLY -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- BOOTSTRAP ADD-IN 1 - CSS LINK FOR SPREADSHEET INTO OUR 'HEAD', BUT ABOVE OUR TITLE TEXT -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <title>{% block title %}FH CALCULATOR{% endblock %}</title>
 
   </head>
@@ -62,9 +71,31 @@ TO THEN EXTEND TO ALL OTHER PAGES WITHIN OUR WEBSITE-->
 
 <!-- CREATING THE CONTENT SECTION OF OUR WEBSITE, WHICH WILL BE PASSING BLOCK CONTENT THROUGH DYNAMICALLY -->
   <div id = "content", name = "content", class = "main">
-    {% block content %}
-    {% endblock %}
+
+    <!-- BOOSTRAP DIV 1 - ROW JUSTIFICATION -->
+    <div class = "row justify-content-center">
+      <div class = "col-8">
+        <h1 class = "mt-2">My Site</h1>
+        <hr class = "mt-0 mb-4">
+          {% block content %}
+          {% endblock %}
+      </div>
+    </div>
   </div>
+
+  <!-- BOOTSTRAP ADD-IN 3 - ADDING OPTIONAL JAVASCRIPT SCRIPTS THAT ARE USED THROUGHOUT A HANDFUL OF BOOTSTRAP CLASSES
+        AND ENABLES SOME HIGH-LEVEL ANIMATION AND/OR COMPONENT CAPABILITIES WHEN CSS OR BOOTSTRAP REQUIRES IT -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+          integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+          crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+          integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+          crossorigin="anonymous"></script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+          integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+          crossorigin="anonymous"></script>
 
 </body>
 </html>
