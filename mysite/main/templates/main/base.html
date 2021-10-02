@@ -1,20 +1,67 @@
 <!--  BASE TEMPLATE: SERVES THE PURPOSE OF BEING THE 'TEMPLATE' DEFAULT FOR ALL PAGES CREATED WITHIN OUR DOMAIN -->
 <!--  PURPOSE: BY CREATING A STANDARD TEMPLATE AND BUILDING FROM THIS ARCHITECTURE, IT ENABLES GREATER SCALE -->
 <!--      THIS IS ENABLED WHEN OTHER .HTML FILES 'INHERIT' THE BASE TEMPLATE WITH A FEW LINES OF CODE -->
-<!--  DATE: 9.30.21; VERSION: 1.0 -->
+                                    <!--  DATE: 10.1.21; VERSION: 2.0 -->
+
+<!--  VERSION GOAL - CREATING SIDEBAR WITHIN OUR DJANGO PROJECT. SIDEBAR WILL BE CREATED IN BASE.HTML FILE,
+TO THEN EXTEND TO ALL OTHER PAGES WITHIN OUR WEBSITE-->
 
 <html>
   <head>
-      <!-- WHEN OTHER WEBPAGES PASS THE 'BLOCK TITLE' VARIABLE, THEY OVERRIDE THE DEFAULT ON ALL PAGES
-                                    , WHICH IS 'TIM'S SITE' -->
-    <title>{% block title %}Tim's Site{% endblock %}</title>
+    <!-- CSS & DYNAMIC LINKING TEMPLATES ALWAYS ARE PLACED IN THE HTML FILE BEFORE THE <BODY></BODY> TAGS!-->
+    <!-- ADDING CSS FOR THE SIDENAV CLASS WE'RE CREATING -- JUST TO MAKE A STYLED SIDEBAR  -->
+    <style type = "text/css">
+
+      /* CSS ITEM 1 - DESIGNING THE SIDENAV CLASS OBJECT & DEFINING DESIGN-RELATED ATTRIBUTES */
+      .sidenav {
+        height : 100%;
+        width : 160px;
+        position : fixed;
+        z-index : 1;
+        top : 0;
+        left : 0;
+        background-color : #111;
+        overflow-x: hidden;
+        padding-top:20px;
+      }
+
+      /* CSS ITEM 2 - DESIGNING WHAT THE SPECIFIC 'LINK' TAG LOOKS LIKE WITHIN OUR SIDENAV CLASS (<A> TAGS) */
+      .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration : none;
+        font-size : 25px;
+        color : #818181;
+        display : block;
+      }
+
+      /* CSS ITEM 3 - DESIGNING WHAT HAPPENS WHEN WE HOVER OVER OUR A-TAG... CHANGING COLORS WHEN WE HOVER */
+      .sidenav a:hover{
+        color : #f1f1f1;
+      }
+
+      /* CSS ITEM 4 - REALIGNS THE DISPLAY LAYOUT OF THE 'MAIN' CLASS, WHICH HOUSES WHERE OUR ACTUAL FORM DISPLAYS */
+      .main {
+        margin-left : 160px;
+        padding : 0px 10px;
+      }
+    </style>
+
+    <title>{% block title %}FH CALCULATOR{% endblock %}</title>
 
   </head>
 
+<!-- ADDITION OF THE SIDENAV CLASS, WHICH WILL CONTAIN LINKS FOR THE CLASSES DISPLAYED, AND DEFINE LINKING BEHAVIOR -->
 <body>
+  <div class = "sidenav">
+
+    <!-- WITHIN OUR SIDENAV CLASS, WE DEFINE <A> TAGS TO REFER TO THE OBJECTS IN OTHER SECTIONS TO DEFINE BEHAVIOR -->
+    <a href = "/home">Home</a>
+    <a href = "/create">Create</a>
+    <a href = "/2">View</a>
+  </div>
 
 <!-- CREATING THE CONTENT SECTION OF OUR WEBSITE, WHICH WILL BE PASSING BLOCK CONTENT THROUGH DYNAMICALLY -->
-  <div id = "content", name = "content">
+  <div id = "content", name = "content", class = "main">
     {% block content %}
     {% endblock %}
   </div>

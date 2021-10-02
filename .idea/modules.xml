@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Django - FH Calculator.iml" filepath="$PROJECT_DIR$/.idea/Django - FH Calculator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gitlabPycharmFHCalcFolder/.idea/gitlabPycharmFHCalcFolder.iml" filepath="$PROJECT_DIR$/gitlabPycharmFHCalcFolder/.idea/gitlabPycharmFHCalcFolder.iml" />
     </modules>
   </component>
 </project>
