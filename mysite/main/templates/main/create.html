@@ -1,0 +1,19 @@
+<!-- CREATE.HTML IS WHERE WE WILL BE DISPLAYING THE ACTUAL FORM OBJECTS CRATED IN DJANGO TO OUR WEB USERS -->
+
+
+{% extends 'main/base.html' %}
+
+{% block title %} Create New List {% endblock %}
+
+<!-- OVERRIDING BASE.HTMLS CONTENT BLOCK WITH OUR FORMS CONTENT BLOCK AS DEFINED BELOW -->
+{% block content %}
+Create Page
+
+<!-- NOTE: INSTEAD OF HAVING EACH ELEMENT OF A FORM DESCRIBED BELOW, WE CAN ACTUALLY JUST PASS A FORM OBJECT -->
+<form method="post" action="/create/">
+    <!-- PASSING TOKEN, SO THAT OUR FORM CAN BE SUBMITTED WITHOUT GENERATING AN ERROR -->
+    {% csrf_token %}
+    {{form.as_p}}           <!-- FORMS CAN INCLUDE MANY DIFFERENT METHODS TO CHANGE THE DISPLAY... 'AS_P' SPACES IT -->
+    <button type = "submit", name="save">Create New</button>
+</form>
+{% endblock %}
