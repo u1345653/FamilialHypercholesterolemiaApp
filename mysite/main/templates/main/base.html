@@ -1,0 +1,23 @@
+<!--  BASE TEMPLATE: SERVES THE PURPOSE OF BEING THE 'TEMPLATE' DEFAULT FOR ALL PAGES CREATED WITHIN OUR DOMAIN -->
+<!--  PURPOSE: BY CREATING A STANDARD TEMPLATE AND BUILDING FROM THIS ARCHITECTURE, IT ENABLES GREATER SCALE -->
+<!--      THIS IS ENABLED WHEN OTHER .HTML FILES 'INHERIT' THE BASE TEMPLATE WITH A FEW LINES OF CODE -->
+<!--  DATE: 9.30.21; VERSION: 1.0 -->
+
+<html>
+  <head>
+      <!-- WHEN OTHER WEBPAGES PASS THE 'BLOCK TITLE' VARIABLE, THEY OVERRIDE THE DEFAULT ON ALL PAGES
+                                    , WHICH IS 'TIM'S SITE' -->
+    <title>{% block title %}Tim's Site{% endblock %}</title>
+
+  </head>
+
+<body>
+
+<!-- CREATING THE CONTENT SECTION OF OUR WEBSITE, WHICH WILL BE PASSING BLOCK CONTENT THROUGH DYNAMICALLY -->
+  <div id = "content", name = "content">
+    {% block content %}
+    {% endblock %}
+  </div>
+
+</body>
+</html>
