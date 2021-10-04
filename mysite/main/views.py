@@ -8,10 +8,11 @@
 ### STEP 1 - IMPORTING DJANGO LIBRARY'S & CLASSES FOR PT. 1
 from django.shortcuts import render
 from django.http import (HttpResponse        # LIBRARY THAT MAPS VIEWS DEFINED IN FUNCTIONS BELOW TO CORRESPONDING PAGES
-    , HttpResponseRedirect)                  # ALLOWS US TO SHOW A RESPONSE REDIRECT WITHIN OUR BROWSER
+    , HttpResponseRedirect                   # ALLOWS US TO SHOW A RESPONSE REDIRECT WITHIN OUR BROWSER
+    , HttpResponseNotFound)                  # IMPORTS A DEFAULT 'RESPONSE NOT FOUND ERROR'
 from .models import ToDoList, Item           # IMPORT OUR MODELS TODOLIST/ ITEM, TO 'GET' THE TODOLIST FROM THE ID
 from .forms import CreateNewList             # IMPORT OUR FORMS OBJECT, TO PASS THE FORM OBJECT INTO OUR HTML CODE
-
+import datetime
 
 ### STEP 2 - CREATE DYNAMIC FUNCTION REPRESENTS A VIEW; NOTE THE INCLUSION OF ADDITIONAL PARAMETER FOR DYNAMIC ABILITY
 # DYNAMIC EX1: PASSING OBJECT'S 'NAME' ATTRIBUTE FROM THE TODOLIST CLASS THROUGH FUNCTION
@@ -61,7 +62,7 @@ def index(response                                # PASSING THE HTTP RESPONSE IN
 def home(response):                          # FUNCTION 2 - RENDERING HOME.HTML FILE
     return render( response
                   , "main/home.html"
-                  , {} )
+                  , {"home" : home} )
 
 def create(response):                        # FUNCTION 3 - RENDERING CREATE.HTML FILE
 

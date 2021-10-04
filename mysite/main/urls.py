@@ -22,12 +22,12 @@ urlpatterns = [
          , name="index"),      # THE NAME OF THE VIEW WE'RE CREATING; MAPS BACK TO THE FUNCTION NAME ""
 
     # DEFINING PATH 2 - HOME PAGE -- NOTE THAT "" AS THE LEADING ARGUMENT TELLS US THIS IS THE DEFAULT URL PATH
-    path(""
+    path("about/"
          , views.home
-         , name="home"),
+         , name="about"),
 
     # PATH 3 - CREATE PAGE -- ALLOWING USERS TO CREATE  & VIEW LISTS
     path("create/"
          , views.create
-         , name="create")
+         , name="create"),
 ]
