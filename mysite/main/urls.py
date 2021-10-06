@@ -11,6 +11,7 @@
 
 from django.urls import path
 from . import views
+from fhcalc import views as v
 
 ### STEP 2 - DEFINING THE URL BEHAVIOR FOR WHEN A PATH DOES NOT INCLUDE ANY TEXT; AKA: OUR DEFAULT.
 #  'PATH' PARAMETERS DEFINED IN THIS ITEM, EACH REPRESENT A MAPPING TO A FUNCTION IN OUR VIEWS FILE
@@ -30,4 +31,10 @@ urlpatterns = [
     path("create/"
          , views.create
          , name="create"),
+
+    # PATH 4 - FHCALCULATOR PAGE
+    path("fhcalc/", v.fhcalc, name = "fhcalc"),
+
+    path('', v.fhcalc, name = "fhcalc"),
+
 ]

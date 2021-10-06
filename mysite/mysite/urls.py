@@ -15,11 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from register import views as v
+from fhcalc import views as fhView
+from register import views as regView
+from main import views as createView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("register/", v.register, name = "register"),
-    path('', include("main.urls")),
-    path('fhcalc/', include("fhcalc.urls")),
+    path("register/", regView.register, name = "register"),
+    path("create/", createView.create, name = "create"),
+    path('', fhView.fhcalc),
+    path('fhcalc/', fhView.fhcalc, name = "fhcalc"),
 ]

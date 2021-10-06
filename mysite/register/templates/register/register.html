@@ -11,7 +11,7 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <form method = "POST" class = "form-group">
+    <form method = "POST" class = "uniForm">
         {% csrf_token %}
         <!-- INSTANTIATE THE FORM VARIABLE, BY ADDING A '|', THEN THE WORD CRISPY... CHANGED THE ENTIRE SITE -->
         {{ form|crispy }}

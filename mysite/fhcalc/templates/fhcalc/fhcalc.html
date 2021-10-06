@@ -2,96 +2,15 @@
 
 {% block title %}FH Calculator{% endblock %}
 
-{% load crispy_forms_tags %}
+{% load crispy_forms_tags %}  <!-- NOTE TO SELF - IT'S FORM*S (PLURAL) -->
 
 {% block content %}
-<h3>Familial Hypercholesterolemia Prediction Tool</h3>
-    <head>
-    <style type = "text/css">
-        .collapse  {
-            togg
-        }
-    </style>
-    </head>
 
-    <form method = "post" action = "#">
-    {% csrf_token %}
-
-    <div class = "form-row align-items-center">
-        <div class = "col-auto my-1">
-            <header><b>Drop-down Example</b></header>
-            <label class = "mr-sm-2" for = "pedigreedropdown">Select the Family pedigree-member you are entering data for: </label>
-            <select class = "custom-select mr-sm-2" id = "pedigreedropdown">
-                <option value = "1">One - Grandparent</option>
-                <option value = "2">Two - Grandparent</option>
-                <option value = "3">Three - Parent 1</option>
-                <option value = "4">Four - Sibling to Parent 1</option>
-                <option value = "5">Five - Sibling to Parent 1</option>
-                <option value = "6">Six - Parent 2</option>
-                <option value = "7">Seven - Offspring of 6 & 3</option>
-                <option value = "8">Eight - Offspring of 6 & 3</option>
-                <option value = "9">Nine - Offspring of 6 & 3</option>
-            </select>
-        </div>
-    </div>
-
-    <br><br>
-
-    <header><b>Accordion Example </b></header>
-    <div id = "accordion">
-        <div class = "card">
-            <div class = "card-header" id = "headingOne">
-                <h5 class = "mb-0">
-                    <button class = "btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                            aria-controls = "collapseOne" role = "button">
-                        Genotype 1 - Grandparent 1
-                    </button>
-                </h5>
-            </div>
-
-            <div id = collapseOne" class = "collapse show" aria-labelledby="headingOne" data-parent="#accordion" role = "button">
-                <div class = "card-body">
-                    RICKY TO INPUT ALL INPUT OPTIONS
-                </div>
-            </div>
-        </div>
-
-        <div class = "card">
-            <div class = "card-header" id = "headingTwo">
-                <h5 class = "mb-0">
-                    <button class = "btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-                            aria-controls = "collapseTwo" role = "button">
-                        Genotype 2 - Grandparent 2
-                    </button>
-                </h5>
-            </div>
-
-            <div id = "collapseTwo" class = "collapse" aria-labelledby="headingTwo" data-parent="#accordion" role = "button">
-                <div class = "card-body">
-                    RICKY TO INPUT ALL INPUT OPTIONS
-                </div>
-            </div>
-        </div>
-
-        <div class = "card">
-            <div class = "card-header" id = "headingThree">
-                <h5 class = "mb-0">
-                    <button class = "btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true"
-                            aria-controls="collapseThree" role = "button">
-                        Genotype 3 - Parent 1
-                    </button>
-                </h5>
-            </div>
-
-            <div id = "collapseThree" class = "collapse" aria-labelledby="headingThree" data-parent="accordion" role = "button">
-                <div class = "card-body">
-                    RICKY TO INPUT ALL INPUT OPTIONS
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <button type = "submit", name = "save", value = "save", class = "btn btn-success">Save</button>
-
+    <form method = "POST" class = "uniForm">
+        {% csrf_token %}
+        {{ forma|crispy }}
+        {{ formb|crispy}}
+        <button type = "submit" class = "btn btn-success">Submit Pedigrees</button>
+    </form>
 
 {% endblock %}

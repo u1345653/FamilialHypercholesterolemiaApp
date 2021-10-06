@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',         # NOTE ADDITION OF OUR MAIN.APPS APPLICATIONS FILE
     'register.apps.RegisterConfig',
     'crispy_forms',
-    'fhcalc.apps.FhcalcConfig',
+    'fhcalc.apps.FhcalculatorConfig',           #DELETED THE APP
 ]
                                     # IMPORTANT TO NOTE THE NEED TO RUN THE MANAGE.PY 'MIGRATE' CMD COMMAND TO 'MIGRATE' THE CHANGES MADE IN OUR SETTINGS.PY FILE
 
