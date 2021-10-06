@@ -12,12 +12,8 @@ MULTIPLE_OPTIONS = (
     (9, "Unkown")
     )
 
-class MultipleForm(forms.Form):
-    action = forms.CharField(max_length=60, widget=forms.HiddenInput())
-
+# TODO - RESEARCH HOW TO MAKE DJANGO FORMS CLASSES DYNAMIC -- AKA: HOW DO WE CREATE A NEW 'INPUT FORM' OBJECT, FOR EACH PEDIGREE FORM SELECTION?
 class PedigreeForm(forms.Form):
-
-
     pedigree_selection = forms.TypedChoiceField(
         label = "Enter the Family-Pedigree being selected"
         , choices = (
@@ -50,6 +46,7 @@ class InputForm(forms.Form):
         required = False
     )
 
+    #TODO GET CLARITY ON WHAT OPTIONS SHOULD BE FOR 'DNA_DX' STATUS...? SAME AS TX & CAD..?
     patient_dna_dx = forms.TypedChoiceField(
         label = "Enter Patient DNA DX Status (if known):",
         choices = MULTIPLE_OPTIONS,

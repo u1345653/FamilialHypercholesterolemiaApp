@@ -1,0 +1,5 @@
+from django.db import models
+
+# Create your models here.
+
+#TODO - HOW DO WE IMPORT PREVIOUSLY DEFINED PYTHON FILES (FH CALCULATOR FILE) TO THEN BUILD A DATA MODEL FROM IN DJANGO?
