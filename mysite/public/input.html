@@ -1,0 +1,48 @@
+{% extends 'basic.html' %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+<h1>Addition</h1>
+    <form>{% crispy form %}</form>
+<!--<form>{% crispy form %}</form>-->
+
+<form action = "add" method = "POST">
+    {% csrf_token %}
+
+    Enter First Number: <input type = "text" name = "num1"><br><br>
+    Enter Second Number: <input type = "text" name = "num2"><br><br>
+    <input type = "submit">
+</form>
+
+<h1>Subtraction</h1>
+<form action = "sub" method = "POST">
+    {% csrf_token %}
+    <form>{% crispy form %}</form>
+
+    Enter First Number: <input type = "text" name = "num1"><br><br>
+    Enter Second Number: <input type = "text" name = "num2"><br><br>
+    <input type = "submit">
+</form>
+
+<h1>Multiplication</h1>
+<form action = "multi" method = POST">
+    {% csrf_token %}
+
+    <form>{% crispy form %}</form>
+
+    Enter First Number: <input type = "text" name = "num1"><br><br>
+    Enter Second Number: <input type = "text" name = "num2"><br><br>
+    <input type = "submit">
+</form>
+
+<h1>Division</h1>
+<form action = "div" method = POST">
+    {% csrf_token %}
+
+    <form action = "div" method = "POST">{% crispy form %}</form>
+    Enter First Number: <input type = "text" name = "num1"><br><br>
+    Enter Second Number: <input type = "text" name = "num2"><br><br>
+    <input type = "submit">
+</form>
+
+{% endblock %}
