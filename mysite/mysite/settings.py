@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import os           # MODIFICATION 1 - FOR 'CALCULATOR' EXAMPLE
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -56,7 +58,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'public')],                 # MODIFICATION 2 - CHANGED DIRECTORY FOR TEMPLATES
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

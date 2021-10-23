@@ -18,6 +18,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('fhcalc/', include('fhcalc.urls')),
-    path('results/', include('fhcalc.urls')),
+    # path('fhcalc/', include('fhcalc.urls')),
+    # path('results/', include('fhcalc.urls')),
+    path('', include('calculator.urls')),
 ]
