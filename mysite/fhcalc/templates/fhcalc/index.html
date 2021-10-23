@@ -1,0 +1,19 @@
+{% extends "fhcalc/base.html" %}
+{% block title %}
+{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    {% csrf_token %}
+        <div class = "row">
+            <div class = "col-sm-6">
+                <form>{% crispy forma %}</form>
+            </div>
+<!--        </div>-->
+<!--        <div class = "row">-->
+            <div class = "col-sm-6">
+                <form>{% crispy formb %}</form>
+            </div>
+        </div>
+{% endblock %}
