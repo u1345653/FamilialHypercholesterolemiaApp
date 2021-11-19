@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+	<head>
+	  <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+	  <script type = "text/javascript" src = "{{url_for('static', filename='tableScript.js') }}"></script>
+	  <link rel = "stylesheet" type = "text/css" href = "{{ url_for('static',filename='style.css') }}">
+	  <link rel = "shortcut icon" href = "#">
+	  <title>FH Calculator</title>
+	</head>
+<body>
+	<!-- HTML SELECT EXAMPLE -->
+	<h1>FH Calculator </h1>
+	<form action = "{{ url_for('index') }}" method = "POST" id = "results-form" name = "results-form">
+			<table>
+				<label for="pedigreeChoice"><b>Select Family Pedigree</b></label><br>
+				<select name = "pedigreeChoice" id = "pedigreeChoice" class = "pedigreeChoice" onchange = "change(this)">
+					<option value = "pedigree1">1 - Grandmother on Parent #1's Side</option>
+					<option value = "pedigree2">2 - Grandfather on Parent #1's Side</option>
+					<option value = "pedigree3">3 - Sibling of Parent 1</option>
+					<option value = "pedigree4">4 - Second Sibling of Parent 2</option>
+					<option value = "pedigree5">5 - Parent 1</option>
+					<option value = "pedigree6">6 - Parent 2</option>
+					<option value = "pedigree7">7 - Child 1 of Parent 1 & 2 </option>
+					<option value = "pedigree8">8 - Child 2 of Parent 1 & 2</option>
+					<option value = "pedigree9">9 - Child 3 of Parent 1 & 2</option>
+				</select>
+				<br><br><br>
+
+				<div id = "ped1Attributes" class = "pedigreeAttributes">
+				<label for = "ped1Attributes"><b>Pedigree 1 Attributes</b></label><br>
+					<label for = "ped1Age">Patient Age:</label>
+					<input type = "number" id = "ped1Age" name = "ped1Age" min = "0" placeholder = "Enter Patient Age" value = "0">
+					<br><br>
+					<label for = "ped1Gender">Patient Gender:</label>
+					<select name = "ped1Gender" id = "ped1Gender">
+						<option value = "M">Male</option>
+						<option value = "F">Female</option>
+					</select>
+					<br><br>
+					<label for = "ped1LDLChol">LDL Cholesterol:</label>
+					<input type = "number" id = "ped1LDLChol" name = "ped1LDLChol" min = "0" placeholder = "Enter LDL Data" value = "0">
+					<br><br>
+					<label for = "ped1TOTChol">Total Cholesterol:</label>
+					<input type = "number" id = "ped1TOTChol" name = "ped1TOTChol" min = "0" placeholder = "Enter TOT-C Data" value = "0">
+					<br><br>
+					<label for = "ped1TXStatus">Tendon Xanthoma Status:</label>
+					<select name = "ped1TXStatus" id = "ped1TXStatus">
+						<option value = "0">Known and Negative TX-Status</option>
+						<option value = "1">Known and Positive TX-Status</option>
+						<option value = "9">Unknown TX-Status</option>
+					</select>
+					<br><br>
+					<label for = "ped1CadStatus">Coronary Artery Disease (CAD) Status:</label>
+					<select name = "ped1CadStatus" id = "ped1CadStatus">
+						<option value = "0">Known and Negative CAD-Status</option>
+						<option value = "1">Known and Positive CAD-Status</option>
+						<option value = "9">Unknown CAD-Status</option>
+					</select>
+					<br><br>
+					<label for = "ped1CadAge">Coronary Artery Disease (CAD) Age Onset:</label>
+					<input type = "number" id = "ped1CadAge" name = "ped1CadAge" min = "0" placeholder = "Enter Cad-Onset Age" value = "0">
+					<br><br>
+					<label for = "ped1DnaDxStatus">DNA-DX Status:</label>
+					<select name = "ped1DnaDxStatus" id = "ped1DnaDxStatus">
+						<option value = "0">Known and Negative DNA-DX Status</option>
+						<option value = "1">Known and Positive DNA-DX Status</option>
+						<option value = "9">Unknown DNA-DX Status</option>
+					</select>
+				</div>
+
+				<div id = "ped2Attributes" class = "pedigreeAttributes" style = "display:none">
+				<label for = "ped2Attributes"><b>Pedigree 2 Attributes</b></label><br>
+					<label for = "ped2Age">Patient Age:</label>
+					<input type = "number" id = "ped2Age" name = "ped2Age" min = "0" placeholder= "Enter Patient Age" value = "0">
+					<br><br>
+					<label for = "ped2Gender">Patient Gender:</label>
+					<select name = "ped2Gender" id = "ped2Gender">
+						<option value = "M">Male</option>
+						<option value = "F">Female</option>
+					</select>
+					<br><br>
+					<label for = "ped2LDLChol">LDL Cholesterol:</label>
+					<input type = "number" id = "ped2LDLChol" name = "ped2LDLChol" min = "0" placeholder = "Enter LDL Data" value = "0">
+					<br><br>
+					<label for = "ped2TOTChol">Total Cholesterol:</label>
+					<input type = "number" id = "ped2TOTChol" name = "ped2TOTChol" min = "0" placeholder = "Enter TOT-C Data" value = "0">
+					<br><br>
+					<label for = "ped2TXStatus">Tendon Xanthoma Status:</label>
+					<select name = "ped2TXStatus" id = "ped2TXStatus">
+						<option value = "0">Known and Negative TX-Status</option>
+						<option value = "1">Known and Positive TX-Status</option>
+						<option value = "9">Unknown TX-Status</option>
+					</select>
+					<br><br>
+					<label for = "ped2CadStatus">Coronary Artery Disease (CAD) Status:</label>
+					<select name = "ped2CadStatus" id = "ped2CadStatus">
+						<option value = "0">Known and Negative CAD-Status</option>
+						<option value = "1">Known and Positive CAD-Status</option>
+						<option value = "9">Unknown CAD-Status</option>
+					</select>
+					<br><br>
+					<label for = "ped2CadAge">Coronary Artery Disease (CAD) Age Onset:</label>
+					<input type = "number" id = "ped2CadAge" name = "ped2CadAge" min = "0" placeholder = "Enter Cad-Onset Age" value = "0">
+					<br><br>
+					<label for = "ped2DnaDxStatus">DNA-DX Status:</label>
+					<select name = "ped2DnaDxStatus" id = "ped2DnaDxStatus">
+						<option value = "0">Known and Negative DNA-DX Status</option>
+						<option value = "1">Known and Positive DNA-DX Status</option>
+						<option value = "9">Unknown DNA-DX Status</option>
+					</select>
+				</div>
+
+				<div id = "ped3Attributes" class = "pedigreeAttributes" style = "display:none">
+				<label for = "ped3Attributes"><b>Pedigree 3 Attributes</b></label><br>
+					<label for = "ped3Age">Patient Age:</label>
+					<input type = "number" id = "ped3Age" name = "ped3Age" min = "0" placeholder= "Enter Patient Age" value = "0">
+					<br><br>
+					<label for = "ped3Gender">Patient Gender:</label>
+					<select name = "ped3Gender" id = "ped3Gender">
+						<option value = "M">Male</option>
+						<option value = "F">Female</option>
+					</select>
+					<br><br>
+					<label for = "ped3LDLChol">LDL Cholesterol:</label>
+					<input type = "number" id = "ped3LDLChol" name = "ped3LDLChol" min = "0" placeholder = "Enter LDL Data" value = "0">
+					<br><br>
+					<label for = "ped3TOTChol">Total Cholesterol:</label>
+					<input type = "number" id = "ped3TOTChol" name = "ped3TOTChol" min = "0" placeholder = "Enter TOT-C Data" value = "0">
+					<br><br>
+					<label for = "ped3TXStatus">Tendon Xanthoma Status:</label>
+					<select name = "ped3TXStatus" id = "ped3TXStatus">
+						<option value = "0">Known and Negative TX-Status</option>
+						<option value = "1">Known and Positive TX-Status</option>
+						<option value = "9">Unknown TX-Status</option>
+					</select>
+					<br><br>
+					<label for = "ped3CadStatus">Coronary Artery Disease (CAD) Status:</label>
+					<select name = "ped3CadStatus" id = "ped3CadStatus">
+						<option value = "0">Known and Negative CAD-Status</option>
+						<option value = "1">Known and Positive CAD-Status</option>
+						<option value = "9">Unknown CAD-Status</option>
+					</select>
+					<br><br>
+					<label for = "ped3CadAge">Coronary Artery Disease (CAD) Age Onset:</label>
+					<input type = "number" id = "ped3CadAge" name = "ped3CadAge" min = "0" placeholder = "Enter Cad-Onset Age" value = "0">
+					<br><br>
+					<label for = "ped3DnaDxStatus">DNA-DX Status:</label>
+					<select name = "ped3DnaDxStatus" id = "ped3DnaDxStatus">
+						<option value = "0">Known and Negative DNA-DX Status</option>
+						<option value = "1">Known and Positive DNA-DX Status</option>
+						<option value = "9">Unknown DNA-DX Status</option>
+					</select>
+				</div>
+
+				<div id = "ped4Attributes" class = "pedigreeAttributes" style = "display:none">
+				<label for = "ped4Attributes"><b>Pedigree 4 Attributes</b></label><br>
+					<label for = "ped4Age">Patient Age:</label>
+					<input type = "number" id = "ped4Age" name = "ped4Age" min = "0" placeholder= "Enter Patient Age" value = "0">
+					<br><br>
+					<label for = "ped4Gender">Patient Gender:</label>
+					<select name = "ped4Gender" id = "ped4Gender">
+						<option value = "M">Male</option>
+						<option value = "F">Female</option>
+					</select>
+					<br><br>
+					<label for = "ped4LDLChol">LDL Cholesterol:</label>
+					<input type = "number" id = "ped4LDLChol" name = "ped4LDLChol" min = "0" placeholder = "Enter LDL Data" value = "0">
+					<br><br>
+					<label for = "ped4TOTChol">Total Cholesterol:</label>
+					<input type = "number" id = "ped4TOTChol" name = "ped4TOTChol" min = "0" placeholder = "Enter TOT-C Data" value = "0">
+					<br><br>
+					<label for = "ped4TXStatus">Tendon Xanthoma Status:</label>
+					<select name = "ped4TXStatus" id = "ped4TXStatus">
+						<option value = "0">Known and Negative TX-Status</option>
+						<option value = "1">Known and Positive TX-Status</option>
+						<option value = "9">Unknown TX-Status</option>
+					</select>
+					<br><br>
+					<label for = "ped4CadStatus">Coronary Artery Disease (CAD) Status:</label>
+					<select name = "ped4CadStatus" id = "ped4CadStatus">
+						<option value = "0">Known and Negative CAD-Status</option>
+						<option value = "1">Known and Positive CAD-Status</option>
+						<option value = "9">Unknown CAD-Status</option>
+					</select>
+					<br><br>
+					<label for = "ped4CadAge">Coronary Artery Disease (CAD) Age Onset:</label>
+					<input type = "number" id = "ped4CadAge" name = "ped4CadAge" min = "0" placeholder = "Enter Cad-Onset Age" value = "0">
+					<br><br>
+					<label for = "ped4DnaDxStatus">DNA-DX Status:</label>
+					<select name = "ped4DnaDxStatus" id = "ped4DnaDxStatus">
+						<option value = "0">Known and Negative DNA-DX Status</option>
+						<option value = "1">Known and Positive DNA-DX Status</option>
+						<option value = "9">Unknown DNA-DX Status</option>
+					</select>
+				</div>
+
+				<div id = "ped5Attributes" class = "pedigreeAttributes" style = "display:none">
+				<label for = "ped5Attributes"><b>Pedigree 5 Attributes</b></label><br>
+					<label for = "ped5Age">Patient Age:</label>
+					<input type = "number" id = "ped5Age" name = "ped5Age" min = "0" placeholder= "Enter Patient Age" value = "0">
+					<br><br>
+					<label for = "ped5Gender">Patient Gender:</label>
+					<select name = "ped5Gender" id = "ped5Gender">
+						<option value = "M">Male</option>
+						<option value = "F">Female</option>
+					</select>
+					<br><br>
+					<label for = "ped5LDLChol">LDL Cholesterol:</label>
+					<input type = "number" id = "ped5LDLChol" name = "ped5LDLChol" min = "0" placeholder = "Enter LDL Data" value = "0">
+					<br><br>
+					<label for = "ped5TOTChol">Total Cholesterol:</label>
+					<input type = "number" id = "ped5TOTChol" name = "ped5TOTChol" min = "0" placeholder = "Enter TOT-C Data" value = "0">
+					<br><br>
+					<label for = "ped5TXStatus">Tendon Xanthoma Status:</label>
+					<select name = "ped5TXStatus" id = "ped5TXStatus">
+						<option value = "0">Known and Negative TX-Status</option>
+						<option value = "1">Known and Positive TX-Status</option>
+						<option value = "9">Unknown TX-Status</option>
+					</select>
+					<br><br>
+					<label for = "ped5CadStatus">Coronary Artery Disease (CAD) Status:</label>
+					<select name = "ped5CadStatus" id = "ped5CadStatus">
+						<option value = "0">Known and Negative CAD-Status</option>
+						<option value = "1">Known and Positive CAD-Status</option>
+						<option value = "9">Unknown CAD-Status</option>
+					</select>
+					<br><br>
+					<label for = "ped5CadAge">Coronary Artery Disease (CAD) Age Onset:</label>
+					<input type = "number" id = "ped5CadAge" name = "ped5CadAge" min = "0" placeholder = "Enter Cad-Onset Age" value = "0">
+					<br><br>
+					<label for = "ped5DnaDxStatus">DNA-DX Status:</label>
+					<select name = "ped5DnaDxStatus" id = "ped5DnaDxStatus">
+						<option value = "0">Known and Negative DNA-DX Status</option>
+						<option value = "1">Known and Positive DNA-DX Status</option>
+						<option value = "9">Unknown DNA-DX Status</option>
+					</select>
+				</div>
+
+				<div id = "ped6Attributes" class = "pedigreeAttributes" style = "display:none">
+				<label for = "ped6Attributes"><b>Pedigree 6 Attributes</b></label><br>
+					<label for = "ped6Age">Patient Age:</label>
+					<input type = "number" id = "ped6Age" name = "ped6Age" min = "0" placeholder= "Enter Patient Age" value = "0">
+					<br><br>
+					<label for = "ped6Gender">Patient Gender:</label>
+					<select name = "ped6Gender" id = "ped6Gender">
+						<option value = "M">Male</option>
+						<option value = "F">Female</option>
+					</select>
+					<br><br>
+					<label for = "ped6LDLChol">LDL Cholesterol:</label>
+					<input type = "number" id = "ped6LDLChol" name = "ped6LDLChol" min = "0" placeholder = "Enter LDL Data" value = "0">
+					<br><br>
+					<label for = "ped6TOTChol">Total Cholesterol:</label>
+					<input type = "number" id = "ped6TOTChol" name = "ped6TOTChol" min = "0" placeholder = "Enter TOT-C Data" value = "0">
+					<br><br>
+					<label for = "ped6TXStatus">Tendon Xanthoma Status:</label>
+					<select name = "ped6TXStatus" id = "ped6TXStatus">
+						<option value = "0">Known and Negative TX-Status</option>
+						<option value = "1">Known and Positive TX-Status</option>
+						<option value = "9">Unknown TX-Status</option>
+					</select>
+					<br><br>
+					<label for = "ped6CadStatus">Coronary Artery Disease (CAD) Status:</label>
+					<select name = "ped6CadStatus" id = "ped6CadStatus">
+						<option value = "0">Known and Negative CAD-Status</option>
+						<option value = "1">Known and Positive CAD-Status</option>
+						<option value = "9">Unknown CAD-Status</option>
+					</select>
+					<br><br>
+					<label for = "ped6CadAge">Coronary Artery Disease (CAD) Age Onset:</label>
+					<input type = "number" id = "ped6CadAge" name = "ped6CadAge" min = "0" placeholder = "Enter Cad-Onset Age" value = "0">
+					<br><br>
+					<label for = "ped6DnaDxStatus">DNA-DX Status:</label>
+					<select name = "ped6DnaDxStatus" id = "ped6DnaDxStatus">
+						<option value = "0">Known and Negative DNA-DX Status</option>
+						<option value = "1">Known and Positive DNA-DX Status</option>
+						<option value = "9">Unknown DNA-DX Status</option>
+					</select>
+				</div>
+
+				<div id = "ped7Attributes" class = "pedigreeAttributes" style = "display:none">
+				<label for = "ped7Attributes"><b>Pedigree 7 Attributes</b></label><br>
+					<label for = "ped7Age">Patient Age:</label>
+					<input type = "number" id = "ped7Age" name = "ped7Age" min = "0" placeholder= "Enter Patient Age" value = "0">
+					<br><br>
+					<label for = "ped7Gender">Patient Gender:</label>
+					<select name = "ped7Gender" id = "ped7Gender">
+						<option value = "M">Male</option>
+						<option value = "F">Female</option>
+					</select>
+					<br><br>
+					<label for = "ped7LDLChol">LDL Cholesterol:</label>
+					<input type = "number" id = "ped7LDLChol" name = "ped7LDLChol" min = "0" placeholder = "Enter LDL Data" value = "0">
+					<br><br>
+					<label for = "ped7TOTChol">Total Cholesterol:</label>
+					<input type = "number" id = "ped7TOTChol" name = "ped7TOTChol" min = "0" placeholder = "Enter TOT-C Data" value = "0">
+					<br><br>
+					<label for = "ped7TXStatus">Tendon Xanthoma Status:</label>
+					<select name = "ped7TXStatus" id = "ped7TXStatus">
+						<option value = "0">Known and Negative TX-Status</option>
+						<option value = "1">Known and Positive TX-Status</option>
+						<option value = "9">Unknown TX-Status</option>
+					</select>
+					<br><br>
+					<label for = "ped7CadStatus">Coronary Artery Disease (CAD) Status:</label>
+					<select name = "ped7CadStatus" id = "ped7CadStatus">
+						<option value = "0">Known and Negative CAD-Status</option>
+						<option value = "1">Known and Positive CAD-Status</option>
+						<option value = "9">Unknown CAD-Status</option>
+					</select>
+					<br><br>
+					<label for = "ped7CadAge">Coronary Artery Disease (CAD) Age Onset:</label>
+					<input type = "number" id = "ped7CadAge" name = "ped7CadAge" min = "0" placeholder = "Enter Cad-Onset Age" value = "0">
+					<br><br>
+					<label for = "ped7DnaDxStatus">DNA-DX Status:</label>
+					<select name = "ped7DnaDxStatus" id = "ped7DnaDxStatus">
+						<option value = "0">Known and Negative DNA-DX Status</option>
+						<option value = "1">Known and Positive DNA-DX Status</option>
+						<option value = "9">Unknown DNA-DX Status</option>
+					</select>
+				</div>
+
+				<div id = "ped8Attributes" class = "pedigreeAttributes" style = "display:none">
+				<label for = "ped8Attributes"><b>Pedigree 8 Attributes</b></label><br>
+					<label for = "ped8Age">Patient Age:</label>
+					<input type = "number" id = "ped8Age" name = "ped8Age" min = "0" placeholder= "Enter Patient Age" value = "0">
+					<br><br>
+					<label for = "ped8Gender">Patient Gender:</label>
+					<select name = "ped8Gender" id = "ped8Gender">
+						<option value = "M">Male</option>
+						<option value = "F">Female</option>
+					</select>
+					<br><br>
+					<label for = "ped8LDLChol">LDL Cholesterol:</label>
+					<input type = "number" id = "ped8LDLChol" name = "ped8LDLChol" min = "0" placeholder = "Enter LDL Data" value = "0">
+					<br><br>
+					<label for = "ped8TOTChol">Total Cholesterol:</label>
+					<input type = "number" id = "ped8TOTChol" name = "ped8TOTChol" min = "0" placeholder = "Enter TOT-C Data" value = "0">
+					<br><br>
+					<label for = "ped8TXStatus">Tendon Xanthoma Status:</label>
+					<select name = "ped8TXStatus" id = "ped8TXStatus">
+						<option value = "0">Known and Negative TX-Status</option>
+						<option value = "1">Known and Positive TX-Status</option>
+						<option value = "9">Unknown TX-Status</option>
+					</select>
+					<br><br>
+					<label for = "ped8CadStatus">Coronary Artery Disease (CAD) Status:</label>
+					<select name = "ped8CadStatus" id = "ped8CadStatus">
+						<option value = "0">Known and Negative CAD-Status</option>
+						<option value = "1">Known and Positive CAD-Status</option>
+						<option value = "9">Unknown CAD-Status</option>
+					</select>
+					<br><br>
+					<label for = "ped8CadAge">Coronary Artery Disease (CAD) Age Onset:</label>
+					<input type = "number" id = "ped8CadAge" name = "ped8CadAge" min = "0" placeholder = "Enter Cad-Onset Age" value = "0">
+					<br><br>
+					<label for = "ped8DnaDxStatus">DNA-DX Status:</label>
+					<select name = "ped8DnaDxStatus" id = "ped8DnaDxStatus">
+						<option value = "0">Known and Negative DNA-DX Status</option>
+						<option value = "1">Known and Positive DNA-DX Status</option>
+						<option value = "9">Unknown DNA-DX Status</option>
+					</select>
+				</div>
+
+				<div id = "ped9Attributes" class = "pedigreeAttributes" style = "display:none">
+				<label for = "ped9Attributes"><b>Pedigree 9 Attributes</b></label><br>
+					<label for = "ped9Age">Patient Age:</label>
+					<input type = "number" id = "ped9Age" name = "ped9Age" min = "0" placeholder= "Enter Patient Age" value = "0">
+					<br><br>
+					<label for = "ped9Gender">Patient Gender:</label>
+					<select name = "ped9Gender" id = "ped9Gender">
+						<option value = "M">Male</option>
+						<option value = "F">Female</option>
+					</select>
+					<br><br>
+					<label for = "ped9LDLChol">LDL Cholesterol:</label>
+					<input type = "number" id = "ped9LDLChol" name = "ped9LDLChol" min = "0" placeholder = "Enter LDL Data" value = "0">
+					<br><br>
+					<label for = "ped9TOTChol">Total Cholesterol:</label>
+					<input type = "number" id = "ped9TOTChol" name = "ped9TOTChol" min = "0" placeholder = "Enter TOT-C Data" value = "0">
+					<br><br>
+					<label for = "ped9TXStatus">Tendon Xanthoma Status:</label>
+					<select name = "ped9TXStatus" id = "ped9TXStatus">
+						<option value = "0">Known and Negative TX-Status</option>
+						<option value = "1">Known and Positive TX-Status</option>
+						<option value = "9">Unknown TX-Status</option>
+					</select>
+					<br><br>
+					<label for = "ped9CadStatus">Coronary Artery Disease (CAD) Status:</label>
+					<select name = "ped9CadStatus" id = "ped9CadStatus">
+						<option value = "0">Known and Negative CAD-Status</option>
+						<option value = "1">Known and Positive CAD-Status</option>
+						<option value = "9">Unknown CAD-Status</option>
+					</select>
+					<br><br>
+					<label for = "ped9CadAge">Coronary Artery Disease (CAD) Age Onset:</label>
+					<input type = "number" id = "ped9CadAge" name = "ped9CadAge" min = "0" placeholder = "Enter Cad-Onset Age" value = "0">
+					<br><br>
+					<label for = "ped9DnaDxStatus">DNA-DX Status:</label>
+					<select name = "ped9DnaDxStatus" id = "ped9DnaDxStatus">
+						<option value = "0">Known and Negative DNA-DX Status</option>
+						<option value = "1">Known and Positive DNA-DX Status</option>
+						<option value = "9">Unknown DNA-DX Status</option>
+					</select>
+				</div>
+
+				<br>
+				<!--<p id = "textOutput"><p>-->
+				<button id = "button" value = "Generate Results" onclick = createTable()>Generate Results</button>
+			</table>
+		</form>
+
+	<div id = "tableHeader"></div>
+
+	<table id = "myDynamicTable" class = "myDynamicTable"></table>
+
+<!--	<h1>jQuery Example</h1>-->
+
+<!--	<p><input type = text size = 5 name = a> +-->
+<!--	   <input type = text size = 5 name = b> =-->
+<!--	   <span id = result>Test</span>-->
+<!--	<p><a id = calculate onclick = "calculate()">Calculate Server Side</a>-->
+
+<script src = "https://code.jquery.com/jquery-3.5.1.js"
+		integrity = "sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+		crossorigin = "anonymous"></script>
+
+<script type = "text/javascript">
+
+	$(document).on('submit', '#results-form', function (e, results)
+			{
+				console.log('hello');
+				e.preventDefault();
+				$.ajax({
+					type:'POST',
+					url:'/',
+					data: {
+						results: $("#results-form").serialize(),
+
+						pedigreeChoice: $("#pedigreeChoice").val(),
+
+						ped1Age: $("#ped1Age").val(),
+						ped1Gender: $("#ped1Gender").val(),
+						ped1LDLChol: $("#ped1LDLChol").val(),
+						ped1TOTChol: $("#ped1TOTChol").val(),
+						ped1TXStatus: $("#ped1TXStatus").val(),
+						ped1CadStatus: $("#ped1CadStatus").val(),
+						ped1CadAge: $("#ped1CadAge").val(),
+						ped1DnaDxStatus: $("#ped1DnaDxStatus").val(),
+
+						ped2Age: $("#ped2Age").val(),
+						ped2Gender: $("#ped2Gender").val(),
+						ped2LDLChol: $("#ped2LDLChol").val(),
+						ped2TOTChol: $("#ped2TOTChol").val(),
+						ped2TXStatus: $("#ped2TXStatus").val(),
+						ped2CadStatus: $("#ped2CadStatus").val(),
+						ped2CadAge: $("#ped2CadAge").val(),
+						ped2DnaDxStatus: $("#ped2DnaDxStatus").val(),
+
+						ped3Age: $("#ped3Age").val(),
+						ped3Gender: $("#ped3Gender").val(),
+						ped3LDLChol: $("#ped3LDLChol").val(),
+						ped3TOTChol: $("#ped3TOTChol").val(),
+						ped3TXStatus: $("#ped3TXStatus").val(),
+						ped3CadStatus: $("#ped3CadStatus").val(),
+						ped3CadAge: $("#ped3CadAge").val(),
+						ped3DnaDxStatus: $("#ped3DnaDxStatus").val(),
+
+						ped4Age: $("#ped4Age").val(),
+						ped4Gender: $("#ped4Gender").val(),
+						ped4LDLChol: $("#ped4LDLChol").val(),
+						ped4TOTChol: $("#ped4TOTChol").val(),
+						ped4TXStatus: $("#ped4TXStatus").val(),
+						ped4CadStatus: $("#ped4CadStatus").val(),
+						ped4CadAge: $("#ped4CadAge").val(),
+						ped4DnaDxStatus: $("#ped4DnaDxStatus").val(),
+
+						ped5Age: $("#ped5Age").val(),
+						ped5Gender: $("#ped5Gender").val(),
+						ped5LDLChol: $("#ped5LDLChol").val(),
+						ped5TOTChol: $("#ped5TOTChol").val(),
+						ped5TXStatus: $("#ped5TXStatus").val(),
+						ped5CadStatus: $("#ped5CadStatus").val(),
+						ped5CadAge: $("#ped5CadAge").val(),
+						ped5DnaDxStatus: $("#ped5DnaDxStatus").val(),
+
+						ped6Age: $("#ped6Age").val(),
+						ped6Gender: $("#ped6Gender").val(),
+						ped6LDLChol: $("#ped6LDLChol").val(),
+						ped6TOTChol: $("#ped6TOTChol").val(),
+						ped6TXStatus: $("#ped6TXStatus").val(),
+						ped6CadStatus: $("#ped6CadStatus").val(),
+						ped6CadAge: $("#ped6CadAge").val(),
+						ped6DnaDxStatus: $("#ped6DnaDxStatus").val(),
+
+						ped7Age: $("#ped7Age").val(),
+						ped7Gender: $("#ped7Gender").val(),
+						ped7LDLChol: $("#ped7LDLChol").val(),
+						ped7TOTChol: $("#ped7TOTChol").val(),
+						ped7TXStatus: $("#ped7TXStatus").val(),
+						ped7CadStatus: $("#ped7CadStatus").val(),
+						ped7CadAge: $("#ped7CadAge").val(),
+						ped7DnaDxStatus: $("#ped7DnaDxStatus").val(),
+
+						ped8Age: $("#ped8Age").val(),
+						ped8Gender: $("#ped8Gender").val(),
+						ped8LDLChol: $("#ped8LDLChol").val(),
+						ped8TOTChol: $("#ped8TOTChol").val(),
+						ped8TXStatus: $("#ped8TXStatus").val(),
+						ped8CadStatus: $("#ped8CadStatus").val(),
+						ped8CadAge: $("#ped8CadAge").val(),
+						ped8DnaDxStatus: $("#ped8DnaDxStatus").val(),
+
+						ped9Age: $("#ped9Age").val(),
+						ped9Gender: $("#ped9Gender").val(),
+						ped9LDLChol: $("#ped9LDLChol").val(),
+						ped9TOTChol: $("#ped9TOTChol").val(),
+						ped9TXStatus: $("#ped9TXStatus").val(),
+						ped9CadStatus: $("#ped9CadStatus").val(),
+						ped9CadAge: $("#ped9CadAge").val(),
+						ped9DnaDxStatus: $("#ped9DnaDxStatus").val(),
+					},
+
+					success:function(data)
+					{
+						alert(data); //TODO() RICKY - REMOVE THIS BROWSER ALERT AFTER PROJECT PROGRESSION
+						console.log(data);
+					},
+					dataType: "json"
+				})
+			}
+
+
+	)
+</script>
+
+</body>
+</html>

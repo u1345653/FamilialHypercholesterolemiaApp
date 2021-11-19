@@ -1,0 +1,32 @@
+.button{ background-color: #4CAF50 }
+.button:active{ transform: translateY( 2px ) }
+h4, h3{
+	margin: 0;
+	padding: 0;
+}
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	width: auto;
+}
+tr {
+	border: 1px solid #dfdfdf;
+	padding: 5px 5px 5px 5px;
+}
+td {
+	padding: 5px 5px 5px 5px;
+	text-align: center;
+}
+
+table tr:first-child {
+	font-weight: bold;
+}
+
+table td:first-child {
+	text-align: left;
+}
+
+caption {
+	display: table-caption;
+	text-align: center;
+}
