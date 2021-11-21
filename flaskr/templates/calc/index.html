@@ -47,7 +47,7 @@
 								<!-- Pedigree 1 Age Input -->
 								<label for = "ped1Attributes"><b>Pedigree 1 Attributes</b></label><br>
 								<label for = "ped1Age" class = "form-inline">Patient Age:</label>
-								<input type = "number" id = "ped1Age" name = "ped1Age" min = "0" placeholder = "Enter Patient Age" value = "0" class = "form-control form-inline" onchange = "watch(this)">
+								<input type = "number" id = "ped1Age" name = "ped1Age" min = "0" placeholder = "Enter Patient Age" value = "0" class = "form-control form-inline" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 1 Gender Input -->
 								<label for = "ped1Gender">Patient Gender:</label>
@@ -58,11 +58,11 @@
 								<br>
 								<!-- Pedigree 1 LDL Cholesterol Input -->
 								<label for = "ped1LDLChol">LDL Cholesterol:</label>
-								<input type = "number" id = "ped1LDLChol" name = "ped1LDLChol" min = "0" placeholder = "Enter LDL Data" value = "0" class = "form-control">
+								<input type = "number" id = "ped1LDLChol" name = "ped1LDLChol" min = "0" placeholder = "Enter LDL Data" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 1 Total Cholesterol Input -->
 								<label for = "ped1TOTChol">Total Cholesterol:</label>
-								<input type = "number" id = "ped1TOTChol" name = "ped1TOTChol" min = "0" placeholder = "Enter TOT-C Data" value = "0" class = "form-control">
+								<input type = "number" id = "ped1TOTChol" name = "ped1TOTChol" min = "0" placeholder = "Enter TOT-C Data" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 1 Tendon Xanthoma Input -->
 								<label for = "ped1TXStatus">Tendon Xanthoma Status:</label>
@@ -82,7 +82,7 @@
 								<br><br>
 								<!-- Pedigree 1 Coronary Artery Disease (CAD) Age Input -->
 								<label for = "ped1CadAge">Coronary Artery Disease (CAD) Age Onset:</label>
-								<input type = "number" id = "ped1CadAge" name = "ped1CadAge" min = "0" placeholder = "Enter Cad-Onset Age" value = "0" class = "form-control">
+								<input type = "number" id = "ped1CadAge" name = "ped1CadAge" min = "0" placeholder = "Enter Cad-Onset Age" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 1 DNA-DX Status Input -->
 								<label for = "ped1DnaDxStatus">DNA-DX Status:</label>
@@ -101,7 +101,7 @@
 								<label for = "ped2Attributes"><b>Pedigree 2 Attributes</b></label><br>
 								<!-- Pedigree 2 Age Input -->
 								<label for = "ped2Age">Patient Age:</label>
-								<input type = "number" id = "ped2Age" name = "ped2Age" min = "0" placeholder= "Enter Patient Age" value = "0" class = "form-control">
+								<input type = "number" id = "ped2Age" name = "ped2Age" min = "0" placeholder= "Enter Patient Age" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 2 Gender Input -->
 								<label for = "ped2Gender">Patient Gender:</label>
@@ -112,11 +112,11 @@
 								<br>
 								<!-- Pedigree 2 LDL Cholesterol Input -->
 								<label for = "ped2LDLChol">LDL Cholesterol:</label>
-								<input type = "number" id = "ped2LDLChol" name = "ped2LDLChol" min = "0" placeholder = "Enter LDL Data" value = "0" class = "form-control">
+								<input type = "number" id = "ped2LDLChol" name = "ped2LDLChol" min = "0" placeholder = "Enter LDL Data" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 2 Total Cholesterol Input -->
 								<label for = "ped2TOTChol">Total Cholesterol:</label>
-								<input type = "number" id = "ped2TOTChol" name = "ped2TOTChol" min = "0" placeholder = "Enter TOT-C Data" value = "0" class = "form-control">
+								<input type = "number" id = "ped2TOTChol" name = "ped2TOTChol" min = "0" placeholder = "Enter TOT-C Data" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 2 Tendon Xanthoma Status Input -->
 								<label for = "ped2TXStatus">Tendon Xanthoma Status:</label>
@@ -136,7 +136,7 @@
 								<br>
 								<!-- Pedigree 2 Coronary Artery Disease (CAD) Age Onset Input -->
 								<label for = "ped2CadAge">Coronary Artery Disease (CAD) Age Onset:</label>
-								<input type = "number" id = "ped2CadAge" name = "ped2CadAge" min = "0" placeholder = "Enter Cad-Onset Age" value = "0" class = "form-control">
+								<input type = "number" id = "ped2CadAge" name = "ped2CadAge" min = "0" placeholder = "Enter Cad-Onset Age" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 2 DNA-DX Status Input -->
 								<label for = "ped2DnaDxStatus">DNA-DX Status:</label>
@@ -155,7 +155,7 @@
 								<label for = "ped3Attributes"><b>Pedigree 3 Attributes</b></label><br>
 								<!-- Pedigree 3 Age Input -->
 								<label for = "ped3Age">Patient Age:</label>
-								<input type = "number" id = "ped3Age" name = "ped3Age" min = "0" placeholder= "Enter Patient Age" value = "0" class = "form-control">
+								<input type = "number" id = "ped3Age" name = "ped3Age" min = "0" placeholder= "Enter Patient Age" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 3 Gender Input -->
 								<label for = "ped3Gender">Patient Gender:</label>
@@ -166,11 +166,11 @@
 								<br>
 								<!-- Pedigree 3 LDL Cholesterol Input -->
 								<label for = "ped3LDLChol">LDL Cholesterol:</label>
-								<input type = "number" id = "ped3LDLChol" name = "ped3LDLChol" min = "0" placeholder = "Enter LDL Data" value = "0" class = "form-control">
+								<input type = "number" id = "ped3LDLChol" name = "ped3LDLChol" min = "0" placeholder = "Enter LDL Data" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 3 Total Cholesterol Input -->
 								<label for = "ped3TOTChol">Total Cholesterol:</label>
-								<input type = "number" id = "ped3TOTChol" name = "ped3TOTChol" min = "0" placeholder = "Enter TOT-C Data" value = "0" class = "form-control">
+								<input type = "number" id = "ped3TOTChol" name = "ped3TOTChol" min = "0" placeholder = "Enter TOT-C Data" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 3 Tendon Xanthoma Input -->
 								<label for = "ped3TXStatus">Tendon Xanthoma Status:</label>
@@ -190,7 +190,7 @@
 								<br>
 								<!-- Pedigree 3 Coronary Artery Disease (CAD) Age Input -->
 								<label for = "ped3CadAge">Coronary Artery Disease (CAD) Age Onset:</label>
-								<input type = "number" id = "ped3CadAge" name = "ped3CadAge" min = "0" placeholder = "Enter Cad-Onset Age" value = "0" class = "form-control">
+								<input type = "number" id = "ped3CadAge" name = "ped3CadAge" min = "0" placeholder = "Enter Cad-Onset Age" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 3 DNA DX Status Input -->
 								<label for = "ped3DnaDxStatus">DNA-DX Status:</label>
@@ -209,7 +209,7 @@
 								<label for = "ped4Attributes"><b>Pedigree 4 Attributes</b></label><br>
 								<!-- Pedigree 4 Age Input -->
 								<label for = "ped4Age">Patient Age:</label>
-								<input type = "number" id = "ped4Age" name = "ped4Age" min = "0" placeholder= "Enter Patient Age" value = "0" class = "form-control">
+								<input type = "number" id = "ped4Age" name = "ped4Age" min = "0" placeholder= "Enter Patient Age" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 4 Gender Input -->
 								<label for = "ped4Gender">Patient Gender:</label>
@@ -220,11 +220,11 @@
 								<br>
 								<!-- Pedigree 4 LDL Cholesterol Input -->
 								<label for = "ped4LDLChol">LDL Cholesterol:</label>
-								<input type = "number" id = "ped4LDLChol" name = "ped4LDLChol" min = "0" placeholder = "Enter LDL Data" value = "0" class = "form-control">
+								<input type = "number" id = "ped4LDLChol" name = "ped4LDLChol" min = "0" placeholder = "Enter LDL Data" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 4 Total Cholesterol Input -->
 								<label for = "ped4TOTChol">Total Cholesterol:</label>
-								<input type = "number" id = "ped4TOTChol" name = "ped4TOTChol" min = "0" placeholder = "Enter TOT-C Data" value = "0" class = "form-control">
+								<input type = "number" id = "ped4TOTChol" name = "ped4TOTChol" min = "0" placeholder = "Enter TOT-C Data" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 4 Tendon Xanthoma Input -->
 								<label for = "ped4TXStatus">Tendon Xanthoma Status:</label>
@@ -244,7 +244,7 @@
 								<br>
 								<!-- Pedigree 4 Coronary Artery Disease Age Onset Input -->
 								<label for = "ped4CadAge">Coronary Artery Disease (CAD) Age Onset:</label>
-								<input type = "number" id = "ped4CadAge" name = "ped4CadAge" min = "0" placeholder = "Enter Cad-Onset Age" value = "0" class = "form-control">
+								<input type = "number" id = "ped4CadAge" name = "ped4CadAge" min = "0" placeholder = "Enter Cad-Onset Age" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 4 DNA-DX Status Input -->
 								<label for = "ped4DnaDxStatus">DNA-DX Status:</label>
@@ -263,7 +263,7 @@
 								<label for = "ped5Attributes"><b>Pedigree 5 Attributes</b></label><br>
 								<!-- Pedigree 5 Age Input -->
 								<label for = "ped5Age">Patient Age:</label>
-								<input type = "number" id = "ped5Age" name = "ped5Age" min = "0" placeholder= "Enter Patient Age" value = "0" class = "form-control">
+								<input type = "number" id = "ped5Age" name = "ped5Age" min = "0" placeholder= "Enter Patient Age" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 5 Gender Input -->
 								<label for = "ped5Gender">Patient Gender:</label>
@@ -274,11 +274,11 @@
 								<br>
 								<!-- Pedigree 5 LDL Cholesterol Input -->
 								<label for = "ped5LDLChol">LDL Cholesterol:</label>
-								<input type = "number" id = "ped5LDLChol" name = "ped5LDLChol" min = "0" placeholder = "Enter LDL Data" value = "0" class = "form-control">
+								<input type = "number" id = "ped5LDLChol" name = "ped5LDLChol" min = "0" placeholder = "Enter LDL Data" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 5 Total cholesterol Input -->
 								<label for = "ped5TOTChol">Total Cholesterol:</label>
-								<input type = "number" id = "ped5TOTChol" name = "ped5TOTChol" min = "0" placeholder = "Enter TOT-C Data" value = "0" class = "form-control">
+								<input type = "number" id = "ped5TOTChol" name = "ped5TOTChol" min = "0" placeholder = "Enter TOT-C Data" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 5 Tendon Xanthoma Input -->
 								<label for = "ped5TXStatus">Tendon Xanthoma Status:</label>
@@ -298,7 +298,7 @@
 								<br>
 								<!-- Pedigree 5 Coronary Artery Disease (CAD) Age Onset Input -->
 								<label for = "ped5CadAge">Coronary Artery Disease (CAD) Age Onset:</label>
-								<input type = "number" id = "ped5CadAge" name = "ped5CadAge" min = "0" placeholder = "Enter Cad-Onset Age" value = "0" class = "form-control">
+								<input type = "number" id = "ped5CadAge" name = "ped5CadAge" min = "0" placeholder = "Enter Cad-Onset Age" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 5 DNA-DX Input -->
 								<label for = "ped5DnaDxStatus">DNA-DX Status:</label>
@@ -317,7 +317,7 @@
 								<label for = "ped6Attributes"><b>Pedigree 6 Attributes</b></label><br>
 								<!-- Pedigree 6 Age Input -->
 								<label for = "ped6Age">Patient Age:</label>
-								<input type = "number" id = "ped6Age" name = "ped6Age" min = "0" placeholder= "Enter Patient Age" value = "0" class = "form-control">
+								<input type = "number" id = "ped6Age" name = "ped6Age" min = "0" placeholder= "Enter Patient Age" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 6 Gender Input -->
 								<label for = "ped6Gender">Patient Gender:</label>
@@ -328,11 +328,11 @@
 								<br>
 								<!-- Pedigree 6 LDL Cholesterol Input -->
 								<label for = "ped6LDLChol">LDL Cholesterol:</label>
-								<input type = "number" id = "ped6LDLChol" name = "ped6LDLChol" min = "0" placeholder = "Enter LDL Data" value = "0" class = "form-control">
+								<input type = "number" id = "ped6LDLChol" name = "ped6LDLChol" min = "0" placeholder = "Enter LDL Data" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 6 Total Cholesterol Input -->
 								<label for = "ped6TOTChol">Total Cholesterol:</label>
-								<input type = "number" id = "ped6TOTChol" name = "ped6TOTChol" min = "0" placeholder = "Enter TOT-C Data" value = "0" class = "form-control">
+								<input type = "number" id = "ped6TOTChol" name = "ped6TOTChol" min = "0" placeholder = "Enter TOT-C Data" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 6 Tendon Xanthoma Input -->
 								<label for = "ped6TXStatus">Tendon Xanthoma Status:</label>
@@ -352,7 +352,7 @@
 								<br>
 								<!-- Pedigree 6 Coronary Artery Disease (CAD) Age Onset Input -->
 								<label for = "ped6CadAge">Coronary Artery Disease (CAD) Age Onset:</label>
-								<input type = "number" id = "ped6CadAge" name = "ped6CadAge" min = "0" placeholder = "Enter Cad-Onset Age" value = "0" class = "form-control">
+								<input type = "number" id = "ped6CadAge" name = "ped6CadAge" min = "0" placeholder = "Enter Cad-Onset Age" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 6 DNA-DX Status Input -->
 								<label for = "ped6DnaDxStatus">DNA-DX Status:</label>
@@ -371,7 +371,7 @@
 								<label for = "ped7Attributes"><b>Pedigree 7 Attributes</b></label><br>
 								<!-- Pedigree 7 Age Input -->
 								<label for = "ped7Age">Patient Age:</label>
-								<input type = "number" id = "ped7Age" name = "ped7Age" min = "0" placeholder= "Enter Patient Age" value = "0" class = "form-control">
+								<input type = "number" id = "ped7Age" name = "ped7Age" min = "0" placeholder= "Enter Patient Age" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 7 Gender Input -->
 								<label for = "ped7Gender">Patient Gender:</label>
@@ -382,11 +382,11 @@
 								<br>
 								<!-- Pedigree 7 LDL Cholesterol Input -->
 								<label for = "ped7LDLChol">LDL Cholesterol:</label>
-								<input type = "number" id = "ped7LDLChol" name = "ped7LDLChol" min = "0" placeholder = "Enter LDL Data" value = "0" class = "form-control">
+								<input type = "number" id = "ped7LDLChol" name = "ped7LDLChol" min = "0" placeholder = "Enter LDL Data" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 7 Total Cholesterol Input -->
 								<label for = "ped7TOTChol">Total Cholesterol:</label>
-								<input type = "number" id = "ped7TOTChol" name = "ped7TOTChol" min = "0" placeholder = "Enter TOT-C Data" value = "0" class = "form-control">
+								<input type = "number" id = "ped7TOTChol" name = "ped7TOTChol" min = "0" placeholder = "Enter TOT-C Data" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 7 Tendon Xanthoma Input -->
 								<label for = "ped7TXStatus">Tendon Xanthoma Status:</label>
@@ -406,7 +406,7 @@
 								<br>
 								<!-- Pedigree 7 Coronary Artery Disease (CAD) Age Onset Input -->
 								<label for = "ped7CadAge">Coronary Artery Disease (CAD) Age Onset:</label>
-								<input type = "number" id = "ped7CadAge" name = "ped7CadAge" min = "0" placeholder = "Enter Cad-Onset Age" value = "0" class = "form-control">
+								<input type = "number" id = "ped7CadAge" name = "ped7CadAge" min = "0" placeholder = "Enter Cad-Onset Age" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 7 DNA-DX Status Input -->
 								<label for = "ped7DnaDxStatus">DNA-DX Status:</label>
@@ -425,7 +425,7 @@
 								<label for = "ped8Attributes"><b>Pedigree 8 Attributes</b></label><br>
 								<!-- Pedigree 8 Age Input -->
 								<label for = "ped8Age">Patient Age:</label>
-								<input type = "number" id = "ped8Age" name = "ped8Age" min = "0" placeholder= "Enter Patient Age" value = "0" class = "form-control">
+								<input type = "number" id = "ped8Age" name = "ped8Age" min = "0" placeholder= "Enter Patient Age" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 8 Gender Input -->
 								<label for = "ped8Gender">Patient Gender:</label>
@@ -436,11 +436,11 @@
 								<br>
 								<!-- Pedigree 8 LDL Cholesterol Input -->
 								<label for = "ped8LDLChol">LDL Cholesterol:</label>
-								<input type = "number" id = "ped8LDLChol" name = "ped8LDLChol" min = "0" placeholder = "Enter LDL Data" value = "0" class = "form-control">
+								<input type = "number" id = "ped8LDLChol" name = "ped8LDLChol" min = "0" placeholder = "Enter LDL Data" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 8 Total Cholesterol Input -->
 								<label for = "ped8TOTChol">Total Cholesterol:</label>
-								<input type = "number" id = "ped8TOTChol" name = "ped8TOTChol" min = "0" placeholder = "Enter TOT-C Data" value = "0" class = "form-control">
+								<input type = "number" id = "ped8TOTChol" name = "ped8TOTChol" min = "0" placeholder = "Enter TOT-C Data" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 8 Tendon Xanthoma Input -->
 								<label for = "ped8TXStatus">Tendon Xanthoma Status:</label>
@@ -460,7 +460,7 @@
 								<br>
 								<!-- Pedigree 8 Coronary Artery Disease (CAD) Age Onset Input -->
 								<label for = "ped8CadAge">Coronary Artery Disease (CAD) Age Onset:</label>
-								<input type = "number" id = "ped8CadAge" name = "ped8CadAge" min = "0" placeholder = "Enter Cad-Onset Age" value = "0" class = "form-control">
+								<input type = "number" id = "ped8CadAge" name = "ped8CadAge" min = "0" placeholder = "Enter Cad-Onset Age" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 8 DNA-DX Status Input -->
 								<label for = "ped8DnaDxStatus">DNA-DX Status:</label>
@@ -479,7 +479,7 @@
 								<label for = "ped9Attributes"><b>Pedigree 9 Attributes</b></label><br>
 								<!-- Pedigree 9 Age Input -->
 								<label for = "ped9Age">Patient Age:</label>
-								<input type = "number" id = "ped9Age" name = "ped9Age" min = "0" placeholder= "Enter Patient Age" value = "0" class = "form-control">
+								<input type = "number" id = "ped9Age" name = "ped9Age" min = "0" placeholder= "Enter Patient Age" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 9 Gender Input -->
 								<label for = "ped9Gender">Patient Gender:</label>
@@ -490,11 +490,11 @@
 								<br>
 								<!-- Pedigree 9 LDL Cholesterol Input -->
 								<label for = "ped9LDLChol">LDL Cholesterol:</label>
-								<input type = "number" id = "ped9LDLChol" name = "ped9LDLChol" min = "0" placeholder = "Enter LDL Data" value = "0" class = "form-control">
+								<input type = "number" id = "ped9LDLChol" name = "ped9LDLChol" min = "0" placeholder = "Enter LDL Data" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 9 Total Cholesterol Input -->
 								<label for = "ped9TOTChol">Total Cholesterol:</label>
-								<input type = "number" id = "ped9TOTChol" name = "ped9TOTChol" min = "0" placeholder = "Enter TOT-C Data" value = "0" class = "form-control">
+								<input type = "number" id = "ped9TOTChol" name = "ped9TOTChol" min = "0" placeholder = "Enter TOT-C Data" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 9 Tendon Xanthoma Input -->
 								<label for = "ped9TXStatus">Tendon Xanthoma Status:</label>
@@ -514,7 +514,7 @@
 								<br>
 								<!-- Pedigree 9 Coronary Artery Disease (CAD) Age Onset Input -->
 								<label for = "ped9CadAge">Coronary Artery Disease (CAD) Age Onset:</label>
-								<input type = "number" id = "ped9CadAge" name = "ped9CadAge" min = "0" placeholder = "Enter Cad-Onset Age" value = "0" class = "form-control">
+								<input type = "number" id = "ped9CadAge" name = "ped9CadAge" min = "0" placeholder = "Enter Cad-Onset Age" value = "0" class = "form-control" onchange = "updateTableVal()">
 								<br>
 								<!-- Pedigree 9 DNA-DX Status Input -->
 								<label for = "ped9DnaDxStatus">DNA-DX Status:</label>
@@ -673,58 +673,94 @@
 	<script>
 		function updateTableVal() {
 			<!-- Pedigree 1's Dynamic Table-UserInput Values -->
+			document.getElementById("ped1TableAge").innerText = document.getElementById("ped1Age").value;
 			document.getElementById("ped1TableGender").innerText = document.getElementById("ped1Gender").value;
+			document.getElementById("ped1TableLDL").innerText = document.getElementById("ped1LDLChol").value;
+			document.getElementById("ped1TableTotc").innerText = document.getElementById("ped1TOTChol").value;
 			document.getElementById("ped1TableTx").innerText = document.getElementById("ped1TXStatus").value;
 			document.getElementById("ped1TableDna").innerText = document.getElementById("ped1DnaDxStatus").value;
 			document.getElementById("ped1TableCadStat").innerText = document.getElementById("ped1CadStatus").value;
+			document.getElementById("ped1TableCadAge").innerText = document.getElementById("ped1CadAge").value;
 
 			<!-- Pedigree 2's Dynamic Table-UserInput Values -->
+			document.getElementById("ped2TableAge").innerText = document.getElementById("ped2Age").value;
 			document.getElementById("ped2TableGender").innerText = document.getElementById("ped2Gender").value;
+			document.getElementById("ped2TableLDL").innerText = document.getElementById("ped2LDLChol").value;
+			document.getElementById("ped2TableTotc").innerText = document.getElementById("ped2TOTChol").value;
 			document.getElementById("ped2TableTx").innerText = document.getElementById("ped2TXStatus").value;
 			document.getElementById("ped2TableDna").innerText = document.getElementById("ped2DnaDxStatus").value;
 			document.getElementById("ped2TableCadStat").innerText = document.getElementById("ped2CadStatus").value;
+			document.getElementById("ped2TableCadAge").innerText = document.getElementById("ped2CadAge").value;
 
 			<!-- Pedigree 3's Dynamic Table-UserInput Values -->
+			document.getElementById("ped3TableAge").innerText = document.getElementById("ped3Age").value;
 			document.getElementById("ped3TableGender").innerText = document.getElementById("ped3Gender").value;
+			document.getElementById("ped3TableLDL").innerText = document.getElementById("ped3LDLChol").value;
+			document.getElementById("ped3TableTotc").innerText = document.getElementById("ped3TOTChol").value;
 			document.getElementById("ped3TableTx").innerText = document.getElementById("ped3TXStatus").value;
 			document.getElementById("ped3TableDna").innerText = document.getElementById("ped3DnaDxStatus").value;
 			document.getElementById("ped3TableCadStat").innerText = document.getElementById("ped3CadStatus").value;
+			document.getElementById("ped3TableCadAge").innerText = document.getElementById("ped3CadAge").value;
 
 			<!-- Pedigree 4's Dynamic Table-UserInput Values -->
 			document.getElementById("ped4TableGender").innerText = document.getElementById("ped4Gender").value;
 			document.getElementById("ped4TableTx").innerText = document.getElementById("ped4TXStatus").value;
 			document.getElementById("ped4TableDna").innerText = document.getElementById("ped4DnaDxStatus").value;
 			document.getElementById("ped4TableCadStat").innerText = document.getElementById("ped4CadStatus").value;
+			document.getElementById("ped4TableAge").innerText = document.getElementById("ped4Age").value;
+			document.getElementById("ped4TableLDL").innerText = document.getElementById("ped4LDLChol").value;
+			document.getElementById("ped4TableTotc").innerText = document.getElementById("ped4TOTChol").value;
+			document.getElementById("ped4TableCadAge").innerText = document.getElementById("ped4CadAge").value;
 
 			<!-- Pedigree 5's Dynamic Table-UserInput Values -->
 			document.getElementById("ped5TableGender").innerText = document.getElementById("ped5Gender").value;
 			document.getElementById("ped5TableTx").innerText = document.getElementById("ped5TXStatus").value;
 			document.getElementById("ped5TableDna").innerText = document.getElementById("ped5DnaDxStatus").value;
 			document.getElementById("ped5TableCadStat").innerText = document.getElementById("ped5CadStatus").value;
+			document.getElementById("ped5TableAge").innerText = document.getElementById("ped5Age").value;
+			document.getElementById("ped5TableLDL").innerText = document.getElementById("ped5LDLChol").value;
+			document.getElementById("ped5TableTotc").innerText = document.getElementById("ped5TOTChol").value;
+			document.getElementById("ped5TableCadAge").innerText = document.getElementById("ped5CadAge").value;
 
 			<!-- Pedigree 6's Dynamic Table-UserInput Values -->
 			document.getElementById("ped6TableGender").innerText = document.getElementById("ped6Gender").value;
 			document.getElementById("ped6TableTx").innerText = document.getElementById("ped6TXStatus").value;
 			document.getElementById("ped6TableDna").innerText = document.getElementById("ped6DnaDxStatus").value;
 			document.getElementById("ped6TableCadStat").innerText = document.getElementById("ped6CadStatus").value;
+			document.getElementById("ped6TableAge").innerText = document.getElementById("ped6Age").value;
+			document.getElementById("ped6TableLDL").innerText = document.getElementById("ped6LDLChol").value;
+			document.getElementById("ped6TableTotc").innerText = document.getElementById("ped6TOTChol").value;
+			document.getElementById("ped6TableCadAge").innerText = document.getElementById("ped6CadAge").value;
 
 			<!-- Pedigree 7's Dynamic Table-UserInput Values -->
 			document.getElementById("ped7TableGender").innerText = document.getElementById("ped7Gender").value;
 			document.getElementById("ped7TableTx").innerText = document.getElementById("ped7TXStatus").value;
 			document.getElementById("ped7TableDna").innerText = document.getElementById("ped7DnaDxStatus").value;
 			document.getElementById("ped7TableCadStat").innerText = document.getElementById("ped7CadStatus").value;
+			document.getElementById("ped7TableAge").innerText = document.getElementById("ped7Age").value;
+			document.getElementById("ped7TableLDL").innerText = document.getElementById("ped7LDLChol").value;
+			document.getElementById("ped7TableTotc").innerText = document.getElementById("ped7TOTChol").value;
+			document.getElementById("ped7TableCadAge").innerText = document.getElementById("ped7CadAge").value;
 
 			<!-- Pedigree 8's Dynamic Table-UserInput Values -->
 			document.getElementById("ped8TableGender").innerText = document.getElementById("ped8Gender").value;
 			document.getElementById("ped8TableTx").innerText = document.getElementById("ped8TXStatus").value;
 			document.getElementById("ped8TableDna").innerText = document.getElementById("ped8DnaDxStatus").value;
 			document.getElementById("ped8TableCadStat").innerText = document.getElementById("ped8CadStatus").value;
+			document.getElementById("ped8TableAge").innerText = document.getElementById("ped8Age").value;
+			document.getElementById("ped8TableLDL").innerText = document.getElementById("ped8LDLChol").value;
+			document.getElementById("ped8TableTotc").innerText = document.getElementById("ped8TOTChol").value;
+			document.getElementById("ped8TableCadAge").innerText = document.getElementById("ped8CadAge").value;
 
 			<!-- Pedigree 9's Dynamic Table-UserInput Values -->
 			document.getElementById("ped9TableGender").innerText = document.getElementById("ped9Gender").value;
 			document.getElementById("ped9TableTx").innerText = document.getElementById("ped9TXStatus").value;
 			document.getElementById("ped9TableDna").innerText = document.getElementById("ped9DnaDxStatus").value;
 			document.getElementById("ped9TableCadStat").innerText = document.getElementById("ped9CadStatus").value;
+			document.getElementById("ped9TableAge").innerText = document.getElementById("ped9Age").value;
+			document.getElementById("ped9TableLDL").innerText = document.getElementById("ped9LDLChol").value;
+			document.getElementById("ped9TableTotc").innerText = document.getElementById("ped9TOTChol").value;
+			document.getElementById("ped9TableCadAge").innerText = document.getElementById("ped9CadAge").value;
 
 		}
 	</script>
