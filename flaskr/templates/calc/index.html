@@ -41,17 +41,17 @@
 				<div class = "form-group">
 					<!-- Each Pedigree Members Respective Section of Form -->
 					<div id = "pedigree-attributes-all" class = "pedigree-attributes-all">
-						<form action = "{{ url_for('index') }}" method = "POST" id = "pedigree-attribute-form" name = "pedigree-attribute-form">
+						<form action = "{{ url_for('index') }}" method = "POST" id = "pedigree-attribute-form" name = "pedigree-attribute-form" class = "form-group">
 							<!--Pedigree 1 (Grandmother on Parent 1 Side) Form Input -->
 							<div id = "ped1Attributes" class = "pedigreeAttributes">
 								<!-- Pedigree 1 Age Input -->
 								<label for = "ped1Attributes"><b>Pedigree 1 Attributes</b></label><br>
-								<label for = "ped1Age">Patient Age:</label>
-								<input type = "number" id = "ped1Age" name = "ped1Age" min = "0" placeholder = "Enter Patient Age" value = "0" class = "form-control">
+								<label for = "ped1Age" class = "form-inline">Patient Age:</label>
+								<input type = "number" id = "ped1Age" name = "ped1Age" min = "0" placeholder = "Enter Patient Age" value = "0" class = "form-control form-inline" onchange = "watch(this)">
 								<br>
 								<!-- Pedigree 1 Gender Input -->
 								<label for = "ped1Gender">Patient Gender:</label>
-								<select name = "ped1Gender" id = "ped1Gender" class = "custom-select">
+								<select name = "ped1Gender" id = "ped1Gender" class = "custom-select form-control" onchange = "updateTableVal()">
 									<option value = "f">Female</option>
 									<option value = "m">Male</option>
 								</select>
@@ -66,27 +66,27 @@
 								<br>
 								<!-- Pedigree 1 Tendon Xanthoma Input -->
 								<label for = "ped1TXStatus">Tendon Xanthoma Status:</label>
-								<select name = "ped1TXStatus" id = "ped1TXStatus" class = "custom-select">
+								<select name = "ped1TXStatus" id = "ped1TXStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 									<option value = "0">Known and Negative TX-Status</option>
 									<option value = "1">Known and Positive TX-Status</option>
 									<option value = "9">Unknown TX-Status</option>
 								</select>
-								<br>
+								<br><br>
 								<!-- Pedigree 1 Coronary Artery Disease (CAD) Status Input -->
 								<label for = "ped1CadStatus">Coronary Artery Disease (CAD) Status:</label>
-								<select name = "ped1CadStatus" id = "ped1CadStatus" class = "custom-select">
+								<select name = "ped1CadStatus" id = "ped1CadStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 									<option value = "0">Known and Negative CAD-Status</option>
 									<option value = "1">Known and Positive CAD-Status</option>
 									<option value = "9">Unknown CAD-Status</option>
 								</select>
-								<br>
+								<br><br>
 								<!-- Pedigree 1 Coronary Artery Disease (CAD) Age Input -->
 								<label for = "ped1CadAge">Coronary Artery Disease (CAD) Age Onset:</label>
 								<input type = "number" id = "ped1CadAge" name = "ped1CadAge" min = "0" placeholder = "Enter Cad-Onset Age" value = "0" class = "form-control">
 								<br>
 								<!-- Pedigree 1 DNA-DX Status Input -->
 								<label for = "ped1DnaDxStatus">DNA-DX Status:</label>
-								<select name = "ped1DnaDxStatus" id = "ped1DnaDxStatus" class = "custom-select">
+								<select name = "ped1DnaDxStatus" id = "ped1DnaDxStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 									<option value = "0">Known and Negative DNA-DX Status</option>
 									<option value = "1">Known and Positive DNA-DX Status</option>
 									<option value = "9">Unknown DNA-DX Status</option>
@@ -105,7 +105,7 @@
 								<br>
 								<!-- Pedigree 2 Gender Input -->
 								<label for = "ped2Gender">Patient Gender:</label>
-								<select name = "ped2Gender" id = "ped2Gender" class = "custom-select">
+								<select name = "ped2Gender" id = "ped2Gender" class = "custom-select" onchange = "updateTableVal()">
 									<option value = "f">Female</option>
 									<option value = "m">Male</option>
 								</select>
@@ -120,7 +120,7 @@
 								<br>
 								<!-- Pedigree 2 Tendon Xanthoma Status Input -->
 								<label for = "ped2TXStatus">Tendon Xanthoma Status:</label>
-								<select name = "ped2TXStatus" id = "ped2TXStatus" class = "custom-select">
+								<select name = "ped2TXStatus" id = "ped2TXStatus" class = "custom-select" onchange = "updateTableVal()">
 									<option value = "0">Known and Negative TX-Status</option>
 									<option value = "1">Known and Positive TX-Status</option>
 									<option value = "9">Unknown TX-Status</option>
@@ -128,7 +128,7 @@
 								<br>
 								<!-- Pedigree 2 Coronary Artery Disease (CAD) Status Input -->
 								<label for = "ped2CadStatus">Coronary Artery Disease (CAD) Status:</label>
-								<select name = "ped2CadStatus" id = "ped2CadStatus" class = "custom-select">
+								<select name = "ped2CadStatus" id = "ped2CadStatus" class = "custom-select" onchange = "updateTableVal()">
 									<option value = "0">Known and Negative CAD-Status</option>
 									<option value = "1">Known and Positive CAD-Status</option>
 									<option value = "9">Unknown CAD-Status</option>
@@ -140,7 +140,7 @@
 								<br>
 								<!-- Pedigree 2 DNA-DX Status Input -->
 								<label for = "ped2DnaDxStatus">DNA-DX Status:</label>
-								<select name = "ped2DnaDxStatus" id = "ped2DnaDxStatus" class = "custom-select">
+								<select name = "ped2DnaDxStatus" id = "ped2DnaDxStatus" class = "custom-select" onchange = "updateTableVal()">
 									<option value = "0">Known and Negative DNA-DX Status</option>
 									<option value = "1">Known and Positive DNA-DX Status</option>
 									<option value = "9">Unknown DNA-DX Status</option>
@@ -159,7 +159,7 @@
 								<br>
 								<!-- Pedigree 3 Gender Input -->
 								<label for = "ped3Gender">Patient Gender:</label>
-								<select name = "ped3Gender" id = "ped3Gender" class = "custom-select">
+								<select name = "ped3Gender" id = "ped3Gender" class = "custom-select" onchange = "updateTableVal()">
 									<option value = "f">Female</option>
 									<option value = "m">Male</option>
 								</select>
@@ -174,7 +174,7 @@
 								<br>
 								<!-- Pedigree 3 Tendon Xanthoma Input -->
 								<label for = "ped3TXStatus">Tendon Xanthoma Status:</label>
-								<select name = "ped3TXStatus" id = "ped3TXStatus" class = "custom-select">
+								<select name = "ped3TXStatus" id = "ped3TXStatus" class = "custom-select" onchange = "updateTableVal()">
 									<option value = "0">Known and Negative TX-Status</option>
 									<option value = "1">Known and Positive TX-Status</option>
 									<option value = "9">Unknown TX-Status</option>
@@ -182,7 +182,7 @@
 								<br>
 								<!-- Pedigree 3 Coronary Artery Disease (CAD) Status Input -->
 								<label for = "ped3CadStatus">Coronary Artery Disease (CAD) Status:</label>
-								<select name = "ped3CadStatus" id = "ped3CadStatus" class = "custom-select">
+								<select name = "ped3CadStatus" id = "ped3CadStatus" class = "custom-select" onchange = "updateTableVal()">
 									<option value = "0">Known and Negative CAD-Status</option>
 									<option value = "1">Known and Positive CAD-Status</option>
 									<option value = "9">Unknown CAD-Status</option>
@@ -194,7 +194,7 @@
 								<br>
 								<!-- Pedigree 3 DNA DX Status Input -->
 								<label for = "ped3DnaDxStatus">DNA-DX Status:</label>
-								<select name = "ped3DnaDxStatus" id = "ped3DnaDxStatus" class = "custom-select">
+								<select name = "ped3DnaDxStatus" id = "ped3DnaDxStatus" class = "custom-select" onchange = "updateTableVal()">
 									<option value = "0">Known and Negative DNA-DX Status</option>
 									<option value = "1">Known and Positive DNA-DX Status</option>
 									<option value = "9">Unknown DNA-DX Status</option>
@@ -213,7 +213,7 @@
 								<br>
 								<!-- Pedigree 4 Gender Input -->
 								<label for = "ped4Gender">Patient Gender:</label>
-								<select name = "ped4Gender" id = "ped4Gender" class = "custom-select">
+								<select name = "ped4Gender" id = "ped4Gender" class = "custom-select" onchange = "updateTableVal()">
 									<option value = "f">Female</option>
 									<option value = "m">Male</option>
 								</select>
@@ -228,7 +228,7 @@
 								<br>
 								<!-- Pedigree 4 Tendon Xanthoma Input -->
 								<label for = "ped4TXStatus">Tendon Xanthoma Status:</label>
-								<select name = "ped4TXStatus" id = "ped4TXStatus" class = "custom-select">
+								<select name = "ped4TXStatus" id = "ped4TXStatus" class = "custom-select" onchange = "updateTableVal()">
 									<option value = "0">Known and Negative TX-Status</option>
 									<option value = "1">Known and Positive TX-Status</option>
 									<option value = "9">Unknown TX-Status</option>
@@ -236,7 +236,7 @@
 								<br>
 								<!-- Pedigree 4 Coronary Artery Disease (CAD) Status Input -->
 								<label for = "ped4CadStatus">Coronary Artery Disease (CAD) Status:</label>
-								<select name = "ped4CadStatus" id = "ped4CadStatus" class = "custom-select">
+								<select name = "ped4CadStatus" id = "ped4CadStatus" class = "custom-select" onchange = "updateTableVal()">
 									<option value = "0">Known and Negative CAD-Status</option>
 									<option value = "1">Known and Positive CAD-Status</option>
 									<option value = "9">Unknown CAD-Status</option>
@@ -248,7 +248,7 @@
 								<br>
 								<!-- Pedigree 4 DNA-DX Status Input -->
 								<label for = "ped4DnaDxStatus">DNA-DX Status:</label>
-								<select name = "ped4DnaDxStatus" id = "ped4DnaDxStatus" class = "custom-select">
+								<select name = "ped4DnaDxStatus" id = "ped4DnaDxStatus" class = "custom-select" onchange = "updateTableVal()">
 									<option value = "0">Known and Negative DNA-DX Status</option>
 									<option value = "1">Known and Positive DNA-DX Status</option>
 									<option value = "9">Unknown DNA-DX Status</option>
@@ -267,7 +267,7 @@
 								<br>
 								<!-- Pedigree 5 Gender Input -->
 								<label for = "ped5Gender">Patient Gender:</label>
-								<select name = "ped5Gender" id = "ped5Gender" class = "custom-select">
+								<select name = "ped5Gender" id = "ped5Gender" class = "custom-select" onchange = "updateTableVal()">
 									<option value = "f">Female</option>
 									<option value = "m">Male</option>
 								</select>
@@ -282,7 +282,7 @@
 								<br>
 								<!-- Pedigree 5 Tendon Xanthoma Input -->
 								<label for = "ped5TXStatus">Tendon Xanthoma Status:</label>
-								<select name = "ped5TXStatus" id = "ped5TXStatus" class = "custom-select">
+								<select name = "ped5TXStatus" id = "ped5TXStatus" class = "custom-select" onchange = "updateTableVal()">
 									<option value = "0">Known and Negative TX-Status</option>
 									<option value = "1">Known and Positive TX-Status</option>
 									<option value = "9">Unknown TX-Status</option>
@@ -290,7 +290,7 @@
 								<br>
 								<!-- Pedigree 5 Coronary Artery Disease (CAD) Status Input -->
 								<label for = "ped5CadStatus">Coronary Artery Disease (CAD) Status:</label>
-								<select name = "ped5CadStatus" id = "ped5CadStatus" class = "custom-select">
+								<select name = "ped5CadStatus" id = "ped5CadStatus" class = "custom-select" onchange = "updateTableVal()">
 									<option value = "0">Known and Negative CAD-Status</option>
 									<option value = "1">Known and Positive CAD-Status</option>
 									<option value = "9">Unknown CAD-Status</option>
@@ -302,7 +302,7 @@
 								<br>
 								<!-- Pedigree 5 DNA-DX Input -->
 								<label for = "ped5DnaDxStatus">DNA-DX Status:</label>
-								<select name = "ped5DnaDxStatus" id = "ped5DnaDxStatus" class = "custom-select">
+								<select name = "ped5DnaDxStatus" id = "ped5DnaDxStatus" class = "custom-select" onchange = "updateTableVal()">
 									<option value = "0">Known and Negative DNA-DX Status</option>
 									<option value = "1">Known and Positive DNA-DX Status</option>
 									<option value = "9">Unknown DNA-DX Status</option>
@@ -321,7 +321,7 @@
 								<br>
 								<!-- Pedigree 6 Gender Input -->
 								<label for = "ped6Gender">Patient Gender:</label>
-								<select name = "ped6Gender" id = "ped6Gender" class = "custom-select">
+								<select name = "ped6Gender" id = "ped6Gender" class = "custom-select" onchange = "updateTableVal()">
 									<option value = "f">Female</option>
 									<option value = "m">Male</option>
 								</select>
@@ -336,7 +336,7 @@
 								<br>
 								<!-- Pedigree 6 Tendon Xanthoma Input -->
 								<label for = "ped6TXStatus">Tendon Xanthoma Status:</label>
-								<select name = "ped6TXStatus" id = "ped6TXStatus" class = "custom-select">
+								<select name = "ped6TXStatus" id = "ped6TXStatus" class = "custom-select" onchange = "updateTableVal()">
 									<option value = "0">Known and Negative TX-Status</option>
 									<option value = "1">Known and Positive TX-Status</option>
 									<option value = "9">Unknown TX-Status</option>
@@ -344,7 +344,7 @@
 								<br>
 								<!-- Pedigree 6 Coronary Artery Disease (CAD) Status Input -->
 								<label for = "ped6CadStatus">Coronary Artery Disease (CAD) Status:</label>
-								<select name = "ped6CadStatus" id = "ped6CadStatus" class = "custom-select">
+								<select name = "ped6CadStatus" id = "ped6CadStatus" class = "custom-select" onchange = "updateTableVal()">
 									<option value = "0">Known and Negative CAD-Status</option>
 									<option value = "1">Known and Positive CAD-Status</option>
 									<option value = "9">Unknown CAD-Status</option>
@@ -356,7 +356,7 @@
 								<br>
 								<!-- Pedigree 6 DNA-DX Status Input -->
 								<label for = "ped6DnaDxStatus">DNA-DX Status:</label>
-								<select name = "ped6DnaDxStatus" id = "ped6DnaDxStatus" class = "custom-select">
+								<select name = "ped6DnaDxStatus" id = "ped6DnaDxStatus" class = "custom-select" onchange = "updateTableVal()">
 									<option value = "0">Known and Negative DNA-DX Status</option>
 									<option value = "1">Known and Positive DNA-DX Status</option>
 									<option value = "9">Unknown DNA-DX Status</option>
@@ -375,7 +375,7 @@
 								<br>
 								<!-- Pedigree 7 Gender Input -->
 								<label for = "ped7Gender">Patient Gender:</label>
-								<select name = "ped7Gender" id = "ped7Gender" class = "custom-select">
+								<select name = "ped7Gender" id = "ped7Gender" class = "custom-select" onchange = "updateTableVal()">
 									<option value = "f">Female</option>
 									<option value = "m">Male</option>
 								</select>
@@ -390,7 +390,7 @@
 								<br>
 								<!-- Pedigree 7 Tendon Xanthoma Input -->
 								<label for = "ped7TXStatus">Tendon Xanthoma Status:</label>
-								<select name = "ped7TXStatus" id = "ped7TXStatus" class = "custom-select">
+								<select name = "ped7TXStatus" id = "ped7TXStatus" class = "custom-select" onchange = "updateTableVal()">
 									<option value = "0">Known and Negative TX-Status</option>
 									<option value = "1">Known and Positive TX-Status</option>
 									<option value = "9">Unknown TX-Status</option>
@@ -398,7 +398,7 @@
 								<br>
 								<!-- Pedigree 7 Coronary Artery Disease (CAD) Status Input -->
 								<label for = "ped7CadStatus">Coronary Artery Disease (CAD) Status:</label>
-								<select name = "ped7CadStatus" id = "ped7CadStatus" class = "custom-select">
+								<select name = "ped7CadStatus" id = "ped7CadStatus" class = "custom-select" onchange = "updateTableVal()">
 									<option value = "0">Known and Negative CAD-Status</option>
 									<option value = "1">Known and Positive CAD-Status</option>
 									<option value = "9">Unknown CAD-Status</option>
@@ -410,7 +410,7 @@
 								<br>
 								<!-- Pedigree 7 DNA-DX Status Input -->
 								<label for = "ped7DnaDxStatus">DNA-DX Status:</label>
-								<select name = "ped7DnaDxStatus" id = "ped7DnaDxStatus" class = "custom-select">
+								<select name = "ped7DnaDxStatus" id = "ped7DnaDxStatus" class = "custom-select" onchange = "updateTableVal()">
 									<option value = "0">Known and Negative DNA-DX Status</option>
 									<option value = "1">Known and Positive DNA-DX Status</option>
 									<option value = "9">Unknown DNA-DX Status</option>
@@ -429,7 +429,7 @@
 								<br>
 								<!-- Pedigree 8 Gender Input -->
 								<label for = "ped8Gender">Patient Gender:</label>
-								<select name = "ped8Gender" id = "ped8Gender" class = "custom-select">
+								<select name = "ped8Gender" id = "ped8Gender" class = "custom-select" onchange = "updateTableVal()">
 									<option value = "f">Female</option>
 									<option value = "m">Male</option>
 								</select>
@@ -444,7 +444,7 @@
 								<br>
 								<!-- Pedigree 8 Tendon Xanthoma Input -->
 								<label for = "ped8TXStatus">Tendon Xanthoma Status:</label>
-								<select name = "ped8TXStatus" id = "ped8TXStatus" class = "custom-select">
+								<select name = "ped8TXStatus" id = "ped8TXStatus" class = "custom-select" onchange = "updateTableVal()">
 									<option value = "0">Known and Negative TX-Status</option>
 									<option value = "1">Known and Positive TX-Status</option>
 									<option value = "9">Unknown TX-Status</option>
@@ -452,7 +452,7 @@
 								<br>
 								<!-- Pedigree 8 Coronary Artery Disease (CAD) Status Input -->
 								<label for = "ped8CadStatus">Coronary Artery Disease (CAD) Status:</label>
-								<select name = "ped8CadStatus" id = "ped8CadStatus" class = "custom-select">
+								<select name = "ped8CadStatus" id = "ped8CadStatus" class = "custom-select" onchange = "updateTableVal()">
 									<option value = "0">Known and Negative CAD-Status</option>
 									<option value = "1">Known and Positive CAD-Status</option>
 									<option value = "9">Unknown CAD-Status</option>
@@ -464,7 +464,7 @@
 								<br>
 								<!-- Pedigree 8 DNA-DX Status Input -->
 								<label for = "ped8DnaDxStatus">DNA-DX Status:</label>
-								<select name = "ped8DnaDxStatus" id = "ped8DnaDxStatus" class = "custom-select">
+								<select name = "ped8DnaDxStatus" id = "ped8DnaDxStatus" class = "custom-select" onchange = "updateTableVal()">
 									<option value = "0">Known and Negative DNA-DX Status</option>
 									<option value = "1">Known and Positive DNA-DX Status</option>
 									<option value = "9">Unknown DNA-DX Status</option>
@@ -483,7 +483,7 @@
 								<br>
 								<!-- Pedigree 9 Gender Input -->
 								<label for = "ped9Gender">Patient Gender:</label>
-								<select name = "ped9Gender" id = "ped9Gender" class = "custom-select">
+								<select name = "ped9Gender" id = "ped9Gender" class = "custom-select" onchange = "updateTableVal()">
 									<option value = "f">Female</option>
 									<option value = "m">Male</option>
 								</select>
@@ -498,7 +498,7 @@
 								<br>
 								<!-- Pedigree 9 Tendon Xanthoma Input -->
 								<label for = "ped9TXStatus">Tendon Xanthoma Status:</label>
-								<select name = "ped9TXStatus" id = "ped9TXStatus" class = "custom-select">
+								<select name = "ped9TXStatus" id = "ped9TXStatus" class = "custom-select" onchange = "updateTableVal()">
 									<option value = "0">Known and Negative TX-Status</option>
 									<option value = "1">Known and Positive TX-Status</option>
 									<option value = "9">Unknown TX-Status</option>
@@ -506,7 +506,7 @@
 								<br>
 								<!-- Pedigree 9 Coronary Artery Disease (CAD) Status Input -->
 								<label for = "ped9CadStatus">Coronary Artery Disease (CAD) Status:</label>
-								<select name = "ped9CadStatus" id = "ped9CadStatus" class = "custom-select">
+								<select name = "ped9CadStatus" id = "ped9CadStatus" class = "custom-select" onchange = "updateTableVal()">
 									<option value = "0">Known and Negative CAD-Status</option>
 									<option value = "1">Known and Positive CAD-Status</option>
 									<option value = "9">Unknown CAD-Status</option>
@@ -518,7 +518,7 @@
 								<br>
 								<!-- Pedigree 9 DNA-DX Status Input -->
 								<label for = "ped9DnaDxStatus">DNA-DX Status:</label>
-								<select name = "ped9DnaDxStatus" id = "ped9DnaDxStatus" class = "custom-select">
+								<select name = "ped9DnaDxStatus" id = "ped9DnaDxStatus" class = "custom-select" onchange = "updateTableVal()">
 									<option value = "0">Known and Negative DNA-DX Status</option>
 									<option value = "1">Known and Positive DNA-DX Status</option>
 									<option value = "9">Unknown DNA-DX Status</option>
@@ -550,118 +550,118 @@
 
 					<tr id = "row-1">
 						<td>Person 1</td>
-						<td>P1 Age</td>
-						<td>P1 Gender</td>
-						<td>P1 LDL</td>
-						<td>P1 TOTC</td>
-						<td>P1 TX</td>
-						<td>P1 CAD-STAT</td>
-						<td>P1 CAD-AGE</td>
-						<td>P1 DNA-DX Status</td>
+						<td id = "ped1TableAge"> 0 </td>
+						<td id = "ped1TableGender"> 0 </td>
+						<td id = "ped1TableLDL"> 0 </td>
+						<td id = "ped1TableTotc"> 0 </td>
+						<td id = "ped1TableTx"> 0 </td>
+						<td id = "ped1TableCadStat">0</td>
+						<td id = "ped1TableCadAge"> 0 </td>
+						<td id = "ped1TableDna"> 0 </td>
 						<td>P1 FH-Prob</td>
 					</tr>
 
 					<tr id = "row-2">
 						<td>Person 2</td>
-						<td>P2 Age</td>
-						<td>P2 Gender</td>
-						<td>P2 LDL</td>
-						<td>P2 TOTC</td>
-						<td>P2 TX</td>
-						<td>P2 CAD-STAT</td>
-						<td>P2 CAD-AGE</td>
-						<td>P2 DNA-DX Status</td>
+						<td id = "ped2TableAge"> 0 </td>
+						<td id = "ped2TableGender"> 0 </td>
+						<td id = "ped2TableLDL"> 0 </td>
+						<td id = "ped2TableTotc"> 0 </td>
+						<td id = "ped2TableTx"> 0 </td>
+						<td id = "ped2TableCadStat"> 0 </td>
+						<td id = "ped2TableCadAge"> 0 </td>
+						<td id = "ped2TableDna"> 0 </td>
 						<td>P2 FH-Prob</td>
 					</tr>
 
 					<tr id = "row-3">
 						<td>Person 3</td>
-						<td>P3 Age</td>
-						<td>P3 Gender</td>
-						<td>P3 LDL</td>
-						<td>P3 TOTC</td>
-						<td>P3 TX</td>
-						<td>P3 CAD-STAT</td>
-						<td>P3 CAD-AGE</td>
-						<td>P3 DNA-DX Status</td>
+						<td id = "ped3TableAge"> 0 </td>
+						<td id = "ped3TableGender"> 0 </td>
+						<td id = "ped3TableLDL"> 0 </td>
+						<td id = "ped3TableTotc"> 0 </td>
+						<td id = "ped3TableTx"> 0 </td>
+						<td id = "ped3TableCadStat"> 0 </td>
+						<td id = "ped3TableCadAge"> 0 </td>
+						<td id = "ped3TableDna"> 0 </td>
 						<td>P3 FH-Prob</td>
 					</tr>
 
 					<tr id = "row-4">
 						<td>Person 4</td>
-						<td>P4 Age</td>
-						<td>P4 Gender</td>
-						<td>P4 LDL</td>
-						<td>P4 TOTC</td>
-						<td>P4 TX</td>
-						<td>P4 CAD-STAT</td>
-						<td>P4 CAD-AGE</td>
-						<td>P4 DNA-DX Status</td>
+						<td id = "ped4TableAge"> 0 </td>
+						<td id = "ped4TableGender"> 0 </td>
+						<td id = "ped4TableLDL"> 0 </td>
+						<td id = "ped4TableTotc"> 0 </td>
+						<td id = "ped4TableTx"> 0 </td>
+						<td id = "ped4TableCadStat"> 0 </td>
+						<td id = "ped4TableCadAge"> 0 </td>
+						<td id = "ped4TableDna"> 0 </td>
 						<td>P4 FH-Prob</td>
 					</tr>
 
 					<tr id = "row-5">
 						<td>Person 5</td>
-						<td>P5 Age</td>
-						<td>P5 Gender</td>
-						<td>P5 LDL</td>
-						<td>P5 TOTC</td>
-						<td>P5 TX</td>
-						<td>P5 CAD-STAT</td>
-						<td>P5 CAD-AGE</td>
-						<td>P5 DNA-DX Status</td>
+						<td id = "ped5TableAge"> 0 </td>
+						<td id = "ped5TableGender"> 0 </td>
+						<td id = "ped5TableLDL"> 0 </td>
+						<td id = "ped5TableTotc"> 0 </td>
+						<td id = "ped5TableTx"> 0 </td>
+						<td id = "ped5TableCadStat"> 0 </td>
+						<td id = "ped5TableCadAge"> 0 </td>
+						<td id = "ped5TableDna"> 0 </td>
 						<td>P5 FH-Prob</td>
 					</tr>
 
 					<tr id = "row-6">
 						<td>Person 6</td>
-						<td>P6 Age</td>
-						<td>P6 Gender</td>
-						<td>P6 LDL</td>
-						<td>P6 TOTC</td>
-						<td>P6 TX</td>
-						<td>P6 CAD-STAT</td>
-						<td>P6 CAD-AGE</td>
-						<td>P6 DNA-DX Status</td>
+						<td id = "ped6TableAge"> 0 </td>
+						<td id = "ped6TableGender"> 0 </td>
+						<td id = "ped6TableLDL"> 0 </td>
+						<td id = "ped6TableTotc"> 0 </td>
+						<td id = "ped6TableTx"> 0 </td>
+						<td id = "ped6TableCadStat"> 0 </td>
+						<td id = "ped6TableCadAge"> 0 </td>
+						<td id = "ped6TableDna"> 0 </td>
 						<td>P6 FH-Prob</td>
 					</tr>
 
 					<tr id = "row-7">
 						<td>Person 7</td>
-						<td>P7 Age</td>
-						<td>P7 Gender</td>
-						<td>P7 LDL</td>
-						<td>P7 TOTC</td>
-						<td>P7 TX</td>
-						<td>P7 CAD-STAT</td>
-						<td>P7 CAD-AGE</td>
-						<td>P7 DNA-DX Status</td>
+						<td id = "ped7TableAge"> 0 </td>
+						<td id = "ped7TableGender"> 0 </td>
+						<td id = "ped7TableLDL"> 0 </td>
+						<td id = "ped7TableTotc"> 0 </td>
+						<td id = "ped7TableTx"> 0 </td>
+						<td id = "ped7TableCadStat"> 0 </td>
+						<td id = "ped7TableCadAge"> 0 </td>
+						<td id = "ped7TableDna"> 0 </td>
 						<td>P7 FH-Prob</td>
 					</tr>
 
 					<tr id = "row-8">
 						<td>Person 8</td>
-						<td>P8 Age</td>
-						<td>P8 Gender</td>
-						<td>P8 LDL</td>
-						<td>P8 TOTC</td>
-						<td>P8 TX</td>
-						<td>P8 CAD-STAT</td>
-						<td>P8 CAD-AGE</td>
-						<td>P8 DNA-DX Status</td>
+						<td id = "ped8TableAge"> 0 </td>
+						<td id = "ped8TableGender"> 0 </td>
+						<td id = "ped8TableLDL"> 0 </td>
+						<td id = "ped8TableTotc"> 0 </td>
+						<td id = "ped8TableTx"> 0 </td>
+						<td id = "ped8TableCadStat"> 0 </td>
+						<td id = "ped8TableCadAge"> 0 </td>
+						<td id = "ped8TableDna"> 0 </td>
 						<td>P8 FH-Prob</td>
 					</tr>
 
 					<tr id = "row-9">
 						<td>Person 9</td>
-						<td>P9 Age</td>
-						<td>P9 Gender</td>
-						<td>P9 LDL</td>
-						<td>P9 TOTC</td>
-						<td>P9 TX</td>
-						<td>P9 CAD-STAT</td>
-						<td>P9 CAD-AGE</td>
-						<td>P9 DNA-DX Status</td>
+						<td id = "ped9TableAge"> 0 </td>
+						<td id = "ped9TableGender"> 0 </td>
+						<td id = "ped9TableLDL"> 0 </td>
+						<td id = "ped9TableTotc"> 0 </td>
+						<td id = "ped9TableTx"> 0 </td>
+						<td id = "ped9TableCadStat"> 0 </td>
+						<td id = "ped9TableCadAge"> 0 </td>
+						<td id = "ped9TableDna"> 0 </td>
 						<td>P9 FH-Prob</td>
 					</tr>
 
@@ -669,6 +669,65 @@
 		</div>
 	</div>
 	<br>
+
+	<script>
+		function updateTableVal() {
+			<!-- Pedigree 1's Dynamic Table-UserInput Values -->
+			document.getElementById("ped1TableGender").innerText = document.getElementById("ped1Gender").value;
+			document.getElementById("ped1TableTx").innerText = document.getElementById("ped1TXStatus").value;
+			document.getElementById("ped1TableDna").innerText = document.getElementById("ped1DnaDxStatus").value;
+			document.getElementById("ped1TableCadStat").innerText = document.getElementById("ped1CadStatus").value;
+
+			<!-- Pedigree 2's Dynamic Table-UserInput Values -->
+			document.getElementById("ped2TableGender").innerText = document.getElementById("ped2Gender").value;
+			document.getElementById("ped2TableTx").innerText = document.getElementById("ped2TXStatus").value;
+			document.getElementById("ped2TableDna").innerText = document.getElementById("ped2DnaDxStatus").value;
+			document.getElementById("ped2TableCadStat").innerText = document.getElementById("ped2CadStatus").value;
+
+			<!-- Pedigree 3's Dynamic Table-UserInput Values -->
+			document.getElementById("ped3TableGender").innerText = document.getElementById("ped3Gender").value;
+			document.getElementById("ped3TableTx").innerText = document.getElementById("ped3TXStatus").value;
+			document.getElementById("ped3TableDna").innerText = document.getElementById("ped3DnaDxStatus").value;
+			document.getElementById("ped3TableCadStat").innerText = document.getElementById("ped3CadStatus").value;
+
+			<!-- Pedigree 4's Dynamic Table-UserInput Values -->
+			document.getElementById("ped4TableGender").innerText = document.getElementById("ped4Gender").value;
+			document.getElementById("ped4TableTx").innerText = document.getElementById("ped4TXStatus").value;
+			document.getElementById("ped4TableDna").innerText = document.getElementById("ped4DnaDxStatus").value;
+			document.getElementById("ped4TableCadStat").innerText = document.getElementById("ped4CadStatus").value;
+
+			<!-- Pedigree 5's Dynamic Table-UserInput Values -->
+			document.getElementById("ped5TableGender").innerText = document.getElementById("ped5Gender").value;
+			document.getElementById("ped5TableTx").innerText = document.getElementById("ped5TXStatus").value;
+			document.getElementById("ped5TableDna").innerText = document.getElementById("ped5DnaDxStatus").value;
+			document.getElementById("ped5TableCadStat").innerText = document.getElementById("ped5CadStatus").value;
+
+			<!-- Pedigree 6's Dynamic Table-UserInput Values -->
+			document.getElementById("ped6TableGender").innerText = document.getElementById("ped6Gender").value;
+			document.getElementById("ped6TableTx").innerText = document.getElementById("ped6TXStatus").value;
+			document.getElementById("ped6TableDna").innerText = document.getElementById("ped6DnaDxStatus").value;
+			document.getElementById("ped6TableCadStat").innerText = document.getElementById("ped6CadStatus").value;
+
+			<!-- Pedigree 7's Dynamic Table-UserInput Values -->
+			document.getElementById("ped7TableGender").innerText = document.getElementById("ped7Gender").value;
+			document.getElementById("ped7TableTx").innerText = document.getElementById("ped7TXStatus").value;
+			document.getElementById("ped7TableDna").innerText = document.getElementById("ped7DnaDxStatus").value;
+			document.getElementById("ped7TableCadStat").innerText = document.getElementById("ped7CadStatus").value;
+
+			<!-- Pedigree 8's Dynamic Table-UserInput Values -->
+			document.getElementById("ped8TableGender").innerText = document.getElementById("ped8Gender").value;
+			document.getElementById("ped8TableTx").innerText = document.getElementById("ped8TXStatus").value;
+			document.getElementById("ped8TableDna").innerText = document.getElementById("ped8DnaDxStatus").value;
+			document.getElementById("ped8TableCadStat").innerText = document.getElementById("ped8CadStatus").value;
+
+			<!-- Pedigree 9's Dynamic Table-UserInput Values -->
+			document.getElementById("ped9TableGender").innerText = document.getElementById("ped9Gender").value;
+			document.getElementById("ped9TableTx").innerText = document.getElementById("ped9TXStatus").value;
+			document.getElementById("ped9TableDna").innerText = document.getElementById("ped9DnaDxStatus").value;
+			document.getElementById("ped9TableCadStat").innerText = document.getElementById("ped9CadStatus").value;
+
+		}
+	</script>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 			integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -791,6 +850,7 @@
 				},
 				dataType: "json"})
 		})
+
 	</script>
 
 	</body>
