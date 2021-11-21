@@ -1,4 +1,5 @@
 from flask import Blueprint, flash, g, redirect, render_template, request, url_for, jsonify, json, app
+from numpy import ndarray
 from scipy import stats
 import math
 import numpy as np
@@ -15,19 +16,13 @@ binary = np.array(binary)
 
 bp = Blueprint('calc', __name__)
 
-# @bp.route('/_results', methods = ['POST', 'GET'])
-# def results():
-#     a = request.args.get('a', 0, type = int)
-#     b = request.args.get('b', 0, type = int)
-#     result = jsonify(result = a + b)
-#     return render_template('calc/index.html', result = 1)
-
 @bp.route('/', methods = ['GET', 'POST'])
 def index():
 
     if request.method == "POST":
 
         form_data = request.form.get('results')
+        print(form_data)
 
         # printform_data = jsonify(form_data)
         # print(printform_data)
@@ -60,6 +55,7 @@ def index():
         ped1cadage = int(request.form.get("ped1CadAge"))
         ped1tx = int(request.form.get("ped1TXStatus"))
         ped1dna = int(request.form.get("ped1DnaDxStatus"))
+        ped1fhprob = float(request.form.get("ped1FhProb"))
         # print("Pedigree 1 Test Attributes -\nAge: ", ped1age, "Dtype: ", type(ped1age),
         #       "\nGender: ", ped1gender, "Dtype: ", type(ped1gender), "\nLDL: ", ped1ldlc, "Dtype: ", type(ped1ldlc),
         #       "\nTOTC: ", ped1totc, "Dtype: ", type(ped1totc), "\nTX: ", ped1tx, "Dtype: ", type(ped1tx),
@@ -75,6 +71,7 @@ def index():
         ped2cadage = int(request.form.get("ped2CadAge"))
         ped2tx = int(request.form.get("ped2TXStatus"))
         ped2dna = int(request.form.get("ped2DnaDxStatus"))
+        ped2fhprob = float(request.form.get("ped2FhProb"))
         # print("\n\nPedigree 2 Test Attributes -\nAge: ", ped2age, "Dtype: ", type(ped2age),
         #       "\nGender: ", ped2gender, "Dtype: ", type(ped2gender), "\nLDL: ", ped2ldlc, "Dtype: ", type(ped2ldlc),
         #       "\nTOTC: ", ped2totc, "Dtype: ", type(ped2totc), "\nTX: ", ped2tx, "Dtype: ", type(ped2tx),
@@ -90,6 +87,7 @@ def index():
         ped3cadage = int(request.form.get("ped3CadAge"))
         ped3tx = int(request.form.get("ped3TXStatus"))
         ped3dna = int(request.form.get("ped3DnaDxStatus"))
+        ped3fhprob = float(request.form.get("ped3FhProb"))
         # print("\n\nPedigree 3 Test Attributes -\nAge: ", ped3age, " Dtype:", type(ped3age),
         #       "\nGender:", ped3gender, " Dtype:", type(ped3gender), "\nLDL:", ped3ldlc, " Dtype:", type(ped3ldlc),
         #       "\nTOTC:", ped3totc, " Dtype:", type(ped3totc), "\nTX:", ped3tx, " Dtype:", type(ped3tx),
@@ -105,6 +103,7 @@ def index():
         ped4cadage = int(request.form.get("ped4CadAge"))
         ped4tx = int(request.form.get("ped4TXStatus"))
         ped4dna = int(request.form.get("ped4DnaDxStatus"))
+        ped4fhprob = float(request.form.get("ped4FhProb"))
         # print("\n\nPedigree 4 Test Attributes -\nAge: ", ped4age, " Dtype:", type(ped4age),
         #       "\nGender:", ped4gender, " Dtype:", type(ped4gender), "\nLDL:", ped4ldlc, " Dtype:", type(ped4ldlc),
         #       "\nTOTC:", ped4totc, " Dtype:", type(ped4totc), "\nTX:", ped4tx, " Dtype:", type(ped4tx),
@@ -120,6 +119,7 @@ def index():
         ped5cadage = int(request.form.get("ped5CadAge"))
         ped5tx = int(request.form.get("ped5TXStatus"))
         ped5dna = int(request.form.get("ped5DnaDxStatus"))
+        ped5fhprob = float(request.form.get("ped5FhProb"))
         # print("\n\nPedigree 5 Test Attributes -\nAge: ", ped5age, " Dtype:", type(ped5age),
         #       "\nGender:", ped5gender, " Dtype:", type(ped5gender), "\nLDL:", ped5ldlc, " Dtype:", type(ped5ldlc),
         #       "\nTOTC:", ped5totc, " Dtype:", type(ped5totc), "\nTX:", ped5tx, " Dtype:", type(ped5tx),
@@ -135,6 +135,7 @@ def index():
         ped6cadage = int(request.form.get("ped6CadAge"))
         ped6tx = int(request.form.get("ped6TXStatus"))
         ped6dna = int(request.form.get("ped6DnaDxStatus"))
+        ped6fhprob = float(request.form.get("ped6FhProb"))
         # print("\n\nPedigree 6 Test Attributes -\nAge: ", ped6age, " Dtype:", type(ped6age),
         #       "\nGender:", ped6gender, " Dtype:", type(ped6gender), "\nLDL:", ped6ldlc, " Dtype:", type(ped6ldlc),
         #       "\nTOTC:", ped6totc, " Dtype:", type(ped6totc), "\nTX:", ped6tx, " Dtype:", type(ped6tx),
@@ -150,6 +151,7 @@ def index():
         ped7cadage = int(request.form.get("ped7CadAge"))
         ped7tx = int(request.form.get("ped7TXStatus"))
         ped7dna = int(request.form.get("ped7DnaDxStatus"))
+        ped7fhprob = float(request.form.get("ped7FhProb"))
         # print("\n\nPedigree 7 Test Attributes -\nAge: ", ped7age, " Dtype:", type(ped7age),
         #       "\nGender:", ped7gender, " Dtype:", type(ped7gender), "\nLDL:", ped7ldlc, " Dtype:", type(ped7ldlc),
         #       "\nTOTC:", ped7totc, " Dtype:", type(ped7totc), "\nTX:", ped7tx, " Dtype:", type(ped7tx),
@@ -165,6 +167,7 @@ def index():
         ped8cadage = int(request.form.get("ped8CadAge"))
         ped8tx = int(request.form.get("ped8TXStatus"))
         ped8dna = int(request.form.get("ped8DnaDxStatus"))
+        ped8fhprob = float(request.form.get("ped8FhProb"))
         # print("\n\nPedigree 8 Test Attributes -\nAge: ", ped8age, " Dtype:", type(ped8age),
         #       "\nGender:", ped8gender, " Dtype:", type(ped8gender), "\nLDL:", ped8ldlc, " Dtype:", type(ped8ldlc),
         #       "\nTOTC:", ped8totc, " Dtype:", type(ped8totc), "\nTX:", ped8tx, " Dtype:", type(ped8tx),
@@ -180,11 +183,14 @@ def index():
         ped9cadage = int(request.form.get("ped9CadAge"))
         ped9tx = int(request.form.get("ped9TXStatus"))
         ped9dna = int(request.form.get("ped9DnaDxStatus"))
+        ped9fhprob = float(request.form.get("ped9FhProb"))
         # print("\n\nPedigree 9 Test Attributes -\nAge: ", ped9age, " Dtype:", type(ped9age),
         #       "\nGender:", ped9gender, " Dtype:", type(ped9gender), "\nLDL:", ped9ldlc, " Dtype:", type(ped9ldlc),
         #       "\nTOTC:", ped9totc, " Dtype:", type(ped9totc), "\nTX:", ped9tx, " Dtype:", type(ped9tx),
         #       "\nCAD-Status:", ped9cadstat, " Dtype:", type(ped9cadstat)
         #       , "\nCAD-AGE:", ped9cadage, " Dtype", type(ped9cadage), "\nDNA-DX:", ped9dna, " Dtype:", type(ped9dna))
+
+        pedFamFh = float(request.form.get("pedFamProb"))
 
         ## ADDING ALL INPUT DATA TO A PANDAS DATAFRAME FOR PROCESSING
         pinput = pd.DataFrame(
@@ -1535,70 +1541,88 @@ def index():
         person7sum = person7stuff()
         person8sum = person8stuff()
         person9sum = person9stuff()
-        person1prob = person1sum.div(stringsum) * 100
 
-        print(f"Person 1 Likelihood: {person1prob.iloc[0, 0]}%")
+        ped1fhprob = person1sum.div(stringsum) * 100
+        fh1prob = ped1fhprob.iloc[0, 0]
+        # print(f"Person 1 Likelihood: {person1prob.iloc[0, 0]}%")
 
-        person2prob = person2sum.div(stringsum) * 100
-        print(f"Person 2 Likelihood: {person2prob.iloc[0, 0]}%")
+        ped2fhprob = person2sum.div(stringsum) * 100
+        fh2prob = ped2fhprob.iloc[0, 0]
+        # print(f"Person 2 Likelihood: {person2prob.iloc[0, 0]}%")
 
-        person3prob = person3sum.div(stringsum) * 100
-        print(f"Person 3 Likelihood: {person3prob.iloc[0, 0]}%")
+        ped3fhprob = person3sum.div(stringsum) * 100
+        fh3prob = ped3fhprob.iloc[0, 0]
+        # print(f"Person 3 Likelihood: {person3prob.iloc[0, 0]}%")
 
-        person4prob = person4sum.div(stringsum) * 100
-        print(f"Person 4 Likelihood: {person4prob.iloc[0, 0]}%")
+        ped4fhprob = person4sum.div(stringsum) * 100
+        fh4prob = ped4fhprob.iloc[0, 0]
+        # print(f"Person 4 Likelihood: {person4prob.iloc[0, 0]}%")
 
-        person5prob = person5sum.div(stringsum) * 100
-        print(f"Person 5 Likelihood: {person5prob.iloc[0, 0]}%")
+        ped5fhprob = person5sum.div(stringsum) * 100
+        fh5prob = ped5fhprob.iloc[0, 0]
+        # print(f"Person 5 Likelihood: {person5prob.iloc[0, 0]}%")
 
-        person6prob = person6sum.div(stringsum) * 100
-        print(f"Person 6 Likelihood: {person6prob.iloc[0, 0]}%")
+        ped6fhprob = person6sum.div(stringsum) * 100
+        fh6prob = ped6fhprob.iloc[0, 0]
+        # print(f"Person 6 Likelihood: {person6prob.iloc[0, 0]}%")
 
-        person7prob = person7sum.div(stringsum) * 100
-        print(f"Person 7 Likelihood: {person7prob.iloc[0, 0]}%")
+        ped7fhprob = person7sum.div(stringsum) * 100
+        fh7prob = ped7fhprob.iloc[0, 0]
+        # print(f"Person 7 Likelihood: {person7prob.iloc[0, 0]}%")
 
-        person8prob = person8sum.div(stringsum) * 100
-        print(f"Person 8 Likelihood: {person8prob.iloc[0, 0]}%")
+        ped8fhprob = person8sum.div(stringsum) * 100
+        fh8prob = ped8fhprob.iloc[0, 0]
+        # print(f"Person 8 Likelihood: {person8prob.iloc[0, 0]}%")
 
-        person9prob = person9sum.div(stringsum) * 100
-        print(f"Person 9 Likelihood: {person9prob.iloc[0, 0]}%")
+        ped9fhprob = person9sum.div(stringsum) * 100
+        fh9prob = ped9fhprob.iloc[0, 0]
+
+        test = fh9prob
+        print(test)
+        # print(f"Person 9 Likelihood: {person9prob.iloc[0, 0]}%")
 
         familyprob = famsum.div(stringsum) * 100
-        print(f"Family Likelihood: {familyprob.iloc[0, 0]}%")
+        # print(f"Family Likelihood: {familyprob.iloc[0, 0]}%")
 
         dftable = pd.DataFrame(
-            columns=["Person", "Age", "LDL-C", "TOT-C", "Gender", "Clinical-CAD"
+            columns=["Pedigree Number ", "Age", "LDL-C", "TOT-C", "Gender", "Clinical-CAD"
                 , "CAD-Age", "TX-Status", "DNA-DX Status", "FH Probability"]
 
-            ,data=[[ "Person 1 - Grandmother on Parent 1's Side: ", ped1age, ped1ldlc, ped1totc, ped1gender
-                    , ped1cadstat, ped1cadage, ped1tx, ped1dna, person1prob ]
+            ,data=[[ "1 - Grandmother on Parent 1's Side", ped1age, ped1ldlc, ped1totc, ped1gender
+                    , ped1cadstat, ped1cadage, ped1tx, ped1dna, float(fh1prob)]
 
-                , [ "Person 2 - Grandfather on Parent 1's Side: ", ped2age, ped2ldlc, ped2totc, ped2gender
-                    , ped2cadstat, ped2cadage, ped2tx, ped2dna, person2prob ]
+                , [ "2 - Grandfather on Parent 1's Side", ped2age, ped2ldlc, ped2totc, ped2gender
+                    , ped2cadstat, ped2cadage, ped2tx, ped2dna, float(fh2prob) ]
 
-                , [ "Person 3 - Sibling of Parent 1: ", ped3age, ped3ldlc, ped3totc, ped3gender, ped3cadstat
-                    , ped3cadage, ped3tx, ped3dna, person3prob ]
+                , [ "3 - Sibling of Parent 1", ped3age, ped3ldlc, ped3totc, ped3gender, ped3cadstat
+                    , ped3cadage, ped3tx, ped3dna, float(fh3prob) ]
 
-                , [ "Person 4 - Second Sibling of Parent 1: ", ped4age, ped4ldlc, ped4totc, ped4gender, ped4cadstat
-                    , ped4cadage, ped4tx, ped4dna, person4prob ]
+                , [ "4 - Second Sibling of Parent 1", ped4age, ped4ldlc, ped4totc, ped4gender, ped4cadstat
+                    , ped4cadage, ped4tx, ped4dna, float(fh4prob) ]
 
-                , [ "Person 5 - Parent 1: ", ped5age, ped5ldlc, ped5totc, ped5gender, ped5cadstat
-                    , ped5cadage, ped5tx, ped5dna, person5prob ]
+                , [ "5 - Parent 1", ped5age, ped5ldlc, ped5totc, ped5gender, ped5cadstat
+                    , ped5cadage, ped5tx, ped5dna, float(fh5prob) ]
 
-                , [ "Person 6 - Parent 2: ", ped6age, ped6ldlc, ped6totc, ped6gender, ped6cadstat
-                    , ped6cadage, ped6tx, ped6dna, person6prob ]
+                , [ "6 - Parent 2", ped6age, ped6ldlc, ped6totc, ped6gender, ped6cadstat
+                    , ped6cadage, ped6tx, ped6dna, float(fh6prob) ]
 
-                , [ "Person 7 - Child 1 of Parent 1 & 2: ", ped7age, ped7ldlc, ped7totc, ped7gender, ped7cadstat
-                    , ped7cadage, ped7tx, ped7dna, person7prob ]
+                , [ "7 - Child 1 of Parent 1 & 2", ped7age, ped7ldlc, ped7totc, ped7gender, ped7cadstat
+                    , ped7cadage, ped7tx, ped7dna, float(fh7prob) ]
 
-                , [ "Person 8 - Child 2 of Parent 1 & 2: ", ped8age, ped8ldlc, ped8totc, ped8gender, ped8cadstat
-                    , ped8cadage, ped8tx, ped8dna, person8prob ]
+                , [ "8 - Child 2 of Parent 1 & 2", ped8age, ped8ldlc, ped8totc, ped8gender, ped8cadstat
+                    , ped8cadage, ped8tx, ped8dna, float(fh8prob) ]
 
-                , [ "Person 9 - Child 3 of Parent 1 & 2: ", ped9age, ped9ldlc, ped9totc, ped9gender, ped9cadstat
-                    , ped9cadage, ped9tx, ped9dna, person9prob ]])
+                , [ "9 - Child 3 of Parent 1 & 2", ped9age, ped9ldlc, ped9totc, ped9gender, ped9cadstat
+                    , ped9cadage, ped9tx, ped9dna, float(fh9prob) ]])
 
-        return render_template('calc/index.html', tables = [ dftable.to_html(classes='data') ]
-                               , titles = dftable.columns.values )
+        column_names = dftable.columns.values
+        row_data = list(dftable.values.tolist())
+
+
+        return render_template('calc/index.html',
+                               column_names = column_names,
+                               row_data = row_data,
+                               zip = zip)
 
     else:
         return render_template('calc/index.html')

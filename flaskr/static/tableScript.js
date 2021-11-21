@@ -105,8 +105,7 @@ function change(obj) {
 	}
 };
 
-function createTable(obj) {
-
+function createTable() {
 
 	// Age Values
 	var age1 = 0, age2 = 0, age3 = 0, age4 = 0, age5 = 0, age6 = 0, age7 = 0, age8 = 0, age9 = 0;
@@ -204,25 +203,66 @@ function createTable(obj) {
 	dna8 = parseFloat( document.getElementById("ped8DnaDxStatus").value );
 	dna9 = parseFloat( document.getElementById("ped9DnaDxStatus").value );
 
-	result = document.getElementById('tableHeader');
-	result.innerHTML = '<br><h3>Family PhenoType Information: </h3>';
+	// PERSON PROB VALUES
 
-	var array = [['Person Selection', 'Age', 'Gender', 'LDL Cholesterol', 'TOT-C Cholesterol', 'TX Status', 'CAD Status', 'CAD Onset Age', 'DNA-DX Status', '  ', 'FH Probability'],
-		["1 - Grandmother on Parent #1's Side", age1, gender1, ldl1, totc1, tx1, cadstat1, cadage1, dna1, '|', 'FH Prob %'],
-		["2 - Grandfather on Parent #1's Side", age2, gender2, ldl2, totc2, tx2, cadstat2, cadage2, dna2, '|', 'FH Prob %'],
-		["3 - Sibling of Parent 1", age3, gender3, ldl3, totc3, tx3, cadstat3, cadage3, dna3, '|', 'FH Prob %'],
-		["4 - Second Sibling of Parent 2", age4, gender4, ldl4, totc4, tx4, cadstat4, cadage4, dna4, '|', 'FH Prob %'],
-		["5 - Parent 1", age5, gender5, ldl5, totc5, tx5, cadstat5, cadage5, dna5, '|', 'FH Prob %'],
-		["6 - Parent 2", age6, gender6, ldl6, totc6, tx6, cadstat6, cadage6, dna6, '|', 'FH Prob %'],
-		["7 - Child 1 of Parent 1 & 2 ", age7, gender7, ldl7, totc7, tx7, cadstat7, cadage7, dna7, '|', 'FH Prob %'],
-		["8 - Child 2 of Parent 1 & 2", age8, gender8, ldl8, totc8, tx8, cadstat8, cadage8, dna8, '|', 'FH Prob %'],
-		["9 - Child 3 of Parent 1 & 2", age9, gender9, ldl9, totc9, tx9, cadstat9, cadage9, dna9, '|', 'FH Prob %']];
+	if (document.getElementById( "ped1FhProb") != null) {
+		var personprob1 = parseFloat( document.getElementById("ped1FhProb").item(0).innerHTML.obj.value );
+	}
+	if (document.getElementById( "ped2FhProb") != null) {
+		var personprob2 = parseFloat( document.getElementById("ped2FhProb").item(0).innerHTML.obj.value );
+	}
+	if (document.getElementById( "ped3FhProb") != null) {
+		var personprob3 = parseFloat( document.getElementById("ped3FhProb").item(0).innerHTML.obj.value );
+	}
+	if (document.getElementById( "ped4FhProb") != null) {
+		var personprob4 = parseFloat( document.getElementById("ped4FhProb").item(0).innerHTML.obj.value );
+	}
+	if (document.getElementById( "ped5FhProb") != null) {
+		var personprob5 = parseFloat( document.getElementById("ped5FhProb").item(0).innerHTML.obj.value );
+	}
+	if (document.getElementById( "ped6FhProb") != null) {
+		var personprob6 = parseFloat( document.getElementById("ped6FhProb").item(0).innerHTML.obj.value );
+	}
+	if (document.getElementById( "ped7FhProb") != null) {
+		var personprob7 = parseFloat( document.getElementById("ped7FhProb").item(0).innerHTML.obj.value );
+	}
+	if (document.getElementById( "ped8FhProb") != null) {
+		var personprob8 = parseFloat( document.getElementById("ped8FhProb").item(0).innerHTML.obj.value );
+	}
+	if (document.getElementById( "ped9FhProb") != null) {
+		var personprob9 = parseFloat( document.getElementById("ped9FhProb").item(0).innerHTML.obj.value );
+	}
+
+	// personprob1 = parseFloat(document.getElementsByTagName("ped1FhProb").item(0).innerHTML.obj.value );
+	// personprob2 = parseFloat(document.getElementsByTagName("ped2FhProb").item(0).innerHTML.obj.value );
+	// personprob3 = parseFloat(document.getElementsByTagName("ped3FhProb").item(0).innerHTML.obj.value );
+	// personprob4 = parseFloat(document.getElementsByTagName("ped4FhProb").item(0).innerHTML.obj.value );
+	// personprob5 = parseFloat(document.getElementsByTagName("ped5FhProb").item(0).innerHTML.obj.value );
+	// personprob6 = parseFloat(document.getElementsByTagName("ped6FhProb").item(0).innerHTML.obj.value );
+	// personprob7 = parseFloat(document.getElementsByTagName("ped7FhProb").item(0).innerHTML.obj.value );
+	// personprob8 = parseFloat(document.getElementsByTagName("ped8FhProb").item(0).innerHTML.obj.value );
+	// personprob9 = parseFloat(document.getElementsByTagName("ped9FhProb").item(0).innerHTML.obj.value );
+
+	result = document.getElementById('tableHeader');
+	result.innerHTML = '<h3>Family PhenoType Information: </h3>';
+
+	var array = [["Person", 'Age', 'Gender', 'LDL Cholesterol', 'TOT-C Cholesterol', 'TX Status', 'CAD Status', 'CAD Onset Age', 'DNA-DX Status', 'FH Probability'],
+		["1 - Grandmother on Parent 1's Side", age1, gender1, ldl1, totc1, tx1, cadstat1, cadage1, dna1, personprob1],
+		["2 - Grandfather on Parent 1's Side", age2, gender2, ldl2, totc2, tx2, cadstat2, cadage2, dna2, personprob2],
+		["3 - Sibling of Parent 1", age3, gender3, ldl3, totc3, tx3, cadstat3, cadage3, dna3, personprob3],
+		["4 - Second Sibling of Parent 1", age4, gender4, ldl4, totc4, tx4, cadstat4, cadage4, dna4, personprob4],
+		["5 - Parent 1", age5, gender5, ldl5, totc5, tx5, cadstat5, cadage5, dna5, personprob5],
+		["6 - Parent 2", age6, gender6, ldl6, totc6, tx6, cadstat6, cadage6, dna6, personprob6],
+		["7 - Child 1 of Parent 1 & 2", age7, gender7, ldl7, totc7, tx7, cadstat7, cadage7, dna7, personprob7],
+		["8 - Child 2 of Parent 1 & 2", age8, gender8, ldl8, totc8, tx8, cadstat8, cadage8, dna8, personprob8],
+		["9 - Child 3 of Parent 1 & 2", age9, gender9, ldl9, totc9, tx9, cadstat9, cadage9, dna9,  personprob9]] ;
 
 	var tableData = array;
 
-	var table = document.getElementById('myDynamicTable');
-	table.setAttribute('id', 'myDynamicTable');
-	table.innerHTML = "";
+	var table = document.getElementById('createdTable');
+	table.setAttribute('id', 'createdTable');
+	// table.innerHTML = "";
+
 
 	var row = {};
 	var cell = {};
@@ -235,7 +275,9 @@ function createTable(obj) {
 		});
 	});
 
-	var famText = "";
-	famText = document.getElementById("familyProb");
-	famText.innerHTML = '<br><br><b>Family Pedigree FH Probability: <i>Insert % Prob Here</i></b>'
+	//
+	//
+	// var famText = "";
+	// famText = document.getElementById("familyProb");
+	// famText.innerHTML = '<br><br><b>Family Pedigree FH Probability: <i>Insert % Prob Here</i></b>'
 }

@@ -4,18 +4,24 @@ h4, h3{
 	margin: 0;
 	padding: 0;
 }
-table, th, td {
-	border: 1px solid black;
+table {
+	font-family: arial, sans-serif;
 	border-collapse: collapse;
-	width: auto;
+	width: 100%;
 }
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
 tr {
-	border: 1px solid #dfdfdf;
-	padding: 5px 5px 5px 5px;
+	width: 100%;
 }
-td {
-	padding: 5px 5px 5px 5px;
-	text-align: center;
+
+tr:nth-child(even) {
+	background-color: #dddddd;
 }
 
 table tr:first-child {
@@ -23,10 +29,31 @@ table tr:first-child {
 }
 
 table td:first-child {
-	text-align: left;
-}
 
-caption {
-	display: table-caption;
-	text-align: center;
 }
+/*table, th, td {*/
+/*	border: 1px solid black;*/
+/*	border-collapse: collapse;*/
+/*	width: auto;*/
+/*}*/
+/*tr {*/
+/*	border: 1px solid #dfdfdf;*/
+/*	padding: 5px 5px 5px 5px;*/
+/*}*/
+/*td {*/
+/*	padding: 5px 5px 5px 5px;*/
+/*	text-align: center;*/
+/*}*/
+
+/*table tr:first-child {*/
+/*	font-weight: bold;*/
+/*}*/
+
+/*table td:first-child {*/
+/*	text-align: left;*/
+/*}*/
+
+/*caption {*/
+/*	display: table-caption;*/
+/*	text-align: center;*/
+/*}*/
