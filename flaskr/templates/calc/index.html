@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-	  	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+	  	<meta name = "viewport" content = "width=device-width, initial-scale=1">
 	  	<script type = "text/javascript" src = "{{url_for('static', filename='tableScript.js') }}"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 			  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -13,35 +13,34 @@
 	<body>
 	<div class = "container-fluid">
 		<div class = "row">
-			<div id = "panel-title" class = "col-8">
+			<div id = "panel-title" class = "col-12">
 				<h1>FH Calculator</h1>
 			</div>
 		</div>
 		<br><br>
 		<div class = "row">
+			<!-- Pedigree Drop-down Selection for Further Input -- Start of Individual Member Input -->
 			<div class = "col-4">
-				<!-- Pedigree Drop-down Selection for Further Input -- Start of Individual Member Input -->
 				<div class = "form-group">
 					<div id = "pedigree-selection" class = "pedigree-selection">
-						<form action = "{{ url_for('index') }}" method = "POST" id = "results-form" name = "results-form">
-							<div class = "input-group-btn"><h4><b>Select Family Pedigree</b></h4>
-								<select name = "pedigreeChoice" id = "pedigreeChoice" class = "pedigreeChoice custom-select form-control" onchange = "change(this)">
-									<option value = "pedigree1">1 - Grandmother of Parent #1's Side</option>
-									<option value = "pedigree2">2 - Grandfather of Parent #1's Side</option>
-									<option value = "pedigree3">3 - Sibling of Parent 1</option>
-									<option value = "pedigree4">4 - Second Sibling of Parent 1</option>
-									<option value = "pedigree5">5 - Parent 1</option>
-									<option value = "pedigree6">6 - Parent 2</option>
-									<option value = "pedigree7">7 - Child 1 of Parent 1 & 2</option>
-									<option value = "pedigree8">8 - Child 2 of Parent 1 & 2</option>
-									<option value = "pedigree9">9 - Child 3 of Parent 1 & 2</option>
-								</select>
-							</div>
-							<br><br>
-						</form>
-					</div>
+					<form action = "{{ url_for('index') }}" method = "POST" id = "results-form" name = "results-form">
+						<div class = "input-group-btn"><h4><b>Select Family Pedigree</b></h4>
+							<select name = "pedigreeChoice" id = "pedigreeChoice" class = "pedigreeChoice custom-select form-control" onchange = "change(this)">
+								<option value = "pedigree1">1 - Grandmother of Parent #1's Side</option>
+								<option value = "pedigree2">2 - Grandfather of Parent #1's Side</option>
+								<option value = "pedigree3">3 - Sibling of Parent 1</option>
+								<option value = "pedigree4">4 - Second Sibling of Parent 1</option>
+								<option value = "pedigree5">5 - Parent 1</option>
+								<option value = "pedigree6">6 - Parent 2</option>
+								<option value = "pedigree7">7 - Child 1 of Parent 1 & 2</option>
+								<option value = "pedigree8">8 - Child 2 of Parent 1 & 2</option>
+								<option value = "pedigree9">9 - Child 3 of Parent 1 & 2</option>
+							</select>
+						</div>
+						<br><br>
+					</form>
 				</div>
-
+				</div>
 				<div class = "form-group">
 					<!-- Each Pedigree Members Respective Section of Form -->
 					<div id = "pedigree-attributes-all" class = "pedigree-attributes-all">
@@ -52,7 +51,7 @@
 								<!-- Pedigree 1 Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Patient Age</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Age at LDL-C or Total-C Test (youngest untreated or worst ever), or if LDL-C unknown then current age or age at death."><b>Patient Age</b></span>
 										<input type = "number" id = "ped1Age" name = "ped1Age" min = "0"  value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -71,7 +70,7 @@
 								<!-- Pedigree 1 LDL Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>LDL Cholesterol</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "If Unknown, leave at 0."><b>LDL Cholesterol</b></span>
 										<input type = "number" id = "ped1LDLChol" name = "ped1LDLChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -79,7 +78,7 @@
 								<!-- Pedigree 1 Total Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Total Cholesterol</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "If Unknown, leave at 0."><b>Total Cholesterol</b></span>
 										<input type = "number" id = "ped1TOTChol" name = "ped1TOTChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -87,7 +86,7 @@
 								<!-- Pedigree 1 Tendon Xanthoma Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Tendon Xanthoma Status</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Tendon Xanthoma (TX) Status. If Known & Present, value = 1. If Known and Negative, value = 0. Otherwise, if unknown, value = 9."><b>TX-Status</b></span>
 										<select name = "ped1TXStatus" id = "ped1TXStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative TX-Status</option>
 											<option value = "1">Known & Positive TX-Status</option>
@@ -99,7 +98,7 @@
 								<!-- Pedigree 1 Coronary Artery Disease (CAD) Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Status</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Coronary Artery Disease (CAD) Status. If Known & Present, value = 1. If Known and Negative, value = 0. Otherwise, if unknown, value = 9."><b>CAD-Status</b></span>
 										<select name = "ped1CadStatus" id = "ped1CadStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative CAD-Status</option>
 											<option value = "1">Known & Positive CAD-Status</option>
@@ -111,7 +110,7 @@
 								<!-- Pedigree 1 Coronary Artery Disease (CAD) Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Age</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Coronary Artery Disease (CAD) Age Onset. If CAD Status is Known & Positive, enter age CAD-diagnosis (if known)."><b>CAD Age Onset</b></span>
 										<input type = "number" id = "ped1CadAge" name = "ped1CadAge" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -119,7 +118,7 @@
 								<!-- Pedigree 1 DNA-DX Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>DNA DX Status</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "DNA Dx is assumed to not be present, unless otherwise indicated. Known & Present Value = 1, Known & Negative Value = 0, Unknown DNA Dx Status = 9."><b>DNA Dx Status</b></span>
 										<select name = "ped1DnaDxStatus" id = "ped1DnaDxStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative DNA-DX Status</option>
 											<option value = "1">Known & Positive DNA-DX Status</option>
@@ -136,7 +135,7 @@
 								<!-- Pedigree 2 Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Patient Age</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Age at LDL-C or Total-C Test (youngest untreated or worst ever), or if LDL-C unknown then current age or age at death."><b>Patient Age</b></span>
 										<input type = "number" id = "ped2Age" name = "ped2Age" min = "0"  value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -155,7 +154,7 @@
 								<!-- Pedigree 2 LDL Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>LDL Cholesterol</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "If Unknown, leave at 0."><b>LDL Cholesterol</b></span>
 										<input type = "number" id = "ped2LDLChol" name = "ped2LDLChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -163,7 +162,7 @@
 								<!-- Pedigree 2 Total Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Total Cholesterol</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "If Unknown, leave at 0."><b>Total Cholesterol</b></span>
 										<input type = "number" id = "ped2TOTChol" name = "ped2TOTChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -171,7 +170,7 @@
 								<!-- Pedigree 2 Tendon Xanthoma Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Tendon Xanthoma Status</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Tendon Xanthoma (TX) Status. If Known & Present, value = 1. If Known and Negative, value = 0. Otherwise, if unknown, value = 9."><b>TX-Status</b></span>
 										<select name = "ped2TXStatus" id = "ped2TXStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative TX-Status</option>
 											<option value = "1">Known & Positive TX-Status</option>
@@ -183,7 +182,7 @@
 								<!-- Pedigree 2 Coronary Artery Disease (CAD) Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Status</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Coronary Artery Disease (CAD) Status. If Known & Present, value = 1. If Known and Negative, value = 0. Otherwise, if unknown, value = 9."><b>CAD-Status</b></span>
 										<select name = "ped2CadStatus" id = "ped2CadStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative CAD-Status</option>
 											<option value = "1">Known & Positive CAD-Status</option>
@@ -195,7 +194,7 @@
 								<!-- Pedigree 2 Coronary Artery Disease (CAD) Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Age</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Coronary Artery Disease (CAD) Age Onset. If CAD Status is Known & Positive, enter age CAD-diagnosis (if known)."><b>CAD Age Onset</b></span>
 										<input type = "number" id = "ped2CadAge" name = "ped2CadAge" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -203,7 +202,7 @@
 								<!-- Pedigree 2 DNA-DX Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>DNA DX Status</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "DNA Dx is assumed to not be present, unless otherwise indicated. Known & Present Value = 1, Known & Negative Value = 0, Unknown DNA Dx Status = 9."><b>DNA Dx Status</b></span>
 										<select name = "ped2DnaDxStatus" id = "ped2DnaDxStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative DNA-DX Status</option>
 											<option value = "1">Known & Positive DNA-DX Status</option>
@@ -220,7 +219,7 @@
 								<!-- Pedigree 3 Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Patient Age</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Age at LDL-C or Total-C Test (youngest untreated or worst ever), or if LDL-C unknown then current age or age at death."><b>Patient Age</b></span>
 										<input type = "number" id = "ped3Age" name = "ped3Age" min = "0"  value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -239,7 +238,7 @@
 								<!-- Pedigree 3 LDL Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>LDL Cholesterol</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "If Unknown, leave at 0."><b>LDL Cholesterol</b></span>
 										<input type = "number" id = "ped3LDLChol" name = "ped3LDLChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -247,7 +246,7 @@
 								<!-- Pedigree 3 Total Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Total Cholesterol</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "If Unknown, leave at 0."><b>Total Cholesterol</b></span>
 										<input type = "number" id = "ped3TOTChol" name = "ped3TOTChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -255,7 +254,7 @@
 								<!-- Pedigree 3 Tendon Xanthoma Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Tendon Xanthoma Status</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Tendon Xanthoma (TX) Status. If Known & Present, value = 1. If Known and Negative, value = 0. Otherwise, if unknown, value = 9."><b>TX-Status</b></span>
 										<select name = "ped3TXStatus" id = "ped3TXStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative TX-Status</option>
 											<option value = "1">Known & Positive TX-Status</option>
@@ -267,7 +266,7 @@
 								<!-- Pedigree 3 Coronary Artery Disease (CAD) Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Status</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Coronary Artery Disease (CAD) Status. If Known & Present, value = 1. If Known and Negative, value = 0. Otherwise, if unknown, value = 9."><b>CAD-Status</b></span>
 										<select name = "ped3CadStatus" id = "ped3CadStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative CAD-Status</option>
 											<option value = "1">Known & Positive CAD-Status</option>
@@ -279,7 +278,7 @@
 								<!-- Pedigree 3 Coronary Artery Disease (CAD) Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Age</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Coronary Artery Disease (CAD) Age Onset. If CAD Status is Known & Positive, enter age CAD-diagnosis (if known)."><b>CAD Age Onset</b></span>
 										<input type = "number" id = "ped3CadAge" name = "ped3CadAge" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -287,7 +286,7 @@
 								<!-- Pedigree 3 DNA-DX Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>DNA DX Status</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "DNA Dx is assumed to not be present, unless otherwise indicated. Known & Present Value = 1, Known & Negative Value = 0, Unknown DNA Dx Status = 9."><b>DNA Dx Status</b></span>
 										<select name = "ped3DnaDxStatus" id = "ped3DnaDxStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative DNA-DX Status</option>
 											<option value = "1">Known & Positive DNA-DX Status</option>
@@ -304,7 +303,7 @@
 								<!-- Pedigree 4 Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Patient Age</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Age at LDL-C or Total-C Test (youngest untreated or worst ever), or if LDL-C unknown then current age or age at death."><b>Patient Age</b></span>
 										<input type = "number" id = "ped4Age" name = "ped4Age" min = "0"  value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -323,7 +322,7 @@
 								<!-- Pedigree 4 LDL Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>LDL Cholesterol</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "If Unknown, leave at 0."><b>LDL Cholesterol</b></span>
 										<input type = "number" id = "ped4LDLChol" name = "ped4LDLChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -331,7 +330,7 @@
 								<!-- Pedigree 4 Total Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Total Cholesterol</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "If Unknown, leave at 0."><b>Total Cholesterol</b></span>
 										<input type = "number" id = "ped4TOTChol" name = "ped4TOTChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -339,7 +338,7 @@
 								<!-- Pedigree 4 Tendon Xanthoma Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Tendon Xanthoma Status</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Tendon Xanthoma (TX) Status. If Known & Present, value = 1. If Known and Negative, value = 0. Otherwise, if unknown, value = 9."><b>TX-Status</b></span>
 										<select name = "ped4TXStatus" id = "ped4TXStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative TX-Status</option>
 											<option value = "1">Known & Positive TX-Status</option>
@@ -351,7 +350,7 @@
 								<!-- Pedigree 4 Coronary Artery Disease (CAD) Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Status</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Coronary Artery Disease (CAD) Status. If Known & Present, value = 1. If Known and Negative, value = 0. Otherwise, if unknown, value = 9."><b>CAD-Status</b></span>
 										<select name = "ped4CadStatus" id = "ped4CadStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative CAD-Status</option>
 											<option value = "1">Known & Positive CAD-Status</option>
@@ -363,7 +362,7 @@
 								<!-- Pedigree 4 Coronary Artery Disease (CAD) Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Age</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Coronary Artery Disease (CAD) Age Onset. If CAD Status is Known & Positive, enter age CAD-diagnosis (if known)."><b>CAD Age Onset</b></span>
 										<input type = "number" id = "ped4CadAge" name = "ped4CadAge" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -371,7 +370,7 @@
 								<!-- Pedigree 4 DNA-DX Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>DNA DX Status</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "DNA Dx is assumed to not be present, unless otherwise indicated. Known & Present Value = 1, Known & Negative Value = 0, Unknown DNA Dx Status = 9."><b>DNA Dx Status</b></span>
 										<select name = "ped4DnaDxStatus" id = "ped4DnaDxStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative DNA-DX Status</option>
 											<option value = "1">Known & Positive DNA-DX Status</option>
@@ -388,7 +387,7 @@
 								<!-- Pedigree 5 Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Patient Age</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Age at LDL-C or Total-C Test (youngest untreated or worst ever), or if LDL-C unknown then current age or age at death."><b>Patient Age</b></span>
 										<input type = "number" id = "ped5Age" name = "ped5Age" min = "0"  value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -407,7 +406,7 @@
 								<!-- Pedigree 5 LDL Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>LDL Cholesterol</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "If Unknown, leave at 0."><b>LDL Cholesterol</b></span>
 										<input type = "number" id = "ped5LDLChol" name = "ped5LDLChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -415,7 +414,7 @@
 								<!-- Pedigree 5 Total Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Total Cholesterol</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "If Unknown, leave at 0."><b>Total Cholesterol</b></span>
 										<input type = "number" id = "ped5TOTChol" name = "ped5TOTChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -423,7 +422,7 @@
 								<!-- Pedigree 5 Tendon Xanthoma Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Tendon Xanthoma Status</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Tendon Xanthoma (TX) Status. If Known & Present, value = 1. If Known and Negative, value = 0. Otherwise, if unknown, value = 9."><b>TX-Status</b></span>
 										<select name = "ped5TXStatus" id = "ped5TXStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative TX-Status</option>
 											<option value = "1">Known & Positive TX-Status</option>
@@ -435,7 +434,7 @@
 								<!-- Pedigree 5 Coronary Artery Disease (CAD) Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Status</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Coronary Artery Disease (CAD) Status. If Known & Present, value = 1. If Known and Negative, value = 0. Otherwise, if unknown, value = 9."><b>CAD-Status</b></span>
 										<select name = "ped5CadStatus" id = "ped5CadStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative CAD-Status</option>
 											<option value = "1">Known & Positive CAD-Status</option>
@@ -447,7 +446,7 @@
 								<!-- Pedigree 5 Coronary Artery Disease (CAD) Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Age</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Coronary Artery Disease (CAD) Age Onset. If CAD Status is Known & Positive, enter age CAD-diagnosis (if known)."><b>CAD Age Onset</b></span>
 										<input type = "number" id = "ped5CadAge" name = "ped5CadAge" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -455,7 +454,7 @@
 								<!-- Pedigree 5 DNA-DX Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>DNA DX Status</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "DNA Dx is assumed to not be present, unless otherwise indicated. Known & Present Value = 1, Known & Negative Value = 0, Unknown DNA Dx Status = 9."><b>DNA Dx Status</b></span>
 										<select name = "ped5DnaDxStatus" id = "ped5DnaDxStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative DNA-DX Status</option>
 											<option value = "1">Known & Positive DNA-DX Status</option>
@@ -472,7 +471,7 @@
 								<!-- Pedigree 6 Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Patient Age</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Age at LDL-C or Total-C Test (youngest untreated or worst ever), or if LDL-C unknown then current age or age at death."><b>Patient Age</b></span>
 										<input type = "number" id = "ped6Age" name = "ped6Age" min = "0"  value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -491,7 +490,7 @@
 								<!-- Pedigree 6 LDL Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>LDL Cholesterol</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "If Unknown, leave at 0."><b>LDL Cholesterol</b></span>
 										<input type = "number" id = "ped6LDLChol" name = "ped6LDLChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -499,7 +498,7 @@
 								<!-- Pedigree 6 Total Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Total Cholesterol</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "If Unknown, leave at 0."><b>Total Cholesterol</b></span>
 										<input type = "number" id = "ped6TOTChol" name = "ped6TOTChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -507,7 +506,7 @@
 								<!-- Pedigree 6 Tendon Xanthoma Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Tendon Xanthoma Status</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Tendon Xanthoma (TX) Status. If Known & Present, value = 1. If Known and Negative, value = 0. Otherwise, if unknown, value = 9."><b>TX-Status</b></span>
 										<select name = "ped6TXStatus" id = "ped6TXStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative TX-Status</option>
 											<option value = "1">Known & Positive TX-Status</option>
@@ -519,7 +518,7 @@
 								<!-- Pedigree 6 Coronary Artery Disease (CAD) Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Status</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Coronary Artery Disease (CAD) Status. If Known & Present, value = 1. If Known and Negative, value = 0. Otherwise, if unknown, value = 9."><b>CAD-Status</b></span>
 										<select name = "ped6CadStatus" id = "ped6CadStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative CAD-Status</option>
 											<option value = "1">Known & Positive CAD-Status</option>
@@ -531,7 +530,7 @@
 								<!-- Pedigree 6 Coronary Artery Disease (CAD) Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Age</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Coronary Artery Disease (CAD) Age Onset. If CAD Status is Known & Positive, enter age CAD-diagnosis (if known)."><b>CAD Age Onset</b></span>
 										<input type = "number" id = "ped6CadAge" name = "ped6CadAge" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -539,7 +538,7 @@
 								<!-- Pedigree 6 DNA-DX Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>DNA DX Status</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "DNA Dx is assumed to not be present, unless otherwise indicated. Known & Present Value = 1, Known & Negative Value = 0, Unknown DNA Dx Status = 9."><b>DNA Dx Status</b></span>
 										<select name = "ped6DnaDxStatus" id = "ped6DnaDxStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative DNA-DX Status</option>
 											<option value = "1">Known & Positive DNA-DX Status</option>
@@ -556,7 +555,7 @@
 								<!-- Pedigree 7 Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Patient Age</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Age at LDL-C or Total-C Test (youngest untreated or worst ever), or if LDL-C unknown then current age or age at death."><b>Patient Age</b></span>
 										<input type = "number" id = "ped7Age" name = "ped7Age" min = "0"  value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -575,7 +574,7 @@
 								<!-- Pedigree 7 LDL Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>LDL Cholesterol</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "If Unknown, leave at 0."><b>LDL Cholesterol</b></span>
 										<input type = "number" id = "ped7LDLChol" name = "ped7LDLChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -583,7 +582,7 @@
 								<!-- Pedigree 7 Total Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Total Cholesterol</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "If Unknown, leave at 0."><b>Total Cholesterol</b></span>
 										<input type = "number" id = "ped7TOTChol" name = "ped7TOTChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -591,7 +590,7 @@
 								<!-- Pedigree 7 Tendon Xanthoma Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Tendon Xanthoma Status</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Tendon Xanthoma (TX) Status. If Known & Present, value = 1. If Known and Negative, value = 0. Otherwise, if unknown, value = 9."><b>TX-Status</b></span>
 										<select name = "ped7TXStatus" id = "ped7TXStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative TX-Status</option>
 											<option value = "1">Known & Positive TX-Status</option>
@@ -603,7 +602,7 @@
 								<!-- Pedigree 7 Coronary Artery Disease (CAD) Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Status</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Coronary Artery Disease (CAD) Status. If Known & Present, value = 1. If Known and Negative, value = 0. Otherwise, if unknown, value = 9."><b>CAD-Status</b></span>
 										<select name = "ped7CadStatus" id = "ped7CadStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative CAD-Status</option>
 											<option value = "1">Known & Positive CAD-Status</option>
@@ -615,7 +614,7 @@
 								<!-- Pedigree 7 Coronary Artery Disease (CAD) Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Age</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Coronary Artery Disease (CAD) Age Onset. If CAD Status is Known & Positive, enter age CAD-diagnosis (if known)."><b>CAD Age Onset</b></span>
 										<input type = "number" id = "ped7CadAge" name = "ped7CadAge" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -623,7 +622,7 @@
 								<!-- Pedigree 7 DNA-DX Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>DNA DX Status</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "DNA Dx is assumed to not be present, unless otherwise indicated. Known & Present Value = 1, Known & Negative Value = 0, Unknown DNA Dx Status = 9."><b>DNA Dx Status</b></span>
 										<select name = "ped7DnaDxStatus" id = "ped7DnaDxStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative DNA-DX Status</option>
 											<option value = "1">Known & Positive DNA-DX Status</option>
@@ -640,7 +639,7 @@
 								<!-- Pedigree 8 Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Patient Age</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Age at LDL-C or Total-C Test (youngest untreated or worst ever), or if LDL-C unknown then current age or age at death."><b>Patient Age</b></span>
 										<input type = "number" id = "ped8Age" name = "ped8Age" min = "0"  value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -659,7 +658,7 @@
 								<!-- Pedigree 8 LDL Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>LDL Cholesterol</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "If Unknown, leave at 0."><b>LDL Cholesterol</b></span>
 										<input type = "number" id = "ped8LDLChol" name = "ped8LDLChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -667,7 +666,7 @@
 								<!-- Pedigree 8 Total Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Total Cholesterol</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "If Unknown, leave at 0."><b>Total Cholesterol</b></span>
 										<input type = "number" id = "ped8TOTChol" name = "ped8TOTChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -675,7 +674,7 @@
 								<!-- Pedigree 8 Tendon Xanthoma Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Tendon Xanthoma Status</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Tendon Xanthoma (TX) Status. If Known & Present, value = 1. If Known and Negative, value = 0. Otherwise, if unknown, value = 9."><b>TX-Status</b></span>
 										<select name = "ped8TXStatus" id = "ped8TXStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative TX-Status</option>
 											<option value = "1">Known & Positive TX-Status</option>
@@ -687,7 +686,7 @@
 								<!-- Pedigree 8 Coronary Artery Disease (CAD) Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Status</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Coronary Artery Disease (CAD) Status. If Known & Present, value = 1. If Known and Negative, value = 0. Otherwise, if unknown, value = 9."><b>CAD-Status</b></span>
 										<select name = "ped8CadStatus" id = "ped8CadStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative CAD-Status</option>
 											<option value = "1">Known & Positive CAD-Status</option>
@@ -699,7 +698,7 @@
 								<!-- Pedigree 8 Coronary Artery Disease (CAD) Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Age</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Coronary Artery Disease (CAD) Age Onset. If CAD Status is Known & Positive, enter age CAD-diagnosis (if known)."><b>CAD Age Onset</b></span>
 										<input type = "number" id = "ped8CadAge" name = "ped8CadAge" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -707,7 +706,7 @@
 								<!-- Pedigree 8 DNA-DX Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>DNA DX Status</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "DNA Dx is assumed to not be present, unless otherwise indicated. Known & Present Value = 1, Known & Negative Value = 0, Unknown DNA Dx Status = 9."><b>DNA Dx Status</b></span>
 										<select name = "ped8DnaDxStatus" id = "ped8DnaDxStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative DNA-DX Status</option>
 											<option value = "1">Known & Positive DNA-DX Status</option>
@@ -724,7 +723,7 @@
 								<!-- Pedigree 9 Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Patient Age</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Age at LDL-C or Total-C Test (youngest untreated or worst ever), or if LDL-C unknown then current age or age at death."><b>Patient Age</b></span>
 										<input type = "number" id = "ped9Age" name = "ped9Age" min = "0"  value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -743,7 +742,7 @@
 								<!-- Pedigree 9 LDL Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>LDL Cholesterol</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "If Unknown, leave at 0."><b>LDL Cholesterol</b></span>
 										<input type = "number" id = "ped9LDLChol" name = "ped9LDLChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -751,7 +750,7 @@
 								<!-- Pedigree 9 Total Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Total Cholesterol</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "If Unknown, leave at 0."><b>Total Cholesterol</b></span>
 										<input type = "number" id = "ped9TOTChol" name = "ped9TOTChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -759,7 +758,7 @@
 								<!-- Pedigree 9 Tendon Xanthoma Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Tendon Xanthoma Status</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Tendon Xanthoma (TX) Status. If Known & Present, value = 1. If Known and Negative, value = 0. Otherwise, if unknown, value = 9."><b>TX-Status</b></span>
 										<select name = "ped9TXStatus" id = "ped9TXStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative TX-Status</option>
 											<option value = "1">Known & Positive TX-Status</option>
@@ -771,7 +770,7 @@
 								<!-- Pedigree 9 Coronary Artery Disease (CAD) Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Status</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Coronary Artery Disease (CAD) Status. If Known & Present, value = 1. If Known and Negative, value = 0. Otherwise, if unknown, value = 9."><b>CAD-Status</b></span>
 										<select name = "ped9CadStatus" id = "ped9CadStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative CAD-Status</option>
 											<option value = "1">Known & Positive CAD-Status</option>
@@ -783,7 +782,7 @@
 								<!-- Pedigree 9 Coronary Artery Disease (CAD) Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Age</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "Coronary Artery Disease (CAD) Age Onset. If CAD Status is Known & Positive, enter age CAD-diagnosis (if known)."><b>CAD Age Onset</b></span>
 										<input type = "number" id = "ped9CadAge" name = "ped9CadAge" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -791,7 +790,7 @@
 								<!-- Pedigree 9 DNA-DX Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text"><b>DNA DX Status</b></span>
+										<span class = "input-group-text" data-toggle = "tooltip" title = "DNA Dx is assumed to not be present, unless otherwise indicated. Known & Present Value = 1, Known & Negative Value = 0, Unknown DNA Dx Status = 9."><b>DNA Dx Status</b></span>
 										<select name = "ped9DnaDxStatus" id = "ped9DnaDxStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative DNA-DX Status</option>
 											<option value = "1">Known & Positive DNA-DX Status</option>
@@ -806,10 +805,10 @@
 						</form>
 					</div>
 				</div>
-
-				<input type = "hidden" id = "pedFamProb" name = "pedFamProb" value = "0"><br>
-<!--				<button id = "button" value = "Generate Results" onclick = createTable() class = "btn btn-success"><b>Generate Results</b></button>-->
 			</div>
+
+			<input type = "hidden" id = "pedFamProb" name = "pedFamProb" value = "0"><br>
+<!--				<button id = "button" value = "Generate Results" onclick = createTable() class = "btn btn-success"><b>Generate Results</b></button>-->
 			<div class = "col-8">
 				<table id = "createdTable" class="table-bordered table-striped table-hover">
 					<tr id = "table-header">
@@ -1049,6 +1048,13 @@
 			document.getElementById("ped9TableFH").innerText = document.getElementById("ped9FhProb").innerText;
 
 		}
+	</script>
+
+	<script>
+		<!-- Addition of 'tooltip' function, which displays additional context on variables to users -->
+		$(document).ready( function() {
+			$('[data-toggle = "tooltip"]').tooltip();
+		});
 	</script>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

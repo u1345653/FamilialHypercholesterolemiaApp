@@ -6,17 +6,16 @@ h4, h3{
 }
 table {
 	font-family: arial, sans-serif;
-	border-collapse: collapse;
+	/*border-collapse: collapse;*/
 	width: 100%;
 }
 
 td, th {
 	border: 1px solid #dddddd;
-	text-align: left;
-	padding: 8px;
 }
 
 tr {
+	text-align: center;
 	width: 100%;
 }
 
@@ -28,32 +27,7 @@ table tr:first-child {
 	font-weight: bold;
 }
 
-table td:first-child {
-
+table caption {
+	display: table-caption;
+	text-align: center;
 }
-/*table, th, td {*/
-/*	border: 1px solid black;*/
-/*	border-collapse: collapse;*/
-/*	width: auto;*/
-/*}*/
-/*tr {*/
-/*	border: 1px solid #dfdfdf;*/
-/*	padding: 5px 5px 5px 5px;*/
-/*}*/
-/*td {*/
-/*	padding: 5px 5px 5px 5px;*/
-/*	text-align: center;*/
-/*}*/
-
-/*table tr:first-child {*/
-/*	font-weight: bold;*/
-/*}*/
-
-/*table td:first-child {*/
-/*	text-align: left;*/
-/*}*/
-
-/*caption {*/
-/*	display: table-caption;*/
-/*	text-align: center;*/
-/*}*/
