@@ -1,6 +1,6 @@
-from flask import Blueprint, flash, g, redirect, render_template, request, url_for, jsonify, json, app
-from numpy import ndarray
+from flask import render_template, request, url_for, jsonify
 from scipy import stats
+from flask import Flask
 import math
 import numpy as np
 from itertools import product
@@ -9,14 +9,13 @@ pd.set_option('display.max_rows', None)
 pd.set_option("display.max_columns", None)
 pd.set_option('precision', 0)
 
+app = Flask(__name__)
 
 #Create a Binary table
 binary = [i for i in product(range(2), repeat=9)]
 binary = np.array(binary)
 
-bp = Blueprint('calc', __name__)
-
-@bp.route('/', methods = ['GET', 'POST'])
+@app.route('/', methods = ['GET', 'POST'])
 def index():
 
     if request.method == "POST":
@@ -1587,3 +1586,6 @@ def index():
 
     else:
         return render_template('calc/index.html')
+
+if __name__ == "__main__":
+    app.run(debug = False)
