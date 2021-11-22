@@ -23,23 +23,23 @@
 			<div class = "col-4">
 				<div class = "form-group">
 					<div id = "pedigree-selection" class = "pedigree-selection">
-					<form action = "{{ url_for('index') }}" method = "POST" id = "results-form" name = "results-form">
-						<div class = "input-group-btn"><h4><b>Select Family Pedigree</b></h4>
-							<select name = "pedigreeChoice" id = "pedigreeChoice" class = "pedigreeChoice custom-select form-control" onchange = "change(this)">
-								<option value = "pedigree1">1 - Grandmother of Parent #1's Side</option>
-								<option value = "pedigree2">2 - Grandfather of Parent #1's Side</option>
-								<option value = "pedigree3">3 - Sibling of Parent 1</option>
-								<option value = "pedigree4">4 - Second Sibling of Parent 1</option>
-								<option value = "pedigree5">5 - Parent 1</option>
-								<option value = "pedigree6">6 - Parent 2</option>
-								<option value = "pedigree7">7 - Child 1 of Parent 1 & 2</option>
-								<option value = "pedigree8">8 - Child 2 of Parent 1 & 2</option>
-								<option value = "pedigree9">9 - Child 3 of Parent 1 & 2</option>
-							</select>
-						</div>
-						<br><br>
-					</form>
-				</div>
+						<form action = "{{ url_for('index') }}" method = "POST" id = "results-form" name = "results-form">
+							<div class = "input-group-btn"><h4><b>Select Family Pedigree</b></h4>
+								<select name = "pedigreeChoice" id = "pedigreeChoice" class = "pedigreeChoice custom-select form-control" onchange = "change(this)">
+									<option value = "pedigree1">1 - Grandmother of Parent #1's Side</option>
+									<option value = "pedigree2">2 - Grandfather of Parent #1's Side</option>
+									<option value = "pedigree3">3 - Sibling of Parent 1</option>
+									<option value = "pedigree4">4 - Second Sibling of Parent 1</option>
+									<option value = "pedigree5">5 - Parent 1</option>
+									<option value = "pedigree6">6 - Parent 2</option>
+									<option value = "pedigree7">7 - Child 1 of Parent 1 & 2</option>
+									<option value = "pedigree8">8 - Child 2 of Parent 1 & 2</option>
+									<option value = "pedigree9">9 - Child 3 of Parent 1 & 2</option>
+								</select>
+							</div>
+							<br>
+						</form>
+					</div>
 				</div>
 				<div class = "form-group">
 					<!-- Each Pedigree Members Respective Section of Form -->
@@ -127,7 +127,7 @@
 									</div>
 								</div>
 								<!-- HIDDEN ATTRIBUTE: Pedigree 1 Holding Patient's FH-Probability Value -->
-								<input type = "hidden" id = "ped1FhProb" name = "ped1FhProb" value = "{{ fh1prob }}">
+								<input type = "hidden" id = "ped1FhProb" name = "ped1FhProb">
 							</div>
 							<!--Pedigree 2 (Grandfather on Parent 1 Side) Form Input -->
 							<div id = "ped2Attributes" class = "pedigreeAttributes" style = "display:none">
@@ -801,15 +801,16 @@
 								<!-- HIDDEN ATTRIBUTE: Pedigree 9 Holding Patient's FH-Probability Value -->
 								<input type = "hidden" id = "ped9FhProb" name = "ped9FhProb" value = "{{ fh9prob }}">
 							</div>
-							<button id = "button" value = "Generate Results" onclick = createTable() class = "btn btn-success"><b>Generate Results</b></button>
+							<button id = "button" value = "Generate Results" class = "btn btn-success"><b>Generate Results</b></button>
 						</form>
 					</div>
 				</div>
 			</div>
 
-			<input type = "hidden" id = "pedFamProb" name = "pedFamProb" value = "0"><br>
+			<input type = "hidden" id = "pedFamProb" name = "pedFamProb" value = "{{ fhfamprob }}"><br>
 <!--				<button id = "button" value = "Generate Results" onclick = createTable() class = "btn btn-success"><b>Generate Results</b></button>-->
 			<div class = "col-8">
+				<caption rel="stylesheet">Family Pedigree FH Probability: <b>{{ fhfamprob }}%</b></caption>
 				<table id = "createdTable" class="table-bordered table-striped table-hover">
 					<tr id = "table-header">
 						<th>Person</th>
@@ -826,118 +827,118 @@
 
 					<tr id = "row-1">
 						<td>Person 1</td>
-						<td id = "ped1TableAge"> 0 </td>
-						<td id = "ped1TableGender"> 0 </td>
-						<td id = "ped1TableLDL"> 0 </td>
-						<td id = "ped1TableTotc"> 0 </td>
-						<td id = "ped1TableTx"> 0 </td>
-						<td id = "ped1TableCadStat">0</td>
-						<td id = "ped1TableCadAge"> 0 </td>
-						<td id = "ped1TableDna"> 0 </td>
-						<td id = "ped1TableFH">{{ fh1prob }}</td>
+						<td id = "ped1TableAge"> {{ ped1age }} </td>
+						<td id = "ped1TableGender"> {{ ped1gender }} </td>
+						<td id = "ped1TableLDL"> {{ ped1ldlc }} </td>
+						<td id = "ped1TableTotc"> {{ ped1totc }} </td>
+						<td id = "ped1TableTx"> {{ ped1tx }} </td>
+						<td id = "ped1TableCadStat">{{ ped1cadstat }}</td>
+						<td id = "ped1TableCadAge"> {{ ped1cadage }} </td>
+						<td id = "ped1TableDna"> {{ ped1dna }} </td>
+						<td id = " ped1TableFH "> {{ fh1prob }} </td>
 					</tr>
 
 					<tr id = "row-2">
 						<td>Person 2</td>
-						<td id = "ped2TableAge"> 0 </td>
-						<td id = "ped2TableGender"> 0 </td>
-						<td id = "ped2TableLDL"> 0 </td>
-						<td id = "ped2TableTotc"> 0 </td>
-						<td id = "ped2TableTx"> 0 </td>
-						<td id = "ped2TableCadStat"> 0 </td>
-						<td id = "ped2TableCadAge"> 0 </td>
-						<td id = "ped2TableDna"> 0 </td>
+						<td id = "ped2TableAge"> {{ ped2age }} </td>
+						<td id = "ped2TableGender"> {{ ped2gender }} </td>
+						<td id = "ped2TableLDL"> {{ ped2ldlc }} </td>
+						<td id = "ped2TableTotc"> {{ ped2totc }} </td>
+						<td id = "ped2TableTx"> {{ ped2tx }} </td>
+						<td id = "ped2TableCadStat"> {{ ped2cadstat }} </td>
+						<td id = "ped2TableCadAge"> {{ ped2cadage }} </td>
+						<td id = "ped2TableDna"> {{ ped2dna }} </td>
 						<td id = "ped2TableFH"> {{ fh2prob }} </td>
 					</tr>
 
 					<tr id = "row-3">
 						<td>Person 3</td>
-						<td id = "ped3TableAge"> 0 </td>
-						<td id = "ped3TableGender"> 0 </td>
-						<td id = "ped3TableLDL"> 0 </td>
-						<td id = "ped3TableTotc"> 0 </td>
-						<td id = "ped3TableTx"> 0 </td>
-						<td id = "ped3TableCadStat"> 0 </td>
-						<td id = "ped3TableCadAge"> 0 </td>
-						<td id = "ped3TableDna"> 0 </td>
+						<td id = "ped3TableAge"> {{ ped3age }} </td>
+						<td id = "ped3TableGender"> {{ ped3gender }} </td>
+						<td id = "ped3TableLDL"> {{ ped3ldlc }} </td>
+						<td id = "ped3TableTotc"> {{ ped3totc }} </td>
+						<td id = "ped3TableTx"> {{ ped3tx }} </td>
+						<td id = "ped3TableCadStat"> {{ ped3cadstat }} </td>
+						<td id = "ped3TableCadAge"> {{ ped3cadage }} </td>
+						<td id = "ped3TableDna"> {{ ped3dna }} </td>
 						<td id = "ped3TableFH"> {{ fh3prob }} </td>
 					</tr>
 
 					<tr id = "row-4">
 						<td>Person 4</td>
-						<td id = "ped4TableAge"> 0 </td>
-						<td id = "ped4TableGender"> 0 </td>
-						<td id = "ped4TableLDL"> 0 </td>
-						<td id = "ped4TableTotc"> 0 </td>
-						<td id = "ped4TableTx"> 0 </td>
-						<td id = "ped4TableCadStat"> 0 </td>
-						<td id = "ped4TableCadAge"> 0 </td>
-						<td id = "ped4TableDna"> 0 </td>
+						<td id = "ped4TableAge"> {{ ped4age }} </td>
+						<td id = "ped4TableGender"> {{ ped4gender }} </td>
+						<td id = "ped4TableLDL"> {{ ped4ldlc }} </td>
+						<td id = "ped4TableTotc"> {{ ped4totc }} </td>
+						<td id = "ped4TableTx"> {{ ped4tx }} </td>
+						<td id = "ped4TableCadStat"> {{ ped4cadstat }} </td>
+						<td id = "ped4TableCadAge"> {{ ped4cadage }} </td>
+						<td id = "ped4TableDna"> {{ ped4dna }} </td>
 						<td id = "ped4TableFH"> {{ fh4prob }} </td>
 					</tr>
 
 					<tr id = "row-5">
 						<td>Person 5</td>
-						<td id = "ped5TableAge"> 0 </td>
-						<td id = "ped5TableGender"> 0 </td>
-						<td id = "ped5TableLDL"> 0 </td>
-						<td id = "ped5TableTotc"> 0 </td>
-						<td id = "ped5TableTx"> 0 </td>
-						<td id = "ped5TableCadStat"> 0 </td>
-						<td id = "ped5TableCadAge"> 0 </td>
-						<td id = "ped5TableDna"> 0 </td>
+						<td id = "ped5TableAge"> {{ ped5age }} </td>
+						<td id = "ped5TableGender"> {{ ped5gender }} </td>
+						<td id = "ped5TableLDL"> {{ ped5ldlc }} </td>
+						<td id = "ped5TableTotc"> {{ ped5totc }} </td>
+						<td id = "ped5TableTx"> {{ ped5tx }} </td>
+						<td id = "ped5TableCadStat"> {{ ped5cadstat }} </td>
+						<td id = "ped5TableCadAge"> {{ ped5cadage }} </td>
+						<td id = "ped5TableDna"> {{ ped5dna }} </td>
 						<td id = "ped5TableFH"> {{ fh5prob }} </td>
 					</tr>
 
 					<tr id = "row-6">
 						<td>Person 6</td>
-						<td id = "ped6TableAge"> 0 </td>
-						<td id = "ped6TableGender"> 0 </td>
-						<td id = "ped6TableLDL"> 0 </td>
-						<td id = "ped6TableTotc"> 0 </td>
-						<td id = "ped6TableTx"> 0 </td>
-						<td id = "ped6TableCadStat"> 0 </td>
-						<td id = "ped6TableCadAge"> 0 </td>
-						<td id = "ped6TableDna"> 0 </td>
+						<td id = "ped6TableAge"> {{ ped6age }} </td>
+						<td id = "ped6TableGender"> {{ ped6gender }} </td>
+						<td id = "ped6TableLDL"> {{ ped6ldlc }} </td>
+						<td id = "ped6TableTotc"> {{ ped6totc }} </td>
+						<td id = "ped6TableTx"> {{ ped6tx }} </td>
+						<td id = "ped6TableCadStat"> {{ ped6cadstat }} </td>
+						<td id = "ped6TableCadAge"> {{ ped6cadage }} </td>
+						<td id = "ped6TableDna"> {{ ped6dna }} </td>
 						<td id = "ped6TableFH"> {{ fh6prob }} </td>
 					</tr>
 
 					<tr id = "row-7">
 						<td>Person 7</td>
-						<td id = "ped7TableAge"> 0 </td>
-						<td id = "ped7TableGender"> 0 </td>
-						<td id = "ped7TableLDL"> 0 </td>
-						<td id = "ped7TableTotc"> 0 </td>
-						<td id = "ped7TableTx"> 0 </td>
-						<td id = "ped7TableCadStat"> 0 </td>
-						<td id = "ped7TableCadAge"> 0 </td>
-						<td id = "ped7TableDna"> 0 </td>
+						<td id = "ped7TableAge"> {{ ped7age }} </td>
+						<td id = "ped7TableGender"> {{ ped7gender }} </td>
+						<td id = "ped7TableLDL"> {{ ped7ldlc }} </td>
+						<td id = "ped7TableTotc"> {{ped7totc }} </td>
+						<td id = "ped7TableTx"> {{ ped7tx }} </td>
+						<td id = "ped7TableCadStat"> {{ ped7cadstat }} </td>
+						<td id = "ped7TableCadAge"> {{ ped7cadage }} </td>
+						<td id = "ped7TableDna"> {{ ped7dna }} </td>
 						<td id = "ped7TableFH"> {{ fh7prob }}</td>
 					</tr>
 
 					<tr id = "row-8">
 						<td>Person 8</td>
-						<td id = "ped8TableAge"> 0 </td>
-						<td id = "ped8TableGender"> 0 </td>
-						<td id = "ped8TableLDL"> 0 </td>
-						<td id = "ped8TableTotc"> 0 </td>
-						<td id = "ped8TableTx"> 0 </td>
-						<td id = "ped8TableCadStat"> 0 </td>
-						<td id = "ped8TableCadAge"> 0 </td>
-						<td id = "ped8TableDna"> 0 </td>
+						<td id = "ped8TableAge"> {{ ped8age }} </td>
+						<td id = "ped8TableGender"> {{ ped8gender }} </td>
+						<td id = "ped8TableLDL"> {{ ped8ldlc }} </td>
+						<td id = "ped8TableTotc"> {{ ped8totc }} </td>
+						<td id = "ped8TableTx"> {{ ped8tx }} </td>
+						<td id = "ped8TableCadStat"> {{ ped8cadstat }} </td>
+						<td id = "ped8TableCadAge"> {{ ped8cadage }} </td>
+						<td id = "ped8TableDna"> {{ ped8dna }} </td>
 						<td id = "ped8TableFH"> {{ fh8prob }} </td>
 					</tr>
 
 					<tr id = "row-9">
 						<td>Person 9</td>
-						<td id = "ped9TableAge"> 0 </td>
-						<td id = "ped9TableGender"> 0 </td>
-						<td id = "ped9TableLDL"> 0 </td>
-						<td id = "ped9TableTotc"> 0 </td>
-						<td id = "ped9TableTx"> 0 </td>
-						<td id = "ped9TableCadStat"> 0 </td>
-						<td id = "ped9TableCadAge"> 0 </td>
-						<td id = "ped9TableDna"> 0 </td>
+						<td id = "ped9TableAge"> {{ ped9age }} </td>
+						<td id = "ped9TableGender"> {{ ped9gender }} </td>
+						<td id = "ped9TableLDL"> {{ ped9ldlc }} </td>
+						<td id = "ped9TableTotc"> {{ ped9totc }} </td>
+						<td id = "ped9TableTx"> {{ ped9tx }} </td>
+						<td id = "ped9TableCadStat"> {{ ped9cadstat }} </td>
+						<td id = "ped9TableCadAge"> {{ ped9cadage }} </td>
+						<td id = "ped9TableDna"> {{ ped9dna }} </td>
 						<td id = "ped9TableFH"> {{ fh9prob }} </td>
 					</tr>
 				</table>
@@ -947,7 +948,8 @@
 	<br>
 
 	<script>
-		function updateTableVal() {
+		function updateTableVal(obj) {
+
 			<!-- Pedigree 1's Dynamic Table-UserInput Values -->
 			document.getElementById("ped1TableAge").innerText = document.getElementById("ped1Age").value;
 			document.getElementById("ped1TableGender").innerText = document.getElementById("ped1Gender").value;
@@ -957,7 +959,6 @@
 			document.getElementById("ped1TableDna").innerText = document.getElementById("ped1DnaDxStatus").value;
 			document.getElementById("ped1TableCadStat").innerText = document.getElementById("ped1CadStatus").value;
 			document.getElementById("ped1TableCadAge").innerText = document.getElementById("ped1CadAge").value;
-			document.getElementById("ped1TableFH").innerText = document.getElementById("ped1FhProb").innerText;
 
 			<!-- Pedigree 2's Dynamic Table-UserInput Values -->
 			document.getElementById("ped2TableAge").innerText = document.getElementById("ped2Age").value;
@@ -968,7 +969,6 @@
 			document.getElementById("ped2TableDna").innerText = document.getElementById("ped2DnaDxStatus").value;
 			document.getElementById("ped2TableCadStat").innerText = document.getElementById("ped2CadStatus").value;
 			document.getElementById("ped2TableCadAge").innerText = document.getElementById("ped2CadAge").value;
-			document.getElementById("ped2TableFH").innerText = document.getElementById("ped2FhProb").innerText;
 
 			<!-- Pedigree 3's Dynamic Table-UserInput Values -->
 			document.getElementById("ped3TableAge").innerText = document.getElementById("ped3Age").value;
@@ -979,7 +979,6 @@
 			document.getElementById("ped3TableDna").innerText = document.getElementById("ped3DnaDxStatus").value;
 			document.getElementById("ped3TableCadStat").innerText = document.getElementById("ped3CadStatus").value;
 			document.getElementById("ped3TableCadAge").innerText = document.getElementById("ped3CadAge").value;
-			document.getElementById("ped3TableFH").innerText = document.getElementById("ped3FhProb").innerText;
 
 			<!-- Pedigree 4's Dynamic Table-UserInput Values -->
 			document.getElementById("ped4TableGender").innerText = document.getElementById("ped4Gender").value;
@@ -990,7 +989,6 @@
 			document.getElementById("ped4TableLDL").innerText = document.getElementById("ped4LDLChol").value;
 			document.getElementById("ped4TableTotc").innerText = document.getElementById("ped4TOTChol").value;
 			document.getElementById("ped4TableCadAge").innerText = document.getElementById("ped4CadAge").value;
-			document.getElementById("ped4TableFH").innerText = document.getElementById("ped4FhProb").innerText;
 
 			<!-- Pedigree 5's Dynamic Table-UserInput Values -->
 			document.getElementById("ped5TableGender").innerText = document.getElementById("ped5Gender").value;
@@ -1001,7 +999,6 @@
 			document.getElementById("ped5TableLDL").innerText = document.getElementById("ped5LDLChol").value;
 			document.getElementById("ped5TableTotc").innerText = document.getElementById("ped5TOTChol").value;
 			document.getElementById("ped5TableCadAge").innerText = document.getElementById("ped5CadAge").value;
-			document.getElementById("ped5TableFH").innerText = document.getElementById("ped5FhProb").innerText;
 
 			<!-- Pedigree 6's Dynamic Table-UserInput Values -->
 			document.getElementById("ped6TableGender").innerText = document.getElementById("ped6Gender").value;
@@ -1012,7 +1009,6 @@
 			document.getElementById("ped6TableLDL").innerText = document.getElementById("ped6LDLChol").value;
 			document.getElementById("ped6TableTotc").innerText = document.getElementById("ped6TOTChol").value;
 			document.getElementById("ped6TableCadAge").innerText = document.getElementById("ped6CadAge").value;
-			document.getElementById("ped6TableFH").innerText = document.getElementById("ped6FhProb").innerText;
 
 			<!-- Pedigree 7's Dynamic Table-UserInput Values -->
 			document.getElementById("ped7TableGender").innerText = document.getElementById("ped7Gender").value;
@@ -1023,7 +1019,6 @@
 			document.getElementById("ped7TableLDL").innerText = document.getElementById("ped7LDLChol").value;
 			document.getElementById("ped7TableTotc").innerText = document.getElementById("ped7TOTChol").value;
 			document.getElementById("ped7TableCadAge").innerText = document.getElementById("ped7CadAge").value;
-			document.getElementById("ped7TableFH").innerText = document.getElementById("ped7FhProb").innerText;
 
 			<!-- Pedigree 8's Dynamic Table-UserInput Values -->
 			document.getElementById("ped8TableGender").innerText = document.getElementById("ped8Gender").value;
@@ -1034,7 +1029,6 @@
 			document.getElementById("ped8TableLDL").innerText = document.getElementById("ped8LDLChol").value;
 			document.getElementById("ped8TableTotc").innerText = document.getElementById("ped8TOTChol").value;
 			document.getElementById("ped8TableCadAge").innerText = document.getElementById("ped8CadAge").value;
-			document.getElementById("ped8TableFH").innerText = document.getElementById("ped8FhProb").innerText;
 
 			<!-- Pedigree 9's Dynamic Table-UserInput Values -->
 			document.getElementById("ped9TableGender").innerText = document.getElementById("ped9Gender").value;
@@ -1045,6 +1039,16 @@
 			document.getElementById("ped9TableLDL").innerText = document.getElementById("ped9LDLChol").value;
 			document.getElementById("ped9TableTotc").innerText = document.getElementById("ped9TOTChol").value;
 			document.getElementById("ped9TableCadAge").innerText = document.getElementById("ped9CadAge").value;
+
+			<!-- Each Pedigrees Respective Table 'FH Probability' Value -->
+			document.getElementById("ped1TableFH").innerText = document.getElementById("ped1FhProb").innerText;
+			document.getElementById("ped2TableFH").innerText = document.getElementById("ped2FhProb").innerText;
+			document.getElementById("ped3TableFH").innerText = document.getElementById("ped3FhProb").innerText;
+			document.getElementById("ped4TableFH").innerText = document.getElementById("ped4FhProb").innerText;
+			document.getElementById("ped5TableFH").innerText = document.getElementById("ped5FhProb").innerText;
+			document.getElementById("ped6TableFH").innerText = document.getElementById("ped6FhProb").innerText;
+			document.getElementById("ped7TableFH").innerText = document.getElementById("ped7FhProb").innerText;
+			document.getElementById("ped8TableFH").innerText = document.getElementById("ped8FhProb").innerText;
 			document.getElementById("ped9TableFH").innerText = document.getElementById("ped9FhProb").innerText;
 
 		}
@@ -1053,7 +1057,7 @@
 	<script>
 		<!-- Addition of 'tooltip' function, which displays additional context on variables to users -->
 		$(document).ready( function() {
-			$('[data-toggle = "tooltip"]').tooltip();
+			$(`[data-toggle = "tooltip"]`).tooltip();
 		});
 	</script>
 

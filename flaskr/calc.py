@@ -1520,6 +1520,7 @@ def index():
         # print(f"Person 9 Likelihood: {person9prob.iloc[0, 0]}%")
 
         familyprob = famsum.div(stringsum) * 100
+        fhfamprob = familyprob.iloc[0,0]
         # print(f"Family Likelihood: {familyprob.iloc[0, 0]}%")
 
         dftable = pd.DataFrame(
@@ -1557,9 +1558,32 @@ def index():
         row_data = list(dftable.values.tolist())
 
 
-        return render_template('calc/index.html', fh1prob = fh1prob, fh2prob = fh2prob, fh3prob = fh3prob
-                               , fh4prob = fh4prob, fh5prob = fh5prob, fh6prob = fh6prob, fh7prob = fh7prob
-                               , fh8prob = fh8prob, fh9prob = fh9prob, familyprob = familyprob)
+        return render_template('calc/index.html', ped1age = ped1age, ped1ldlc = ped1ldlc, ped1totc = ped1totc
+                               , ped1gender = ped1gender, ped1cadstat = ped1cadstat, ped1cadage = ped1cadage
+                               , ped1tx = ped1tx, ped1dna = ped1dna, fh1prob = fh1prob, ped2age = ped2age
+                               , ped2ldlc = ped2ldlc, ped2totc = ped2totc, ped2gender = ped2gender
+                               , ped2cadstat = ped2cadstat, ped2cadage = ped2cadage, ped2tx = ped2tx, ped2dna = ped2dna
+                               , fh2prob = fh2prob, ped3age = ped3age, ped4age = ped4age, ped5age = ped5age
+                               , ped6age = ped6age, ped7age = ped7age, ped8age = ped8age, ped9age = ped9age
+                               , ped3gender = ped3gender, ped4gender = ped4gender, ped5gender = ped5gender
+                               , ped6gender = ped6gender, ped7gender = ped7gender, ped8gender = ped8gender, ped9gender = ped9gender
+                               , ped3ldlc = ped3ldlc, ped4ldlc = ped4ldlc, ped5ldlc = ped5ldlc, ped6ldlc = ped6ldlc
+                               , ped7ldlc = ped7ldlc, ped8ldlc = ped8ldlc, ped9ldlc = ped9ldlc
+                               , ped3totc = ped3totc, ped4totc = ped4totc, ped5totc = ped5totc, ped6totc = ped6totc
+                               , ped7totc = ped7totc, ped8totc = ped8totc, ped9totc = ped9totc
+                               , ped3tx = ped3tx, ped4tx = ped4tx, ped5tx = ped5tx, ped6tx = ped6tx, ped7tx = ped7tx
+                               , ped8tx = ped8tx, ped9tx = ped9tx
+                               , ped3cadstat = ped3cadstat, ped4cadstat = ped4cadstat, ped5cadstat = ped5cadstat
+                               , ped6cadstat = ped6cadstat, ped7cadstat = ped7cadstat, ped8cadstat = ped8cadstat
+                               , ped9cadstat = ped9cadstat
+                               , ped3cadage = ped3cadage, ped4cadage = ped4cadage, ped5cadage = ped5cadage
+                               , ped6cadage = ped6cadage, ped7cadage = ped7cadage, ped8cadage = ped8cadage
+                               , ped9cadage = ped9cadage
+                               , ped3dna = ped3dna, ped4dna = ped4dna, ped5dna = ped5dna, ped6dna = ped6dna
+                               , ped7dna = ped7dna, ped8dna = ped8dna, ped9dna = ped9dna
+                               , fh3prob = fh3prob, fh4prob = fh4prob
+                               , fh5prob = fh5prob, fh6prob = fh6prob, fh7prob = fh7prob, fh8prob = fh8prob
+                               , fh9prob = fh9prob, fhfamprob = fhfamprob)
 
     else:
         return render_template('calc/index.html')

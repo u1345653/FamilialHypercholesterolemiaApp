@@ -6,7 +6,6 @@ h4, h3{
 }
 table {
 	font-family: arial, sans-serif;
-	/*border-collapse: collapse;*/
 	width: 100%;
 }
 
@@ -29,5 +28,5 @@ table tr:first-child {
 
 table caption {
 	display: table-caption;
-	text-align: center;
+	caption-side: top;
 }
