@@ -21,30 +21,12 @@ def index():
 
     if request.method == "POST":
 
-        form_data = request.form.get('results')
-        print(form_data)
-
-        # printform_data = jsonify(form_data)
-        # print(printform_data)
+        pedigree_selection = request.form.get('results-form')
+        print(pedigree_selection)
 
         ###############################################################################
         # EXPERIMENTING W/ CONVERTING STRING TO JSON... FAILED TODO() - INSPECT LATER #
         ###############################################################################
-
-        # form_data = request.form.getlist("results")
-        # jsonform_data = jsonify(form_data).get_json()[0]
-        # jsondumptest = json.dumps(jsonform_data)
-        # print(type(jsondumptest))
-
-        # for key, value in form_data:
-        #     print("Key: ", key)
-        #     print("Value: ", str(value))
-        # jsonform_data = MultiDict([form_data]).lists()
-
-
-        # var = jsonform_data
-
-        # selectedPedigree = request.form.get("pedigreeChoice")
 
         # PEDIGREE 1'S DATA ATTRIBUTES
         ped1age = int(request.form.get("ped1Age"))
@@ -55,7 +37,7 @@ def index():
         ped1cadage = int(request.form.get("ped1CadAge"))
         ped1tx = int(request.form.get("ped1TXStatus"))
         ped1dna = int(request.form.get("ped1DnaDxStatus"))
-        ped1fhprob = float(request.form.get("ped1FhProb"))
+        ped1fhprob = request.form.get("ped1FhProb")
 
 
         # PEDIGREE 2'S DATA ATTRIBUTES
@@ -67,7 +49,7 @@ def index():
         ped2cadage = int(request.form.get("ped2CadAge"))
         ped2tx = int(request.form.get("ped2TXStatus"))
         ped2dna = int(request.form.get("ped2DnaDxStatus"))
-        ped2fhprob = float(request.form.get("ped2FhProb"))
+        ped2fhprob = request.form.get("ped2FhProb")
 
         # PEDIGREE 3'S DATA ATTRIBUTES
         ped3age = int(request.form.get("ped3Age"))
@@ -78,7 +60,7 @@ def index():
         ped3cadage = int(request.form.get("ped3CadAge"))
         ped3tx = int(request.form.get("ped3TXStatus"))
         ped3dna = int(request.form.get("ped3DnaDxStatus"))
-        ped3fhprob = float(request.form.get("ped3FhProb"))
+        ped3fhprob = request.form.get("ped3FhProb")
 
         # PEDIGREE 4'S DATA ATTRIBUTES
         ped4age = int(request.form.get("ped4Age"))
@@ -89,7 +71,7 @@ def index():
         ped4cadage = int(request.form.get("ped4CadAge"))
         ped4tx = int(request.form.get("ped4TXStatus"))
         ped4dna = int(request.form.get("ped4DnaDxStatus"))
-        ped4fhprob = float(request.form.get("ped4FhProb"))
+        ped4fhprob = request.form.get("ped4FhProb")
 
         # PEDIGREE 5'S DATA ATTRIBUTES
         ped5age = int(request.form.get("ped5Age"))
@@ -100,7 +82,7 @@ def index():
         ped5cadage = int(request.form.get("ped5CadAge"))
         ped5tx = int(request.form.get("ped5TXStatus"))
         ped5dna = int(request.form.get("ped5DnaDxStatus"))
-        ped5fhprob = float(request.form.get("ped5FhProb"))
+        ped5fhprob = request.form.get("ped5FhProb")
 
         # PEDIGREE 6'S DATA ATTRIBUTES
         ped6age = int(request.form.get("ped6Age"))
@@ -111,7 +93,7 @@ def index():
         ped6cadage = int(request.form.get("ped6CadAge"))
         ped6tx = int(request.form.get("ped6TXStatus"))
         ped6dna = int(request.form.get("ped6DnaDxStatus"))
-        ped6fhprob = float(request.form.get("ped6FhProb"))
+        ped6fhprob = request.form.get("ped6FhProb")
 
         # PEDIGREE 7'S DATA ATTRIBUTES
         ped7age = int(request.form.get("ped7Age"))
@@ -122,7 +104,7 @@ def index():
         ped7cadage = int(request.form.get("ped7CadAge"))
         ped7tx = int(request.form.get("ped7TXStatus"))
         ped7dna = int(request.form.get("ped7DnaDxStatus"))
-        ped7fhprob = float(request.form.get("ped7FhProb"))
+        ped7fhprob = request.form.get("ped7FhProb")
 
         # PEDIGREE 8'S DATA ATTRIBUTES
         ped8age = int(request.form.get("ped8Age"))
@@ -133,7 +115,7 @@ def index():
         ped8cadage = int(request.form.get("ped8CadAge"))
         ped8tx = int(request.form.get("ped8TXStatus"))
         ped8dna = int(request.form.get("ped8DnaDxStatus"))
-        ped8fhprob = float(request.form.get("ped8FhProb"))
+        ped8fhprob = request.form.get("ped8FhProb")
 
         # PEDIGREE 9'S DATA ATTRIBUTES
         ped9age = int(request.form.get("ped9Age"))
@@ -144,9 +126,9 @@ def index():
         ped9cadage = int(request.form.get("ped9CadAge"))
         ped9tx = int(request.form.get("ped9TXStatus"))
         ped9dna = int(request.form.get("ped9DnaDxStatus"))
-        ped9fhprob = float(request.form.get("ped9FhProb"))
+        ped9fhprob = request.form.get("ped9FhProb")
 
-        pedFamFh = float(request.form.get("pedFamProb"))
+        pedFamFh = request.form.get("pedFamProb")
 
         ## ADDING ALL INPUT DATA TO A PANDAS DATAFRAME FOR PROCESSING
         pinput = pd.DataFrame(
@@ -1575,9 +1557,9 @@ def index():
         row_data = list(dftable.values.tolist())
 
 
-        return render_template('calc/index.html',
-                               ped1age = ped1age, ped1ldlc = ped1ldlc, ped1totc = ped1totc, ped1gender = ped1gender,
-                               ped1cadstat = ped1cadstat, ped1cadage = ped1cadage, ped1tx = ped1tx, ped1dna = ped1dna)
+        return render_template('calc/index.html', fh1prob = fh1prob, fh2prob = fh2prob, fh3prob = fh3prob
+                               , fh4prob = fh4prob, fh5prob = fh5prob, fh6prob = fh6prob, fh7prob = fh7prob
+                               , fh8prob = fh8prob, fh9prob = fh9prob, familyprob = familyprob)
 
     else:
         return render_template('calc/index.html')

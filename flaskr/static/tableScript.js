@@ -1,20 +1,3 @@
-// function updateTableVal(obj) {
-//
-// 	var userinputcadstat1 = obj;
-// 	var cadstat1 = userinputcadstat1.options[userinputcadstat1.selectedIndex].value;
-// 	var tablecadstat1 = document.getElementById("ped1TableCadStat");
-//
-// 	if (cadstat1 === "1") {
-// 		tablecadstat1 = cadstat1;
-// 		tablecadstat1.valueOf();
-// 	}
-// 	else if (cadstat1 === "9") {
-// 		tablecadstat1 = cadstat1;
-// 	}
-// 	else
-// 		tablecadstat1 = cadstat1;
-// }
-
 function change(obj) {
 
 	var selectBox = obj;

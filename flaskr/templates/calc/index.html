@@ -52,7 +52,7 @@
 								<!-- Pedigree 1 Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Patient Age</span>
+										<span class = "input-group-text"><b>Patient Age</b></span>
 										<input type = "number" id = "ped1Age" name = "ped1Age" min = "0"  value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -60,7 +60,7 @@
 								<!-- Pedigree 1 Gender Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Patient Gender</span>
+										<span class = "input-group-text"><b>Patient Gender</b></span>
 										<select name = "ped1Gender" id = "ped1Gender" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "f">Female</option>
 											<option value = "m">Male</option>
@@ -71,7 +71,7 @@
 								<!-- Pedigree 1 LDL Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">LDL Cholesterol</span>
+										<span class = "input-group-text"><b>LDL Cholesterol</b></span>
 										<input type = "number" id = "ped1LDLChol" name = "ped1LDLChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -79,7 +79,7 @@
 								<!-- Pedigree 1 Total Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Total Cholesterol</span>
+										<span class = "input-group-text"><b>Total Cholesterol</b></span>
 										<input type = "number" id = "ped1TOTChol" name = "ped1TOTChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -87,7 +87,7 @@
 								<!-- Pedigree 1 Tendon Xanthoma Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Tendon Xanthoma Status</span>
+										<span class = "input-group-text"><b>Tendon Xanthoma Status</b></span>
 										<select name = "ped1TXStatus" id = "ped1TXStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative TX-Status</option>
 											<option value = "1">Known & Positive TX-Status</option>
@@ -99,7 +99,7 @@
 								<!-- Pedigree 1 Coronary Artery Disease (CAD) Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Coronary Artery Disease (CAD) Status</span>
+										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Status</b></span>
 										<select name = "ped1CadStatus" id = "ped1CadStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative CAD-Status</option>
 											<option value = "1">Known & Positive CAD-Status</option>
@@ -111,7 +111,7 @@
 								<!-- Pedigree 1 Coronary Artery Disease (CAD) Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Coronary Artery Disease (CAD) Age:</span>
+										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Age</b></span>
 										<input type = "number" id = "ped1CadAge" name = "ped1CadAge" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -119,7 +119,7 @@
 								<!-- Pedigree 1 DNA-DX Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">DNA DX Status</span>
+										<span class = "input-group-text"><b>DNA DX Status</b></span>
 										<select name = "ped1DnaDxStatus" id = "ped1DnaDxStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative DNA-DX Status</option>
 											<option value = "1">Known & Positive DNA-DX Status</option>
@@ -128,7 +128,7 @@
 									</div>
 								</div>
 								<!-- HIDDEN ATTRIBUTE: Pedigree 1 Holding Patient's FH-Probability Value -->
-								<input type = "hidden" id = "ped1FhProb" name = "ped1FhProb" value = "0">
+								<input type = "hidden" id = "ped1FhProb" name = "ped1FhProb" value = "{{ fh1prob }}">
 							</div>
 							<!--Pedigree 2 (Grandfather on Parent 1 Side) Form Input -->
 							<div id = "ped2Attributes" class = "pedigreeAttributes" style = "display:none">
@@ -136,7 +136,7 @@
 								<!-- Pedigree 2 Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Patient Age</span>
+										<span class = "input-group-text"><b>Patient Age</b></span>
 										<input type = "number" id = "ped2Age" name = "ped2Age" min = "0"  value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -144,7 +144,7 @@
 								<!-- Pedigree 2 Gender Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Patient Gender</span>
+										<span class = "input-group-text"><b>Patient Gender</b></span>
 										<select name = "ped2Gender" id = "ped2Gender" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "f">Female</option>
 											<option value = "m">Male</option>
@@ -155,7 +155,7 @@
 								<!-- Pedigree 2 LDL Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">LDL Cholesterol</span>
+										<span class = "input-group-text"><b>LDL Cholesterol</b></span>
 										<input type = "number" id = "ped2LDLChol" name = "ped2LDLChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -163,7 +163,7 @@
 								<!-- Pedigree 2 Total Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Total Cholesterol</span>
+										<span class = "input-group-text"><b>Total Cholesterol</b></span>
 										<input type = "number" id = "ped2TOTChol" name = "ped2TOTChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -171,7 +171,7 @@
 								<!-- Pedigree 2 Tendon Xanthoma Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Tendon Xanthoma Status</span>
+										<span class = "input-group-text"><b>Tendon Xanthoma Status</b></span>
 										<select name = "ped2TXStatus" id = "ped2TXStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative TX-Status</option>
 											<option value = "1">Known & Positive TX-Status</option>
@@ -183,7 +183,7 @@
 								<!-- Pedigree 2 Coronary Artery Disease (CAD) Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Coronary Artery Disease (CAD) Status</span>
+										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Status</b></span>
 										<select name = "ped2CadStatus" id = "ped2CadStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative CAD-Status</option>
 											<option value = "1">Known & Positive CAD-Status</option>
@@ -195,7 +195,7 @@
 								<!-- Pedigree 2 Coronary Artery Disease (CAD) Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Coronary Artery Disease (CAD) Age:</span>
+										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Age</b></span>
 										<input type = "number" id = "ped2CadAge" name = "ped2CadAge" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -203,7 +203,7 @@
 								<!-- Pedigree 2 DNA-DX Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">DNA DX Status</span>
+										<span class = "input-group-text"><b>DNA DX Status</b></span>
 										<select name = "ped2DnaDxStatus" id = "ped2DnaDxStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative DNA-DX Status</option>
 											<option value = "1">Known & Positive DNA-DX Status</option>
@@ -212,7 +212,7 @@
 									</div>
 								</div>
 								<!-- HIDDEN ATTRIBUTE: Pedigree 2 Holding Patient's FH-Probability Value -->
-								<input type = "hidden" id = "ped2FhProb" name = "ped2FhProb" value = "0">
+								<input type = "hidden" id = "ped2FhProb" name = "ped2FhProb" value = "{{ fh2prob }}">
 							</div>
 							<!--Pedigree 3 Sibling of Parent 1 -->
 							<div id = "ped3Attributes" class = "pedigreeAttributes" style = "display:none">
@@ -220,7 +220,7 @@
 								<!-- Pedigree 3 Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Patient Age</span>
+										<span class = "input-group-text"><b>Patient Age</b></span>
 										<input type = "number" id = "ped3Age" name = "ped3Age" min = "0"  value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -228,7 +228,7 @@
 								<!-- Pedigree 3 Gender Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Patient Gender</span>
+										<span class = "input-group-text"><b>Patient Gender</b></span>
 										<select name = "ped3Gender" id = "ped3Gender" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "f">Female</option>
 											<option value = "m">Male</option>
@@ -239,7 +239,7 @@
 								<!-- Pedigree 3 LDL Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">LDL Cholesterol</span>
+										<span class = "input-group-text"><b>LDL Cholesterol</b></span>
 										<input type = "number" id = "ped3LDLChol" name = "ped3LDLChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -247,7 +247,7 @@
 								<!-- Pedigree 3 Total Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Total Cholesterol</span>
+										<span class = "input-group-text"><b>Total Cholesterol</b></span>
 										<input type = "number" id = "ped3TOTChol" name = "ped3TOTChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -255,7 +255,7 @@
 								<!-- Pedigree 3 Tendon Xanthoma Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Tendon Xanthoma Status</span>
+										<span class = "input-group-text"><b>Tendon Xanthoma Status</b></span>
 										<select name = "ped3TXStatus" id = "ped3TXStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative TX-Status</option>
 											<option value = "1">Known & Positive TX-Status</option>
@@ -267,7 +267,7 @@
 								<!-- Pedigree 3 Coronary Artery Disease (CAD) Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Coronary Artery Disease (CAD) Status</span>
+										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Status</b></span>
 										<select name = "ped3CadStatus" id = "ped3CadStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative CAD-Status</option>
 											<option value = "1">Known & Positive CAD-Status</option>
@@ -279,7 +279,7 @@
 								<!-- Pedigree 3 Coronary Artery Disease (CAD) Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Coronary Artery Disease (CAD) Age:</span>
+										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Age</b></span>
 										<input type = "number" id = "ped3CadAge" name = "ped3CadAge" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -287,7 +287,7 @@
 								<!-- Pedigree 3 DNA-DX Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">DNA DX Status</span>
+										<span class = "input-group-text"><b>DNA DX Status</b></span>
 										<select name = "ped3DnaDxStatus" id = "ped3DnaDxStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative DNA-DX Status</option>
 											<option value = "1">Known & Positive DNA-DX Status</option>
@@ -296,7 +296,7 @@
 									</div>
 								</div>
 								<!-- HIDDEN ATTRIBUTE: Pedigree 3 Holding Patient's FH-Probability Value -->
-								<input type = "hidden" id = "ped3FhProb" name = "ped3FhProb" value = "0">
+								<input type = "hidden" id = "ped3FhProb" name = "ped3FhProb" value = "{{ fh3prob }}">
 							</div>
 							<!--Pedigree 4 Second Sibling of Parent 1 -->
 							<div id = "ped4Attributes" class = "pedigreeAttributes" style = "display:none">
@@ -304,7 +304,7 @@
 								<!-- Pedigree 4 Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Patient Age</span>
+										<span class = "input-group-text"><b>Patient Age</b></span>
 										<input type = "number" id = "ped4Age" name = "ped4Age" min = "0"  value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -312,7 +312,7 @@
 								<!-- Pedigree 4 Gender Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Patient Gender</span>
+										<span class = "input-group-text"><b>Patient Gender</b></span>
 										<select name = "ped4Gender" id = "ped4Gender" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "f">Female</option>
 											<option value = "m">Male</option>
@@ -323,7 +323,7 @@
 								<!-- Pedigree 4 LDL Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">LDL Cholesterol</span>
+										<span class = "input-group-text"><b>LDL Cholesterol</b></span>
 										<input type = "number" id = "ped4LDLChol" name = "ped4LDLChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -331,7 +331,7 @@
 								<!-- Pedigree 4 Total Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Total Cholesterol</span>
+										<span class = "input-group-text"><b>Total Cholesterol</b></span>
 										<input type = "number" id = "ped4TOTChol" name = "ped4TOTChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -339,7 +339,7 @@
 								<!-- Pedigree 4 Tendon Xanthoma Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Tendon Xanthoma Status</span>
+										<span class = "input-group-text"><b>Tendon Xanthoma Status</b></span>
 										<select name = "ped4TXStatus" id = "ped4TXStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative TX-Status</option>
 											<option value = "1">Known & Positive TX-Status</option>
@@ -351,7 +351,7 @@
 								<!-- Pedigree 4 Coronary Artery Disease (CAD) Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Coronary Artery Disease (CAD) Status</span>
+										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Status</b></span>
 										<select name = "ped4CadStatus" id = "ped4CadStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative CAD-Status</option>
 											<option value = "1">Known & Positive CAD-Status</option>
@@ -363,7 +363,7 @@
 								<!-- Pedigree 4 Coronary Artery Disease (CAD) Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Coronary Artery Disease (CAD) Age:</span>
+										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Age</b></span>
 										<input type = "number" id = "ped4CadAge" name = "ped4CadAge" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -371,7 +371,7 @@
 								<!-- Pedigree 4 DNA-DX Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">DNA DX Status</span>
+										<span class = "input-group-text"><b>DNA DX Status</b></span>
 										<select name = "ped4DnaDxStatus" id = "ped4DnaDxStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative DNA-DX Status</option>
 											<option value = "1">Known & Positive DNA-DX Status</option>
@@ -380,7 +380,7 @@
 									</div>
 								</div>
 								<!-- HIDDEN ATTRIBUTE: Pedigree 4 Holding Patient's FH-Probability Value -->
-								<input type = "hidden" id = "ped4FhProb" name = "ped4FhProb" value = "0">
+								<input type = "hidden" id = "ped4FhProb" name = "ped4FhProb" value = "{{ fh4prob }}">
 							</div>
 							<!--Pedigree 5 Parent 1 -->
 							<div id = "ped5Attributes" class = "pedigreeAttributes" style = "display:none">
@@ -388,7 +388,7 @@
 								<!-- Pedigree 5 Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Patient Age</span>
+										<span class = "input-group-text"><b>Patient Age</b></span>
 										<input type = "number" id = "ped5Age" name = "ped5Age" min = "0"  value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -396,7 +396,7 @@
 								<!-- Pedigree 5 Gender Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Patient Gender</span>
+										<span class = "input-group-text"><b>Patient Gender</b></span>
 										<select name = "ped5Gender" id = "ped5Gender" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "f">Female</option>
 											<option value = "m">Male</option>
@@ -407,7 +407,7 @@
 								<!-- Pedigree 5 LDL Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">LDL Cholesterol</span>
+										<span class = "input-group-text"><b>LDL Cholesterol</b></span>
 										<input type = "number" id = "ped5LDLChol" name = "ped5LDLChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -415,7 +415,7 @@
 								<!-- Pedigree 5 Total Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Total Cholesterol</span>
+										<span class = "input-group-text"><b>Total Cholesterol</b></span>
 										<input type = "number" id = "ped5TOTChol" name = "ped5TOTChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -423,7 +423,7 @@
 								<!-- Pedigree 5 Tendon Xanthoma Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Tendon Xanthoma Status</span>
+										<span class = "input-group-text"><b>Tendon Xanthoma Status</b></span>
 										<select name = "ped5TXStatus" id = "ped5TXStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative TX-Status</option>
 											<option value = "1">Known & Positive TX-Status</option>
@@ -435,7 +435,7 @@
 								<!-- Pedigree 5 Coronary Artery Disease (CAD) Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Coronary Artery Disease (CAD) Status</span>
+										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Status</b></span>
 										<select name = "ped5CadStatus" id = "ped5CadStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative CAD-Status</option>
 											<option value = "1">Known & Positive CAD-Status</option>
@@ -447,7 +447,7 @@
 								<!-- Pedigree 5 Coronary Artery Disease (CAD) Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Coronary Artery Disease (CAD) Age:</span>
+										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Age</b></span>
 										<input type = "number" id = "ped5CadAge" name = "ped5CadAge" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -455,7 +455,7 @@
 								<!-- Pedigree 5 DNA-DX Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">DNA DX Status</span>
+										<span class = "input-group-text"><b>DNA DX Status</b></span>
 										<select name = "ped5DnaDxStatus" id = "ped5DnaDxStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative DNA-DX Status</option>
 											<option value = "1">Known & Positive DNA-DX Status</option>
@@ -464,7 +464,7 @@
 									</div>
 								</div>
 								<!-- HIDDEN ATTRIBUTE: Pedigree 5 Holding Patient's FH-Probability Value -->
-								<input type = "hidden" id = "ped5FhProb" name = "ped5FhProb" value = "0">
+								<input type = "hidden" id = "ped5FhProb" name = "ped5FhProb" value = "{{ fh5prob }}">
 							</div>
 							<!--Pedigree 6 Parent 2 -->
 							<div id = "ped6Attributes" class = "pedigreeAttributes" style = "display:none">
@@ -472,7 +472,7 @@
 								<!-- Pedigree 6 Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Patient Age</span>
+										<span class = "input-group-text"><b>Patient Age</b></span>
 										<input type = "number" id = "ped6Age" name = "ped6Age" min = "0"  value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -480,7 +480,7 @@
 								<!-- Pedigree 6 Gender Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Patient Gender</span>
+										<span class = "input-group-text"><b>Patient Gender</b></span>
 										<select name = "ped6Gender" id = "ped6Gender" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "f">Female</option>
 											<option value = "m">Male</option>
@@ -491,7 +491,7 @@
 								<!-- Pedigree 6 LDL Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">LDL Cholesterol</span>
+										<span class = "input-group-text"><b>LDL Cholesterol</b></span>
 										<input type = "number" id = "ped6LDLChol" name = "ped6LDLChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -499,7 +499,7 @@
 								<!-- Pedigree 6 Total Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Total Cholesterol</span>
+										<span class = "input-group-text"><b>Total Cholesterol</b></span>
 										<input type = "number" id = "ped6TOTChol" name = "ped6TOTChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -507,7 +507,7 @@
 								<!-- Pedigree 6 Tendon Xanthoma Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Tendon Xanthoma Status</span>
+										<span class = "input-group-text"><b>Tendon Xanthoma Status</b></span>
 										<select name = "ped6TXStatus" id = "ped6TXStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative TX-Status</option>
 											<option value = "1">Known & Positive TX-Status</option>
@@ -519,7 +519,7 @@
 								<!-- Pedigree 6 Coronary Artery Disease (CAD) Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Coronary Artery Disease (CAD) Status</span>
+										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Status</b></span>
 										<select name = "ped6CadStatus" id = "ped6CadStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative CAD-Status</option>
 											<option value = "1">Known & Positive CAD-Status</option>
@@ -531,7 +531,7 @@
 								<!-- Pedigree 6 Coronary Artery Disease (CAD) Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Coronary Artery Disease (CAD) Age:</span>
+										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Age</b></span>
 										<input type = "number" id = "ped6CadAge" name = "ped6CadAge" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -539,7 +539,7 @@
 								<!-- Pedigree 6 DNA-DX Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">DNA DX Status</span>
+										<span class = "input-group-text"><b>DNA DX Status</b></span>
 										<select name = "ped6DnaDxStatus" id = "ped6DnaDxStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative DNA-DX Status</option>
 											<option value = "1">Known & Positive DNA-DX Status</option>
@@ -548,7 +548,7 @@
 									</div>
 								</div>
 								<!-- HIDDEN ATTRIBUTE: Pedigree 6 Holding Patient's FH-Probability Value -->
-								<input type = "hidden" id = "ped6FhProb" name = "ped6FhProb" value = "0">
+								<input type = "hidden" id = "ped6FhProb" name = "ped6FhProb" value = "{{ fh6prob }}">
 							</div>
 							<!--Pedigree 7 Child 1 of Parents 1 & 2 -->
 							<div id = "ped7Attributes" class = "pedigreeAttributes" style = "display:none">
@@ -556,7 +556,7 @@
 								<!-- Pedigree 7 Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Patient Age</span>
+										<span class = "input-group-text"><b>Patient Age</b></span>
 										<input type = "number" id = "ped7Age" name = "ped7Age" min = "0"  value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -564,7 +564,7 @@
 								<!-- Pedigree 7 Gender Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Patient Gender</span>
+										<span class = "input-group-text"><b>Patient Gender</b></span>
 										<select name = "ped7Gender" id = "ped7Gender" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "f">Female</option>
 											<option value = "m">Male</option>
@@ -575,7 +575,7 @@
 								<!-- Pedigree 7 LDL Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">LDL Cholesterol</span>
+										<span class = "input-group-text"><b>LDL Cholesterol</b></span>
 										<input type = "number" id = "ped7LDLChol" name = "ped7LDLChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -583,7 +583,7 @@
 								<!-- Pedigree 7 Total Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Total Cholesterol</span>
+										<span class = "input-group-text"><b>Total Cholesterol</b></span>
 										<input type = "number" id = "ped7TOTChol" name = "ped7TOTChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -591,7 +591,7 @@
 								<!-- Pedigree 7 Tendon Xanthoma Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Tendon Xanthoma Status</span>
+										<span class = "input-group-text"><b>Tendon Xanthoma Status</b></span>
 										<select name = "ped7TXStatus" id = "ped7TXStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative TX-Status</option>
 											<option value = "1">Known & Positive TX-Status</option>
@@ -603,7 +603,7 @@
 								<!-- Pedigree 7 Coronary Artery Disease (CAD) Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Coronary Artery Disease (CAD) Status</span>
+										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Status</b></span>
 										<select name = "ped7CadStatus" id = "ped7CadStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative CAD-Status</option>
 											<option value = "1">Known & Positive CAD-Status</option>
@@ -615,7 +615,7 @@
 								<!-- Pedigree 7 Coronary Artery Disease (CAD) Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Coronary Artery Disease (CAD) Age:</span>
+										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Age</b></span>
 										<input type = "number" id = "ped7CadAge" name = "ped7CadAge" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -623,7 +623,7 @@
 								<!-- Pedigree 7 DNA-DX Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">DNA DX Status</span>
+										<span class = "input-group-text"><b>DNA DX Status</b></span>
 										<select name = "ped7DnaDxStatus" id = "ped7DnaDxStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative DNA-DX Status</option>
 											<option value = "1">Known & Positive DNA-DX Status</option>
@@ -632,7 +632,7 @@
 									</div>
 								</div>
 								<!-- HIDDEN ATTRIBUTE: Pedigree 7 Holding Patient's FH-Probability Value -->
-								<input type = "hidden" id = "ped7FhProb" name = "ped7FhProb" value = "0">
+								<input type = "hidden" id = "ped7FhProb" name = "ped7FhProb" value = "{{ fh7prob }}">
 							</div>
 							<!--Pedigree 8 Child 2 of Parents 1 & 2 -->
 							<div id = "ped8Attributes" class = "pedigreeAttributes" style = "display:none">
@@ -640,7 +640,7 @@
 								<!-- Pedigree 8 Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Patient Age</span>
+										<span class = "input-group-text"><b>Patient Age</b></span>
 										<input type = "number" id = "ped8Age" name = "ped8Age" min = "0"  value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -648,7 +648,7 @@
 								<!-- Pedigree 8 Gender Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Patient Gender</span>
+										<span class = "input-group-text"><b>Patient Gender</b></span>
 										<select name = "ped8Gender" id = "ped8Gender" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "f">Female</option>
 											<option value = "m">Male</option>
@@ -659,7 +659,7 @@
 								<!-- Pedigree 8 LDL Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">LDL Cholesterol</span>
+										<span class = "input-group-text"><b>LDL Cholesterol</b></span>
 										<input type = "number" id = "ped8LDLChol" name = "ped8LDLChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -667,7 +667,7 @@
 								<!-- Pedigree 8 Total Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Total Cholesterol</span>
+										<span class = "input-group-text"><b>Total Cholesterol</b></span>
 										<input type = "number" id = "ped8TOTChol" name = "ped8TOTChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -675,7 +675,7 @@
 								<!-- Pedigree 8 Tendon Xanthoma Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Tendon Xanthoma Status</span>
+										<span class = "input-group-text"><b>Tendon Xanthoma Status</b></span>
 										<select name = "ped8TXStatus" id = "ped8TXStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative TX-Status</option>
 											<option value = "1">Known & Positive TX-Status</option>
@@ -687,7 +687,7 @@
 								<!-- Pedigree 8 Coronary Artery Disease (CAD) Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Coronary Artery Disease (CAD) Status</span>
+										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Status</b></span>
 										<select name = "ped8CadStatus" id = "ped8CadStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative CAD-Status</option>
 											<option value = "1">Known & Positive CAD-Status</option>
@@ -699,7 +699,7 @@
 								<!-- Pedigree 8 Coronary Artery Disease (CAD) Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Coronary Artery Disease (CAD) Age:</span>
+										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Age</b></span>
 										<input type = "number" id = "ped8CadAge" name = "ped8CadAge" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -707,7 +707,7 @@
 								<!-- Pedigree 8 DNA-DX Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">DNA DX Status</span>
+										<span class = "input-group-text"><b>DNA DX Status</b></span>
 										<select name = "ped8DnaDxStatus" id = "ped8DnaDxStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative DNA-DX Status</option>
 											<option value = "1">Known & Positive DNA-DX Status</option>
@@ -716,7 +716,7 @@
 									</div>
 								</div>
 								<!-- HIDDEN ATTRIBUTE: Pedigree 8 Holding Patient's FH-Probability Value -->
-								<input type = "hidden" id = "ped8FhProb" name = "ped8FhProb" value = "0">
+								<input type = "hidden" id = "ped8FhProb" name = "ped8FhProb" value = "{{ fh8prob }}">
 							</div>
 							<!--Pedigree 9 Child 3 of Parents 1 & 2 -->
 							<div id = "ped9Attributes" class = "pedigreeAttributes" style = "display:none">
@@ -724,7 +724,7 @@
 								<!-- Pedigree 9 Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Patient Age</span>
+										<span class = "input-group-text"><b>Patient Age</b></span>
 										<input type = "number" id = "ped9Age" name = "ped9Age" min = "0"  value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -732,7 +732,7 @@
 								<!-- Pedigree 9 Gender Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Patient Gender</span>
+										<span class = "input-group-text"><b>Patient Gender</b></span>
 										<select name = "ped9Gender" id = "ped9Gender" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "f">Female</option>
 											<option value = "m">Male</option>
@@ -743,7 +743,7 @@
 								<!-- Pedigree 9 LDL Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">LDL Cholesterol</span>
+										<span class = "input-group-text"><b>LDL Cholesterol</b></span>
 										<input type = "number" id = "ped9LDLChol" name = "ped9LDLChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -751,7 +751,7 @@
 								<!-- Pedigree 9 Total Cholesterol Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Total Cholesterol</span>
+										<span class = "input-group-text"><b>Total Cholesterol</b></span>
 										<input type = "number" id = "ped9TOTChol" name = "ped9TOTChol" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -759,7 +759,7 @@
 								<!-- Pedigree 9 Tendon Xanthoma Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Tendon Xanthoma Status</span>
+										<span class = "input-group-text"><b>Tendon Xanthoma Status</b></span>
 										<select name = "ped9TXStatus" id = "ped9TXStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative TX-Status</option>
 											<option value = "1">Known & Positive TX-Status</option>
@@ -771,7 +771,7 @@
 								<!-- Pedigree 9 Coronary Artery Disease (CAD) Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Coronary Artery Disease (CAD) Status</span>
+										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Status</b></span>
 										<select name = "ped9CadStatus" id = "ped9CadStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative CAD-Status</option>
 											<option value = "1">Known & Positive CAD-Status</option>
@@ -783,7 +783,7 @@
 								<!-- Pedigree 9 Coronary Artery Disease (CAD) Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">Coronary Artery Disease (CAD) Age:</span>
+										<span class = "input-group-text"><b>Coronary Artery Disease (CAD) Age</b></span>
 										<input type = "number" id = "ped9CadAge" name = "ped9CadAge" min = "0" value = "0" class = "form-control" onchange = "updateTableVal()">
 									</div>
 								</div>
@@ -791,7 +791,7 @@
 								<!-- Pedigree 9 DNA-DX Status Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
-										<span class = "input-group-text">DNA DX Status</span>
+										<span class = "input-group-text"><b>DNA DX Status</b></span>
 										<select name = "ped9DnaDxStatus" id = "ped9DnaDxStatus" class = "custom-select form-control" onchange = "updateTableVal()">
 											<option value = "0">Known & Negative DNA-DX Status</option>
 											<option value = "1">Known & Positive DNA-DX Status</option>
@@ -800,147 +800,149 @@
 									</div>
 								</div>
 								<!-- HIDDEN ATTRIBUTE: Pedigree 9 Holding Patient's FH-Probability Value -->
-								<input type = "hidden" id = "ped9FhProb" name = "ped9FhProb" value = "0">
+								<input type = "hidden" id = "ped9FhProb" name = "ped9FhProb" value = "{{ fh9prob }}">
 							</div>
+							<button id = "button" value = "Generate Results" onclick = createTable() class = "btn btn-success"><b>Generate Results</b></button>
 						</form>
 					</div>
 				</div>
 
 				<input type = "hidden" id = "pedFamProb" name = "pedFamProb" value = "0"><br>
-				<button id = "button" value = "Generate Results" onclick = createTable() class = "btn btn-success">Generate Results</button>
+<!--				<button id = "button" value = "Generate Results" onclick = createTable() class = "btn btn-success"><b>Generate Results</b></button>-->
 			</div>
-			<table id = "createdTable" class="table-bordered table-striped table-hover col-8">
-				<tr id = "table-header">
-					<th>Person</th>
-					<th>Age</th>
-					<th>Gender</th>
-					<th>LDL Cholesterol</th>
-					<th>Total Cholesterol</th>
-					<th>TX Status</th>
-					<th>CAD Status</th>
-					<th>CAD Onset Age</th>
-					<th>DNA-DX Status</th>
-					<th>FH Probability</th>
-				</tr>
+			<div class = "col-8">
+				<table id = "createdTable" class="table-bordered table-striped table-hover">
+					<tr id = "table-header">
+						<th>Person</th>
+						<th>Age</th>
+						<th>Gender</th>
+						<th>LDL Cholesterol</th>
+						<th>Total Cholesterol</th>
+						<th>TX Status</th>
+						<th>CAD Status</th>
+						<th>CAD Onset Age</th>
+						<th>DNA-DX Status</th>
+						<th>FH Probability</th>
+					</tr>
 
-				<tr id = "row-1">
-					<td>Person 1</td>
-					<td id = "ped1TableAge"> 0 </td>
-					<td id = "ped1TableGender"> 0 </td>
-					<td id = "ped1TableLDL"> 0 </td>
-					<td id = "ped1TableTotc"> 0 </td>
-					<td id = "ped1TableTx"> 0 </td>
-					<td id = "ped1TableCadStat">0</td>
-					<td id = "ped1TableCadAge"> 0 </td>
-					<td id = "ped1TableDna"> 0 </td>
-					<td>P1 FH-Prob</td>
-				</tr>
+					<tr id = "row-1">
+						<td>Person 1</td>
+						<td id = "ped1TableAge"> 0 </td>
+						<td id = "ped1TableGender"> 0 </td>
+						<td id = "ped1TableLDL"> 0 </td>
+						<td id = "ped1TableTotc"> 0 </td>
+						<td id = "ped1TableTx"> 0 </td>
+						<td id = "ped1TableCadStat">0</td>
+						<td id = "ped1TableCadAge"> 0 </td>
+						<td id = "ped1TableDna"> 0 </td>
+						<td id = "ped1TableFH">{{ fh1prob }}</td>
+					</tr>
 
-				<tr id = "row-2">
-					<td>Person 2</td>
-					<td id = "ped2TableAge"> 0 </td>
-					<td id = "ped2TableGender"> 0 </td>
-					<td id = "ped2TableLDL"> 0 </td>
-					<td id = "ped2TableTotc"> 0 </td>
-					<td id = "ped2TableTx"> 0 </td>
-					<td id = "ped2TableCadStat"> 0 </td>
-					<td id = "ped2TableCadAge"> 0 </td>
-					<td id = "ped2TableDna"> 0 </td>
-					<td>P2 FH-Prob</td>
-				</tr>
+					<tr id = "row-2">
+						<td>Person 2</td>
+						<td id = "ped2TableAge"> 0 </td>
+						<td id = "ped2TableGender"> 0 </td>
+						<td id = "ped2TableLDL"> 0 </td>
+						<td id = "ped2TableTotc"> 0 </td>
+						<td id = "ped2TableTx"> 0 </td>
+						<td id = "ped2TableCadStat"> 0 </td>
+						<td id = "ped2TableCadAge"> 0 </td>
+						<td id = "ped2TableDna"> 0 </td>
+						<td id = "ped2TableFH"> {{ fh2prob }} </td>
+					</tr>
 
-				<tr id = "row-3">
-					<td>Person 3</td>
-					<td id = "ped3TableAge"> 0 </td>
-					<td id = "ped3TableGender"> 0 </td>
-					<td id = "ped3TableLDL"> 0 </td>
-					<td id = "ped3TableTotc"> 0 </td>
-					<td id = "ped3TableTx"> 0 </td>
-					<td id = "ped3TableCadStat"> 0 </td>
-					<td id = "ped3TableCadAge"> 0 </td>
-					<td id = "ped3TableDna"> 0 </td>
-					<td>P3 FH-Prob</td>
-				</tr>
+					<tr id = "row-3">
+						<td>Person 3</td>
+						<td id = "ped3TableAge"> 0 </td>
+						<td id = "ped3TableGender"> 0 </td>
+						<td id = "ped3TableLDL"> 0 </td>
+						<td id = "ped3TableTotc"> 0 </td>
+						<td id = "ped3TableTx"> 0 </td>
+						<td id = "ped3TableCadStat"> 0 </td>
+						<td id = "ped3TableCadAge"> 0 </td>
+						<td id = "ped3TableDna"> 0 </td>
+						<td id = "ped3TableFH"> {{ fh3prob }} </td>
+					</tr>
 
-				<tr id = "row-4">
-					<td>Person 4</td>
-					<td id = "ped4TableAge"> 0 </td>
-					<td id = "ped4TableGender"> 0 </td>
-					<td id = "ped4TableLDL"> 0 </td>
-					<td id = "ped4TableTotc"> 0 </td>
-					<td id = "ped4TableTx"> 0 </td>
-					<td id = "ped4TableCadStat"> 0 </td>
-					<td id = "ped4TableCadAge"> 0 </td>
-					<td id = "ped4TableDna"> 0 </td>
-					<td>P4 FH-Prob</td>
-				</tr>
+					<tr id = "row-4">
+						<td>Person 4</td>
+						<td id = "ped4TableAge"> 0 </td>
+						<td id = "ped4TableGender"> 0 </td>
+						<td id = "ped4TableLDL"> 0 </td>
+						<td id = "ped4TableTotc"> 0 </td>
+						<td id = "ped4TableTx"> 0 </td>
+						<td id = "ped4TableCadStat"> 0 </td>
+						<td id = "ped4TableCadAge"> 0 </td>
+						<td id = "ped4TableDna"> 0 </td>
+						<td id = "ped4TableFH"> {{ fh4prob }} </td>
+					</tr>
 
-				<tr id = "row-5">
-					<td>Person 5</td>
-					<td id = "ped5TableAge"> 0 </td>
-					<td id = "ped5TableGender"> 0 </td>
-					<td id = "ped5TableLDL"> 0 </td>
-					<td id = "ped5TableTotc"> 0 </td>
-					<td id = "ped5TableTx"> 0 </td>
-					<td id = "ped5TableCadStat"> 0 </td>
-					<td id = "ped5TableCadAge"> 0 </td>
-					<td id = "ped5TableDna"> 0 </td>
-					<td>P5 FH-Prob</td>
-				</tr>
+					<tr id = "row-5">
+						<td>Person 5</td>
+						<td id = "ped5TableAge"> 0 </td>
+						<td id = "ped5TableGender"> 0 </td>
+						<td id = "ped5TableLDL"> 0 </td>
+						<td id = "ped5TableTotc"> 0 </td>
+						<td id = "ped5TableTx"> 0 </td>
+						<td id = "ped5TableCadStat"> 0 </td>
+						<td id = "ped5TableCadAge"> 0 </td>
+						<td id = "ped5TableDna"> 0 </td>
+						<td id = "ped5TableFH"> {{ fh5prob }} </td>
+					</tr>
 
-				<tr id = "row-6">
-					<td>Person 6</td>
-					<td id = "ped6TableAge"> 0 </td>
-					<td id = "ped6TableGender"> 0 </td>
-					<td id = "ped6TableLDL"> 0 </td>
-					<td id = "ped6TableTotc"> 0 </td>
-					<td id = "ped6TableTx"> 0 </td>
-					<td id = "ped6TableCadStat"> 0 </td>
-					<td id = "ped6TableCadAge"> 0 </td>
-					<td id = "ped6TableDna"> 0 </td>
-					<td>P6 FH-Prob</td>
-				</tr>
+					<tr id = "row-6">
+						<td>Person 6</td>
+						<td id = "ped6TableAge"> 0 </td>
+						<td id = "ped6TableGender"> 0 </td>
+						<td id = "ped6TableLDL"> 0 </td>
+						<td id = "ped6TableTotc"> 0 </td>
+						<td id = "ped6TableTx"> 0 </td>
+						<td id = "ped6TableCadStat"> 0 </td>
+						<td id = "ped6TableCadAge"> 0 </td>
+						<td id = "ped6TableDna"> 0 </td>
+						<td id = "ped6TableFH"> {{ fh6prob }} </td>
+					</tr>
 
-				<tr id = "row-7">
-					<td>Person 7</td>
-					<td id = "ped7TableAge"> 0 </td>
-					<td id = "ped7TableGender"> 0 </td>
-					<td id = "ped7TableLDL"> 0 </td>
-					<td id = "ped7TableTotc"> 0 </td>
-					<td id = "ped7TableTx"> 0 </td>
-					<td id = "ped7TableCadStat"> 0 </td>
-					<td id = "ped7TableCadAge"> 0 </td>
-					<td id = "ped7TableDna"> 0 </td>
-					<td>P7 FH-Prob</td>
-				</tr>
+					<tr id = "row-7">
+						<td>Person 7</td>
+						<td id = "ped7TableAge"> 0 </td>
+						<td id = "ped7TableGender"> 0 </td>
+						<td id = "ped7TableLDL"> 0 </td>
+						<td id = "ped7TableTotc"> 0 </td>
+						<td id = "ped7TableTx"> 0 </td>
+						<td id = "ped7TableCadStat"> 0 </td>
+						<td id = "ped7TableCadAge"> 0 </td>
+						<td id = "ped7TableDna"> 0 </td>
+						<td id = "ped7TableFH"> {{ fh7prob }}</td>
+					</tr>
 
-				<tr id = "row-8">
-					<td>Person 8</td>
-					<td id = "ped8TableAge"> 0 </td>
-					<td id = "ped8TableGender"> 0 </td>
-					<td id = "ped8TableLDL"> 0 </td>
-					<td id = "ped8TableTotc"> 0 </td>
-					<td id = "ped8TableTx"> 0 </td>
-					<td id = "ped8TableCadStat"> 0 </td>
-					<td id = "ped8TableCadAge"> 0 </td>
-					<td id = "ped8TableDna"> 0 </td>
-					<td>P8 FH-Prob</td>
-				</tr>
+					<tr id = "row-8">
+						<td>Person 8</td>
+						<td id = "ped8TableAge"> 0 </td>
+						<td id = "ped8TableGender"> 0 </td>
+						<td id = "ped8TableLDL"> 0 </td>
+						<td id = "ped8TableTotc"> 0 </td>
+						<td id = "ped8TableTx"> 0 </td>
+						<td id = "ped8TableCadStat"> 0 </td>
+						<td id = "ped8TableCadAge"> 0 </td>
+						<td id = "ped8TableDna"> 0 </td>
+						<td id = "ped8TableFH"> {{ fh8prob }} </td>
+					</tr>
 
-				<tr id = "row-9">
-					<td>Person 9</td>
-					<td id = "ped9TableAge"> 0 </td>
-					<td id = "ped9TableGender"> 0 </td>
-					<td id = "ped9TableLDL"> 0 </td>
-					<td id = "ped9TableTotc"> 0 </td>
-					<td id = "ped9TableTx"> 0 </td>
-					<td id = "ped9TableCadStat"> 0 </td>
-					<td id = "ped9TableCadAge"> 0 </td>
-					<td id = "ped9TableDna"> 0 </td>
-					<td>P9 FH-Prob</td>
-				</tr>
-
-			</table>
+					<tr id = "row-9">
+						<td>Person 9</td>
+						<td id = "ped9TableAge"> 0 </td>
+						<td id = "ped9TableGender"> 0 </td>
+						<td id = "ped9TableLDL"> 0 </td>
+						<td id = "ped9TableTotc"> 0 </td>
+						<td id = "ped9TableTx"> 0 </td>
+						<td id = "ped9TableCadStat"> 0 </td>
+						<td id = "ped9TableCadAge"> 0 </td>
+						<td id = "ped9TableDna"> 0 </td>
+						<td id = "ped9TableFH"> {{ fh9prob }} </td>
+					</tr>
+				</table>
+			</div>
 		</div>
 	</div>
 	<br>
@@ -956,6 +958,7 @@
 			document.getElementById("ped1TableDna").innerText = document.getElementById("ped1DnaDxStatus").value;
 			document.getElementById("ped1TableCadStat").innerText = document.getElementById("ped1CadStatus").value;
 			document.getElementById("ped1TableCadAge").innerText = document.getElementById("ped1CadAge").value;
+			document.getElementById("ped1TableFH").innerText = document.getElementById("ped1FhProb").innerText;
 
 			<!-- Pedigree 2's Dynamic Table-UserInput Values -->
 			document.getElementById("ped2TableAge").innerText = document.getElementById("ped2Age").value;
@@ -966,6 +969,7 @@
 			document.getElementById("ped2TableDna").innerText = document.getElementById("ped2DnaDxStatus").value;
 			document.getElementById("ped2TableCadStat").innerText = document.getElementById("ped2CadStatus").value;
 			document.getElementById("ped2TableCadAge").innerText = document.getElementById("ped2CadAge").value;
+			document.getElementById("ped2TableFH").innerText = document.getElementById("ped2FhProb").innerText;
 
 			<!-- Pedigree 3's Dynamic Table-UserInput Values -->
 			document.getElementById("ped3TableAge").innerText = document.getElementById("ped3Age").value;
@@ -976,6 +980,7 @@
 			document.getElementById("ped3TableDna").innerText = document.getElementById("ped3DnaDxStatus").value;
 			document.getElementById("ped3TableCadStat").innerText = document.getElementById("ped3CadStatus").value;
 			document.getElementById("ped3TableCadAge").innerText = document.getElementById("ped3CadAge").value;
+			document.getElementById("ped3TableFH").innerText = document.getElementById("ped3FhProb").innerText;
 
 			<!-- Pedigree 4's Dynamic Table-UserInput Values -->
 			document.getElementById("ped4TableGender").innerText = document.getElementById("ped4Gender").value;
@@ -986,6 +991,7 @@
 			document.getElementById("ped4TableLDL").innerText = document.getElementById("ped4LDLChol").value;
 			document.getElementById("ped4TableTotc").innerText = document.getElementById("ped4TOTChol").value;
 			document.getElementById("ped4TableCadAge").innerText = document.getElementById("ped4CadAge").value;
+			document.getElementById("ped4TableFH").innerText = document.getElementById("ped4FhProb").innerText;
 
 			<!-- Pedigree 5's Dynamic Table-UserInput Values -->
 			document.getElementById("ped5TableGender").innerText = document.getElementById("ped5Gender").value;
@@ -996,6 +1002,7 @@
 			document.getElementById("ped5TableLDL").innerText = document.getElementById("ped5LDLChol").value;
 			document.getElementById("ped5TableTotc").innerText = document.getElementById("ped5TOTChol").value;
 			document.getElementById("ped5TableCadAge").innerText = document.getElementById("ped5CadAge").value;
+			document.getElementById("ped5TableFH").innerText = document.getElementById("ped5FhProb").innerText;
 
 			<!-- Pedigree 6's Dynamic Table-UserInput Values -->
 			document.getElementById("ped6TableGender").innerText = document.getElementById("ped6Gender").value;
@@ -1006,6 +1013,7 @@
 			document.getElementById("ped6TableLDL").innerText = document.getElementById("ped6LDLChol").value;
 			document.getElementById("ped6TableTotc").innerText = document.getElementById("ped6TOTChol").value;
 			document.getElementById("ped6TableCadAge").innerText = document.getElementById("ped6CadAge").value;
+			document.getElementById("ped6TableFH").innerText = document.getElementById("ped6FhProb").innerText;
 
 			<!-- Pedigree 7's Dynamic Table-UserInput Values -->
 			document.getElementById("ped7TableGender").innerText = document.getElementById("ped7Gender").value;
@@ -1016,6 +1024,7 @@
 			document.getElementById("ped7TableLDL").innerText = document.getElementById("ped7LDLChol").value;
 			document.getElementById("ped7TableTotc").innerText = document.getElementById("ped7TOTChol").value;
 			document.getElementById("ped7TableCadAge").innerText = document.getElementById("ped7CadAge").value;
+			document.getElementById("ped7TableFH").innerText = document.getElementById("ped7FhProb").innerText;
 
 			<!-- Pedigree 8's Dynamic Table-UserInput Values -->
 			document.getElementById("ped8TableGender").innerText = document.getElementById("ped8Gender").value;
@@ -1026,6 +1035,7 @@
 			document.getElementById("ped8TableLDL").innerText = document.getElementById("ped8LDLChol").value;
 			document.getElementById("ped8TableTotc").innerText = document.getElementById("ped8TOTChol").value;
 			document.getElementById("ped8TableCadAge").innerText = document.getElementById("ped8CadAge").value;
+			document.getElementById("ped8TableFH").innerText = document.getElementById("ped8FhProb").innerText;
 
 			<!-- Pedigree 9's Dynamic Table-UserInput Values -->
 			document.getElementById("ped9TableGender").innerText = document.getElementById("ped9Gender").value;
@@ -1036,6 +1046,7 @@
 			document.getElementById("ped9TableLDL").innerText = document.getElementById("ped9LDLChol").value;
 			document.getElementById("ped9TableTotc").innerText = document.getElementById("ped9TOTChol").value;
 			document.getElementById("ped9TableCadAge").innerText = document.getElementById("ped9CadAge").value;
+			document.getElementById("ped9TableFH").innerText = document.getElementById("ped9FhProb").innerText;
 
 		}
 	</script>
