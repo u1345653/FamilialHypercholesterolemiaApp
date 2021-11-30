@@ -26,15 +26,15 @@
 						<form action = "{{ url_for('index') }}" method = "POST" id = "results-form" name = "results-form">
 							<div class = "input-group-btn"><h4><b>Select Family Pedigree</b></h4>
 								<select name = "pedigreeChoice" id = "pedigreeChoice" class = "pedigreeChoice custom-select form-control" onchange = "change(this)">
-									<option value = "pedigree1">1 - Grandmother of Parent #1's Side</option>
-									<option value = "pedigree2">2 - Grandfather of Parent #1's Side</option>
-									<option value = "pedigree3">3 - Sibling of Parent 1</option>
-									<option value = "pedigree4">4 - Second Sibling of Parent 1</option>
-									<option value = "pedigree5">5 - Parent 1</option>
-									<option value = "pedigree6">6 - Parent 2</option>
-									<option value = "pedigree7">7 - Child 1 of Parent 1 & 2</option>
-									<option value = "pedigree8">8 - Child 2 of Parent 1 & 2</option>
-									<option value = "pedigree9">9 - Child 3 of Parent 1 & 2</option>
+									<option value = "pedigree1">Add Grandparent #1</option>
+									<option value = "pedigree2">Add Grandparent #2</option>
+									<option value = "pedigree3">Add Sibling of Parent #1</option>
+									<option value = "pedigree4">Add Second Sibling of Parent #1</option>
+									<option value = "pedigree5">Add Parent #1</option>
+									<option value = "pedigree6">Add Parent #2</option>
+									<option value = "pedigree7">Add Child 1 of Parents 1 & 2</option>
+									<option value = "pedigree8">Add Child 2 of Parents 1 & 2</option>
+									<option value = "pedigree9">Add Child 3 of Parents 2 & 2</option>
 								</select>
 							</div>
 							<br>
@@ -826,7 +826,7 @@
 					</tr>
 
 					<tr id = "row-1">
-						<td>Person 1</td>
+						<td>Grandparent #1</td>
 						<td id = "ped1TableAge"> {{ ped1age }} </td>
 						<td id = "ped1TableGender"> {{ ped1gender }} </td>
 						<td id = "ped1TableLDL"> {{ ped1ldlc }} </td>
@@ -839,7 +839,7 @@
 					</tr>
 
 					<tr id = "row-2">
-						<td>Person 2</td>
+						<td>Grandparent #2</td>
 						<td id = "ped2TableAge"> {{ ped2age }} </td>
 						<td id = "ped2TableGender"> {{ ped2gender }} </td>
 						<td id = "ped2TableLDL"> {{ ped2ldlc }} </td>
@@ -852,7 +852,7 @@
 					</tr>
 
 					<tr id = "row-3">
-						<td>Person 3</td>
+						<td>Sibling 1 of Parent #1</td>
 						<td id = "ped3TableAge"> {{ ped3age }} </td>
 						<td id = "ped3TableGender"> {{ ped3gender }} </td>
 						<td id = "ped3TableLDL"> {{ ped3ldlc }} </td>
@@ -865,7 +865,7 @@
 					</tr>
 
 					<tr id = "row-4">
-						<td>Person 4</td>
+						<td>Sibling 2 of Parent #1</td>
 						<td id = "ped4TableAge"> {{ ped4age }} </td>
 						<td id = "ped4TableGender"> {{ ped4gender }} </td>
 						<td id = "ped4TableLDL"> {{ ped4ldlc }} </td>
@@ -878,7 +878,7 @@
 					</tr>
 
 					<tr id = "row-5">
-						<td>Person 5</td>
+						<td>Parent #1</td>
 						<td id = "ped5TableAge"> {{ ped5age }} </td>
 						<td id = "ped5TableGender"> {{ ped5gender }} </td>
 						<td id = "ped5TableLDL"> {{ ped5ldlc }} </td>
@@ -891,7 +891,7 @@
 					</tr>
 
 					<tr id = "row-6">
-						<td>Person 6</td>
+						<td>Parent #2</td>
 						<td id = "ped6TableAge"> {{ ped6age }} </td>
 						<td id = "ped6TableGender"> {{ ped6gender }} </td>
 						<td id = "ped6TableLDL"> {{ ped6ldlc }} </td>
@@ -904,7 +904,7 @@
 					</tr>
 
 					<tr id = "row-7">
-						<td>Person 7</td>
+						<td>Child 1 of Parents 1 & 2</td>
 						<td id = "ped7TableAge"> {{ ped7age }} </td>
 						<td id = "ped7TableGender"> {{ ped7gender }} </td>
 						<td id = "ped7TableLDL"> {{ ped7ldlc }} </td>
@@ -917,7 +917,7 @@
 					</tr>
 
 					<tr id = "row-8">
-						<td>Person 8</td>
+						<td>Child 2 of Parents 1 & 2</td>
 						<td id = "ped8TableAge"> {{ ped8age }} </td>
 						<td id = "ped8TableGender"> {{ ped8gender }} </td>
 						<td id = "ped8TableLDL"> {{ ped8ldlc }} </td>
@@ -930,7 +930,7 @@
 					</tr>
 
 					<tr id = "row-9">
-						<td>Person 9</td>
+						<td>Child 3 of Parents 1 & 2</td>
 						<td id = "ped9TableAge"> {{ ped9age }} </td>
 						<td id = "ped9TableGender"> {{ ped9gender }} </td>
 						<td id = "ped9TableLDL"> {{ ped9ldlc }} </td>
