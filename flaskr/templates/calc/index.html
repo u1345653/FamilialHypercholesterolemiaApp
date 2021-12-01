@@ -26,15 +26,15 @@
 						<form action = "{{ url_for('index') }}" method = "POST" id = "results-form" name = "results-form">
 							<div class = "input-group-btn"><h4><b>Select Family Pedigree</b></h4>
 								<select name = "pedigreeChoice" id = "pedigreeChoice" class = "pedigreeChoice custom-select form-control" onchange = "change(this)">
-									<option value = "pedigree1">Add Grandparent #1</option>
-									<option value = "pedigree2">Add Grandparent #2</option>
-									<option value = "pedigree3">Add Sibling of Parent #1</option>
-									<option value = "pedigree4">Add Second Sibling of Parent #1</option>
+									<option value = "pedigree1">Add Grandparent #1 on Parent #1 Side</option>
+									<option value = "pedigree2">Add Grandparent #2 on Parent #1 Side</option>
+									<option value = "pedigree3">Add Sibling #1 of Parent #1</option>
+									<option value = "pedigree4">Add Sibling #2 of Parent #1</option>
 									<option value = "pedigree5">Add Parent #1</option>
 									<option value = "pedigree6">Add Parent #2</option>
-									<option value = "pedigree7">Add Child 1 of Parents 1 & 2</option>
-									<option value = "pedigree8">Add Child 2 of Parents 1 & 2</option>
-									<option value = "pedigree9">Add Child 3 of Parents 2 & 2</option>
+									<option value = "pedigree7">Add Child #1 of Parent #1 & #2</option>
+									<option value = "pedigree8">Add Child #2 of Parent #1 & #2</option>
+									<option value = "pedigree9">Add Child #3 of Parent #1 & #2</option>
 								</select>
 							</div>
 							<br>
@@ -47,7 +47,7 @@
 						<form action = "{{ url_for('index') }}" method = "POST" id = "pedigree-attribute-form" name = "pedigree-attribute-form" class = "form-group">
 							<!--Pedigree 1 (Grandmother on Parent 1 Side) Form Input -->
 							<div id = "ped1Attributes" class = "pedigreeAttributes">
-								<label for = "ped1Attributes"><h5><b>Pedigree 1 Attributes</b></h5></label><br>
+								<label for = "ped1Attributes"><h5><b>Grandparent #1 on Parent #1 Side Attributes</b></h5></label><br>
 								<!-- Pedigree 1 Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
@@ -131,7 +131,7 @@
 							</div>
 							<!--Pedigree 2 (Grandfather on Parent 1 Side) Form Input -->
 							<div id = "ped2Attributes" class = "pedigreeAttributes" style = "display:none">
-								<label for = "ped2Attributes"><h5><b>Pedigree 2 Attributes</b></h5></label><br>
+								<label for = "ped2Attributes"><h5><b>Grandparent #2 on Parent #1 Side Attributes</b></h5></label><br>
 								<!-- Pedigree 2 Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
@@ -215,7 +215,7 @@
 							</div>
 							<!--Pedigree 3 Sibling of Parent 1 -->
 							<div id = "ped3Attributes" class = "pedigreeAttributes" style = "display:none">
-								<label for = "ped3Attributes"><h5><b>Pedigree 3 Attributes</b></h5></label><br>
+								<label for = "ped3Attributes"><h5><b>Sibling #1 of Parent #1 Attributes</b></h5></label><br>
 								<!-- Pedigree 3 Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
@@ -299,7 +299,7 @@
 							</div>
 							<!--Pedigree 4 Second Sibling of Parent 1 -->
 							<div id = "ped4Attributes" class = "pedigreeAttributes" style = "display:none">
-								<label for = "ped4Attributes"><h5><b>Pedigree 4 Attributes</b></h5></label><br>
+								<label for = "ped4Attributes"><h5><b>Sibling #2 of Parent #1 Attributes</b></h5></label><br>
 								<!-- Pedigree 4 Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
@@ -383,7 +383,7 @@
 							</div>
 							<!--Pedigree 5 Parent 1 -->
 							<div id = "ped5Attributes" class = "pedigreeAttributes" style = "display:none">
-								<label for = "ped5Attributes"><h5><b>Pedigree 5 Attributes</b></h5></label><br>
+								<label for = "ped5Attributes"><h5><b>Parent #1 Attributes</b></h5></label><br>
 								<!-- Pedigree 5 Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
@@ -467,7 +467,7 @@
 							</div>
 							<!--Pedigree 6 Parent 2 -->
 							<div id = "ped6Attributes" class = "pedigreeAttributes" style = "display:none">
-								<label for = "ped6Attributes"><h5><b>Pedigree 6 Attributes</b></h5></label><br>
+								<label for = "ped6Attributes"><h5><b>Parent #2 Attributes</b></h5></label><br>
 								<!-- Pedigree 6 Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
@@ -551,7 +551,7 @@
 							</div>
 							<!--Pedigree 7 Child 1 of Parents 1 & 2 -->
 							<div id = "ped7Attributes" class = "pedigreeAttributes" style = "display:none">
-								<label for = "ped7Attributes"><h5><b>Pedigree 7 Attributes</b></h5></label><br>
+								<label for = "ped7Attributes"><h5><b>Child #1 of Parent #1 & #2 Attributes</b></h5></label><br>
 								<!-- Pedigree 7 Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
@@ -635,7 +635,7 @@
 							</div>
 							<!--Pedigree 8 Child 2 of Parents 1 & 2 -->
 							<div id = "ped8Attributes" class = "pedigreeAttributes" style = "display:none">
-								<label for = "ped8Attributes"><h5><b>Pedigree 8 Attributes</b></h5></label><br>
+								<label for = "ped8Attributes"><h5><b>Child #2 of Parent #1 & #2 Attributes</b></h5></label><br>
 								<!-- Pedigree 8 Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
@@ -719,7 +719,7 @@
 							</div>
 							<!--Pedigree 9 Child 3 of Parents 1 & 2 -->
 							<div id = "ped9Attributes" class = "pedigreeAttributes" style = "display:none">
-								<label for = "ped9Attributes"><h5><b>Pedigree 9 Attributes</b></h5></label><br>
+								<label for = "ped9Attributes"><h5><b>Child #3 of Parent #1 & #2 Attributes</b></h5></label><br>
 								<!-- Pedigree 9 Age Input -->
 								<div class = "input-group mb-3">
 									<div class = "input-group-prepend">
@@ -826,120 +826,120 @@
 					</tr>
 
 					<tr id = "row-1">
-						<td>Grandparent #1</td>
-						<td id = "ped1TableAge"> {{ ped1age }} </td>
-						<td id = "ped1TableGender"> {{ ped1gender }} </td>
-						<td id = "ped1TableLDL"> {{ ped1ldlc }} </td>
-						<td id = "ped1TableTotc"> {{ ped1totc }} </td>
-						<td id = "ped1TableTx"> {{ ped1tx }} </td>
-						<td id = "ped1TableCadStat">{{ ped1cadstat }}</td>
-						<td id = "ped1TableCadAge"> {{ ped1cadage }} </td>
-						<td id = "ped1TableDna"> {{ ped1dna }} </td>
-						<td id = " ped1TableFH "> {{ fh1prob }} </td>
+						<td><b>Grandparent #1 on Parent #1 Side</b></td>
+						<td id = "ped1TableAge" style = "text-align: center; vertical-align: middle"> {{ ped1age }} </td>
+						<td id = "ped1TableGender" style = "text-align: center; vertical-align: middle"> {{ ped1gender }} </td>
+						<td id = "ped1TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped1ldlc }} </td>
+						<td id = "ped1TableTotc" style = "text-align: center; vertical-align: middle"> {{ ped1totc }} </td>
+						<td id = "ped1TableTx" style = "text-align: center; vertical-align: middle"> {{ ped1tx }} </td>
+						<td id = "ped1TableCadStat" style = "text-align: center; vertical-align: middle">{{ ped1cadstat }}</td>
+						<td id = "ped1TableCadAge" style = "text-align: center; vertical-align: middle"> {{ ped1cadage }} </td>
+						<td id = "ped1TableDna" style = "text-align: center; vertical-align: middle"> {{ ped1dna }} </td>
+						<td id = " ped1TableFH " style = "text-align: center; vertical-align: middle"> {{ fh1prob }} </td>
 					</tr>
 
 					<tr id = "row-2">
-						<td>Grandparent #2</td>
-						<td id = "ped2TableAge"> {{ ped2age }} </td>
-						<td id = "ped2TableGender"> {{ ped2gender }} </td>
-						<td id = "ped2TableLDL"> {{ ped2ldlc }} </td>
-						<td id = "ped2TableTotc"> {{ ped2totc }} </td>
-						<td id = "ped2TableTx"> {{ ped2tx }} </td>
-						<td id = "ped2TableCadStat"> {{ ped2cadstat }} </td>
-						<td id = "ped2TableCadAge"> {{ ped2cadage }} </td>
-						<td id = "ped2TableDna"> {{ ped2dna }} </td>
-						<td id = "ped2TableFH"> {{ fh2prob }} </td>
+						<td><b>Grandparent #2 on Parent #1 Side</b></td>
+						<td id = "ped2TableAge" style = "text-align: center; vertical-align: middle"> {{ ped2age }} </td>
+						<td id = "ped2TableGender" style = "text-align: center; vertical-align: middle"> {{ ped2gender }} </td>
+						<td id = "ped2TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped2ldlc }} </td>
+						<td id = "ped2TableTotc" style = "text-align: center; vertical-align: middle"> {{ ped2totc }} </td>
+						<td id = "ped2TableTx" style = "text-align: center; vertical-align: middle"> {{ ped2tx }} </td>
+						<td id = "ped2TableCadStat" style = "text-align: center; vertical-align: middle"> {{ ped2cadstat }} </td>
+						<td id = "ped2TableCadAge" style = "text-align: center; vertical-align: middle"> {{ ped2cadage }} </td>
+						<td id = "ped2TableDna" style = "text-align: center; vertical-align: middle"> {{ ped2dna }} </td>
+						<td id = "ped2TableFH" style = "text-align: center; vertical-align: middle"> {{ fh2prob }} </td>
 					</tr>
 
 					<tr id = "row-3">
-						<td>Sibling 1 of Parent #1</td>
-						<td id = "ped3TableAge"> {{ ped3age }} </td>
-						<td id = "ped3TableGender"> {{ ped3gender }} </td>
-						<td id = "ped3TableLDL"> {{ ped3ldlc }} </td>
-						<td id = "ped3TableTotc"> {{ ped3totc }} </td>
-						<td id = "ped3TableTx"> {{ ped3tx }} </td>
-						<td id = "ped3TableCadStat"> {{ ped3cadstat }} </td>
-						<td id = "ped3TableCadAge"> {{ ped3cadage }} </td>
-						<td id = "ped3TableDna"> {{ ped3dna }} </td>
-						<td id = "ped3TableFH"> {{ fh3prob }} </td>
+						<td><b>Sibling #1 of Parent #1</b></td>
+						<td id = "ped3TableAge" style = "text-align: center; vertical-align: middle"> {{ ped3age }} </td>
+						<td id = "ped3TableGender" style = "text-align: center; vertical-align: middle"> {{ ped3gender }} </td>
+						<td id = "ped3TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped3ldlc }} </td>
+						<td id = "ped3TableTotc" style = "text-align: center; vertical-align: middle"> {{ ped3totc }} </td>
+						<td id = "ped3TableTx" style = "text-align: center; vertical-align: middle"> {{ ped3tx }} </td>
+						<td id = "ped3TableCadStat" style = "text-align: center; vertical-align: middle"> {{ ped3cadstat }} </td>
+						<td id = "ped3TableCadAge" style = "text-align: center; vertical-align: middle"> {{ ped3cadage }} </td>
+						<td id = "ped3TableDna" style = "text-align: center; vertical-align: middle"> {{ ped3dna }} </td>
+						<td id = "ped3TableFH" style = "text-align: center; vertical-align: middle"> {{ fh3prob }} </td>
 					</tr>
 
 					<tr id = "row-4">
-						<td>Sibling 2 of Parent #1</td>
-						<td id = "ped4TableAge"> {{ ped4age }} </td>
-						<td id = "ped4TableGender"> {{ ped4gender }} </td>
-						<td id = "ped4TableLDL"> {{ ped4ldlc }} </td>
-						<td id = "ped4TableTotc"> {{ ped4totc }} </td>
-						<td id = "ped4TableTx"> {{ ped4tx }} </td>
-						<td id = "ped4TableCadStat"> {{ ped4cadstat }} </td>
-						<td id = "ped4TableCadAge"> {{ ped4cadage }} </td>
-						<td id = "ped4TableDna"> {{ ped4dna }} </td>
-						<td id = "ped4TableFH"> {{ fh4prob }} </td>
+						<td><b>Sibling #2 of Parent #1</b></td>
+						<td id = "ped4TableAge" style = "text-align: center; vertical-align: middle"> {{ ped4age }} </td>
+						<td id = "ped4TableGender" style = "text-align: center; vertical-align: middle"> {{ ped4gender }} </td>
+						<td id = "ped4TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped4ldlc }} </td>
+						<td id = "ped4TableTotc" style = "text-align: center; vertical-align: middle"> {{ ped4totc }} </td>
+						<td id = "ped4TableTx" style = "text-align: center; vertical-align: middle"> {{ ped4tx }} </td>
+						<td id = "ped4TableCadStat" style = "text-align: center; vertical-align: middle"> {{ ped4cadstat }} </td>
+						<td id = "ped4TableCadAge" style = "text-align: center; vertical-align: middle"> {{ ped4cadage }} </td>
+						<td id = "ped4TableDna" style = "text-align: center; vertical-align: middle"> {{ ped4dna }} </td>
+						<td id = "ped4TableFH" style = "text-align: center; vertical-align: middle"> {{ fh4prob }} </td>
 					</tr>
 
 					<tr id = "row-5">
-						<td>Parent #1</td>
-						<td id = "ped5TableAge"> {{ ped5age }} </td>
-						<td id = "ped5TableGender"> {{ ped5gender }} </td>
-						<td id = "ped5TableLDL"> {{ ped5ldlc }} </td>
-						<td id = "ped5TableTotc"> {{ ped5totc }} </td>
-						<td id = "ped5TableTx"> {{ ped5tx }} </td>
-						<td id = "ped5TableCadStat"> {{ ped5cadstat }} </td>
-						<td id = "ped5TableCadAge"> {{ ped5cadage }} </td>
-						<td id = "ped5TableDna"> {{ ped5dna }} </td>
-						<td id = "ped5TableFH"> {{ fh5prob }} </td>
+						<td><b>Parent #1</b></td>
+						<td id = "ped5TableAge" style = "text-align: center; vertical-align: middle"> {{ ped5age }} </td>
+						<td id = "ped5TableGender" style = "text-align: center; vertical-align: middle"> {{ ped5gender }} </td>
+						<td id = "ped5TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped5ldlc }} </td>
+						<td id = "ped5TableTotc" style = "text-align: center; vertical-align: middle"> {{ ped5totc }} </td>
+						<td id = "ped5TableTx" style = "text-align: center; vertical-align: middle"> {{ ped5tx }} </td>
+						<td id = "ped5TableCadStat" style = "text-align: center; vertical-align: middle"> {{ ped5cadstat }} </td>
+						<td id = "ped5TableCadAge" style = "text-align: center; vertical-align: middle"> {{ ped5cadage }} </td>
+						<td id = "ped5TableDna" style = "text-align: center; vertical-align: middle"> {{ ped5dna }} </td>
+						<td id = "ped5TableFH" style = "text-align: center; vertical-align: middle"> {{ fh5prob }} </td>
 					</tr>
 
 					<tr id = "row-6">
-						<td>Parent #2</td>
-						<td id = "ped6TableAge"> {{ ped6age }} </td>
-						<td id = "ped6TableGender"> {{ ped6gender }} </td>
-						<td id = "ped6TableLDL"> {{ ped6ldlc }} </td>
-						<td id = "ped6TableTotc"> {{ ped6totc }} </td>
-						<td id = "ped6TableTx"> {{ ped6tx }} </td>
-						<td id = "ped6TableCadStat"> {{ ped6cadstat }} </td>
-						<td id = "ped6TableCadAge"> {{ ped6cadage }} </td>
-						<td id = "ped6TableDna"> {{ ped6dna }} </td>
-						<td id = "ped6TableFH"> {{ fh6prob }} </td>
+						<td><b>Parent #2</b></td>
+						<td id = "ped6TableAge" style = "text-align: center; vertical-align: middle"> {{ ped6age }} </td>
+						<td id = "ped6TableGender" style = "text-align: center; vertical-align: middle"> {{ ped6gender }} </td>
+						<td id = "ped6TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped6ldlc }} </td>
+						<td id = "ped6TableTotc" style = "text-align: center; vertical-align: middle"> {{ ped6totc }} </td>
+						<td id = "ped6TableTx" style = "text-align: center; vertical-align: middle"> {{ ped6tx }} </td>
+						<td id = "ped6TableCadStat" style = "text-align: center; vertical-align: middle"> {{ ped6cadstat }} </td>
+						<td id = "ped6TableCadAge" style = "text-align: center; vertical-align: middle"> {{ ped6cadage }} </td>
+						<td id = "ped6TableDna" style = "text-align: center; vertical-align: middle"> {{ ped6dna }} </td>
+						<td id = "ped6TableFH" style = "text-align: center; vertical-align: middle"> {{ fh6prob }} </td>
 					</tr>
 
 					<tr id = "row-7">
-						<td>Child 1 of Parents 1 & 2</td>
-						<td id = "ped7TableAge"> {{ ped7age }} </td>
-						<td id = "ped7TableGender"> {{ ped7gender }} </td>
-						<td id = "ped7TableLDL"> {{ ped7ldlc }} </td>
-						<td id = "ped7TableTotc"> {{ped7totc }} </td>
-						<td id = "ped7TableTx"> {{ ped7tx }} </td>
-						<td id = "ped7TableCadStat"> {{ ped7cadstat }} </td>
-						<td id = "ped7TableCadAge"> {{ ped7cadage }} </td>
-						<td id = "ped7TableDna"> {{ ped7dna }} </td>
-						<td id = "ped7TableFH"> {{ fh7prob }}</td>
+						<td><b>Child #1 of Parent #1 & #2</b></td>
+						<td id = "ped7TableAge" style = "text-align: center; vertical-align: middle"> {{ ped7age }} </td>
+						<td id = "ped7TableGender" style = "text-align: center; vertical-align: middle"> {{ ped7gender }} </td>
+						<td id = "ped7TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped7ldlc }} </td>
+						<td id = "ped7TableTotc" style = "text-align: center; vertical-align: middle"> {{ped7totc }} </td>
+						<td id = "ped7TableTx" style = "text-align: center; vertical-align: middle"> {{ ped7tx }} </td>
+						<td id = "ped7TableCadStat" style = "text-align: center; vertical-align: middle"> {{ ped7cadstat }} </td>
+						<td id = "ped7TableCadAge" style = "text-align: center; vertical-align: middle"> {{ ped7cadage }} </td>
+						<td id = "ped7TableDna" style = "text-align: center; vertical-align: middle"> {{ ped7dna }} </td>
+						<td id = "ped7TableFH" style = "text-align: center; vertical-align: middle"> {{ fh7prob }}</td>
 					</tr>
 
 					<tr id = "row-8">
-						<td>Child 2 of Parents 1 & 2</td>
-						<td id = "ped8TableAge"> {{ ped8age }} </td>
-						<td id = "ped8TableGender"> {{ ped8gender }} </td>
-						<td id = "ped8TableLDL"> {{ ped8ldlc }} </td>
-						<td id = "ped8TableTotc"> {{ ped8totc }} </td>
-						<td id = "ped8TableTx"> {{ ped8tx }} </td>
-						<td id = "ped8TableCadStat"> {{ ped8cadstat }} </td>
-						<td id = "ped8TableCadAge"> {{ ped8cadage }} </td>
-						<td id = "ped8TableDna"> {{ ped8dna }} </td>
-						<td id = "ped8TableFH"> {{ fh8prob }} </td>
+						<td><b>Child #2 of Parent #1 & #2</b></td>
+						<td id = "ped8TableAge" style = "text-align: center; vertical-align: middle"> {{ ped8age }} </td>
+						<td id = "ped8TableGender" style = "text-align: center; vertical-align: middle"> {{ ped8gender }} </td>
+						<td id = "ped8TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped8ldlc }} </td>
+						<td id = "ped8TableTotc" style = "text-align: center; vertical-align: middle"> {{ ped8totc }} </td>
+						<td id = "ped8TableTx" style = "text-align: center; vertical-align: middle"> {{ ped8tx }} </td>
+						<td id = "ped8TableCadStat" style = "text-align: center; vertical-align: middle"> {{ ped8cadstat }} </td>
+						<td id = "ped8TableCadAge" style = "text-align: center; vertical-align: middle"> {{ ped8cadage }} </td>
+						<td id = "ped8TableDna" style = "text-align: center; vertical-align: middle"> {{ ped8dna }} </td>
+						<td id = "ped8TableFH" style = "text-align: center; vertical-align: middle"> {{ fh8prob }} </td>
 					</tr>
 
 					<tr id = "row-9">
-						<td>Child 3 of Parents 1 & 2</td>
-						<td id = "ped9TableAge"> {{ ped9age }} </td>
-						<td id = "ped9TableGender"> {{ ped9gender }} </td>
-						<td id = "ped9TableLDL"> {{ ped9ldlc }} </td>
-						<td id = "ped9TableTotc"> {{ ped9totc }} </td>
-						<td id = "ped9TableTx"> {{ ped9tx }} </td>
-						<td id = "ped9TableCadStat"> {{ ped9cadstat }} </td>
-						<td id = "ped9TableCadAge"> {{ ped9cadage }} </td>
-						<td id = "ped9TableDna"> {{ ped9dna }} </td>
-						<td id = "ped9TableFH"> {{ fh9prob }} </td>
+						<td><b>Child #3 of Parent #1 & #2</b></td>
+						<td id = "ped9TableAge" style = "text-align: center; vertical-align: middle"> {{ ped9age }} </td>
+						<td id = "ped9TableGender" style = "text-align: center; vertical-align: middle"> {{ ped9gender }} </td>
+						<td id = "ped9TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped9ldlc }} </td>
+						<td id = "ped9TableTotc" style = "text-align: center; vertical-align: middle"> {{ ped9totc }} </td>
+						<td id = "ped9TableTx" style = "text-align: center; vertical-align: middle"> {{ ped9tx }} </td>
+						<td id = "ped9TableCadStat" style = "text-align: center; vertical-align: middle"> {{ ped9cadstat }} </td>
+						<td id = "ped9TableCadAge" style = "text-align: center; vertical-align: middle"> {{ ped9cadage }} </td>
+						<td id = "ped9TableDna" style = "text-align: center; vertical-align: middle"> {{ ped9dna }} </td>
+						<td id = "ped9TableFH" style = "text-align: center; vertical-align: middle"> {{ fh9prob }} </td>
 					</tr>
 				</table>
 			</div>
