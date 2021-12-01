@@ -12,7 +12,7 @@
         <div class = "container">
             <div class = "row">
                 <div class = "col col-sm-6">
-                    <h1 class = "text-muted">FH Calculator</h1>
+                    <h1 class = "page-header">FH Calculator</h1>
                 </div>
             </div>
             <br>
@@ -42,7 +42,7 @@
             </div>
             <div class = "row">
                 <!-- Pedigree Drop-down Selection for Further Input -- Start of Individual Member Input -->
-                <div class = "col-3">
+                <div class = "col">
                     <div class = "form-group">
                         <!-- Each Pedigree Members Respective Section of Form -->
                         <div id = "pedigree-attributes-all" class = "pedigree-attributes-all">
@@ -812,7 +812,7 @@
                                     <!-- HIDDEN ATTRIBUTE: Pedigree 9 Holding Patient's FH-Probability Value -->
                                     <input type = "hidden" id = "ped9FhProb" name = "ped9FhProb" value = "{{ fh9prob }}">
                                 </div>
-                                <button id = "button" value = "Generate Results" class = "btn btn-success"><b>Generate Results</b></button>
+                                <button id = "button" value = "Generate Results" class = "btn btn-secondary" style = "align-content: center">Generate Results</button>
                             </form>
                         </div>
                     </div>
@@ -822,9 +822,13 @@
     <!--				<button id = "button" value = "Generate Results" onclick = createTable() class = "btn btn-success"><b>Generate Results</b></button>-->
                 <div class = "col-9">
                     <div class = "row">
-                        <div class = "col">{{ fhfamprob }}</div>
-                        <div class = "col"><span class = "float-right">THIS IS A TEST!</span></div>
-                    </div>
+                        <div class = "col"><b>{{ fhfamprob }}</b></div>
+                        <div class = "col">
+                            <span class = "float-right">
+                                <button type = "button" class = "btn btn-secondary btn-sm">Download</button>
+                            </span>
+                        </div>
+                    </div><br>
                     <div>
                         <table id = "createdTable" class="table table-sm table-bordered table-striped table-hover">
                             <thead>
