@@ -1522,43 +1522,59 @@ def index():
         fhfamprob = familyprob.iloc[0,0]
         # print(f"Family Likelihood: {familyprob.iloc[0, 0]}%")
 
+        fh1prob = float(fh1prob)
+        fh1prob = "{:.4f}%".format(fh1prob)
+        fh2prob = float(fh2prob)
+        fh2prob = "{:.4f}%".format(fh2prob)
+        fh3prob = float(fh3prob)
+        fh3prob = "{:.4f}%".format(fh3prob)
+        fh4prob = float(fh4prob)
+        fh4prob = "{:.4f}%".format(fh4prob)
+        fh5prob = float(fh5prob)
+        fh5prob = "{:.4f}%".format(fh5prob)
+        fh6prob = float(fh6prob)
+        fh6prob = "{:.4f}%".format(fh6prob)
+        fh7prob = float(fh7prob)
+        fh7prob = "{:.4f}%".format(fh7prob)
+        fh8prob = float(fh8prob)
+        fh8prob = "{:.4f}%".format(fh8prob)
+        fh9prob = float(fh9prob)
+        fh9prob = "{:.4f}%".format(fh9prob)
         dftable = pd.DataFrame(
             columns=["Pedigree Number ", "Age", "LDL-C", "TOT-C", "Gender", "Clinical-CAD"
                 , "CAD-Age", "TX-Status", "DNA-DX Status", "FH Probability"]
 
             ,data=[[ "1 - Grandmother on Parent 1's Side", ped1age, ped1ldlc, ped1totc, ped1gender
-                    , ped1cadstat, ped1cadage, ped1tx, ped1dna, float(fh1prob)]
+                    , ped1cadstat, ped1cadage, ped1tx, ped1dna, fh1prob]
 
                 , [ "2 - Grandfather on Parent 1's Side", ped2age, ped2ldlc, ped2totc, ped2gender
-                    , ped2cadstat, ped2cadage, ped2tx, ped2dna, float(fh2prob) ]
+                    , ped2cadstat, ped2cadage, ped2tx, ped2dna, fh2prob ]
 
                 , [ "3 - Sibling of Parent 1", ped3age, ped3ldlc, ped3totc, ped3gender, ped3cadstat
-                    , ped3cadage, ped3tx, ped3dna, float(fh3prob) ]
+                    , ped3cadage, ped3tx, ped3dna, fh3prob ]
 
                 , [ "4 - Second Sibling of Parent 1", ped4age, ped4ldlc, ped4totc, ped4gender, ped4cadstat
-                    , ped4cadage, ped4tx, ped4dna, float(fh4prob) ]
+                    , ped4cadage, ped4tx, ped4dna, fh4prob ]
 
                 , [ "5 - Parent 1", ped5age, ped5ldlc, ped5totc, ped5gender, ped5cadstat
-                    , ped5cadage, ped5tx, ped5dna, float(fh5prob) ]
+                    , ped5cadage, ped5tx, ped5dna, fh5prob ]
 
                 , [ "6 - Parent 2", ped6age, ped6ldlc, ped6totc, ped6gender, ped6cadstat
-                    , ped6cadage, ped6tx, ped6dna, float(fh6prob) ]
+                    , ped6cadage, ped6tx, ped6dna, fh6prob ]
 
                 , [ "7 - Child 1 of Parent 1 & 2", ped7age, ped7ldlc, ped7totc, ped7gender, ped7cadstat
-                    , ped7cadage, ped7tx, ped7dna, float(fh7prob) ]
+                    , ped7cadage, ped7tx, ped7dna, fh7prob ]
 
                 , [ "8 - Child 2 of Parent 1 & 2", ped8age, ped8ldlc, ped8totc, ped8gender, ped8cadstat
-                    , ped8cadage, ped8tx, ped8dna, float(fh8prob) ]
+                    , ped8cadage, ped8tx, ped8dna, fh8prob ]
 
                 , [ "9 - Child 3 of Parent 1 & 2", ped9age, ped9ldlc, ped9totc, ped9gender, ped9cadstat
-                    , ped9cadage, ped9tx, ped9dna, float(fh9prob) ]])
+                    , ped9cadage, ped9tx, ped9dna, fh9prob ]])
 
         # column_names = dftable.columns.values
         # row_data = list(dftable.values.tolist())
 
-        fhfamprob = str(fhfamprob)
-        fhfamprob = str("Family Pedigree FH Probability: " + fhfamprob + "%")
-
+        fhfamprob = "Family Pedigree FH Probability: {:.4f}%".format(fhfamprob)
 
         return render_template('calc/index.html', ped1age = ped1age, ped1ldlc = ped1ldlc, ped1totc = ped1totc
                                , ped1gender = ped1gender, ped1cadstat = ped1cadstat, ped1cadage = ped1cadage
