@@ -810,19 +810,19 @@
 			<input type = "hidden" id = "pedFamProb" name = "pedFamProb" value = "{{ fhfamprob }}"><br>
 <!--				<button id = "button" value = "Generate Results" onclick = createTable() class = "btn btn-success"><b>Generate Results</b></button>-->
 			<div class = "col-8">
-				<caption rel="stylesheet">Family Pedigree FH Probability: <b>{{ fhfamprob }}%</b></caption>
+				<p><b>{{ fhfamprob }}</b></p><br>
 				<table id = "createdTable" class="table-bordered table-striped table-hover">
 					<tr id = "table-header">
 						<th>Person</th>
-						<th>Age</th>
-						<th>Gender</th>
-						<th>LDL Cholesterol</th>
-						<th>Total Cholesterol</th>
-						<th>TX Status</th>
-						<th>CAD Status</th>
-						<th>CAD Onset Age</th>
-						<th>DNA-DX Status</th>
-						<th>FH Probability</th>
+						<th style = "text-align: center; vertical-align: middle">Age</th>
+						<th style = "text-align: center; vertical-align: middle">Gender</th>
+						<th style = "text-align: center; vertical-align: middle">LDL Cholesterol</th>
+						<th style = "text-align: center; vertical-align: middle">Total Cholesterol</th>
+						<th style = "text-align: center; vertical-align: middle">TX Status</th>
+						<th style = "text-align: center; vertical-align: middle">CAD Status</th>
+						<th style = "text-align: center; vertical-align: middle">CAD Onset Age</th>
+						<th style = "text-align: center; vertical-align: middle">DNA-DX Status</th>
+						<th style = "text-align: center; vertical-align: middle">FH Probability</th>
 					</tr>
 
 					<tr id = "row-1">
@@ -947,6 +947,8 @@
 	</div>
 	<br>
 
+	<!-- TODO(): Change formatting of FH Probability column to display up to 4-decimal places.... -->
+	<!-- TODO(): Add bottom & L/R padding to table column-headers.... They feel.... constricted.... -->
 	<script>
 		function updateTableVal(obj) {
 

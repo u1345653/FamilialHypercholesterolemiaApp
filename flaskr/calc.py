@@ -1553,8 +1553,11 @@ def index():
                 , [ "9 - Child 3 of Parent 1 & 2", ped9age, ped9ldlc, ped9totc, ped9gender, ped9cadstat
                     , ped9cadage, ped9tx, ped9dna, float(fh9prob) ]])
 
-        column_names = dftable.columns.values
-        row_data = list(dftable.values.tolist())
+        # column_names = dftable.columns.values
+        # row_data = list(dftable.values.tolist())
+
+        fhfamprob = str(fhfamprob)
+        fhfamprob = str("Family Pedigree FH Probability: " + fhfamprob + "%")
 
 
         return render_template('calc/index.html', ped1age = ped1age, ped1ldlc = ped1ldlc, ped1totc = ped1totc
@@ -1588,4 +1591,4 @@ def index():
         return render_template('calc/index.html')
 
 if __name__ == "__main__":
-    app.run(debug = False)
+    app.run(debug = True)

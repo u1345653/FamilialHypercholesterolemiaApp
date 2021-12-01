@@ -25,8 +25,3 @@ tr:nth-child(even) {
 table tr:first-child {
 	font-weight: bold;
 }
-
-table caption {
-	display: table-caption;
-	caption-side: top;
-}
