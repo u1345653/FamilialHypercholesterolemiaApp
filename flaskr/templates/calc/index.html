@@ -305,7 +305,7 @@
                                 <!--Pedigree 4 Second Sibling of Parent 1 -->
                                 <div id = "ped4Attributes" class = "pedigreeAttributes" style = "display:none">
                                     <label for = "ped4Attributes"><h6>Person Selected: <br>
-                                        <small class="text-muted">Sibling #2 of Parent #1 Attributes</small></h6></label><br>
+                                        <small class="text-muted">Sibling #2 of Parent #1</small></h6></label><br>
                                     <!-- Pedigree 4 Age Input -->
                                     <div class = "input-group mb-3">
                                         <div class = "input-group-prepend">
@@ -390,7 +390,7 @@
                                 <!--Pedigree 5 Parent 1 -->
                                 <div id = "ped5Attributes" class = "pedigreeAttributes" style = "display:none">
                                     <label for = "ped5Attributes"><h6>Person Selected: <br>
-                                        <small class="text-muted">Parent #1 Attributes</small></h6></label></br>
+                                        <small class="text-muted">Parent #1</small></h6></label></br>
                                     <!-- Pedigree 5 Age Input -->
                                     <div class = "input-group mb-3">
                                         <div class = "input-group-prepend">
@@ -475,7 +475,7 @@
                                 <!--Pedigree 6 Parent 2 -->
                                 <div id = "ped6Attributes" class = "pedigreeAttributes" style = "display:none">
                                     <label for = "ped6Attributes"><h6>Person Selected: <br>
-                                        <small class="text-muted">Parent #2 Attributes</small></h6></label></br>
+                                        <small class="text-muted">Parent #2</small></h6></label></br>
                                     <!-- Pedigree 6 Age Input -->
                                     <div class = "input-group mb-3">
                                         <div class = "input-group-prepend">
@@ -560,7 +560,7 @@
                                 <!--Pedigree 7 Child 1 of Parents 1 & 2 -->
                                 <div id = "ped7Attributes" class = "pedigreeAttributes" style = "display:none">
                                     <label for = "ped7Attributes"><h6>Person Selected: <br>
-                                        <small class="text-muted">Child #1 of Parent #1 & #2 Attributes</small></h6></label><br>
+                                        <small class="text-muted">Child #1 of Parent #1 & #2</small></h6></label><br>
                                     <!-- Pedigree 7 Age Input -->
                                     <div class = "input-group mb-3">
                                         <div class = "input-group-prepend">
@@ -645,7 +645,7 @@
                                 <!--Pedigree 8 Child 2 of Parents 1 & 2 -->
                                 <div id = "ped8Attributes" class = "pedigreeAttributes" style = "display:none">
                                     <label for = "ped8Attributes"><h6>Person Selected: <br>
-                                        <small class="text-muted">Child #2 of Parent #1 & #2 Attributes</small></h6></label><br>
+                                        <small class="text-muted">Child #2 of Parent #1 & #2</small></h6></label><br>
                                     <!-- Pedigree 8 Age Input -->
                                     <div class = "input-group mb-3">
                                         <div class = "input-group-prepend">
@@ -730,7 +730,7 @@
                                 <!--Pedigree 9 Child 3 of Parents 1 & 2 -->
                                 <div id = "ped9Attributes" class = "pedigreeAttributes" style = "display:none">
                                     <label for = "ped9Attributes"><h6>Person Selected: <br>
-                                        <small class="text-muted">Child #3 of Parent #1 & #2 Attributes</small></h6></label><br>
+                                        <small class="text-muted">Child #3 of Parent #1 & #2</small></h6></label><br>
                                     <!-- Pedigree 9 Age Input -->
                                     <div class = "input-group mb-3">
                                         <div class = "input-group-prepend">
@@ -812,7 +812,7 @@
                                     <!-- HIDDEN ATTRIBUTE: Pedigree 9 Holding Patient's FH-Probability Value -->
                                     <input type = "hidden" id = "ped9FhProb" name = "ped9FhProb" value = "{{ fh9prob }}">
                                 </div>
-                                <button id = "button" value = "Generate Results" class = "btn btn-secondary" style = "align-content: center">Generate Results</button>
+                                <button id = "button" value = "Generate Results" class = "btn btn-secondary">Generate Results</button>
                             </form>
                         </div>
                     </div>
@@ -821,14 +821,6 @@
                 <input type = "hidden" id = "pedFamProb" name = "pedFamProb" value = "{{ fhfamprob }}"><br>
     <!--				<button id = "button" value = "Generate Results" onclick = createTable() class = "btn btn-success"><b>Generate Results</b></button>-->
                 <div class = "col-9">
-                    <div class = "row">
-                        <div class = "col"><b>{{ fhfamprob }}</b></div>
-                        <div class = "col">
-                            <span class = "float-right">
-                                <button type = "button" class = "btn btn-secondary btn-sm">Download</button>
-                            </span>
-                        </div>
-                    </div><br>
                     <div>
                         <table id = "createdTable" class="table table-sm table-bordered table-striped table-hover">
                             <thead>
@@ -966,6 +958,14 @@
                             </tbody>
 
                         </table>
+                    </div>
+                    <div class = "row">
+                        <div class = "col"><b>{{ fhfamprob }}</b></div>
+                        <div class = "col">
+                            <span class = "float-right">
+                                <button type = "button" class = "btn btn-secondary btn-sm">Download</button>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
