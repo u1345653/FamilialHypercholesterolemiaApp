@@ -5,6 +5,7 @@ import math
 import numpy as np
 from itertools import product
 import pandas as pd
+import datetime
 pd.set_option('display.max_rows', None)
 pd.set_option("display.max_columns", None)
 pd.set_option('precision', 0)
@@ -17,7 +18,7 @@ binary = np.array(binary)
 
 @app.route('/', methods = ['GET', 'POST'])
 def index():
-
+    global filename
     if request.method == "POST":
 
         pedigree_selection = request.form.get('results-form')
@@ -1523,29 +1524,21 @@ def index():
         # print(f"Family Likelihood: {familyprob.iloc[0, 0]}%")
 
         fh1prob = float(fh1prob)
-        fh1prob = "{:.4f}%".format(fh1prob)
         fh2prob = float(fh2prob)
-        fh2prob = "{:.4f}%".format(fh2prob)
         fh3prob = float(fh3prob)
-        fh3prob = "{:.4f}%".format(fh3prob)
         fh4prob = float(fh4prob)
-        fh4prob = "{:.4f}%".format(fh4prob)
         fh5prob = float(fh5prob)
-        fh5prob = "{:.4f}%".format(fh5prob)
         fh6prob = float(fh6prob)
-        fh6prob = "{:.4f}%".format(fh6prob)
         fh7prob = float(fh7prob)
-        fh7prob = "{:.4f}%".format(fh7prob)
         fh8prob = float(fh8prob)
-        fh8prob = "{:.4f}%".format(fh8prob)
         fh9prob = float(fh9prob)
-        fh9prob = "{:.4f}%".format(fh9prob)
+
         dftable = pd.DataFrame(
             columns=["Pedigree Number ", "Age", "LDL-C", "TOT-C", "Gender", "Clinical-CAD"
-                , "CAD-Age", "TX-Status", "DNA-DX Status", "FH Probability"]
+                , "CAD-Age", "TX-Status", "DNA-DX Status", "FH Probability", "Family Pedigree FH Probability"]
 
             ,data=[[ "1 - Grandmother on Parent 1's Side", ped1age, ped1ldlc, ped1totc, ped1gender
-                    , ped1cadstat, ped1cadage, ped1tx, ped1dna, fh1prob]
+                    , ped1cadstat, ped1cadage, ped1tx, ped1dna, fh1prob, fhfamprob]
 
                 , [ "2 - Grandfather on Parent 1's Side", ped2age, ped2ldlc, ped2totc, ped2gender
                     , ped2cadstat, ped2cadage, ped2tx, ped2dna, fh2prob ]
@@ -1571,8 +1564,21 @@ def index():
                 , [ "9 - Child 3 of Parent 1 & 2", ped9age, ped9ldlc, ped9totc, ped9gender, ped9cadstat
                     , ped9cadage, ped9tx, ped9dna, fh9prob ]])
 
+        filename = datetime.datetime.now().strftime("uploads/+%Y-%m-%d-%H-%M-%S-%f"+".csv")
+
+        dftable.to_csv(filename, index = None, encoding = 'utf-8')
+
         # column_names = dftable.columns.values
         # row_data = list(dftable.values.tolist())
+        fh1prob = "{:.4f}%".format(fh1prob)
+        fh2prob = "{:.4f}%".format(fh2prob)
+        fh3prob = "{:.4f}%".format(fh3prob)
+        fh4prob = "{:.4f}%".format(fh4prob)
+        fh5prob = "{:.4f}%".format(fh5prob)
+        fh6prob = "{:.4f}%".format(fh6prob)
+        fh7prob = "{:.4f}%".format(fh7prob)
+        fh8prob = "{:.4f}%".format(fh8prob)
+        fh9prob = "{:.4f}%".format(fh9prob)
 
         fhfamprob = "Family Pedigree FH Probability: {:.4f}%".format(fhfamprob)
 
@@ -1601,10 +1607,15 @@ def index():
                                , ped7dna = ped7dna, ped8dna = ped8dna, ped9dna = ped9dna
                                , fh3prob = fh3prob, fh4prob = fh4prob
                                , fh5prob = fh5prob, fh6prob = fh6prob, fh7prob = fh7prob, fh8prob = fh8prob
-                               , fh9prob = fh9prob, fhfamprob = fhfamprob)
+                               , fh9prob = fh9prob, fhfamprob = fhfamprob, btn = 'calc/download.html')
 
     else:
         return render_template('calc/index.html')
+
+
+@app.route('/download-file/')
+def download():
+    return send_file(filename, attachment_filename = 'yourfile.csv', as_attachment = True)
 
 if __name__ == "__main__":
     app.run(debug = True)
