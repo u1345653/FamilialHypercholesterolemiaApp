@@ -22,7 +22,7 @@
                     <div class = "form-group">
                         <div id = "pedigree-selection" class = "pedigree-selection">
                             <form action = "{{ url_for('index') }}" method = "POST" id = "results-form" name = "results-form">
-                                <div class = "input-group-btn"><h5>Select Family Pedigree:</h5>
+                                <div class = "input-group-btn"><h5>Select Pedigree Member:</h5>
                                     <select name = "pedigreeChoice" id = "pedigreeChoice" class = "pedigreeChoice custom-select form-control" onchange = "change(this)">
                                         <option value = "pedigree1">Add Grandparent #1 on Parent #1 Side</option>
                                         <option value = "pedigree2">Add Grandparent #2 on Parent #1 Side</option>
@@ -42,6 +42,7 @@
                 </div>
                 <!-- Pedigree .jpg Image -->
                 <div class = "col col-sm-9">
+                    <figcaption style = "text-align: center"><b>3-Generation Family Pedigree</b></figcaption>
                     <img src = "{{url_for('static', filename = 'pedigreeImage.jpeg')}}"  style = "display: block; max-width: 100%; height: auto;"/>
                 </div>
             </div>
