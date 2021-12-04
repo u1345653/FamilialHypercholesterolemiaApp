@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset = "utf-8">
-	  	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" rel="stylesheet" crossorigin="anonymous">
-		<script type = "text/javascript" src = "{{url_for('static', filename='tableScript.js') }}"></script>
-		<link rel = "shortcut icon" href = "#">
-		<title>FH Calculator</title>
-	</head>
+<head>
+    <meta charset = "utf-8">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" rel="stylesheet" crossorigin="anonymous">
+    <script type = "text/javascript" src = "{{url_for('static', filename='tableScript.js') }}"></script>
+    <link rel = "shortcut icon" href = "#">
+    <title>FH Calculator</title>
+</head>
 
-	<body>
-        <div class = "container">
-            <div class = "row">
-                <div class = "col col-sm-6">
-                    <h1 class = "page-header">FH Calculator</h1>
+<body>
+    <div class = "container-fluid">
+        <div class = "row">
+            <main role = "main" class = "col-md-12 ml-sm-auto col-lg-12 pt-3 px-4">
+                <div class = "d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                    <h1 class = "h2">FH Calculator</h1>
                 </div>
-            </div>
-            <br>
-            <div class = "row">
-                <!--Family Pedigree Selection -->
-                <div class = "col col-sm-3">
+                <br>
+                <div class = "col col-sm-2">
+                    <!--Family Pedigree Selection -->
                     <div class = "form-group">
                         <div id = "pedigree-selection" class = "pedigree-selection">
                             <form action = "{{ url_for('index') }}" method = "POST" id = "results-form" name = "results-form">
@@ -39,16 +38,7 @@
                             </form>
                         </div>
                     </div>
-                </div>
-                <!-- Pedigree .jpg Image -->
-                <div class = "col col-sm-9">
-                    <figcaption style = "text-align: center"><b>3-Generation Family Pedigree</b></figcaption>
-                    <img src = "{{url_for('static', filename = 'pedigreeImage.jpeg')}}"  style = "display: block; max-width: 100%; height: auto;"/>
-                </div>
-            </div>
-            <div class = "row">
-                <!-- Pedigree Drop-down Selection for Further Input -- Start of Individual Member Input -->
-                <div class = "col">
+                    <!-- Pedigree Drop-down Selection for Further Input -- Start of Individual Member Input -->
                     <div class = "form-group">
                         <!-- Each Pedigree Members Respective Section of Form -->
                         <div id = "pedigree-attributes-all" class = "pedigree-attributes-all">
@@ -823,11 +813,17 @@
                         </div>
                     </div>
                 </div>
-
+                <!-- Pedigree .jpg Image -->
+                <div class = "col col-sm-9">
+                    <figure class = "figure">
+                        <figcaption style = "text-align: center"><b>3-Generation Family Pedigree</b></figcaption>
+                        <img src = "{{url_for('static', filename = 'pedigreeImage.jpeg')}}"  style = "display: block; max-width: 100%; height: auto;"/>
+                    </figure>
+                </div>
+                <!-- HIDDEN: Family FH-Data Input -->
                 <input type = "hidden" id = "pedFamProb" name = "pedFamProb" value = "{{ fhfamprob }}"><br>
-    <!--				<button id = "button" value = "Generate Results" onclick = createTable() class = "btn btn-success"><b>Generate Results</b></button>-->
-                <div class = "col-9">
-                    <div>
+                <!-- Pedigree Attribute Table Data-->
+                <div class = "table-responsive">
                         <table id = "createdTable" class="table table-sm table-bordered table-striped table-hover">
                             <thead>
                                 <tr>
@@ -965,246 +961,248 @@
 
                         </table>
                     </div>
-                    <div class = "row">
-                        <div class = "col"><b>{{ fhfamprob }}</b></div>
-                        <div class = "col">
-                            <span class = "float-right">{% include [btn] ignore missing %}</span>
-                        </div>
+                <div class = "row">
+                    <!-- Family FH-Probability -->
+                    <div class = "col"><b>{{ fhfamprob }}</b></div>
+                    <!-- HIDDEN: Post-Generate Results Button Submission - Download .csv Results Button-->
+                    <div class = "col">
+                        <span class = "float-right">{% include [btn] ignore missing %}</span>
                     </div>
                 </div>
-            </div>
+            </main>
         </div>
-        <br>
+    </div>
 
-        <!-- TODO() Add a File Download Option, and, map it to pandas 'to_csv()' option -->
-        <script>
-            function updateTableVal(obj) {
+    <!-- TODO() Add a File Download Option, and, map it to pandas 'to_csv()' option -->
+    <script>
+        function updateTableVal(obj) {
 
-                <!-- Pedigree 1's Dynamic Table-UserInput Values -->
-                document.getElementById("ped1TableAge").innerText = document.getElementById("ped1Age").value;
-                document.getElementById("ped1TableGender").innerText = document.getElementById("ped1Gender").value;
-                document.getElementById("ped1TableLDL").innerText = document.getElementById("ped1LDLChol").value;
-                document.getElementById("ped1TableTotc").innerText = document.getElementById("ped1TOTChol").value;
-                document.getElementById("ped1TableTx").innerText = document.getElementById("ped1TXStatus").value;
-                document.getElementById("ped1TableDna").innerText = document.getElementById("ped1DnaDxStatus").value;
-                document.getElementById("ped1TableCadStat").innerText = document.getElementById("ped1CadStatus").value;
-                document.getElementById("ped1TableCadAge").innerText = document.getElementById("ped1CadAge").value;
+            <!-- Pedigree 1's Dynamic Table-UserInput Values -->
+            document.getElementById("ped1TableAge").innerText = document.getElementById("ped1Age").value;
+            document.getElementById("ped1TableGender").innerText = document.getElementById("ped1Gender").value;
+            document.getElementById("ped1TableLDL").innerText = document.getElementById("ped1LDLChol").value;
+            document.getElementById("ped1TableTotc").innerText = document.getElementById("ped1TOTChol").value;
+            document.getElementById("ped1TableTx").innerText = document.getElementById("ped1TXStatus").value;
+            document.getElementById("ped1TableDna").innerText = document.getElementById("ped1DnaDxStatus").value;
+            document.getElementById("ped1TableCadStat").innerText = document.getElementById("ped1CadStatus").value;
+            document.getElementById("ped1TableCadAge").innerText = document.getElementById("ped1CadAge").value;
 
-                <!-- Pedigree 2's Dynamic Table-UserInput Values -->
-                document.getElementById("ped2TableAge").innerText = document.getElementById("ped2Age").value;
-                document.getElementById("ped2TableGender").innerText = document.getElementById("ped2Gender").value;
-                document.getElementById("ped2TableLDL").innerText = document.getElementById("ped2LDLChol").value;
-                document.getElementById("ped2TableTotc").innerText = document.getElementById("ped2TOTChol").value;
-                document.getElementById("ped2TableTx").innerText = document.getElementById("ped2TXStatus").value;
-                document.getElementById("ped2TableDna").innerText = document.getElementById("ped2DnaDxStatus").value;
-                document.getElementById("ped2TableCadStat").innerText = document.getElementById("ped2CadStatus").value;
-                document.getElementById("ped2TableCadAge").innerText = document.getElementById("ped2CadAge").value;
+            <!-- Pedigree 2's Dynamic Table-UserInput Values -->
+            document.getElementById("ped2TableAge").innerText = document.getElementById("ped2Age").value;
+            document.getElementById("ped2TableGender").innerText = document.getElementById("ped2Gender").value;
+            document.getElementById("ped2TableLDL").innerText = document.getElementById("ped2LDLChol").value;
+            document.getElementById("ped2TableTotc").innerText = document.getElementById("ped2TOTChol").value;
+            document.getElementById("ped2TableTx").innerText = document.getElementById("ped2TXStatus").value;
+            document.getElementById("ped2TableDna").innerText = document.getElementById("ped2DnaDxStatus").value;
+            document.getElementById("ped2TableCadStat").innerText = document.getElementById("ped2CadStatus").value;
+            document.getElementById("ped2TableCadAge").innerText = document.getElementById("ped2CadAge").value;
 
-                <!-- Pedigree 3's Dynamic Table-UserInput Values -->
-                document.getElementById("ped3TableAge").innerText = document.getElementById("ped3Age").value;
-                document.getElementById("ped3TableGender").innerText = document.getElementById("ped3Gender").value;
-                document.getElementById("ped3TableLDL").innerText = document.getElementById("ped3LDLChol").value;
-                document.getElementById("ped3TableTotc").innerText = document.getElementById("ped3TOTChol").value;
-                document.getElementById("ped3TableTx").innerText = document.getElementById("ped3TXStatus").value;
-                document.getElementById("ped3TableDna").innerText = document.getElementById("ped3DnaDxStatus").value;
-                document.getElementById("ped3TableCadStat").innerText = document.getElementById("ped3CadStatus").value;
-                document.getElementById("ped3TableCadAge").innerText = document.getElementById("ped3CadAge").value;
+            <!-- Pedigree 3's Dynamic Table-UserInput Values -->
+            document.getElementById("ped3TableAge").innerText = document.getElementById("ped3Age").value;
+            document.getElementById("ped3TableGender").innerText = document.getElementById("ped3Gender").value;
+            document.getElementById("ped3TableLDL").innerText = document.getElementById("ped3LDLChol").value;
+            document.getElementById("ped3TableTotc").innerText = document.getElementById("ped3TOTChol").value;
+            document.getElementById("ped3TableTx").innerText = document.getElementById("ped3TXStatus").value;
+            document.getElementById("ped3TableDna").innerText = document.getElementById("ped3DnaDxStatus").value;
+            document.getElementById("ped3TableCadStat").innerText = document.getElementById("ped3CadStatus").value;
+            document.getElementById("ped3TableCadAge").innerText = document.getElementById("ped3CadAge").value;
 
-                <!-- Pedigree 4's Dynamic Table-UserInput Values -->
-                document.getElementById("ped4TableGender").innerText = document.getElementById("ped4Gender").value;
-                document.getElementById("ped4TableTx").innerText = document.getElementById("ped4TXStatus").value;
-                document.getElementById("ped4TableDna").innerText = document.getElementById("ped4DnaDxStatus").value;
-                document.getElementById("ped4TableCadStat").innerText = document.getElementById("ped4CadStatus").value;
-                document.getElementById("ped4TableAge").innerText = document.getElementById("ped4Age").value;
-                document.getElementById("ped4TableLDL").innerText = document.getElementById("ped4LDLChol").value;
-                document.getElementById("ped4TableTotc").innerText = document.getElementById("ped4TOTChol").value;
-                document.getElementById("ped4TableCadAge").innerText = document.getElementById("ped4CadAge").value;
+            <!-- Pedigree 4's Dynamic Table-UserInput Values -->
+            document.getElementById("ped4TableGender").innerText = document.getElementById("ped4Gender").value;
+            document.getElementById("ped4TableTx").innerText = document.getElementById("ped4TXStatus").value;
+            document.getElementById("ped4TableDna").innerText = document.getElementById("ped4DnaDxStatus").value;
+            document.getElementById("ped4TableCadStat").innerText = document.getElementById("ped4CadStatus").value;
+            document.getElementById("ped4TableAge").innerText = document.getElementById("ped4Age").value;
+            document.getElementById("ped4TableLDL").innerText = document.getElementById("ped4LDLChol").value;
+            document.getElementById("ped4TableTotc").innerText = document.getElementById("ped4TOTChol").value;
+            document.getElementById("ped4TableCadAge").innerText = document.getElementById("ped4CadAge").value;
 
-                <!-- Pedigree 5's Dynamic Table-UserInput Values -->
-                document.getElementById("ped5TableGender").innerText = document.getElementById("ped5Gender").value;
-                document.getElementById("ped5TableTx").innerText = document.getElementById("ped5TXStatus").value;
-                document.getElementById("ped5TableDna").innerText = document.getElementById("ped5DnaDxStatus").value;
-                document.getElementById("ped5TableCadStat").innerText = document.getElementById("ped5CadStatus").value;
-                document.getElementById("ped5TableAge").innerText = document.getElementById("ped5Age").value;
-                document.getElementById("ped5TableLDL").innerText = document.getElementById("ped5LDLChol").value;
-                document.getElementById("ped5TableTotc").innerText = document.getElementById("ped5TOTChol").value;
-                document.getElementById("ped5TableCadAge").innerText = document.getElementById("ped5CadAge").value;
+            <!-- Pedigree 5's Dynamic Table-UserInput Values -->
+            document.getElementById("ped5TableGender").innerText = document.getElementById("ped5Gender").value;
+            document.getElementById("ped5TableTx").innerText = document.getElementById("ped5TXStatus").value;
+            document.getElementById("ped5TableDna").innerText = document.getElementById("ped5DnaDxStatus").value;
+            document.getElementById("ped5TableCadStat").innerText = document.getElementById("ped5CadStatus").value;
+            document.getElementById("ped5TableAge").innerText = document.getElementById("ped5Age").value;
+            document.getElementById("ped5TableLDL").innerText = document.getElementById("ped5LDLChol").value;
+            document.getElementById("ped5TableTotc").innerText = document.getElementById("ped5TOTChol").value;
+            document.getElementById("ped5TableCadAge").innerText = document.getElementById("ped5CadAge").value;
 
-                <!-- Pedigree 6's Dynamic Table-UserInput Values -->
-                document.getElementById("ped6TableGender").innerText = document.getElementById("ped6Gender").value;
-                document.getElementById("ped6TableTx").innerText = document.getElementById("ped6TXStatus").value;
-                document.getElementById("ped6TableDna").innerText = document.getElementById("ped6DnaDxStatus").value;
-                document.getElementById("ped6TableCadStat").innerText = document.getElementById("ped6CadStatus").value;
-                document.getElementById("ped6TableAge").innerText = document.getElementById("ped6Age").value;
-                document.getElementById("ped6TableLDL").innerText = document.getElementById("ped6LDLChol").value;
-                document.getElementById("ped6TableTotc").innerText = document.getElementById("ped6TOTChol").value;
-                document.getElementById("ped6TableCadAge").innerText = document.getElementById("ped6CadAge").value;
+            <!-- Pedigree 6's Dynamic Table-UserInput Values -->
+            document.getElementById("ped6TableGender").innerText = document.getElementById("ped6Gender").value;
+            document.getElementById("ped6TableTx").innerText = document.getElementById("ped6TXStatus").value;
+            document.getElementById("ped6TableDna").innerText = document.getElementById("ped6DnaDxStatus").value;
+            document.getElementById("ped6TableCadStat").innerText = document.getElementById("ped6CadStatus").value;
+            document.getElementById("ped6TableAge").innerText = document.getElementById("ped6Age").value;
+            document.getElementById("ped6TableLDL").innerText = document.getElementById("ped6LDLChol").value;
+            document.getElementById("ped6TableTotc").innerText = document.getElementById("ped6TOTChol").value;
+            document.getElementById("ped6TableCadAge").innerText = document.getElementById("ped6CadAge").value;
 
-                <!-- Pedigree 7's Dynamic Table-UserInput Values -->
-                document.getElementById("ped7TableGender").innerText = document.getElementById("ped7Gender").value;
-                document.getElementById("ped7TableTx").innerText = document.getElementById("ped7TXStatus").value;
-                document.getElementById("ped7TableDna").innerText = document.getElementById("ped7DnaDxStatus").value;
-                document.getElementById("ped7TableCadStat").innerText = document.getElementById("ped7CadStatus").value;
-                document.getElementById("ped7TableAge").innerText = document.getElementById("ped7Age").value;
-                document.getElementById("ped7TableLDL").innerText = document.getElementById("ped7LDLChol").value;
-                document.getElementById("ped7TableTotc").innerText = document.getElementById("ped7TOTChol").value;
-                document.getElementById("ped7TableCadAge").innerText = document.getElementById("ped7CadAge").value;
+            <!-- Pedigree 7's Dynamic Table-UserInput Values -->
+            document.getElementById("ped7TableGender").innerText = document.getElementById("ped7Gender").value;
+            document.getElementById("ped7TableTx").innerText = document.getElementById("ped7TXStatus").value;
+            document.getElementById("ped7TableDna").innerText = document.getElementById("ped7DnaDxStatus").value;
+            document.getElementById("ped7TableCadStat").innerText = document.getElementById("ped7CadStatus").value;
+            document.getElementById("ped7TableAge").innerText = document.getElementById("ped7Age").value;
+            document.getElementById("ped7TableLDL").innerText = document.getElementById("ped7LDLChol").value;
+            document.getElementById("ped7TableTotc").innerText = document.getElementById("ped7TOTChol").value;
+            document.getElementById("ped7TableCadAge").innerText = document.getElementById("ped7CadAge").value;
 
-                <!-- Pedigree 8's Dynamic Table-UserInput Values -->
-                document.getElementById("ped8TableGender").innerText = document.getElementById("ped8Gender").value;
-                document.getElementById("ped8TableTx").innerText = document.getElementById("ped8TXStatus").value;
-                document.getElementById("ped8TableDna").innerText = document.getElementById("ped8DnaDxStatus").value;
-                document.getElementById("ped8TableCadStat").innerText = document.getElementById("ped8CadStatus").value;
-                document.getElementById("ped8TableAge").innerText = document.getElementById("ped8Age").value;
-                document.getElementById("ped8TableLDL").innerText = document.getElementById("ped8LDLChol").value;
-                document.getElementById("ped8TableTotc").innerText = document.getElementById("ped8TOTChol").value;
-                document.getElementById("ped8TableCadAge").innerText = document.getElementById("ped8CadAge").value;
+            <!-- Pedigree 8's Dynamic Table-UserInput Values -->
+            document.getElementById("ped8TableGender").innerText = document.getElementById("ped8Gender").value;
+            document.getElementById("ped8TableTx").innerText = document.getElementById("ped8TXStatus").value;
+            document.getElementById("ped8TableDna").innerText = document.getElementById("ped8DnaDxStatus").value;
+            document.getElementById("ped8TableCadStat").innerText = document.getElementById("ped8CadStatus").value;
+            document.getElementById("ped8TableAge").innerText = document.getElementById("ped8Age").value;
+            document.getElementById("ped8TableLDL").innerText = document.getElementById("ped8LDLChol").value;
+            document.getElementById("ped8TableTotc").innerText = document.getElementById("ped8TOTChol").value;
+            document.getElementById("ped8TableCadAge").innerText = document.getElementById("ped8CadAge").value;
 
-                <!-- Pedigree 9's Dynamic Table-UserInput Values -->
-                document.getElementById("ped9TableGender").innerText = document.getElementById("ped9Gender").value;
-                document.getElementById("ped9TableTx").innerText = document.getElementById("ped9TXStatus").value;
-                document.getElementById("ped9TableDna").innerText = document.getElementById("ped9DnaDxStatus").value;
-                document.getElementById("ped9TableCadStat").innerText = document.getElementById("ped9CadStatus").value;
-                document.getElementById("ped9TableAge").innerText = document.getElementById("ped9Age").value;
-                document.getElementById("ped9TableLDL").innerText = document.getElementById("ped9LDLChol").value;
-                document.getElementById("ped9TableTotc").innerText = document.getElementById("ped9TOTChol").value;
-                document.getElementById("ped9TableCadAge").innerText = document.getElementById("ped9CadAge").value;
+            <!-- Pedigree 9's Dynamic Table-UserInput Values -->
+            document.getElementById("ped9TableGender").innerText = document.getElementById("ped9Gender").value;
+            document.getElementById("ped9TableTx").innerText = document.getElementById("ped9TXStatus").value;
+            document.getElementById("ped9TableDna").innerText = document.getElementById("ped9DnaDxStatus").value;
+            document.getElementById("ped9TableCadStat").innerText = document.getElementById("ped9CadStatus").value;
+            document.getElementById("ped9TableAge").innerText = document.getElementById("ped9Age").value;
+            document.getElementById("ped9TableLDL").innerText = document.getElementById("ped9LDLChol").value;
+            document.getElementById("ped9TableTotc").innerText = document.getElementById("ped9TOTChol").value;
+            document.getElementById("ped9TableCadAge").innerText = document.getElementById("ped9CadAge").value;
 
-                <!-- Each Pedigrees Respective Table 'FH Probability' Value -->
-                document.getElementById("ped1TableFH").innerText = document.getElementById("ped1FhProb").innerText;
-                document.getElementById("ped2TableFH").innerText = document.getElementById("ped2FhProb").innerText;
-                document.getElementById("ped3TableFH").innerText = document.getElementById("ped3FhProb").innerText;
-                document.getElementById("ped4TableFH").innerText = document.getElementById("ped4FhProb").innerText;
-                document.getElementById("ped5TableFH").innerText = document.getElementById("ped5FhProb").innerText;
-                document.getElementById("ped6TableFH").innerText = document.getElementById("ped6FhProb").innerText;
-                document.getElementById("ped7TableFH").innerText = document.getElementById("ped7FhProb").innerText;
-                document.getElementById("ped8TableFH").innerText = document.getElementById("ped8FhProb").innerText;
-                document.getElementById("ped9TableFH").innerText = document.getElementById("ped9FhProb").innerText;
+            <!-- Each Pedigrees Respective Table 'FH Probability' Value -->
+            document.getElementById("ped1TableFH").innerText = document.getElementById("ped1FhProb").innerText;
+            document.getElementById("ped2TableFH").innerText = document.getElementById("ped2FhProb").innerText;
+            document.getElementById("ped3TableFH").innerText = document.getElementById("ped3FhProb").innerText;
+            document.getElementById("ped4TableFH").innerText = document.getElementById("ped4FhProb").innerText;
+            document.getElementById("ped5TableFH").innerText = document.getElementById("ped5FhProb").innerText;
+            document.getElementById("ped6TableFH").innerText = document.getElementById("ped6FhProb").innerText;
+            document.getElementById("ped7TableFH").innerText = document.getElementById("ped7FhProb").innerText;
+            document.getElementById("ped8TableFH").innerText = document.getElementById("ped8FhProb").innerText;
+            document.getElementById("ped9TableFH").innerText = document.getElementById("ped9FhProb").innerText;
 
-            }
-        </script>
-        <script>
-            <!-- Addition of 'tooltip' function, which displays additional context on variables to users -->
-            $(document).ready( function() {
-                $(`[data-toggle = "tooltip"]`).tooltip();
-            });
-        </script>
-        <script type = "text/javascript">
-        $(document).on('submit', '#results-form', function (e, results)
-            {
-                console.log('hello');
-                e.preventDefault();
-                $.ajax({
-                    type:'POST',
-                    url:'/',
-                    data: {
-                        results: $("#results-form").serialize(),
+        }
+    </script>
+    <script>
+        <!-- Addition of 'tooltip' function, which displays additional context on variables to users -->
+        $(document).ready( function() {
+            $(`[data-toggle = "tooltip"]`).tooltip();
+        });
+    </script>
+    <script type = "text/javascript">
+    $(document).on('submit', '#results-form', function (e, results)
+        {
+            console.log('hello');
+            e.preventDefault();
+            $.ajax({
+                type:'POST',
+                url:'/',
+                data: {
+                    results: $("#results-form").serialize(),
 
-                        pedigreeChoice: $("#pedigreeChoice").val(),
+                    pedigreeChoice: $("#pedigreeChoice").val(),
 
-                        ped1Age: $("#ped1Age").val(),
-                        ped1Gender: $("#ped1Gender").val(),
-                        ped1LDLChol: $("#ped1LDLChol").val(),
-                        ped1TOTChol: $("#ped1TOTChol").val(),
-                        ped1TXStatus: $("#ped1TXStatus").val(),
-                        ped1CadStatus: $("#ped1CadStatus").val(),
-                        ped1CadAge: $("#ped1CadAge").val(),
-                        ped1DnaDxStatus: $("#ped1DnaDxStatus").val(),
-                        ped1FhProb: $("#ped1FhProb").val(),
+                    ped1Age: $("#ped1Age").val(),
+                    ped1Gender: $("#ped1Gender").val(),
+                    ped1LDLChol: $("#ped1LDLChol").val(),
+                    ped1TOTChol: $("#ped1TOTChol").val(),
+                    ped1TXStatus: $("#ped1TXStatus").val(),
+                    ped1CadStatus: $("#ped1CadStatus").val(),
+                    ped1CadAge: $("#ped1CadAge").val(),
+                    ped1DnaDxStatus: $("#ped1DnaDxStatus").val(),
+                    ped1FhProb: $("#ped1FhProb").val(),
 
-                        ped2Age: $("#ped2Age").val(),
-                        ped2Gender: $("#ped2Gender").val(),
-                        ped2LDLChol: $("#ped2LDLChol").val(),
-                        ped2TOTChol: $("#ped2TOTChol").val(),
-                        ped2TXStatus: $("#ped2TXStatus").val(),
-                        ped2CadStatus: $("#ped2CadStatus").val(),
-                        ped2CadAge: $("#ped2CadAge").val(),
-                        ped2DnaDxStatus: $("#ped2DnaDxStatus").val(),
-                        ped2FhProb: $("#ped2FhProb").val(),
+                    ped2Age: $("#ped2Age").val(),
+                    ped2Gender: $("#ped2Gender").val(),
+                    ped2LDLChol: $("#ped2LDLChol").val(),
+                    ped2TOTChol: $("#ped2TOTChol").val(),
+                    ped2TXStatus: $("#ped2TXStatus").val(),
+                    ped2CadStatus: $("#ped2CadStatus").val(),
+                    ped2CadAge: $("#ped2CadAge").val(),
+                    ped2DnaDxStatus: $("#ped2DnaDxStatus").val(),
+                    ped2FhProb: $("#ped2FhProb").val(),
 
-                        ped3Age: $("#ped3Age").val(),
-                        ped3Gender: $("#ped3Gender").val(),
-                        ped3LDLChol: $("#ped3LDLChol").val(),
-                        ped3TOTChol: $("#ped3TOTChol").val(),
-                        ped3TXStatus: $("#ped3TXStatus").val(),
-                        ped3CadStatus: $("#ped3CadStatus").val(),
-                        ped3CadAge: $("#ped3CadAge").val(),
-                        ped3DnaDxStatus: $("#ped3DnaDxStatus").val(),
-                        ped3FhProb: $("#ped3FhProb").val(),
+                    ped3Age: $("#ped3Age").val(),
+                    ped3Gender: $("#ped3Gender").val(),
+                    ped3LDLChol: $("#ped3LDLChol").val(),
+                    ped3TOTChol: $("#ped3TOTChol").val(),
+                    ped3TXStatus: $("#ped3TXStatus").val(),
+                    ped3CadStatus: $("#ped3CadStatus").val(),
+                    ped3CadAge: $("#ped3CadAge").val(),
+                    ped3DnaDxStatus: $("#ped3DnaDxStatus").val(),
+                    ped3FhProb: $("#ped3FhProb").val(),
 
-                        ped4Age: $("#ped4Age").val(),
-                        ped4Gender: $("#ped4Gender").val(),
-                        ped4LDLChol: $("#ped4LDLChol").val(),
-                        ped4TOTChol: $("#ped4TOTChol").val(),
-                        ped4TXStatus: $("#ped4TXStatus").val(),
-                        ped4CadStatus: $("#ped4CadStatus").val(),
-                        ped4CadAge: $("#ped4CadAge").val(),
-                        ped4DnaDxStatus: $("#ped4DnaDxStatus").val(),
-                        ped4FhProb: $("#ped4FhProb").val(),
+                    ped4Age: $("#ped4Age").val(),
+                    ped4Gender: $("#ped4Gender").val(),
+                    ped4LDLChol: $("#ped4LDLChol").val(),
+                    ped4TOTChol: $("#ped4TOTChol").val(),
+                    ped4TXStatus: $("#ped4TXStatus").val(),
+                    ped4CadStatus: $("#ped4CadStatus").val(),
+                    ped4CadAge: $("#ped4CadAge").val(),
+                    ped4DnaDxStatus: $("#ped4DnaDxStatus").val(),
+                    ped4FhProb: $("#ped4FhProb").val(),
 
-                        ped5Age: $("#ped5Age").val(),
-                        ped5Gender: $("#ped5Gender").val(),
-                        ped5LDLChol: $("#ped5LDLChol").val(),
-                        ped5TOTChol: $("#ped5TOTChol").val(),
-                        ped5TXStatus: $("#ped5TXStatus").val(),
-                        ped5CadStatus: $("#ped5CadStatus").val(),
-                        ped5CadAge: $("#ped5CadAge").val(),
-                        ped5DnaDxStatus: $("#ped5DnaDxStatus").val(),
-                        ped5FhProb: $("#ped5FhProb").val(),
+                    ped5Age: $("#ped5Age").val(),
+                    ped5Gender: $("#ped5Gender").val(),
+                    ped5LDLChol: $("#ped5LDLChol").val(),
+                    ped5TOTChol: $("#ped5TOTChol").val(),
+                    ped5TXStatus: $("#ped5TXStatus").val(),
+                    ped5CadStatus: $("#ped5CadStatus").val(),
+                    ped5CadAge: $("#ped5CadAge").val(),
+                    ped5DnaDxStatus: $("#ped5DnaDxStatus").val(),
+                    ped5FhProb: $("#ped5FhProb").val(),
 
-                        ped6Age: $("#ped6Age").val(),
-                        ped6Gender: $("#ped6Gender").val(),
-                        ped6LDLChol: $("#ped6LDLChol").val(),
-                        ped6TOTChol: $("#ped6TOTChol").val(),
-                        ped6TXStatus: $("#ped6TXStatus").val(),
-                        ped6CadStatus: $("#ped6CadStatus").val(),
-                        ped6CadAge: $("#ped6CadAge").val(),
-                        ped6DnaDxStatus: $("#ped6DnaDxStatus").val(),
-                        ped6FhProb: $("#ped6FhProb").val(),
+                    ped6Age: $("#ped6Age").val(),
+                    ped6Gender: $("#ped6Gender").val(),
+                    ped6LDLChol: $("#ped6LDLChol").val(),
+                    ped6TOTChol: $("#ped6TOTChol").val(),
+                    ped6TXStatus: $("#ped6TXStatus").val(),
+                    ped6CadStatus: $("#ped6CadStatus").val(),
+                    ped6CadAge: $("#ped6CadAge").val(),
+                    ped6DnaDxStatus: $("#ped6DnaDxStatus").val(),
+                    ped6FhProb: $("#ped6FhProb").val(),
 
-                        ped7Age: $("#ped7Age").val(),
-                        ped7Gender: $("#ped7Gender").val(),
-                        ped7LDLChol: $("#ped7LDLChol").val(),
-                        ped7TOTChol: $("#ped7TOTChol").val(),
-                        ped7TXStatus: $("#ped7TXStatus").val(),
-                        ped7CadStatus: $("#ped7CadStatus").val(),
-                        ped7CadAge: $("#ped7CadAge").val(),
-                        ped7DnaDxStatus: $("#ped7DnaDxStatus").val(),
-                        ped7FhProb: $("#ped7FhProb").val(),
+                    ped7Age: $("#ped7Age").val(),
+                    ped7Gender: $("#ped7Gender").val(),
+                    ped7LDLChol: $("#ped7LDLChol").val(),
+                    ped7TOTChol: $("#ped7TOTChol").val(),
+                    ped7TXStatus: $("#ped7TXStatus").val(),
+                    ped7CadStatus: $("#ped7CadStatus").val(),
+                    ped7CadAge: $("#ped7CadAge").val(),
+                    ped7DnaDxStatus: $("#ped7DnaDxStatus").val(),
+                    ped7FhProb: $("#ped7FhProb").val(),
 
-                        ped8Age: $("#ped8Age").val(),
-                        ped8Gender: $("#ped8Gender").val(),
-                        ped8LDLChol: $("#ped8LDLChol").val(),
-                        ped8TOTChol: $("#ped8TOTChol").val(),
-                        ped8TXStatus: $("#ped8TXStatus").val(),
-                        ped8CadStatus: $("#ped8CadStatus").val(),
-                        ped8CadAge: $("#ped8CadAge").val(),
-                        ped8DnaDxStatus: $("#ped8DnaDxStatus").val(),
-                        ped8FhProb: $("#ped8FhProb").val(),
+                    ped8Age: $("#ped8Age").val(),
+                    ped8Gender: $("#ped8Gender").val(),
+                    ped8LDLChol: $("#ped8LDLChol").val(),
+                    ped8TOTChol: $("#ped8TOTChol").val(),
+                    ped8TXStatus: $("#ped8TXStatus").val(),
+                    ped8CadStatus: $("#ped8CadStatus").val(),
+                    ped8CadAge: $("#ped8CadAge").val(),
+                    ped8DnaDxStatus: $("#ped8DnaDxStatus").val(),
+                    ped8FhProb: $("#ped8FhProb").val(),
 
-                        ped9Age: $("#ped9Age").val(),
-                        ped9Gender: $("#ped9Gender").val(),
-                        ped9LDLChol: $("#ped9LDLChol").val(),
-                        ped9TOTChol: $("#ped9TOTChol").val(),
-                        ped9TXStatus: $("#ped9TXStatus").val(),
-                        ped9CadStatus: $("#ped9CadStatus").val(),
-                        ped9CadAge: $("#ped9CadAge").val(),
-                        ped9DnaDxStatus: $("#ped9DnaDxStatus").val(),
-                        ped9FhProb: $("#ped9FhProb").val(),
+                    ped9Age: $("#ped9Age").val(),
+                    ped9Gender: $("#ped9Gender").val(),
+                    ped9LDLChol: $("#ped9LDLChol").val(),
+                    ped9TOTChol: $("#ped9TOTChol").val(),
+                    ped9TXStatus: $("#ped9TXStatus").val(),
+                    ped9CadStatus: $("#ped9CadStatus").val(),
+                    ped9CadAge: $("#ped9CadAge").val(),
+                    ped9DnaDxStatus: $("#ped9DnaDxStatus").val(),
+                    ped9FhProb: $("#ped9FhProb").val(),
 
-                        pedFamProb: $("#pedFamProb").val(),
-                    },
-                    success:function(data)
-                    {
-                        alert(data); //TODO() RICKY - REMOVE THIS BROWSER ALERT AFTER PROJECT PROGRESSION
-                        console.log(data);
-                    },
-                    dataType: "json"})
-            })
+                    pedFamProb: $("#pedFamProb").val(),
+                },
+                success:function(data)
+                {
+                    alert(data); //TODO() RICKY - REMOVE THIS BROWSER ALERT AFTER PROJECT PROGRESSION
+                    console.log(data);
+                },
+                dataType: "json"})
+        })
 
-        </script>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	</body>
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
 </html>
