@@ -3,12 +3,7 @@
 
     TO do's are Categorized by level of confidence in ability to make desired web page modification
 
-    Quick UI-Changes:
-    TODO() - Re-work layout in BS4 grid. Re-look at mirroing the nav-class in example dashboard page to contain
-        pedigree choice & attributes, then have 'main' div mirror the image & table contents of FHCalc
-
     Not 100% Confident that change will be Quick:
-    TODO() - Make default drop-down values be 'unknown' -- does this change algorithm output?
     TODO() - Keep values user input into form, after user generates results -- form vals get reset after submission
 
     Table-output Investigation
@@ -1572,34 +1567,34 @@ def index():
         fh9prob = float(fh9prob)
 
         dftable = pd.DataFrame(
-            columns=["Pedigree Number ", "Age", "LDL-C", "TOT-C", "Gender", "Clinical-CAD"
+            columns=["Pedigree Member", "Age", "LDL-C", "TOT-C", "Gender", "Clinical-CAD"
                 , "CAD-Age", "TX-Status", "DNA-DX Status", "FH Probability", "Family Pedigree FH Probability"]
 
-            ,data=[[ "1 - Grandmother on Parent 1's Side", ped1age, ped1ldlc, ped1totc, ped1gender
+            ,data=[[ "Grandparent #1", ped1age, ped1ldlc, ped1totc, ped1gender
                     , ped1cadstat, ped1cadage, ped1tx, ped1dna, fh1prob, fhfamprob]
 
-                , [ "2 - Grandfather on Parent 1's Side", ped2age, ped2ldlc, ped2totc, ped2gender
+                , [ "Grandparent #2", ped2age, ped2ldlc, ped2totc, ped2gender
                     , ped2cadstat, ped2cadage, ped2tx, ped2dna, fh2prob ]
 
-                , [ "3 - Sibling of Parent 1", ped3age, ped3ldlc, ped3totc, ped3gender, ped3cadstat
+                , [ "Sibling #1", ped3age, ped3ldlc, ped3totc, ped3gender, ped3cadstat
                     , ped3cadage, ped3tx, ped3dna, fh3prob ]
 
-                , [ "4 - Second Sibling of Parent 1", ped4age, ped4ldlc, ped4totc, ped4gender, ped4cadstat
+                , [ "Sibling #2", ped4age, ped4ldlc, ped4totc, ped4gender, ped4cadstat
                     , ped4cadage, ped4tx, ped4dna, fh4prob ]
 
-                , [ "5 - Parent 1", ped5age, ped5ldlc, ped5totc, ped5gender, ped5cadstat
+                , [ "Parent #1", ped5age, ped5ldlc, ped5totc, ped5gender, ped5cadstat
                     , ped5cadage, ped5tx, ped5dna, fh5prob ]
 
-                , [ "6 - Parent 2", ped6age, ped6ldlc, ped6totc, ped6gender, ped6cadstat
+                , [ "Parent #2", ped6age, ped6ldlc, ped6totc, ped6gender, ped6cadstat
                     , ped6cadage, ped6tx, ped6dna, fh6prob ]
 
-                , [ "7 - Child 1 of Parent 1 & 2", ped7age, ped7ldlc, ped7totc, ped7gender, ped7cadstat
+                , [ "Child #1", ped7age, ped7ldlc, ped7totc, ped7gender, ped7cadstat
                     , ped7cadage, ped7tx, ped7dna, fh7prob ]
 
-                , [ "8 - Child 2 of Parent 1 & 2", ped8age, ped8ldlc, ped8totc, ped8gender, ped8cadstat
+                , [ "Child #2", ped8age, ped8ldlc, ped8totc, ped8gender, ped8cadstat
                     , ped8cadage, ped8tx, ped8dna, fh8prob ]
 
-                , [ "9 - Child 3 of Parent 1 & 2", ped9age, ped9ldlc, ped9totc, ped9gender, ped9cadstat
+                , [ "Child #3", ped9age, ped9ldlc, ped9totc, ped9gender, ped9cadstat
                     , ped9cadage, ped9tx, ped9dna, fh9prob ]])
 
         filename = datetime.datetime.now().strftime("uploads/+%Y-%m-%d-%H-%M-%S-%f"+".csv")

@@ -22,15 +22,15 @@
                             <form action = "{{ url_for('index') }}" method = "POST" id = "results-form" name = "results-form">
                                 <div class = "input-group-btn"><h5>Select Pedigree Member:</h5>
                                     <select name = "pedigreeChoice" id = "pedigreeChoice" class = "pedigreeChoice custom-select form-control" onchange = "change(this)">
-                                        <option value = "pedigree1">Add Grandparent #1 on Parent #1 Side</option>
-                                        <option value = "pedigree2">Add Grandparent #2 on Parent #1 Side</option>
-                                        <option value = "pedigree3">Add Sibling #1 of Parent #1</option>
-                                        <option value = "pedigree4">Add Sibling #2 of Parent #1</option>
+                                        <option value = "pedigree1">Add Grandparent #1</option>
+                                        <option value = "pedigree2">Add Grandparent #2</option>
+                                        <option value = "pedigree3">Add Sibling #1</option>
+                                        <option value = "pedigree4">Add Sibling #2</option>
                                         <option value = "pedigree5">Add Parent #1</option>
                                         <option value = "pedigree6">Add Parent #2</option>
-                                        <option value = "pedigree7">Add Child #1 of Parent #1 & #2</option>
-                                        <option value = "pedigree8">Add Child #2 of Parent #1 & #2</option>
-                                        <option value = "pedigree9">Add Child #3 of Parent #1 & #2</option>
+                                        <option value = "pedigree7">Add Child #1</option>
+                                        <option value = "pedigree8">Add Child #2</option>
+                                        <option value = "pedigree9">Add Child #3</option>
                                     </select>
                                 </div>
                                 <br>
@@ -840,7 +840,7 @@
                         </thead>
                         <tbody>
                             <tr id = "row-1">
-                                <td>Grandparent #1 on Parent #1 Side</td>
+                                <td>Grandparent #1</td>
                                 <td id = "ped1TableAge" style = "text-align: center; vertical-align: middle"> {{ ped1age }} </td>
                                 <td id = "ped1TableGender" style = "text-align: center; vertical-align: middle"> {{ ped1gender }} </td>
                                 <td id = "ped1TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped1ldlc }} </td>
@@ -853,7 +853,7 @@
                             </tr>
 
                             <tr id = "row-2">
-                                <td>Grandparent #2 on Parent #1 Side</td>
+                                <td>Grandparent #2</td>
                                 <td id = "ped2TableAge" style = "text-align: center; vertical-align: middle"> {{ ped2age }} </td>
                                 <td id = "ped2TableGender" style = "text-align: center; vertical-align: middle"> {{ ped2gender }} </td>
                                 <td id = "ped2TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped2ldlc }} </td>
@@ -866,7 +866,7 @@
                             </tr>
 
                             <tr id = "row-3">
-                                <td>Sibling #1 of Parent #1</td>
+                                <td>Sibling #1</td>
                                 <td id = "ped3TableAge" style = "text-align: center; vertical-align: middle"> {{ ped3age }} </td>
                                 <td id = "ped3TableGender" style = "text-align: center; vertical-align: middle"> {{ ped3gender }} </td>
                                 <td id = "ped3TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped3ldlc }} </td>
@@ -879,7 +879,7 @@
                             </tr>
 
                             <tr id = "row-4">
-                                <td>Sibling #2 of Parent #1</td>
+                                <td>Sibling #2</td>
                                 <td id = "ped4TableAge" style = "text-align: center; vertical-align: middle"> {{ ped4age }} </td>
                                 <td id = "ped4TableGender" style = "text-align: center; vertical-align: middle"> {{ ped4gender }} </td>
                                 <td id = "ped4TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped4ldlc }} </td>
@@ -918,7 +918,7 @@
                             </tr>
 
                             <tr id = "row-7">
-                                <td>Child #1 of Parent #1 & #2</td>
+                                <td>Child #1</td>
                                 <td id = "ped7TableAge" style = "text-align: center; vertical-align: middle"> {{ ped7age }} </td>
                                 <td id = "ped7TableGender" style = "text-align: center; vertical-align: middle"> {{ ped7gender }} </td>
                                 <td id = "ped7TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped7ldlc }} </td>
@@ -931,7 +931,7 @@
                             </tr>
 
                             <tr id = "row-8">
-                                <td>Child #2 of Parent #1 & #2</td>
+                                <td>Child #2</td>
                                 <td id = "ped8TableAge" style = "text-align: center; vertical-align: middle"> {{ ped8age }} </td>
                                 <td id = "ped8TableGender" style = "text-align: center; vertical-align: middle"> {{ ped8gender }} </td>
                                 <td id = "ped8TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped8ldlc }} </td>
@@ -944,7 +944,7 @@
                             </tr>
 
                             <tr id = "row-9">
-                            <td>Child #3 of Parent #1 & #2</td>
+                            <td>Child #3</td>
                             <td id = "ped9TableAge" style = "text-align: center; vertical-align: middle"> {{ ped9age }} </td>
                             <td id = "ped9TableGender" style = "text-align: center; vertical-align: middle"> {{ ped9gender }} </td>
                             <td id = "ped9TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped9ldlc }} </td>
