@@ -5,7 +5,6 @@
 
     Quick UI-Changes:
     TODO() - ADD FAMILY-PEDIGREE .JPG TO BE ADDED TO TOP OF WEBPAGE
-    TODO() - CHANGE FH-PROBABILITY DISPLAY FOR EACH FAMILY MEMBER TO DISPLAY WITH ONLY 1-DECIMAL POINT
 
     Not 100% Confident that change will be Quick:
     TODO() - Make default drop-down values be 'unknown' -- does this change algorithm output?
@@ -1608,17 +1607,18 @@ def index():
 
         # column_names = dftable.columns.values
         # row_data = list(dftable.values.tolist())
-        fh1prob = "{:.4f}%".format(fh1prob)
-        fh2prob = "{:.4f}%".format(fh2prob)
-        fh3prob = "{:.4f}%".format(fh3prob)
-        fh4prob = "{:.4f}%".format(fh4prob)
-        fh5prob = "{:.4f}%".format(fh5prob)
-        fh6prob = "{:.4f}%".format(fh6prob)
-        fh7prob = "{:.4f}%".format(fh7prob)
-        fh8prob = "{:.4f}%".format(fh8prob)
-        fh9prob = "{:.4f}%".format(fh9prob)
 
-        fhfamprob = "Family Pedigree FH Probability: {:.4f}%".format(fhfamprob)
+        # Final-formatting of person-probability of having FH before passing to index.html file
+        fh1prob = "{:.1f}%".format(fh1prob)
+        fh2prob = "{:.1f}%".format(fh2prob)
+        fh3prob = "{:.1f}%".format(fh3prob)
+        fh4prob = "{:.1f}%".format(fh4prob)
+        fh5prob = "{:.1f}%".format(fh5prob)
+        fh6prob = "{:.1f}%".format(fh6prob)
+        fh7prob = "{:.1f}%".format(fh7prob)
+        fh8prob = "{:.1f}%".format(fh8prob)
+        fh9prob = "{:.1f}%".format(fh9prob)
+        fhfamprob = "Family Pedigree FH Probability: {:.2f}%".format(fhfamprob) # Family-Pedigree formatting
 
         return render_template('calc/index.html', ped1age = ped1age, ped1ldlc = ped1ldlc, ped1totc = ped1totc
                                , ped1gender = ped1gender, ped1cadstat = ped1cadstat, ped1cadage = ped1cadage
