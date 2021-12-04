@@ -4,7 +4,6 @@
     TO do's are Categorized by level of confidence in ability to make desired web page modification
 
     Quick UI-Changes:
-    TODO() - CHANGE ALL DROP-DOWN LABELS TO ONLY DISPLAY AS 'POSITIVE', 'NEGATIVE', OR 'UNKNOWN'
     TODO() - ADD FAMILY-PEDIGREE .JPG TO BE ADDED TO TOP OF WEBPAGE
     TODO() - CHANGE FH-PROBABILITY DISPLAY FOR EACH FAMILY MEMBER TO DISPLAY WITH ONLY 1-DECIMAL POINT
 
@@ -35,8 +34,6 @@
 
     TODO() - Should we consider making the .jpg image of family pedigree responsive, allowing user to click on family
         member in-picture, then the form updating to pull-up that members data-inputs? Is it worth time required?
-
-
 
 """
 from flask import render_template, request, url_for, jsonify, send_file
