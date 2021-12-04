@@ -1,3 +1,44 @@
+"""
+    Web-App changes to make post-discussion w/ Capstone-project Business Sponsor
+
+    TO do's are Categorized by level of confidence in ability to make desired web page modification
+
+    Quick UI-Changes:
+    TODO() - CHANGE ALL DROP-DOWN LABELS TO ONLY DISPLAY AS 'POSITIVE', 'NEGATIVE', OR 'UNKNOWN'
+    TODO() - ADD FAMILY-PEDIGREE .JPG TO BE ADDED TO TOP OF WEBPAGE
+    TODO() - CHANGE FH-PROBABILITY DISPLAY FOR EACH FAMILY MEMBER TO DISPLAY WITH ONLY 1-DECIMAL POINT
+
+    Not 100% Confident that change will be Quick:
+    TODO() - Make default drop-down values be 'unknown' -- does this change algorithm output?
+    TODO() - Keep values user input into form, after user generates results -- form vals get reset after submission
+
+    Table-output Investigation
+    TODO() - Vals not entered by user should display as '-' after submitting results, rather than '0' or 'f' for gender
+    TODO() - Upon user changing any form-data, entire table populates w/ default vals....
+        we want it to only update the corresponding cell in table ONLY! IS IT A JAVASCRIPT/JQuery thing?
+
+    Non-important questions/items to consider or Solve for:
+    TODO() - How can the calculation take less time on the backend to produce output on page quicker?
+        Do we need to reconfigure calc.py to import the pedigree-algorithm as a separate .py module,
+            rather than in calc.py?
+        Instead of calculating everything in live-time, should we configure calc.py to pull from a preset db,
+            which we then query from for algorithm inputs...?
+            Does jQuery or JavaScript play a role in the page delay?
+
+    TODO() - Why does the 'Download' feature not work when launching at pythoneverywhere.com server?
+        Do we need to consider Heroku?
+
+    TODO() - Consider adding option for user to upload .csv file, which serves as the algorithm inputs.
+
+    TODO() - Consider re-configuring HTML-table to allow a user to click in cell & input value, rather than just
+        displaying results of form-input.
+
+    TODO() - Should we consider making the .jpg image of family pedigree responsive, allowing user to click on family
+        member in-picture, then the form updating to pull-up that members data-inputs? Is it worth time required?
+
+
+
+"""
 from flask import render_template, request, url_for, jsonify, send_file
 from scipy import stats
 from flask import Flask
@@ -1618,4 +1659,4 @@ def download():
     return send_file(filename, attachment_filename = 'yourfile.csv', as_attachment = True)
 
 if __name__ == "__main__":
-    app.run(debug = True)
+    app.run(debug = False)
