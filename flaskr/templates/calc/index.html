@@ -17,7 +17,8 @@
             </div>
             <br>
             <div class = "row">
-                <div class = "col col-sm-6">
+                <!--Family Pedigree Selection -->
+                <div class = "col col-sm-3">
                     <div class = "form-group">
                         <div id = "pedigree-selection" class = "pedigree-selection">
                             <form action = "{{ url_for('index') }}" method = "POST" id = "results-form" name = "results-form">
@@ -38,6 +39,10 @@
                             </form>
                         </div>
                     </div>
+                </div>
+                <!-- Pedigree .jpg Image -->
+                <div class = "col col-sm-9">
+                    <img src = "{{url_for('static', filename = 'pedigreeImage.jpeg')}}"  style = "display: block; max-width: 100%; height: auto;"/>
                 </div>
             </div>
             <div class = "row">

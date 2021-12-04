@@ -5,6 +5,8 @@
 
     Quick UI-Changes:
     TODO() - ADD FAMILY-PEDIGREE .JPG TO BE ADDED TO TOP OF WEBPAGE
+        Note - In Bootstrap grid-system, decrease # of cols for the 'family pedigree selection' dropdown, to match same
+        grid-amount of page as the form-selectors,and put picture in remaining cols.
 
     Not 100% Confident that change will be Quick:
     TODO() - Make default drop-down values be 'unknown' -- does this change algorithm output?
