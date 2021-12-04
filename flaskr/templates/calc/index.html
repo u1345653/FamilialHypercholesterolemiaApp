@@ -8,15 +8,14 @@
     <title>FH Calculator</title>
 </head>
 
+
 <body>
-    <div class = "container-fluid">
+    <div class = "container-fluid col-10">
+        <div class = "d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 mr-2 pr-2 border-bottom">
+            <h1 class = "h2">FH Calculator</h1>
+        </div>
         <div class = "row">
-            <main role = "main" class = "col-md-12 ml-sm-auto col-lg-12 pt-3 px-4">
-                <div class = "d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                    <h1 class = "h2">FH Calculator</h1>
-                </div>
-                <br>
-                <div class = "col col-sm-2">
+            <div class = "col col-sm-2">
                     <!--Family Pedigree Selection -->
                     <div class = "form-group">
                         <div id = "pedigree-selection" class = "pedigree-selection">
@@ -813,161 +812,157 @@
                         </div>
                     </div>
                 </div>
+            <main role = "main" class = "ml-1 pr-1 mr-2 pr-2">
+                <br>
                 <!-- Pedigree .jpg Image -->
-                <div class = "col col-sm-9">
-                    <figure class = "figure">
-                        <figcaption style = "text-align: center"><b>3-Generation Family Pedigree</b></figcaption>
-                        <img src = "{{url_for('static', filename = 'pedigreeImage.jpeg')}}"  style = "display: block; max-width: 100%; height: auto;"/>
-                    </figure>
-                </div>
+                <figure class = "figure">
+                    <figcaption style = "text-align: center"><b>3-Generation Family Pedigree</b></figcaption>
+                    <img src = "{{url_for('static', filename = 'pedigreeImage.jpeg')}}"  style = "display: block; max-width: 100%; height: auto;"/>
+                </figure>
                 <!-- HIDDEN: Family FH-Data Input -->
                 <input type = "hidden" id = "pedFamProb" name = "pedFamProb" value = "{{ fhfamprob }}"><br>
                 <!-- Pedigree Attribute Table Data-->
-                <div class = "table-responsive">
-                        <table id = "createdTable" class="table table-sm table-bordered table-striped table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Person</th>
-                                    <th style="vertical-align: middle; text-align: center">Age</th>
-                                    <th style="vertical-align: middle; text-align: center">Gender</th>
-                                    <th style="vertical-align: middle; text-align: center">LDL Cholesterol</th>
-                                    <th style="vertical-align: middle; text-align: center">Total Cholesterol</th>
-                                    <th style="vertical-align: middle; text-align: center">TX Status</th>
-                                    <th style="vertical-align: middle; text-align: center">CAD Status</th>
-                                    <th style="vertical-align: middle; text-align: center">CAD Onset Age</th>
-                                    <th style="vertical-align: middle; text-align: center">DNA-DX Status</th>
-                                    <th style="vertical-align: middle; text-align: center">FH Probability</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <tr id = "row-1">
-                                    <td>Grandparent #1 on Parent #1 Side</td>
-                                    <td id = "ped1TableAge" style = "text-align: center; vertical-align: middle"> {{ ped1age }} </td>
-                                    <td id = "ped1TableGender" style = "text-align: center; vertical-align: middle"> {{ ped1gender }} </td>
-                                    <td id = "ped1TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped1ldlc }} </td>
-                                    <td id = "ped1TableTotc" style = "text-align: center; vertical-align: middle"> {{ ped1totc }} </td>
-                                    <td id = "ped1TableTx" style = "text-align: center; vertical-align: middle"> {{ ped1tx }} </td>
-                                    <td id = "ped1TableCadStat" style = "text-align: center; vertical-align: middle">{{ ped1cadstat }}</td>
-                                    <td id = "ped1TableCadAge" style = "text-align: center; vertical-align: middle"> {{ ped1cadage }} </td>
-                                    <td id = "ped1TableDna" style = "text-align: center; vertical-align: middle"> {{ ped1dna }} </td>
-                                    <td id = " ped1TableFH " style = "text-align: center; vertical-align: middle"> {{ fh1prob }} </td>
-                                </tr>
-
-                                <tr id = "row-2">
-                                    <td>Grandparent #2 on Parent #1 Side</td>
-                                    <td id = "ped2TableAge" style = "text-align: center; vertical-align: middle"> {{ ped2age }} </td>
-                                    <td id = "ped2TableGender" style = "text-align: center; vertical-align: middle"> {{ ped2gender }} </td>
-                                    <td id = "ped2TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped2ldlc }} </td>
-                                    <td id = "ped2TableTotc" style = "text-align: center; vertical-align: middle"> {{ ped2totc }} </td>
-                                    <td id = "ped2TableTx" style = "text-align: center; vertical-align: middle"> {{ ped2tx }} </td>
-                                    <td id = "ped2TableCadStat" style = "text-align: center; vertical-align: middle"> {{ ped2cadstat }} </td>
-                                    <td id = "ped2TableCadAge" style = "text-align: center; vertical-align: middle"> {{ ped2cadage }} </td>
-                                    <td id = "ped2TableDna" style = "text-align: center; vertical-align: middle"> {{ ped2dna }} </td>
-                                    <td id = "ped2TableFH" style = "text-align: center; vertical-align: middle"> {{ fh2prob }} </td>
-                                </tr>
-
-                                <tr id = "row-3">
-                                    <td>Sibling #1 of Parent #1</td>
-                                    <td id = "ped3TableAge" style = "text-align: center; vertical-align: middle"> {{ ped3age }} </td>
-                                    <td id = "ped3TableGender" style = "text-align: center; vertical-align: middle"> {{ ped3gender }} </td>
-                                    <td id = "ped3TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped3ldlc }} </td>
-                                    <td id = "ped3TableTotc" style = "text-align: center; vertical-align: middle"> {{ ped3totc }} </td>
-                                    <td id = "ped3TableTx" style = "text-align: center; vertical-align: middle"> {{ ped3tx }} </td>
-                                    <td id = "ped3TableCadStat" style = "text-align: center; vertical-align: middle"> {{ ped3cadstat }} </td>
-                                    <td id = "ped3TableCadAge" style = "text-align: center; vertical-align: middle"> {{ ped3cadage }} </td>
-                                    <td id = "ped3TableDna" style = "text-align: center; vertical-align: middle"> {{ ped3dna }} </td>
-                                    <td id = "ped3TableFH" style = "text-align: center; vertical-align: middle"> {{ fh3prob }} </td>
-                                </tr>
-
-                                <tr id = "row-4">
-                                    <td>Sibling #2 of Parent #1</td>
-                                    <td id = "ped4TableAge" style = "text-align: center; vertical-align: middle"> {{ ped4age }} </td>
-                                    <td id = "ped4TableGender" style = "text-align: center; vertical-align: middle"> {{ ped4gender }} </td>
-                                    <td id = "ped4TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped4ldlc }} </td>
-                                    <td id = "ped4TableTotc" style = "text-align: center; vertical-align: middle"> {{ ped4totc }} </td>
-                                    <td id = "ped4TableTx" style = "text-align: center; vertical-align: middle"> {{ ped4tx }} </td>
-                                    <td id = "ped4TableCadStat" style = "text-align: center; vertical-align: middle"> {{ ped4cadstat }} </td>
-                                    <td id = "ped4TableCadAge" style = "text-align: center; vertical-align: middle"> {{ ped4cadage }} </td>
-                                    <td id = "ped4TableDna" style = "text-align: center; vertical-align: middle"> {{ ped4dna }} </td>
-                                    <td id = "ped4TableFH" style = "text-align: center; vertical-align: middle"> {{ fh4prob }} </td>
-                                </tr>
-
-                                <tr id = "row-5">
-                                    <td>Parent #1</td>
-                                    <td id = "ped5TableAge" style = "text-align: center; vertical-align: middle"> {{ ped5age }} </td>
-                                    <td id = "ped5TableGender" style = "text-align: center; vertical-align: middle"> {{ ped5gender }} </td>
-                                    <td id = "ped5TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped5ldlc }} </td>
-                                    <td id = "ped5TableTotc" style = "text-align: center; vertical-align: middle"> {{ ped5totc }} </td>
-                                    <td id = "ped5TableTx" style = "text-align: center; vertical-align: middle"> {{ ped5tx }} </td>
-                                    <td id = "ped5TableCadStat" style = "text-align: center; vertical-align: middle"> {{ ped5cadstat }} </td>
-                                    <td id = "ped5TableCadAge" style = "text-align: center; vertical-align: middle"> {{ ped5cadage }} </td>
-                                    <td id = "ped5TableDna" style = "text-align: center; vertical-align: middle"> {{ ped5dna }} </td>
-                                    <td id = "ped5TableFH" style = "text-align: center; vertical-align: middle"> {{ fh5prob }} </td>
-                                </tr>
-
-                                <tr id = "row-6">
-                                    <td>Parent #2</td>
-                                    <td id = "ped6TableAge" style = "text-align: center; vertical-align: middle"> {{ ped6age }} </td>
-                                    <td id = "ped6TableGender" style = "text-align: center; vertical-align: middle"> {{ ped6gender }} </td>
-                                    <td id = "ped6TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped6ldlc }} </td>
-                                    <td id = "ped6TableTotc" style = "text-align: center; vertical-align: middle"> {{ ped6totc }} </td>
-                                    <td id = "ped6TableTx" style = "text-align: center; vertical-align: middle"> {{ ped6tx }} </td>
-                                    <td id = "ped6TableCadStat" style = "text-align: center; vertical-align: middle"> {{ ped6cadstat }} </td>
-                                    <td id = "ped6TableCadAge" style = "text-align: center; vertical-align: middle"> {{ ped6cadage }} </td>
-                                    <td id = "ped6TableDna" style = "text-align: center; vertical-align: middle"> {{ ped6dna }} </td>
-                                    <td id = "ped6TableFH" style = "text-align: center; vertical-align: middle"> {{ fh6prob }} </td>
-                                </tr>
-
-                                <tr id = "row-7">
-                                    <td>Child #1 of Parent #1 & #2</td>
-                                    <td id = "ped7TableAge" style = "text-align: center; vertical-align: middle"> {{ ped7age }} </td>
-                                    <td id = "ped7TableGender" style = "text-align: center; vertical-align: middle"> {{ ped7gender }} </td>
-                                    <td id = "ped7TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped7ldlc }} </td>
-                                    <td id = "ped7TableTotc" style = "text-align: center; vertical-align: middle"> {{ped7totc }} </td>
-                                    <td id = "ped7TableTx" style = "text-align: center; vertical-align: middle"> {{ ped7tx }} </td>
-                                    <td id = "ped7TableCadStat" style = "text-align: center; vertical-align: middle"> {{ ped7cadstat }} </td>
-                                    <td id = "ped7TableCadAge" style = "text-align: center; vertical-align: middle"> {{ ped7cadage }} </td>
-                                    <td id = "ped7TableDna" style = "text-align: center; vertical-align: middle"> {{ ped7dna }} </td>
-                                    <td id = "ped7TableFH" style = "text-align: center; vertical-align: middle"> {{ fh7prob }}</td>
-                                </tr>
-
-                                <tr id = "row-8">
-                                    <td>Child #2 of Parent #1 & #2</td>
-                                    <td id = "ped8TableAge" style = "text-align: center; vertical-align: middle"> {{ ped8age }} </td>
-                                    <td id = "ped8TableGender" style = "text-align: center; vertical-align: middle"> {{ ped8gender }} </td>
-                                    <td id = "ped8TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped8ldlc }} </td>
-                                    <td id = "ped8TableTotc" style = "text-align: center; vertical-align: middle"> {{ ped8totc }} </td>
-                                    <td id = "ped8TableTx" style = "text-align: center; vertical-align: middle"> {{ ped8tx }} </td>
-                                    <td id = "ped8TableCadStat" style = "text-align: center; vertical-align: middle"> {{ ped8cadstat }} </td>
-                                    <td id = "ped8TableCadAge" style = "text-align: center; vertical-align: middle"> {{ ped8cadage }} </td>
-                                    <td id = "ped8TableDna" style = "text-align: center; vertical-align: middle"> {{ ped8dna }} </td>
-                                    <td id = "ped8TableFH" style = "text-align: center; vertical-align: middle"> {{ fh8prob }} </td>
-                                </tr>
-
-                                <tr id = "row-9">
-                                <td>Child #3 of Parent #1 & #2</td>
-                                <td id = "ped9TableAge" style = "text-align: center; vertical-align: middle"> {{ ped9age }} </td>
-                                <td id = "ped9TableGender" style = "text-align: center; vertical-align: middle"> {{ ped9gender }} </td>
-                                <td id = "ped9TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped9ldlc }} </td>
-                                <td id = "ped9TableTotc" style = "text-align: center; vertical-align: middle"> {{ ped9totc }} </td>
-                                <td id = "ped9TableTx" style = "text-align: center; vertical-align: middle"> {{ ped9tx }} </td>
-                                <td id = "ped9TableCadStat" style = "text-align: center; vertical-align: middle"> {{ ped9cadstat }} </td>
-                                <td id = "ped9TableCadAge" style = "text-align: center; vertical-align: middle"> {{ ped9cadage }} </td>
-                                <td id = "ped9TableDna" style = "text-align: center; vertical-align: middle"> {{ ped9dna }} </td>
-                                <td id = "ped9TableFH" style = "text-align: center; vertical-align: middle"> {{ fh9prob }} </td>
+                <div>
+                    <table id = "createdTable" class="table table-sm table-bordered table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Person</th>
+                                <th style="vertical-align: middle; text-align: center">Age</th>
+                                <th style="vertical-align: middle; text-align: center">Gender</th>
+                                <th style="vertical-align: middle; text-align: center">LDL Cholesterol</th>
+                                <th style="vertical-align: middle; text-align: center">Total Cholesterol</th>
+                                <th style="vertical-align: middle; text-align: center">TX Status</th>
+                                <th style="vertical-align: middle; text-align: center">CAD Status</th>
+                                <th style="vertical-align: middle; text-align: center">CAD Onset Age</th>
+                                <th style="vertical-align: middle; text-align: center">DNA-DX Status</th>
+                                <th style="vertical-align: middle; text-align: center">FH Probability</th>
                             </tr>
-                            </tbody>
+                        </thead>
+                        <tbody>
+                            <tr id = "row-1">
+                                <td>Grandparent #1 on Parent #1 Side</td>
+                                <td id = "ped1TableAge" style = "text-align: center; vertical-align: middle"> {{ ped1age }} </td>
+                                <td id = "ped1TableGender" style = "text-align: center; vertical-align: middle"> {{ ped1gender }} </td>
+                                <td id = "ped1TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped1ldlc }} </td>
+                                <td id = "ped1TableTotc" style = "text-align: center; vertical-align: middle"> {{ ped1totc }} </td>
+                                <td id = "ped1TableTx" style = "text-align: center; vertical-align: middle"> {{ ped1tx }} </td>
+                                <td id = "ped1TableCadStat" style = "text-align: center; vertical-align: middle">{{ ped1cadstat }}</td>
+                                <td id = "ped1TableCadAge" style = "text-align: center; vertical-align: middle"> {{ ped1cadage }} </td>
+                                <td id = "ped1TableDna" style = "text-align: center; vertical-align: middle"> {{ ped1dna }} </td>
+                                <td id = " ped1TableFH " style = "text-align: center; vertical-align: middle"> {{ fh1prob }} </td>
+                            </tr>
 
-                        </table>
-                    </div>
+                            <tr id = "row-2">
+                                <td>Grandparent #2 on Parent #1 Side</td>
+                                <td id = "ped2TableAge" style = "text-align: center; vertical-align: middle"> {{ ped2age }} </td>
+                                <td id = "ped2TableGender" style = "text-align: center; vertical-align: middle"> {{ ped2gender }} </td>
+                                <td id = "ped2TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped2ldlc }} </td>
+                                <td id = "ped2TableTotc" style = "text-align: center; vertical-align: middle"> {{ ped2totc }} </td>
+                                <td id = "ped2TableTx" style = "text-align: center; vertical-align: middle"> {{ ped2tx }} </td>
+                                <td id = "ped2TableCadStat" style = "text-align: center; vertical-align: middle"> {{ ped2cadstat }} </td>
+                                <td id = "ped2TableCadAge" style = "text-align: center; vertical-align: middle"> {{ ped2cadage }} </td>
+                                <td id = "ped2TableDna" style = "text-align: center; vertical-align: middle"> {{ ped2dna }} </td>
+                                <td id = "ped2TableFH" style = "text-align: center; vertical-align: middle"> {{ fh2prob }} </td>
+                            </tr>
+
+                            <tr id = "row-3">
+                                <td>Sibling #1 of Parent #1</td>
+                                <td id = "ped3TableAge" style = "text-align: center; vertical-align: middle"> {{ ped3age }} </td>
+                                <td id = "ped3TableGender" style = "text-align: center; vertical-align: middle"> {{ ped3gender }} </td>
+                                <td id = "ped3TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped3ldlc }} </td>
+                                <td id = "ped3TableTotc" style = "text-align: center; vertical-align: middle"> {{ ped3totc }} </td>
+                                <td id = "ped3TableTx" style = "text-align: center; vertical-align: middle"> {{ ped3tx }} </td>
+                                <td id = "ped3TableCadStat" style = "text-align: center; vertical-align: middle"> {{ ped3cadstat }} </td>
+                                <td id = "ped3TableCadAge" style = "text-align: center; vertical-align: middle"> {{ ped3cadage }} </td>
+                                <td id = "ped3TableDna" style = "text-align: center; vertical-align: middle"> {{ ped3dna }} </td>
+                                <td id = "ped3TableFH" style = "text-align: center; vertical-align: middle"> {{ fh3prob }} </td>
+                            </tr>
+
+                            <tr id = "row-4">
+                                <td>Sibling #2 of Parent #1</td>
+                                <td id = "ped4TableAge" style = "text-align: center; vertical-align: middle"> {{ ped4age }} </td>
+                                <td id = "ped4TableGender" style = "text-align: center; vertical-align: middle"> {{ ped4gender }} </td>
+                                <td id = "ped4TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped4ldlc }} </td>
+                                <td id = "ped4TableTotc" style = "text-align: center; vertical-align: middle"> {{ ped4totc }} </td>
+                                <td id = "ped4TableTx" style = "text-align: center; vertical-align: middle"> {{ ped4tx }} </td>
+                                <td id = "ped4TableCadStat" style = "text-align: center; vertical-align: middle"> {{ ped4cadstat }} </td>
+                                <td id = "ped4TableCadAge" style = "text-align: center; vertical-align: middle"> {{ ped4cadage }} </td>
+                                <td id = "ped4TableDna" style = "text-align: center; vertical-align: middle"> {{ ped4dna }} </td>
+                                <td id = "ped4TableFH" style = "text-align: center; vertical-align: middle"> {{ fh4prob }} </td>
+                            </tr>
+
+                            <tr id = "row-5">
+                                <td>Parent #1</td>
+                                <td id = "ped5TableAge" style = "text-align: center; vertical-align: middle"> {{ ped5age }} </td>
+                                <td id = "ped5TableGender" style = "text-align: center; vertical-align: middle"> {{ ped5gender }} </td>
+                                <td id = "ped5TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped5ldlc }} </td>
+                                <td id = "ped5TableTotc" style = "text-align: center; vertical-align: middle"> {{ ped5totc }} </td>
+                                <td id = "ped5TableTx" style = "text-align: center; vertical-align: middle"> {{ ped5tx }} </td>
+                                <td id = "ped5TableCadStat" style = "text-align: center; vertical-align: middle"> {{ ped5cadstat }} </td>
+                                <td id = "ped5TableCadAge" style = "text-align: center; vertical-align: middle"> {{ ped5cadage }} </td>
+                                <td id = "ped5TableDna" style = "text-align: center; vertical-align: middle"> {{ ped5dna }} </td>
+                                <td id = "ped5TableFH" style = "text-align: center; vertical-align: middle"> {{ fh5prob }} </td>
+                            </tr>
+
+                            <tr id = "row-6">
+                                <td>Parent #2</td>
+                                <td id = "ped6TableAge" style = "text-align: center; vertical-align: middle"> {{ ped6age }} </td>
+                                <td id = "ped6TableGender" style = "text-align: center; vertical-align: middle"> {{ ped6gender }} </td>
+                                <td id = "ped6TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped6ldlc }} </td>
+                                <td id = "ped6TableTotc" style = "text-align: center; vertical-align: middle"> {{ ped6totc }} </td>
+                                <td id = "ped6TableTx" style = "text-align: center; vertical-align: middle"> {{ ped6tx }} </td>
+                                <td id = "ped6TableCadStat" style = "text-align: center; vertical-align: middle"> {{ ped6cadstat }} </td>
+                                <td id = "ped6TableCadAge" style = "text-align: center; vertical-align: middle"> {{ ped6cadage }} </td>
+                                <td id = "ped6TableDna" style = "text-align: center; vertical-align: middle"> {{ ped6dna }} </td>
+                                <td id = "ped6TableFH" style = "text-align: center; vertical-align: middle"> {{ fh6prob }} </td>
+                            </tr>
+
+                            <tr id = "row-7">
+                                <td>Child #1 of Parent #1 & #2</td>
+                                <td id = "ped7TableAge" style = "text-align: center; vertical-align: middle"> {{ ped7age }} </td>
+                                <td id = "ped7TableGender" style = "text-align: center; vertical-align: middle"> {{ ped7gender }} </td>
+                                <td id = "ped7TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped7ldlc }} </td>
+                                <td id = "ped7TableTotc" style = "text-align: center; vertical-align: middle"> {{ped7totc }} </td>
+                                <td id = "ped7TableTx" style = "text-align: center; vertical-align: middle"> {{ ped7tx }} </td>
+                                <td id = "ped7TableCadStat" style = "text-align: center; vertical-align: middle"> {{ ped7cadstat }} </td>
+                                <td id = "ped7TableCadAge" style = "text-align: center; vertical-align: middle"> {{ ped7cadage }} </td>
+                                <td id = "ped7TableDna" style = "text-align: center; vertical-align: middle"> {{ ped7dna }} </td>
+                                <td id = "ped7TableFH" style = "text-align: center; vertical-align: middle"> {{ fh7prob }}</td>
+                            </tr>
+
+                            <tr id = "row-8">
+                                <td>Child #2 of Parent #1 & #2</td>
+                                <td id = "ped8TableAge" style = "text-align: center; vertical-align: middle"> {{ ped8age }} </td>
+                                <td id = "ped8TableGender" style = "text-align: center; vertical-align: middle"> {{ ped8gender }} </td>
+                                <td id = "ped8TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped8ldlc }} </td>
+                                <td id = "ped8TableTotc" style = "text-align: center; vertical-align: middle"> {{ ped8totc }} </td>
+                                <td id = "ped8TableTx" style = "text-align: center; vertical-align: middle"> {{ ped8tx }} </td>
+                                <td id = "ped8TableCadStat" style = "text-align: center; vertical-align: middle"> {{ ped8cadstat }} </td>
+                                <td id = "ped8TableCadAge" style = "text-align: center; vertical-align: middle"> {{ ped8cadage }} </td>
+                                <td id = "ped8TableDna" style = "text-align: center; vertical-align: middle"> {{ ped8dna }} </td>
+                                <td id = "ped8TableFH" style = "text-align: center; vertical-align: middle"> {{ fh8prob }} </td>
+                            </tr>
+
+                            <tr id = "row-9">
+                            <td>Child #3 of Parent #1 & #2</td>
+                            <td id = "ped9TableAge" style = "text-align: center; vertical-align: middle"> {{ ped9age }} </td>
+                            <td id = "ped9TableGender" style = "text-align: center; vertical-align: middle"> {{ ped9gender }} </td>
+                            <td id = "ped9TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped9ldlc }} </td>
+                            <td id = "ped9TableTotc" style = "text-align: center; vertical-align: middle"> {{ ped9totc }} </td>
+                            <td id = "ped9TableTx" style = "text-align: center; vertical-align: middle"> {{ ped9tx }} </td>
+                            <td id = "ped9TableCadStat" style = "text-align: center; vertical-align: middle"> {{ ped9cadstat }} </td>
+                            <td id = "ped9TableCadAge" style = "text-align: center; vertical-align: middle"> {{ ped9cadage }} </td>
+                            <td id = "ped9TableDna" style = "text-align: center; vertical-align: middle"> {{ ped9dna }} </td>
+                            <td id = "ped9TableFH" style = "text-align: center; vertical-align: middle"> {{ fh9prob }} </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <div class = "row">
                     <!-- Family FH-Probability -->
                     <div class = "col"><b>{{ fhfamprob }}</b></div>
                     <!-- HIDDEN: Post-Generate Results Button Submission - Download .csv Results Button-->
-                    <div class = "col">
-                        <span class = "float-right">{% include [btn] ignore missing %}</span>
-                    </div>
+                    <span class = "float-right">{% include [btn] ignore missing %}</span>
                 </div>
             </main>
         </div>

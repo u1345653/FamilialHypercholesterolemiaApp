@@ -4,9 +4,8 @@
     TO do's are Categorized by level of confidence in ability to make desired web page modification
 
     Quick UI-Changes:
-    TODO() - ADD FAMILY-PEDIGREE .JPG TO BE ADDED TO TOP OF WEBPAGE
-        Note - In Bootstrap grid-system, decrease # of cols for the 'family pedigree selection' dropdown, to match same
-        grid-amount of page as the form-selectors,and put picture in remaining cols.
+    TODO() - Re-work layout in BS4 grid. Re-look at mirroing the nav-class in example dashboard page to contain
+        pedigree choice & attributes, then have 'main' div mirror the image & table contents of FHCalc
 
     Not 100% Confident that change will be Quick:
     TODO() - Make default drop-down values be 'unknown' -- does this change algorithm output?
@@ -61,7 +60,7 @@ def index():
     if request.method == "POST":
 
         pedigree_selection = request.form.get('results-form')
-        print(pedigree_selection)
+        # print(pedigree_selection)
 
         ###############################################################################
         # EXPERIMENTING W/ CONVERTING STRING TO JSON... FAILED TODO() - INSPECT LATER #
@@ -1555,7 +1554,7 @@ def index():
         fh9prob = ped9fhprob.iloc[0, 0]
 
         test = fh9prob
-        print(test)
+        # print(test)
         # print(f"Person 9 Likelihood: {person9prob.iloc[0, 0]}%")
 
         familyprob = famsum.div(stringsum) * 100
@@ -1652,10 +1651,12 @@ def index():
     else:
         return render_template('calc/index.html')
 
-
 @app.route('/download-file/')
 def download():
-    return send_file(filename, attachment_filename = 'yourfile.csv', as_attachment = True)
+
+    # Name for File-downloaded by user. Using of datetime library to print time of user-download
+    attachment_filename = datetime.datetime.now().strftime("FHResults-%Y-%m-%d-%H-%M-%S-%f"+".csv")
+    return send_file(filename, attachment_filename = attachment_filename, as_attachment = True)
 
 if __name__ == "__main__":
     app.run(debug = False)
