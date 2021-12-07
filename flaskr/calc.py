@@ -1654,4 +1654,4 @@ def download():
     return send_file(filename, attachment_filename = attachment_filename, as_attachment = True)
 
 if __name__ == "__main__":
-    app.run(debug = False)
+    app.run(debug = True)
