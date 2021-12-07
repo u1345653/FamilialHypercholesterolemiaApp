@@ -17,7 +17,7 @@
             <h1 class = "h2">FH Calculator</h1>
         </div>
         <div class = "row">
-            <div class = "col-sm-4">
+            <div class = "col-3">
                 <!--Family Pedigree Selection -->
                 <div class = "form-group">
                     <div id = "pedigree-selection" class = "pedigree-selection">
@@ -814,7 +814,7 @@
                     </div>
                 </div>
             </div>
-            <div class = "col-sm-8">
+            <div class = "col-9">
                 <br>
                 <!-- Pedigree .jpg Image -->
                 <figure class = "figure">
@@ -826,7 +826,7 @@
                 <!-- Pedigree Attribute Table Data-->
                 <table id = "createdTable" class="table table-sm table-bordered table-striped table-hover">
                         <thead>
-                            <tr>
+                            <tr style = "font-size: 14px">
                                 <th>Person</th>
                                 <th style="vertical-align: middle; text-align: center">Age</th>
                                 <th style="vertical-align: middle; text-align: center">Gender</th>
@@ -841,7 +841,7 @@
                         </thead>
                         <tbody>
                             <tr id = "row-1">
-                                <td>Grandparent #1</td>
+                                <th class = "text-nowrap"><small><b>Grandparent #1</b></small></th>
                                 <td id = "ped1TableAge" style = "text-align: center; vertical-align: middle"> {{ ped1age }} </td>
                                 <td id = "ped1TableGender" style = "text-align: center; vertical-align: middle"> {{ ped1gender }} </td>
                                 <td id = "ped1TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped1ldlc }} </td>
@@ -854,7 +854,7 @@
                             </tr>
 
                             <tr id = "row-2">
-                                <td>Grandparent #2</td>
+                                <th class = "text-nowrap"><small><b>Grandparent #2</b></small></th>
                                 <td id = "ped2TableAge" style = "text-align: center; vertical-align: middle"> {{ ped2age }} </td>
                                 <td id = "ped2TableGender" style = "text-align: center; vertical-align: middle"> {{ ped2gender }} </td>
                                 <td id = "ped2TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped2ldlc }} </td>
@@ -867,7 +867,7 @@
                             </tr>
 
                             <tr id = "row-3">
-                                <td>Sibling #1</td>
+                                <th><small><b>Sibling #1</b></small></th>
                                 <td id = "ped3TableAge" style = "text-align: center; vertical-align: middle"> {{ ped3age }} </td>
                                 <td id = "ped3TableGender" style = "text-align: center; vertical-align: middle"> {{ ped3gender }} </td>
                                 <td id = "ped3TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped3ldlc }} </td>
@@ -880,7 +880,7 @@
                             </tr>
 
                             <tr id = "row-4">
-                                <td>Sibling #2</td>
+                                <th><small><b>Sibling #2</b></small></th>
                                 <td id = "ped4TableAge" style = "text-align: center; vertical-align: middle"> {{ ped4age }} </td>
                                 <td id = "ped4TableGender" style = "text-align: center; vertical-align: middle"> {{ ped4gender }} </td>
                                 <td id = "ped4TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped4ldlc }} </td>
@@ -893,7 +893,7 @@
                             </tr>
 
                             <tr id = "row-5">
-                                <td>Parent #1</td>
+                                <th><small><b>Parent #1</b></small></th>
                                 <td id = "ped5TableAge" style = "text-align: center; vertical-align: middle"> {{ ped5age }} </td>
                                 <td id = "ped5TableGender" style = "text-align: center; vertical-align: middle"> {{ ped5gender }} </td>
                                 <td id = "ped5TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped5ldlc }} </td>
@@ -906,7 +906,7 @@
                             </tr>
 
                             <tr id = "row-6">
-                                <td>Parent #2</td>
+                                <th><small><b>Parent #2</b></small></th>
                                 <td id = "ped6TableAge" style = "text-align: center; vertical-align: middle"> {{ ped6age }} </td>
                                 <td id = "ped6TableGender" style = "text-align: center; vertical-align: middle"> {{ ped6gender }} </td>
                                 <td id = "ped6TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped6ldlc }} </td>
@@ -919,7 +919,7 @@
                             </tr>
 
                             <tr id = "row-7">
-                                <td>Child #1</td>
+                                <th><small><b>Child #1</b></small></th>
                                 <td id = "ped7TableAge" style = "text-align: center; vertical-align: middle"> {{ ped7age }} </td>
                                 <td id = "ped7TableGender" style = "text-align: center; vertical-align: middle"> {{ ped7gender }} </td>
                                 <td id = "ped7TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped7ldlc }} </td>
@@ -932,7 +932,7 @@
                             </tr>
 
                             <tr id = "row-8">
-                                <td>Child #2</td>
+                                <th><small><b>Child #2</b></small></th>
                                 <td id = "ped8TableAge" style = "text-align: center; vertical-align: middle"> {{ ped8age }} </td>
                                 <td id = "ped8TableGender" style = "text-align: center; vertical-align: middle"> {{ ped8gender }} </td>
                                 <td id = "ped8TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped8ldlc }} </td>
@@ -945,7 +945,7 @@
                             </tr>
 
                             <tr id = "row-9">
-                            <td>Child #3</td>
+                            <th><small><b>Child #3</b></small></th>
                             <td id = "ped9TableAge" style = "text-align: center; vertical-align: middle"> {{ ped9age }} </td>
                             <td id = "ped9TableGender" style = "text-align: center; vertical-align: middle"> {{ ped9gender }} </td>
                             <td id = "ped9TableLDL" style = "text-align: center; vertical-align: middle"> {{ ped9ldlc }} </td>
