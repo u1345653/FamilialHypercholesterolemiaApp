@@ -68,6 +68,12 @@ class Person(object):
         self.cadageonset = cadageonset
         self.dnadx = dnadx
         self.fhprob = fhprob
+        self.ldlcfh = self.ldlcfh()
+        self.ldlcnotfh = self.ldlcnotfh()
+        self.txfh = self.txfh()
+        self.txnotfh = self.txnotfh()
+        self.cadfh = self.cadfh()
+        self.cadnotfh = self.cadnotfh()
 
     # Returning the Pedigree Role
     def family_role(self):
@@ -112,19 +118,17 @@ class Person(object):
         if self.ldlc == 0 and self.totc == 0:
             returnvar = 1
         else:
+            value1 = 1
             if self.ldlc > 0:
                 if self.age < 20:
-                    value1 = 1
                     meantrue = value1 * ldlcfhlessthan20mean
                     sdtrue = value1 * ldlcfhlessthan20sd
                     returnvar = stats.norm.pdf(self.ldlc, meantrue, sdtrue)
                 elif 20 <= self.age < 30:
-                    value1 = 1
                     meantrue = value1 * ldlcfh2030mean
                     sdtrue = value1 * ldlcfh2030sd
                     returnvar = stats.norm.pdf(self.ldlc, meantrue, sdtrue)
                 elif self.age >= 30:
-                    value1 = 1
                     meantrue = value1 * ldlcfh30plusmean
                     sdtrue = value1 * ldlcfh30plussd
                     returnvar = stats.norm.pdf(self.ldlc, meantrue, sdtrue)
@@ -132,17 +136,14 @@ class Person(object):
                     returnvar = 1
             else:
                 if self.age< 20:
-                    value1 = 1
                     meanfalse = value1 * totalcfhlessthan20mean
                     sdfalse = value1 * totalcfhlessthan20sd
                     returnvar = stats.norm.pdf(self.totc, meanfalse, sdfalse)
                 elif 20 <= self.age < 30:
-                    value1 = 1
                     meanfalse = value1 * totalcfh2030mean
                     sdfalse = value1 * totalcfh2030sd
                     returnvar = stats.norm.pdf(self.totc, meanfalse, sdfalse)
                 elif self.age >= 30:
-                    value1 = 1
                     meanfalse = value1 * totalcfh30plusmean
                     sdfalse = value1 * totalcfh30plussd
                     returnvar = stats.norm.pdf(self.totc, meanfalse, sdfalse)
@@ -155,19 +156,17 @@ class Person(object):
         if self.ldlc == 0 and self.totc == 0:
             returnvar = 1
         else:
+            value1 = 1
             if self.ldlc > 0:
                 if self.age < 20:
-                    value1 = 1
                     meantrue = value1 * ldlcnotfhlessthan20mean
                     sdtrue = value1 * ldlcnotfhlessthan20sd
                     returnvar = stats.norm.pdf(self.ldlc, meantrue, sdtrue)
                 elif 20 <= self.age < 30:
-                    value1 = 1
                     meantrue = value1 * ldlcnotfh2030mean
                     sdtrue = value1 * ldlcnotfh2030sd
                     returnvar = stats.norm.pdf(self.ldlc, meantrue, sdtrue)
                 elif self.age >= 30:
-                    value1 = 1
                     meantrue = value1 * ldlcnotfh30plusmean
                     sdtrue = value1 * ldlcnotfh30plussd
                     returnvar = stats.norm.pdf(self.ldlc, meantrue, sdtrue)
@@ -175,17 +174,14 @@ class Person(object):
                     returnvar = 1
             else:
                 if self.age< 20:
-                    value1 = 1
                     meanfalse = value1 * totalcnotfhlessthan20mean
                     sdfalse = value1 * totalcnotfhlessthan20sd
                     returnvar = stats.norm.pdf(self.totc, meanfalse, sdfalse)
                 elif 20 <= self.age < 30:
-                    value1 = 1
                     meanfalse = value1 * totalcnotfh2030mean
                     sdfalse = value1 * totalcnotfh2030sd
                     returnvar = stats.norm.pdf(self.totc, meanfalse, sdfalse)
                 elif self.age >= 30:
-                    value1 = 1
                     meanfalse = value1 * totalcnotfh30plusmean
                     sdfalse = value1 * totalcnotfh30plussd
                     returnvar = stats.norm.pdf(self.totc, meanfalse, sdfalse)
