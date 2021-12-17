@@ -75,6 +75,38 @@ class Person(object):
         self.cadfh = self.cadfh()
         self.cadnotfh = self.cadnotfh()
 
+        ###############################################################
+        # Handling the 0, 1, or 9 Inputs for tx, cadstatus, and dnadx #
+        ###############################################################
+
+        # Returning the Printed vals of TX Status
+        if self.txstatus == 9:
+            self.txstatus = "Unknown"
+        elif self.txstatus == 1:
+            self.txstatus = "Positive"
+        elif self.txstatus == 0:
+            self.txstatus = "Negative"
+        else:
+            pass
+
+        if self.cadstatus == 9:
+            self.cadstatus = "Unknown"
+        elif self.cadstatus == 1:
+            self.cadstatus = "Positive"
+        elif self.cadstatus == 0:
+            self.cadstatus = "Negative"
+        else:
+            pass
+
+        if self.dnadx == 9:
+            self.dnadx = "Unknown"
+        elif self.dnadx == 1:
+            self.dnadx = "Positive"
+        elif self.dnadx == 0:
+            self.dnadx = "Negative"
+        else:
+            pass
+
     # Returning the Pedigree Role
     def family_role(self):
         if self.id == 1:
@@ -112,7 +144,6 @@ class Person(object):
         elif self.id == 9:
             self.pedigree_role = "Child 3"
             return self.pedigree_role
-
     # LDL FH Val
     def ldlcfh(self):
         if self.ldlc == 0 and self.totc == 0:
@@ -250,7 +281,7 @@ class Person(object):
             return calc
 
 # Grandparent 1
-grandparent_1 = Person( id = 1
+Grandparent_1 = Person( id = 1
                        , age = 72
                        , gender = "Male"
                        , ldlc = 200
@@ -262,100 +293,134 @@ grandparent_1 = Person( id = 1
                        , fhprob = 0 )
 
 # Grandparent 2
-grandparent_2 = Person( id = 2
-                        , age = 73
-                        , gender = "Female"
-                        , ldlc = 190
-                        , totc = 150
-                        , txstatus = 9
-                        , cadstatus = 9
-                        , cadageonset = 0
-                        , dnadx = 0
-                        , fhprob = 0 )
+Grandparent_2 = Person(id = 2
+                       , age = 73
+                       , gender = "Female"
+                       , ldlc = 190
+                       , totc = 150
+                       , txstatus = 9
+                       , cadstatus = 9
+                       , cadageonset = 0
+                       , dnadx = 0
+                       , fhprob = 0)
 
 # Parent 2
-parent_2 = Person( id = 3
-                   , age = 50
+Parent_2 = Person(id = 3
+                  , age = 50
+                  , gender = "Male"
+                  , ldlc = 180
+                  , totc = 170
+                  , txstatus = 9
+                  , cadstatus = 9
+                  , cadageonset = 0
+                  , dnadx = 9
+                  , fhprob = 0)
+
+# Sibling 1 of Parent 1
+Sibling_1 = Person(id = 4
+                   , age = 42
+                   , gender = "Female"
+                   , ldlc = 170
+                   , totc = 190
+                   , txstatus = 0
+                   , cadstatus = 0
+                   , cadageonset = 0
+                   , dnadx = 0
+                   , fhprob = 0)
+
+# Sibling 2 of Parent 1
+Sibling_2 = Person(id = 5
+                   , age = 42
                    , gender = "Male"
-                   , ldlc = 180
-                   , totc = 170
-                   , txstatus = 9
+                   , ldlc = 185
+                   , totc = 199
+                   , txstatus = 0
                    , cadstatus = 9
                    , cadageonset = 0
                    , dnadx = 9
-                   , fhprob = 0 )
-
-# Sibling 1 of Parent 1
-sibling_1 = Person( id = 4
-                    , age = 42
-                    , gender = "Female"
-                    , ldlc = 170
-                    , totc = 190
-                    , txstatus = 0
-                    , cadstatus = 0
-                    , cadageonset = 0
-                    , dnadx = 0
-                    , fhprob = 0 )
-
-# Sibling 2 of Parent 1
-sibling_2 = Person( id = 5
-                    , age = 42
-                    , gender = "Male"
-                    , ldlc = 185
-                    , totc = 199
-                    , txstatus = 0
-                    , cadstatus = 9
-                    , cadageonset = 0
-                    , dnadx = 9
-                    , fhprob = 0 )
+                   , fhprob = 0)
 
 # Parent 1
-parent_1 = Person( id = 6
-                   , age = 48
-                   , gender = "Female"
-                   , ldlc = 160
-                   , totc = 163
-                   , txstatus = 9
-                   , cadstatus = 0
-                   , cadageonset = 0
-                   , dnadx = 9
-                   , fhprob = 0 )
-
-# Child 1
-child_1 = Person( id = 7
-                  , age = 16
-                  , gender = "Male"
-                  , ldlc = 210
-                  , totc = 232
-                  , txstatus = 0
-                  , cadstatus = 9
-                  , cadageonset = 0
-                  , dnadx = 9
-                  , fhprob = 0 )
-
-# Child 2
-child_2 = Person( id = 8
-                  , age = 20
-                  , gender = "Male"
-                  , ldlc = 225
-                  , totc = 229
-                  , txstatus = 9
-                  , cadstatus = 9
-                  , cadageonset = 0
-                  , dnadx = 9
-                  , fhprob = 0 )
-
-# Child 3
-child_3 = Person( id = 9
-                  , age = 22
-                  , gender = "Male"
-                  , ldlc = 230
-                  , totc = 232
+Parent_1 = Person(id = 6
+                  , age = 48
+                  , gender = "Female"
+                  , ldlc = 160
+                  , totc = 163
                   , txstatus = 9
                   , cadstatus = 0
                   , cadageonset = 0
-                  , dnadx = 0
-                  , fhprob = 0 )
+                  , dnadx = 9
+                  , fhprob = 0)
 
-for attr, value in parent_2.__dict__.items():
+# Child 1
+Child_1 = Person(id = 7
+                 , age = 16
+                 , gender = "Male"
+                 , ldlc = 210
+                 , totc = 232
+                 , txstatus = 0
+                 , cadstatus = 9
+                 , cadageonset = 0
+                 , dnadx = 9
+                 , fhprob = 0)
+
+# Child 2
+Child_2 = Person(id = 8
+                 , age = 20
+                 , gender = "Male"
+                 , ldlc = 225
+                 , totc = 229
+                 , txstatus = 1
+                 , cadstatus = 9
+                 , cadageonset = 0
+                 , dnadx = 9
+                 , fhprob = 0)
+
+# Child 3
+Child_3 = Person(id = 9
+                 , age = 22
+                 , gender = "Male"
+                 , ldlc = 230
+                 , totc = 232
+                 , txstatus = 9
+                 , cadstatus = 0
+                 , cadageonset = 0
+                 , dnadx = 0
+                 , fhprob = 0)
+
+
+for attr, value in Grandparent_1.__dict__.items():
     print(str(attr) + ": ", value)
+print()
+
+for attr, value in Grandparent_2.__dict__.items():
+    print(str(attr) + ": ", value)
+print()
+
+for attr, value in Parent_1.__dict__.items():
+    print(str(attr) + ": ", value)
+print()
+
+for attr, value in Sibling_1.__dict__.items():
+    print(str(attr) + ": ", value)
+print()
+
+for attr, value in Sibling_2.__dict__.items():
+    print(str(attr) + ": ", value)
+print()
+
+for attr, value in Parent_2.__dict__.items():
+    print(str(attr) + ": ", value)
+print()
+
+for attr, value in Child_1.__dict__.items():
+    print(str(attr) + ": ", value)
+print()
+
+for attr, value in Child_2.__dict__.items():
+    print(str(attr) + ": ", value)
+print()
+
+for attr, value in Child_3.__dict__.items():
+    print(str(attr) + ": ", value)
+print()
