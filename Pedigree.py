@@ -249,6 +249,7 @@ class Person(object):
                         calc = 1 - (0.713 / (1 + math.exp(0.0981 * (88.6 - self.age))))
             return calc
 
+# Grandparent 1
 grandparent_1 = Person( id = 1
                        , age = 72
                        , gender = "Male"
@@ -260,6 +261,7 @@ grandparent_1 = Person( id = 1
                        , dnadx = 9
                        , fhprob = 0 )
 
+# Grandparent 2
 grandparent_2 = Person( id = 2
                         , age = 73
                         , gender = "Female"
@@ -271,6 +273,7 @@ grandparent_2 = Person( id = 2
                         , dnadx = 0
                         , fhprob = 0 )
 
+# Parent 2
 parent_2 = Person( id = 3
                    , age = 50
                    , gender = "Male"
@@ -282,6 +285,7 @@ parent_2 = Person( id = 3
                    , dnadx = 9
                    , fhprob = 0 )
 
+# Sibling 1 of Parent 1
 sibling_1 = Person( id = 4
                     , age = 42
                     , gender = "Female"
@@ -293,6 +297,7 @@ sibling_1 = Person( id = 4
                     , dnadx = 0
                     , fhprob = 0 )
 
+# Sibling 2 of Parent 1
 sibling_2 = Person( id = 5
                     , age = 42
                     , gender = "Male"
@@ -304,6 +309,7 @@ sibling_2 = Person( id = 5
                     , dnadx = 9
                     , fhprob = 0 )
 
+# Parent 1
 parent_1 = Person( id = 6
                    , age = 48
                    , gender = "Female"
@@ -315,6 +321,7 @@ parent_1 = Person( id = 6
                    , dnadx = 9
                    , fhprob = 0 )
 
+# Child 1
 child_1 = Person( id = 7
                   , age = 16
                   , gender = "Male"
@@ -326,6 +333,7 @@ child_1 = Person( id = 7
                   , dnadx = 9
                   , fhprob = 0 )
 
+# Child 2
 child_2 = Person( id = 8
                   , age = 20
                   , gender = "Male"
@@ -337,6 +345,7 @@ child_2 = Person( id = 8
                   , dnadx = 9
                   , fhprob = 0 )
 
+# Child 3
 child_3 = Person( id = 9
                   , age = 22
                   , gender = "Male"
@@ -347,7 +356,6 @@ child_3 = Person( id = 9
                   , cadageonset = 0
                   , dnadx = 0
                   , fhprob = 0 )
-
 
 for attr, value in parent_2.__dict__.items():
     print(str(attr) + ": ", value)
