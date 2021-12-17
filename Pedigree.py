@@ -144,6 +144,7 @@ class Person(object):
         elif self.id == 9:
             self.pedigree_role = "Child 3"
             return self.pedigree_role
+
     # LDL FH Val
     def ldlcfh(self):
         if self.ldlc == 0 and self.totc == 0:
@@ -222,7 +223,6 @@ class Person(object):
 
     # TX FH Val
     def txfh(self):
-            calc = 0
             if self.txstatus == 9:
                 calc = 1
             else:
@@ -234,7 +234,6 @@ class Person(object):
 
     # TX Not FH Val
     def txnotfh(self):
-            calc = 0
             if self.txstatus == 9:
                 calc = 1
             else:
@@ -246,7 +245,6 @@ class Person(object):
 
     # CAD is FH
     def cadfh(self):
-            calc = 0
             if self.cadstatus == 9:
                 calc = 1
             else:
@@ -264,7 +262,6 @@ class Person(object):
 
     # CAD is Not FH Val
     def cadnotfh(self):
-            calc = 0
             if self.cadstatus == 9:
                 calc = 1
             else:
