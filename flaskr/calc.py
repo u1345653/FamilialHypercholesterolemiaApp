@@ -1,3 +1,5 @@
+from flask import render_template, request, send_file
+
 """
     Web-App changes to make post-discussion w/ Capstone-project Business Sponsor
 
@@ -10,6 +12,7 @@
 
     Table-output Investigation
     TODO() - Vals not entered by user should display as '-' after submitting results, rather than '0' or 'f' for gender
+    
     TODO() - Upon user changing any form-data, entire table populates w/ default vals....
         we want it to only update the corresponding cell in table ONLY! IS IT A JAVASCRIPT/JQuery thing?
 
@@ -31,8 +34,10 @@
 
     TODO() - Should we consider making the .jpg image of family pedigree responsive, allowing user to click on family
         member in-picture, then the form updating to pull-up that members data-inputs? Is it worth time required?
+        
+    TODO() - Investigate if the data as traveled between pages should be in JSON format. Does passing it through 
+        as non-JSON present any risks and or misconfiguration issues.
 """
-from flask import render_template, request, url_for, jsonify, send_file
 from scipy import stats
 from flask import Flask
 import math
@@ -40,24 +45,22 @@ import numpy as np
 from itertools import product
 import pandas as pd
 import datetime
+
 pd.set_option('display.max_rows', None)
 pd.set_option("display.max_columns", None)
 pd.set_option('precision', 0)
 
 app = Flask(__name__)
 
-#Create a Binary table
+# Create a Binary table
 binary = [i for i in product(range(2), repeat=9)]
 binary = np.array(binary)
 
-@app.route('/', methods = ['GET', 'POST'])
+
+@app.route('/', methods=['GET', 'POST'])
 def index():
     global filename
     if request.method == "POST":
-
-        pedigree_selection = request.form.get('results-form')
-        # print(pedigree_selection)
-
         ###############################################################################
         # EXPERIMENTING W/ CONVERTING STRING TO JSON... FAILED TODO() - INSPECT LATER #
         ###############################################################################
@@ -72,7 +75,6 @@ def index():
         ped1tx = int(request.form.get("ped1TXStatus"))
         ped1dna = int(request.form.get("ped1DnaDxStatus"))
         ped1fhprob = request.form.get("ped1FhProb")
-
 
         # PEDIGREE 2'S DATA ATTRIBUTES
         ped2age = int(request.form.get("ped2Age"))
@@ -167,7 +169,7 @@ def index():
         ## ADDING ALL INPUT DATA TO A PANDAS DATAFRAME FOR PROCESSING
         pinput = pd.DataFrame(
             columns=["Age", "LDL-C", "TOT-C", "Gender", "Clinical-CAD", "CAD-Age", "TX-Status", "DNA-DX Status"]
-            ,data=[ [ped1age, ped1ldlc, ped1totc, ped1gender, ped1cadstat, ped1cadage, ped1tx, ped1dna]
+            , data=[[ped1age, ped1ldlc, ped1totc, ped1gender, ped1cadstat, ped1cadage, ped1tx, ped1dna]
                 , [ped2age, ped2ldlc, ped2totc, ped2gender, ped2cadstat, ped2cadage, ped2tx, ped2dna]
                 , [ped3age, ped3ldlc, ped3totc, ped3gender, ped3cadstat, ped3cadage, ped3tx, ped3dna]
                 , [ped4age, ped4ldlc, ped4totc, ped4gender, ped4cadstat, ped4cadage, ped4tx, ped4dna]
@@ -175,7 +177,7 @@ def index():
                 , [ped6age, ped6ldlc, ped6totc, ped6gender, ped6cadstat, ped6cadage, ped6tx, ped6dna]
                 , [ped7age, ped7ldlc, ped7totc, ped7gender, ped7cadstat, ped7cadage, ped7tx, ped7dna]
                 , [ped8age, ped8ldlc, ped8totc, ped8gender, ped8cadstat, ped8cadage, ped8tx, ped8dna]
-                , [ped9age, ped9ldlc, ped9totc, ped9gender, ped9cadstat, ped9cadage, ped9tx, ped9dna] ])
+                , [ped9age, ped9ldlc, ped9totc, ped9gender, ped9cadstat, ped9cadage, ped9tx, ped9dna]])
 
         dftoTable = pinput.copy()
 
@@ -1327,22 +1329,22 @@ def index():
             return output
 
         def stringlikestuff():
-            founder = pd.DataFrame( [FPP1(), FPP2(), FPP3()] ).transpose()
+            founder = pd.DataFrame([FPP1(), FPP2(), FPP3()]).transpose()
             founderprob = founder.iloc[1:, :]
 
-            transmission = pd.DataFrame( [TP4(), TP5(), TP6(), TP7(), TP8(), TP9()] ).transpose()
+            transmission = pd.DataFrame([TP4(), TP5(), TP6(), TP7(), TP8(), TP9()]).transpose()
             transmissionprob = transmission.iloc[1:, :]
-            ldldf = pd.DataFrame( [LDLC1(), LDLC2(), LDLC3(), LDLC4(), LDLC5(), LDLC6(), LDLC7(), LDLC8(), LDLC9()]
-                                  ).transpose()
+            ldldf = pd.DataFrame([LDLC1(), LDLC2(), LDLC3(), LDLC4(), LDLC5(), LDLC6(), LDLC7(), LDLC8(), LDLC9()]
+                                 ).transpose()
             ldlarray = ldldf.iloc[1:, :]
 
-            txdf = pd.DataFrame( [TX1(), TX2(), TX3(), TX4(), TX5(), TX6(), TX7(), TX8(), TX9()] ).transpose()
+            txdf = pd.DataFrame([TX1(), TX2(), TX3(), TX4(), TX5(), TX6(), TX7(), TX8(), TX9()]).transpose()
             txarray = txdf.iloc[1:, :]
 
-            caddf = pd.DataFrame( [CAD1(), CAD2(), CAD3(), CAD4(), CAD5(), CAD6(), CAD7(), CAD8(), CAD9()] ).transpose()
+            caddf = pd.DataFrame([CAD1(), CAD2(), CAD3(), CAD4(), CAD5(), CAD6(), CAD7(), CAD8(), CAD9()]).transpose()
             cadarray = caddf.iloc[1:, :]
 
-            # Creating the table by Calculating the String Probabilites
+            # Creating the table by Calculating the String Probabilities
             probs = pd.DataFrame([
                 FPP1(), FPP2(), FPP3(), TP4(), TP5(), TP6(), TP7(), TP8(), TP9()
                 , LDLC1(), LDLC2(), LDLC3(), LDLC4(), LDLC5(), LDLC6(), LDLC7(), LDLC8(), LDLC9()
@@ -1351,24 +1353,24 @@ def index():
             ]).transpose()
 
             # Creating 4 sections
-            section1 = pd.DataFrame( [FPP1(), FPP2(), FPP3(), TP4(), TP5(), TP6(), TP7(), TP8(), TP9()]
-                                     ).transpose()
-            section2 = pd.DataFrame( [LDLC1(), LDLC2(), LDLC3(), LDLC4(), LDLC5(), LDLC6(), LDLC7(), LDLC8(), LDLC9()]
-                                     ).transpose()
-            section3 = pd.DataFrame( [TX1(), TX2(), TX3(), TX4(), TX5(), TX6(), TX7(), TX8(), TX9()]
-                                     ).transpose()
-            section4 = pd.DataFrame( [CAD1(), CAD2(), CAD3(), CAD4(), CAD5(), CAD6(), CAD7(), CAD8(), CAD9()]
-                                     ).transpose()
+            section1 = pd.DataFrame([FPP1(), FPP2(), FPP3(), TP4(), TP5(), TP6(), TP7(), TP8(), TP9()]
+                                    ).transpose()
+            section2 = pd.DataFrame([LDLC1(), LDLC2(), LDLC3(), LDLC4(), LDLC5(), LDLC6(), LDLC7(), LDLC8(), LDLC9()]
+                                    ).transpose()
+            section3 = pd.DataFrame([TX1(), TX2(), TX3(), TX4(), TX5(), TX6(), TX7(), TX8(), TX9()]
+                                    ).transpose()
+            section4 = pd.DataFrame([CAD1(), CAD2(), CAD3(), CAD4(), CAD5(), CAD6(), CAD7(), CAD8(), CAD9()]
+                                    ).transpose()
             section1prod = section1.prod(axis=1)
             section2prod = section2.prod(axis=1)
             section3prod = section3.prod(axis=1)
             section4prod = section4.prod(axis=1)
 
             # Creating 1 dataframe with the products of 4 sections
-            ultimateprod = pd.DataFrame([ section1prod, section2prod, section3prod, section4prod ]).transpose()
+            ultimateprod = pd.DataFrame([section1prod, section2prod, section3prod, section4prod]).transpose()
             probs["String Likelihood"] = ultimateprod.prod(axis=1)
             string = probs.iloc[1:, :]
-            stringlike = pd.DataFrame([ string[ "String Likelihood" ] ]).transpose()
+            stringlike = pd.DataFrame([string["String Likelihood"]]).transpose()
 
             return stringlike
 
@@ -1380,14 +1382,14 @@ def index():
                  CAD3(), CAD4(), CAD5(), CAD6(),
                  CAD7(), CAD8(), CAD9()]).transpose()
             # Creating 4 sections
-            section1 = pd.DataFrame( [FPP1(), FPP2(), FPP3(), TP4(), TP5(), TP6(), TP7(), TP8(), TP9() ]
-                                     ).transpose()
-            section2 = pd.DataFrame( [LDLC1(), LDLC2(), LDLC3(), LDLC4(), LDLC5(), LDLC6(), LDLC7(), LDLC8(), LDLC9() ]
-                                     ).transpose()
-            section3 = pd.DataFrame( [TX1(), TX2(), TX3(), TX4(), TX5(), TX6(), TX7(), TX8(), TX9()]
-                                     ).transpose()
-            section4 = pd.DataFrame( [CAD1(), CAD2(), CAD3(), CAD4(), CAD5(), CAD6(), CAD7(), CAD8(), CAD9() ]
-                                     ).transpose()
+            section1 = pd.DataFrame([FPP1(), FPP2(), FPP3(), TP4(), TP5(), TP6(), TP7(), TP8(), TP9()]
+                                    ).transpose()
+            section2 = pd.DataFrame([LDLC1(), LDLC2(), LDLC3(), LDLC4(), LDLC5(), LDLC6(), LDLC7(), LDLC8(), LDLC9()]
+                                    ).transpose()
+            section3 = pd.DataFrame([TX1(), TX2(), TX3(), TX4(), TX5(), TX6(), TX7(), TX8(), TX9()]
+                                    ).transpose()
+            section4 = pd.DataFrame([CAD1(), CAD2(), CAD3(), CAD4(), CAD5(), CAD6(), CAD7(), CAD8(), CAD9()]
+                                    ).transpose()
             # Cut off the first row
             # Creating products of 4 sections
             section1prod = section1.prod(axis=1)
@@ -1396,109 +1398,109 @@ def index():
             section4prod = section4.prod(axis=1)
 
             # Creating 1 dataframe with the products of 4 sections
-            ultimateprod = pd.DataFrame( [section1prod, section2prod, section3prod, section4prod] ).transpose()
+            ultimateprod = pd.DataFrame([section1prod, section2prod, section3prod, section4prod]).transpose()
             probs["String Likelihood"] = ultimateprod.prod(axis=1)
             string = probs.iloc[1:, :]
-            stringsum = pd.DataFrame( [string["String Likelihood"].sum()] )
+            stringsum = pd.DataFrame([string["String Likelihood"].sum()])
             return stringsum
 
         def famsumstuff():
             stringlike = stringlikestuff()
-            fam1 = pd.DataFrame([ family() ]).transpose()
+            fam1 = pd.DataFrame([family()]).transpose()
             fam = fam1.iloc[1:, :]
             familylikelihood = fam.mul(stringlike.values)
             familylikelihood.columns = ["Family Likelihood"]
-            famsum = pd.DataFrame([ familylikelihood[ "Family Likelihood" ].sum() ])
+            famsum = pd.DataFrame([familylikelihood["Family Likelihood"].sum()])
 
             return famsum
 
         def person1stuff():
             stringlike = stringlikestuff()
-            person1f = pd.DataFrame([ person1() ]).transpose()
+            person1f = pd.DataFrame([person1()]).transpose()
             person1df = person1f.iloc[1:, :]
             person1likely = person1df.mul(stringlike.values)
             person1likely.columns = ["Person 1 Likelihood"]
-            person1sum = pd.DataFrame([ person1likely[ "Person 1 Likelihood" ].sum() ])
+            person1sum = pd.DataFrame([person1likely["Person 1 Likelihood"].sum()])
 
             return person1sum
 
         def person2stuff():
             stringlike = stringlikestuff()
-            person2f = pd.DataFrame([ person2() ]).transpose()
+            person2f = pd.DataFrame([person2()]).transpose()
             person2df = person2f.iloc[1:, :]
             person2likely = person2df.mul(stringlike.values)
             person2likely.columns = ["Person 2 Likelihood"]
-            person2sum = pd.DataFrame([ person2likely[ "Person 2 Likelihood" ].sum() ])
+            person2sum = pd.DataFrame([person2likely["Person 2 Likelihood"].sum()])
 
             return person2sum
 
         def person3stuff():
             stringlike = stringlikestuff()
-            person3f = pd.DataFrame([ person3() ]).transpose()
+            person3f = pd.DataFrame([person3()]).transpose()
             person3df = person3f.iloc[1:, :]
             person3likely = person3df.mul(stringlike.values)
             person3likely.columns = ["Person 3 Likelihood"]
-            person3sum = pd.DataFrame([ person3likely[ "Person 3 Likelihood" ].sum() ])
+            person3sum = pd.DataFrame([person3likely["Person 3 Likelihood"].sum()])
 
             return person3sum
 
         def person4stuff():
             stringlike = stringlikestuff()
-            person4f = pd.DataFrame([ person4() ]).transpose()
+            person4f = pd.DataFrame([person4()]).transpose()
             person4df = person4f.iloc[1:, :]
             person4likely = person4df.mul(stringlike.values)
             person4likely.columns = ["Person 4 Likelihood"]
-            person4sum = pd.DataFrame([ person4likely["Person 4 Likelihood"].sum() ])
+            person4sum = pd.DataFrame([person4likely["Person 4 Likelihood"].sum()])
 
             return person4sum
 
         def person5stuff():
             stringlike = stringlikestuff()
-            person5f = pd.DataFrame([ person5() ]).transpose()
+            person5f = pd.DataFrame([person5()]).transpose()
             person5df = person5f.iloc[1:, :]
             person5likely = person5df.mul(stringlike.values)
             person5likely.columns = ["Person 5 Likelihood"]
-            person5sum = pd.DataFrame([ person5likely[ "Person 5 Likelihood" ].sum() ])
+            person5sum = pd.DataFrame([person5likely["Person 5 Likelihood"].sum()])
 
             return person5sum
 
         def person6stuff():
             stringlike = stringlikestuff()
-            person6f = pd.DataFrame([ person6() ]).transpose()
+            person6f = pd.DataFrame([person6()]).transpose()
             person6df = person6f.iloc[1:, :]
             person6likely = person6df.mul(stringlike.values)
             person6likely.columns = ["Person 6 Likelihood"]
-            person6sum = pd.DataFrame([ person6likely["Person 6 Likelihood"].sum() ])
+            person6sum = pd.DataFrame([person6likely["Person 6 Likelihood"].sum()])
 
             return person6sum
 
         def person7stuff():
             stringlike = stringlikestuff()
-            person7f = pd.DataFrame([ person7() ]).transpose()
+            person7f = pd.DataFrame([person7()]).transpose()
             person7df = person7f.iloc[1:, :]
             person7likely = person7df.mul(stringlike.values)
             person7likely.columns = ["Person 7 Likelihood"]
-            person7sum = pd.DataFrame([ person7likely[ "Person 7 Likelihood" ].sum() ])
+            person7sum = pd.DataFrame([person7likely["Person 7 Likelihood"].sum()])
 
             return person7sum
 
         def person8stuff():
             stringlike = stringlikestuff()
-            person8f = pd.DataFrame([ person8() ]).transpose()
+            person8f = pd.DataFrame([person8()]).transpose()
             person8df = person8f.iloc[1:, :]
             person8likely = person8df.mul(stringlike.values)
             person8likely.columns = ["Person 8 Likelihood"]
-            person8sum = pd.DataFrame([ person8likely[ "Person 8 Likelihood" ].sum() ])
+            person8sum = pd.DataFrame([person8likely["Person 8 Likelihood"].sum()])
 
             return person8sum
 
         def person9stuff():
             stringlike = stringlikestuff()
-            person9f = pd.DataFrame([ person9() ]).transpose()
+            person9f = pd.DataFrame([person9()]).transpose()
             person9df = person9f.iloc[1:, :]
             person9likely = person9df.mul(stringlike.values)
             person9likely.columns = ["Person 9 Likelihood"]
-            person9sum = pd.DataFrame([ person9likely[ "Person 9 Likelihood" ].sum() ])
+            person9sum = pd.DataFrame([person9likely["Person 9 Likelihood"].sum()])
 
             return person9sum
 
@@ -1554,7 +1556,7 @@ def index():
         # print(f"Person 9 Likelihood: {person9prob.iloc[0, 0]}%")
 
         familyprob = famsum.div(stringsum) * 100
-        fhfamprob = familyprob.iloc[0,0]
+        fhfamprob = familyprob.iloc[0, 0]
         # print(f"Family Likelihood: {familyprob.iloc[0, 0]}%")
 
         fh1prob = float(fh1prob)
@@ -1571,36 +1573,36 @@ def index():
             columns=["Pedigree Member", "Age", "LDL-C", "TOT-C", "Gender", "Clinical-CAD"
                 , "CAD-Age", "TX-Status", "DNA-DX Status", "FH Probability", "Family Pedigree FH Probability"]
 
-            ,data=[[ "Grandparent #1", ped1age, ped1ldlc, ped1totc, ped1gender
-                    , ped1cadstat, ped1cadage, ped1tx, ped1dna, fh1prob, fhfamprob]
+            , data=[["Grandparent #1", ped1age, ped1ldlc, ped1totc, ped1gender
+                        , ped1cadstat, ped1cadage, ped1tx, ped1dna, fh1prob, fhfamprob]
 
-                , [ "Grandparent #2", ped2age, ped2ldlc, ped2totc, ped2gender
-                    , ped2cadstat, ped2cadage, ped2tx, ped2dna, fh2prob ]
+                , ["Grandparent #2", ped2age, ped2ldlc, ped2totc, ped2gender
+                        , ped2cadstat, ped2cadage, ped2tx, ped2dna, fh2prob]
 
-                , [ "Sibling #1", ped3age, ped3ldlc, ped3totc, ped3gender, ped3cadstat
-                    , ped3cadage, ped3tx, ped3dna, fh3prob ]
+                , ["Sibling #1", ped3age, ped3ldlc, ped3totc, ped3gender, ped3cadstat
+                        , ped3cadage, ped3tx, ped3dna, fh3prob]
 
-                , [ "Sibling #2", ped4age, ped4ldlc, ped4totc, ped4gender, ped4cadstat
-                    , ped4cadage, ped4tx, ped4dna, fh4prob ]
+                , ["Sibling #2", ped4age, ped4ldlc, ped4totc, ped4gender, ped4cadstat
+                        , ped4cadage, ped4tx, ped4dna, fh4prob]
 
-                , [ "Parent #1", ped5age, ped5ldlc, ped5totc, ped5gender, ped5cadstat
-                    , ped5cadage, ped5tx, ped5dna, fh5prob ]
+                , ["Parent #1", ped5age, ped5ldlc, ped5totc, ped5gender, ped5cadstat
+                        , ped5cadage, ped5tx, ped5dna, fh5prob]
 
-                , [ "Parent #2", ped6age, ped6ldlc, ped6totc, ped6gender, ped6cadstat
-                    , ped6cadage, ped6tx, ped6dna, fh6prob ]
+                , ["Parent #2", ped6age, ped6ldlc, ped6totc, ped6gender, ped6cadstat
+                        , ped6cadage, ped6tx, ped6dna, fh6prob]
 
-                , [ "Child #1", ped7age, ped7ldlc, ped7totc, ped7gender, ped7cadstat
-                    , ped7cadage, ped7tx, ped7dna, fh7prob ]
+                , ["Child #1", ped7age, ped7ldlc, ped7totc, ped7gender, ped7cadstat
+                        , ped7cadage, ped7tx, ped7dna, fh7prob]
 
-                , [ "Child #2", ped8age, ped8ldlc, ped8totc, ped8gender, ped8cadstat
-                    , ped8cadage, ped8tx, ped8dna, fh8prob ]
+                , ["Child #2", ped8age, ped8ldlc, ped8totc, ped8gender, ped8cadstat
+                        , ped8cadage, ped8tx, ped8dna, fh8prob]
 
-                , [ "Child #3", ped9age, ped9ldlc, ped9totc, ped9gender, ped9cadstat
-                    , ped9cadage, ped9tx, ped9dna, fh9prob ]])
+                , ["Child #3", ped9age, ped9ldlc, ped9totc, ped9gender, ped9cadstat
+                        , ped9cadage, ped9tx, ped9dna, fh9prob]])
 
-        filename = datetime.datetime.now().strftime("uploads/+%Y-%m-%d-%H-%M-%S-%f"+".csv")
+        filename: str = datetime.datetime.now().strftime("uploads/+%Y-%m-%d-%H-%M-%S-%f" + ".csv")
 
-        dftable.to_csv(filename, index = None, encoding = 'utf-8')
+        dftable.to_csv(filename, index=None, encoding='utf-8')
 
         # column_names = dftable.columns.values
         # row_data = list(dftable.values.tolist())
@@ -1615,44 +1617,45 @@ def index():
         fh7prob = "{:.1f}%".format(fh7prob)
         fh8prob = "{:.1f}%".format(fh8prob)
         fh9prob = "{:.1f}%".format(fh9prob)
-        fhfamprob = "Family Pedigree FH Probability: {:.2f}%".format(fhfamprob) # Family-Pedigree formatting
+        fhfamprob = "Family Pedigree FH Probability: {:.2f}%".format(fhfamprob)  # Family-Pedigree formatting
 
-        return render_template('calc/index.html', ped1age = ped1age, ped1ldlc = ped1ldlc, ped1totc = ped1totc
-                               , ped1gender = ped1gender, ped1cadstat = ped1cadstat, ped1cadage = ped1cadage
-                               , ped1tx = ped1tx, ped1dna = ped1dna, fh1prob = fh1prob, ped2age = ped2age
-                               , ped2ldlc = ped2ldlc, ped2totc = ped2totc, ped2gender = ped2gender
-                               , ped2cadstat = ped2cadstat, ped2cadage = ped2cadage, ped2tx = ped2tx, ped2dna = ped2dna
-                               , fh2prob = fh2prob, ped3age = ped3age, ped4age = ped4age, ped5age = ped5age
-                               , ped6age = ped6age, ped7age = ped7age, ped8age = ped8age, ped9age = ped9age
-                               , ped3gender = ped3gender, ped4gender = ped4gender, ped5gender = ped5gender
-                               , ped6gender = ped6gender, ped7gender = ped7gender, ped8gender = ped8gender, ped9gender = ped9gender
-                               , ped3ldlc = ped3ldlc, ped4ldlc = ped4ldlc, ped5ldlc = ped5ldlc, ped6ldlc = ped6ldlc
-                               , ped7ldlc = ped7ldlc, ped8ldlc = ped8ldlc, ped9ldlc = ped9ldlc
-                               , ped3totc = ped3totc, ped4totc = ped4totc, ped5totc = ped5totc, ped6totc = ped6totc
-                               , ped7totc = ped7totc, ped8totc = ped8totc, ped9totc = ped9totc
-                               , ped3tx = ped3tx, ped4tx = ped4tx, ped5tx = ped5tx, ped6tx = ped6tx, ped7tx = ped7tx
-                               , ped8tx = ped8tx, ped9tx = ped9tx
-                               , ped3cadstat = ped3cadstat, ped4cadstat = ped4cadstat, ped5cadstat = ped5cadstat
-                               , ped6cadstat = ped6cadstat, ped7cadstat = ped7cadstat, ped8cadstat = ped8cadstat
-                               , ped9cadstat = ped9cadstat
-                               , ped3cadage = ped3cadage, ped4cadage = ped4cadage, ped5cadage = ped5cadage
-                               , ped6cadage = ped6cadage, ped7cadage = ped7cadage, ped8cadage = ped8cadage
-                               , ped9cadage = ped9cadage
-                               , ped3dna = ped3dna, ped4dna = ped4dna, ped5dna = ped5dna, ped6dna = ped6dna
-                               , ped7dna = ped7dna, ped8dna = ped8dna, ped9dna = ped9dna
-                               , fh3prob = fh3prob, fh4prob = fh4prob
-                               , fh5prob = fh5prob, fh6prob = fh6prob, fh7prob = fh7prob, fh8prob = fh8prob
-                               , fh9prob = fh9prob, fhfamprob = fhfamprob, btn = 'calc/download.html')
+        return render_template('calc/index.html', ped1age=ped1age, ped1ldlc=ped1ldlc, ped1totc=ped1totc
+                               , ped1gender=ped1gender, ped1cadstat=ped1cadstat, ped1cadage=ped1cadage
+                               , ped1tx=ped1tx, ped1dna=ped1dna, fh1prob=fh1prob, ped2age=ped2age
+                               , ped2ldlc=ped2ldlc, ped2totc=ped2totc, ped2gender=ped2gender
+                               , ped2cadstat=ped2cadstat, ped2cadage=ped2cadage, ped2tx=ped2tx, ped2dna=ped2dna
+                               , fh2prob=fh2prob, ped3age=ped3age, ped4age=ped4age, ped5age=ped5age
+                               , ped6age=ped6age, ped7age=ped7age, ped8age=ped8age, ped9age=ped9age
+                               , ped3gender=ped3gender, ped4gender=ped4gender, ped5gender=ped5gender
+                               , ped6gender=ped6gender, ped7gender=ped7gender, ped8gender=ped8gender,
+                               ped9gender=ped9gender
+                               , ped3ldlc=ped3ldlc, ped4ldlc=ped4ldlc, ped5ldlc=ped5ldlc, ped6ldlc=ped6ldlc
+                               , ped7ldlc=ped7ldlc, ped8ldlc=ped8ldlc, ped9ldlc=ped9ldlc
+                               , ped3totc=ped3totc, ped4totc=ped4totc, ped5totc=ped5totc, ped6totc=ped6totc
+                               , ped7totc=ped7totc, ped8totc=ped8totc, ped9totc=ped9totc
+                               , ped3tx=ped3tx, ped4tx=ped4tx, ped5tx=ped5tx, ped6tx=ped6tx, ped7tx=ped7tx
+                               , ped8tx=ped8tx, ped9tx=ped9tx
+                               , ped3cadstat=ped3cadstat, ped4cadstat=ped4cadstat, ped5cadstat=ped5cadstat
+                               , ped6cadstat=ped6cadstat, ped7cadstat=ped7cadstat, ped8cadstat=ped8cadstat
+                               , ped9cadstat=ped9cadstat
+                               , ped3cadage=ped3cadage, ped4cadage=ped4cadage, ped5cadage=ped5cadage
+                               , ped6cadage=ped6cadage, ped7cadage=ped7cadage, ped8cadage=ped8cadage
+                               , ped9cadage=ped9cadage
+                               , ped3dna=ped3dna, ped4dna=ped4dna, ped5dna=ped5dna, ped6dna=ped6dna
+                               , ped7dna=ped7dna, ped8dna=ped8dna, ped9dna=ped9dna
+                               , fh3prob=fh3prob, fh4prob=fh4prob
+                               , fh5prob=fh5prob, fh6prob=fh6prob, fh7prob=fh7prob, fh8prob=fh8prob
+                               , fh9prob=fh9prob, fhfamprob=fhfamprob, btn='calc/download.html')
 
     else:
         return render_template('calc/index.html')
 
+
 @app.route('/download-file/')
 def download():
-
     # Name for File-downloaded by user. Using of datetime library to print time of user-download
-    attachment_filename = datetime.datetime.now().strftime("FHResults-%Y-%m-%d-%H-%M-%S-%f"+".csv")
-    return send_file(filename, attachment_filename = attachment_filename, as_attachment = True)
+    attachment_filename = datetime.datetime.now().strftime("FHResults-%Y-%m-%d-%H-%M-%S-%f" + ".csv")
+    return send_file(filename, attachment_filename=attachment_filename, as_attachment=True)
 
 if __name__ == "__main__":
-    app.run(debug = True)
+    app.run(debug=True)
