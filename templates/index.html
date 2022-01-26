@@ -3,7 +3,7 @@
 <head>
     <title>Tabulator Test</title>
     <link href="https://unpkg.com/tabulator-tables@5.0.10/dist/css/tabulator.min.css" rel="stylesheet">
-    <link href="dist/css/tabulator.css" rel="stylesheet">
+    <link href="/dist/css/tabulator_bootstrap4.min.css" rel="stylesheet">
 </head>
 <body>
     <div>
@@ -11,7 +11,7 @@
         <p>Tabulator JS-Library Draft </p>
     </div>
     <br>
-    <form id = "table_data" method = "POST">
+    <form id = "table_data" method = "POST" action = "/">
         {# Table HTML Contents #}
         <div id = "example-table" class = "tabulator" role = "grid" tabulator-layout = "fitColumns" style = "height: auto;">
         <div class = "tabulator-header" role = "rowgroup" style = "padding-right: 0px;">
@@ -574,6 +574,7 @@
         {# Button Submitting Data #}
         {# TODO() - TRY TO PRINT TABLE-DATA IN CONSOLE, TO SEE IF TABLE DATA CAN BE IDENTIFIED ON A PER-CELL BASIS #}
         {# TODO() - TRY TO ADD BOOTSTRAP-CSS WITHIN THE <HEAD> TAG TO STYLIZE BUTTON #}
+        <input type = "hidden" name = "testval" value = "testval" />
         <button id = "button" value = "Generate Results" class = "btn btn-secondary">Generate Results</button>
     </form>
     <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.0.10/dist/js/tabulator.min.js"></script>
