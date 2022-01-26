@@ -542,6 +542,8 @@
             data:tableData, // Load initial data into table
             layout:"fitColumns", // Fit columns to width of table (optional)
             columns: [ // Define Table Columns
+                {# TODO() - LOOK INTO FORCING VALIDATION FOR NON-NUMERICAL, STRING-INPUT (MALE/FEMALE) TYPE FIELDS
+                RESOURCE: http://tabulator.info/examples/5.0#ajax AND http://tabulator.info/docs/5.0/validate #}
                 {title:"Person", field:"person", editor:"input", validator:"required", sorter: "string", hozAlign: "left"},
                 {title:"Age", field:"age", editor:"input", sorter:"number", hozAlign:"center", validator:["min:0", "max:115", "numeric"]},
                 {title:"Gender", field:"gender", editor:"input", validator:"required", sorter:"string", hozAlign: "center"},
