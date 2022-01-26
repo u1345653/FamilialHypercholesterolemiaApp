@@ -8,6 +8,8 @@
 <body>
     <div id = "example-table" class = "tabulator" role = "grid" tabulator-layout = "fitColumns" style = "height: auto;">
         <div class = "tabulator-header" role = "rowgroup" style = "padding-right: 0px;">
+
+            {# Table Headers #}
             <div class = "tabulator-headers" role = "row" style = "margin-left: 0px;">
                 {# Person Pedigree Column Header #}
                 <div class = "tabulator-col tabulator-sortable" role = "columnheader" aria-sort = "none" tabulator-field = "person" title style = "min-width: 40px; width: 150px; height: 24px;">
@@ -128,8 +130,12 @@
                 </div>
             </div>
             <div class = "tabulator-frozen-rows-holder"></div>
+
+            {# Table Data/ Rows #}
             <div class = "tabulator-tableholder" tabindex = "0" role = "rowgroup" style = "min-height: calc(100% - 25px); height: calc(100% - 25px); max-height: calc(100% - 25px);">
                 <div class = "tabulator-table" role = "rowgroup" style = "padding-top: 0px; padding-bottom: 0px;">
+
+                    {# Row 1: Grandparent #1 #}
                     <div class = "tabulator-row tabulator-selectable tabulator-row-odd" role = "row" style = "padding-left: 0px;">
                         <div class = "tabulator-cell" role = "gridcell" tabulator-field = "person" title style = "width: 150px; height: 24px;">
                             <div class = "tabulator-col-resize-handle"></div>
@@ -174,6 +180,8 @@
                             <div class = "tabulator-col-resize-handle prev"></div>
                         </div>
                     </div>
+
+                    {# Row 2: Grandparent #2 #}
                     <div class = "tabulator-row tabulator-selectable tabulator-row-even" role = "row" style = "padding-left: 0px;">
                         <div class = "tabulator-cell" role = "gridcell" tabulator-field = "person" title style = "width: 150px; height: 24px;">
                             <div class = "tabulator-col-resize-handle"></div>
@@ -218,6 +226,8 @@
                             <div class = "tabulator-col-resize-handle prev"></div>
                         </div>
                     </div>
+
+                    {# Row 3: Parent #1 #}
                     <div class = "tabulator-row tabulator-selectable tabulator-row-odd" role = "row" style = "padding-left: 0px;">
                         <div class = "tabulator-cell" role = "gridcell" tabulator-field = "person" title style = "width: 150px; height: 24px;">
                             <div class = "tabulator-col-resize-handle"></div>
@@ -262,6 +272,8 @@
                             <div class = "tabulator-col-resize-handle prev"></div>
                         </div>
                     </div>
+
+                    {# Row 4: Parent #2 #}
                     <div class = "tabulator-row tabulator-selectable tabulator-row-even" role = "row" style = "padding-left: 0px;">
                         <div class = "tabulator-cell" role = "gridcell" tabulator-field = "person" title style = "width: 150px; height: 24px;">
                             <div class = "tabulator-col-resize-handle"></div>
@@ -306,6 +318,8 @@
                             <div class = "tabulator-col-resize-handle prev"></div>
                         </div>
                     </div>
+
+                    {# Row 5: Sibling 1 of Parent 1 #}
                     <div class = "tabulator-row tabulator-selectable tabulator-row-odd" role = "row" style = "padding-left: 0px;">
                         <div class = "tabulator-cell" role = "gridcell" tabulator-field = "person" title style = "width: 150px; height: 24px;">
                             <div class = "tabulator-col-resize-handle"></div>
@@ -350,6 +364,8 @@
                             <div class = "tabulator-col-resize-handle prev"></div>
                         </div>
                     </div>
+
+                    {# Row 6: Sibling 2 of Parent 1 #}
                     <div class = "tabulator-row tabulator-selectable tabulator-row-even" role = "row" style = "padding-left: 0px;">
                         <div class = "tabulator-cell" role = "gridcell" tabulator-field = "person" title style = "width: 150px; height: 24px;">
                             <div class = "tabulator-col-resize-handle"></div>
@@ -394,6 +410,8 @@
                             <div class = "tabulator-col-resize-handle prev"></div>
                         </div>
                     </div>
+
+                    {# Row 7: Child #1 #}
                     <div class = "tabulator-row tabulator-selectable tabulator-row-odd" role = "row" style = "padding-left: 0px;">
                         <div class = "tabulator-cell" role = "gridcell" tabulator-field = "person" title style = "width: 150px; height: 24px;">
                             <div class = "tabulator-col-resize-handle"></div>
@@ -438,6 +456,8 @@
                             <div class = "tabulator-col-resize-handle prev"></div>
                         </div>
                     </div>
+
+                    {# Row 8: Child #2 #}
                     <div class = "tabulator-row tabulator-selectable tabulator-row-even" role = "row" style = "padding-left: 0px;">
                         <div class = "tabulator-cell" role = "gridcell" tabulator-field = "person" title style = "width: 150px; height: 24px;">
                             <div class = "tabulator-col-resize-handle"></div>
@@ -482,6 +502,8 @@
                             <div class = "tabulator-col-resize-handle prev"></div>
                         </div>
                     </div>
+
+                    {# Row 9: Child #3 #}
                     <div class = "tabulator-row tabulator-selectable tabulator-row-odd" role = "row" style = "padding-left: 0px;">
                         <div class = "tabulator-cell" role = "gridcell" tabulator-field = "person" title style = "width: 150px; height: 24px;">
                             <div class = "tabulator-col-resize-handle"></div>
@@ -526,6 +548,7 @@
                             <div class = "tabulator-col-resize-handle prev"></div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
