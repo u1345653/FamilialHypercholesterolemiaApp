@@ -542,17 +542,40 @@
             data:tableData, // Load initial data into table
             layout:"fitColumns", // Fit columns to width of table (optional)
             columns: [ // Define Table Columns
-                {# TODO() - LOOK INTO FORCING VALIDATION FOR NON-NUMERICAL, STRING-INPUT (MALE/FEMALE) TYPE FIELDS
-                RESOURCE: http://tabulator.info/examples/5.0#ajax AND http://tabulator.info/docs/5.0/validate #}
-                {title:"Person", field:"person", editor:"input", validator:"required", sorter: "string", hozAlign: "left"},
+                {# RESOURCE: http://tabulator.info/examples/5.0#ajax AND http://tabulator.info/docs/5.0/validate #}
+                {title:"Person", field:"person", sorter: "string", hozAlign: "left"},
                 {title:"Age", field:"age", editor:"input", sorter:"number", hozAlign:"center", validator:["min:0", "max:115", "numeric"]},
-                {title:"Gender", field:"gender", editor:"input", validator:"required", sorter:"string", hozAlign: "center"},
+                {title:"Gender", field:"gender", sorter:"string", hozAlign: "center", editor:"select", editorParams:{
+                    values:{
+                        "Male":"M",
+                        "Female":"F",
+                    }
+                    }},
+                // TODO() - FIGURE OUT HOW TO DISPLAY HELP-TEXT ON TABLE-COLUMNS
                 {title:"LDL Cholesterol", field:"ldlc", editor:"input", sorter:"number", hozAlign:"center", validator:["min:0", "max:400", "numeric"]},
                 {title:"TOT Cholesterol", field: "totc", editor:"input", sorter:"number", hozAlign:"center", validator:["min:0", "max:400", "numeric"]},
-                {title:"TX Status", field:"txstat", editor:"input", validator:"required", sorter:"string", hozAlign:"center"},
-                {title:"CAD Status", field:"cadstat", editor:"input", validator:"required", sorter:"string", hozAlign:"center"},
+                {title:"TX Status", field:"txstat", sorter:"string", hozAlign:"center", editor: "select", editorParams:{
+                    values:{
+                        "Known & Negative":"Known - Negative",
+                        "Known & Positive":"Known - Positive",
+                        "Unknown Status":"Unknown Status",
+                    }
+                    }},
+                {title:"CAD Status", field:"cadstat", sorter:"string", hozAlign:"center", editor: "select", editorParams:{
+                    values:{
+                        "Known & Negative":"Known - Negative",
+                        "Known & Positive":"Known - Positive",
+                        "Unknown Status":"Unknown Status",
+                    }
+                    }},
                 {title:"CAD Onset Age", field:"cadage", editor:"input", sorter:"number", hozAlign:"center", validator:["min:0", "max:115", "numeric"]},
-                {title:"DNA-DX Status", field:"dnadxstat", editor:"input", validator:"required", sorter:"string", hozAlign:"center"},
+                {title:"DNA-DX Status", field:"dnadxstat", hozAlign:"center", editor:"select", editorParams:{
+                    values:{
+                        "Known and Negative":"Known and Negative",
+                        "Known and Positive":"Known and Positive",
+                        "Unknown Status":"Unknown Status",
+                    }
+                    }},
             ],
             rowClick:function(e, row){ // Trigger an alert message when the row is clicked
                 alert("Row " + row.getIndex() + " Clicked!!!")
