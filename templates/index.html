@@ -9,7 +9,7 @@
     <div id = "example-table" class = "tabulator" role = "grid" tabulator-layout = "fitColumns" style = "height: auto;">
         <div class = "tabulator-header" role = "rowgroup" style = "padding-right: 0px;">
 
-            {# Table Headers #}
+            {# Table Headers: Holds all Column headers inside table header #}
             <div class = "tabulator-headers" role = "row" style = "margin-left: 0px;">
                 {# Person Pedigree Column Header #}
                 <div class = "tabulator-col tabulator-sortable" role = "columnheader" aria-sort = "none" tabulator-field = "person" title style = "min-width: 40px; width: 150px; height: 24px;">
@@ -586,31 +586,31 @@
                 {# RESOURCE: http://tabulator.info/examples/5.0#ajax AND http://tabulator.info/docs/5.0/validate #}
                 // TODO() - FIGURE OUT HOW TO DISPLAY HELP-TEXT ON TABLE-COLUMNS
                 {title:"Person", field:"person", sorter: "string", hozAlign: "left"},
-                {title:"Age", field:"age", editor:"input", sorter:"number", hozAlign:"center", validator:["min:0", "max:115", "numeric"]},
-                {title:"Gender", field:"gender", sorter:"string", hozAlign: "center", editor:"select", editorParams:{
+                {title:"Age", field:"age", editor:"input", sorter:"number", hozAlign:"center", validator:["min:0", "max:115", "numeric"], headerHozAlign:"center"},
+                {title:"Gender", field:"gender", sorter:"string", hozAlign: "center", editor:"select", headerHozAlign:"center", editorParams:{
                     values:{
                         "M":"Male",
                         "F":"Female",
                     }
                     }},
-                {title:"LDL Chol", field:"ldlc", editor:"input", sorter:"number", hozAlign:"center", validator:["min:0", "max:400", "numeric"]},
-                {title:"TOT Chol", field: "totc", editor:"input", sorter:"number", hozAlign:"center", validator:["min:0", "max:400", "numeric"]},
-                {title:"TX Status", field:"txstat", sorter:"string", hozAlign:"center", editor: "select", editorParams:{
+                {title:"LDL Chol", field:"ldlc", editor:"input", sorter:"number", hozAlign:"center", validator:["min:0", "max:400", "numeric"], headerHozAlign:"center"},
+                {title:"TOT Chol", field: "totc", editor:"input", sorter:"number", hozAlign:"center", validator:["min:0", "max:400", "numeric"], headerHozAlign:"center"},
+                {title:"TX Status", field:"txstat", sorter:"string", hozAlign:"center", editor: "select", headerHozAlign:"center", editorParams:{
                     values:{
                         "Negative":"Known & Negative",
                         "Positive":"Known & Positive",
                         "Unknown":"Unknown Status",
                     }
                     }},
-                {title:"CAD Status", field:"cadstat", sorter:"string", hozAlign:"center", editor: "select", editorParams:{
+                {title:"CAD Status", field:"cadstat", sorter:"string", hozAlign:"center", editor: "select", headerHozAlign:"center", editorParams:{
                     values:{
                         "Negative":"Known & Negative",
                         "Positive":"Known & Positive",
                         "Unknown":"Unknown Status",
                     }
                     }},
-                {title:"CAD Onset Age", field:"cadage", editor:"input", sorter:"number", hozAlign:"center", validator:["min:0", "max:115", "numeric"]},
-                {title:"DNA-DX Status", field:"dnadxstat", hozAlign:"center", editor:"select", editorParams:{
+                {title:"CAD Onset Age", field:"cadage", editor:"input", sorter:"number", hozAlign:"center", validator:["min:0", "max:115", "numeric"], headerHozAlign:"center"},
+                {title:"DNA-DX Status", field:"dnadxstat", hozAlign:"center", editor:"select", headerHozAlign:"center", editorParams:{
                     values:{
                         "Negative":"Known & Negative",
                         "Positive":"Known & Positive",
@@ -618,9 +618,6 @@
                     }
                     }},
             ],
-            rowClick:function(e, row){ // Trigger an alert message when the row is clicked
-                alert("Row " + row.getIndex() + " Clicked!!!")
-            }
         });
 
         // Handle Validation Failure
