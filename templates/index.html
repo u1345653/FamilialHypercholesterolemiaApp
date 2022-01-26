@@ -137,10 +137,12 @@
 
                     {# Row 1: Grandparent #1 #}
                     <div class = "tabulator-row tabulator-selectable tabulator-row-odd" role = "row" style = "padding-left: 0px;">
+                        {# Row 1 Column 1: Pedigree Name #}
                         <div class = "tabulator-cell" role = "gridcell" tabulator-field = "person" title style = "width: 150px; height: 24px;">
                             <div class = "tabulator-col-resize-handle"></div>
                             <div class = "tabulator-col-resize-handle prev"></div>
                         </div>
+                        {# Row 1 Column 2: Age #}
                         <div class = "tabulator-cell" role = "gridcell" tabulator-field = "age" aria-label = "12" title style = "width: 583px; text-align: left; min-width: 30px; position: relative; height: 24px;">
                             <div class = "tabulator-col-resize-handle"></div>
                             <div class = "tabulator-col-resize-handle prev"></div>
@@ -148,18 +150,22 @@
                                 <div data-max="100" data-min="0" style = "display: inline-block; position: absolute; width: 12%; background-color: rgb(45, 194, 20); height: 100%;"></div>
                             </div>
                         </div>
+                        {# Row 1 Column 3: Gender #}
                         <div class = "tabulator-cell" role = "gridcell" tabulator-field = "gender" title style = "width: 583px; height: 24px;">
                             <div class = "tabulator-col-resize-handle"></div>
                             <div class = "tabulator-col-resize-handle prev"></div>
                         </div>
+                        {# Row 1 Column 4: LDL-Chol #}
                         <div class = "tabulator-cell" role = "gridcell" tabulator-field = "ldlc" title style = "width:584px; text-align: center; height: 24px;">
                             <div class = "tabulator-col-resize-handle"></div>
                             <div class = "tabulator-col-resize-handle prev"></div>
                         </div>
+                        {# Row 1 Column 5: TOT-Chol #}
                         <div class = "tabulator-cell" role = "gridcell" tabulator-field = "totc" title style = "width: 150px; height: 24px;">
                             <div class = "tabulator-col-resize-handle"></div>
                             <div class = "tabulator-col-resize-handle prev"></div>
                         </div>
+                        {# Row 1 Column 6: TX-Status #}
                         <div class = "tabulator-cell" role = "gridcell" tabulator-field = "txstat" aria-label = "12" title style = "width: 583px; text-align: left; min-width: 30px; position: relative; height: 24px;">
                             <div class = "tabulator-col-resize-handle"></div>
                             <div class = "tabulator-col-resize-handle prev"></div>
@@ -167,14 +173,17 @@
                                 <div data-max="100" data-min="0" style = "display: inline-block; position: absolute; width: 12%; background-color: rgb(45, 194, 20); height: 100%;"></div>
                             </div>
                         </div>
+                        {# Row 1 Column 7: CAD-Status #}
                         <div class = "tabulator-cell" role = "gridcell" tabulator-field = "cadstat" title style = "width: 583px; height: 24px;">
                             <div class = "tabulator-col-resize-handle"></div>
                             <div class = "tabulator-col-resize-handle prev"></div>
                         </div>
+                        {# Row 1 Column 8: CAD Onset Age #}
                         <div class = "tabulator-cell" role = "gridcell" tabulator-field = "cadage" title style = "width:584px; text-align: center; height: 24px;">
                             <div class = "tabulator-col-resize-handle"></div>
                             <div class = "tabulator-col-resize-handle prev"></div>
                         </div>
+                        {# Row 1 Column 9: DNA-DX Status #}
                         <div class = "tabulator-cell" role = "gridcell" tabulator-field = "dnadxstat" title style = "width:584px; text-align: center; height: 24px;">
                             <div class = "tabulator-col-resize-handle"></div>
                             <div class = "tabulator-col-resize-handle prev"></div>
@@ -570,6 +579,7 @@
         ];
 
         var table = new Tabulator("#example-table", {
+            height:"100%",  // Configuring Table Height
             data:tableData, // Load initial data into table
             layout:"fitColumns", // Fit columns to width of table (optional)
             columns: [ // Define Table Columns
@@ -583,8 +593,8 @@
                         "F":"Female",
                     }
                     }},
-                {title:"LDL Cholesterol", field:"ldlc", editor:"input", sorter:"number", hozAlign:"center", validator:["min:0", "max:400", "numeric"]},
-                {title:"TOT Cholesterol", field: "totc", editor:"input", sorter:"number", hozAlign:"center", validator:["min:0", "max:400", "numeric"]},
+                {title:"LDL Chol", field:"ldlc", editor:"input", sorter:"number", hozAlign:"center", validator:["min:0", "max:400", "numeric"]},
+                {title:"TOT Chol", field: "totc", editor:"input", sorter:"number", hozAlign:"center", validator:["min:0", "max:400", "numeric"]},
                 {title:"TX Status", field:"txstat", sorter:"string", hozAlign:"center", editor: "select", editorParams:{
                     values:{
                         "Negative":"Known & Negative",
