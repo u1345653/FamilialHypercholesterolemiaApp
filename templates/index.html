@@ -542,15 +542,15 @@
             layout:"fitColumns", // Fit columns to width of table (optional)
             columns: [ // Define Table Columns
                 {# RESOURCE: http://tabulator.info/examples/5.0#ajax AND http://tabulator.info/docs/5.0/validate #}
+                // TODO() - FIGURE OUT HOW TO DISPLAY HELP-TEXT ON TABLE-COLUMNS
                 {title:"Person", field:"person", sorter: "string", hozAlign: "left"},
                 {title:"Age", field:"age", editor:"input", sorter:"number", hozAlign:"center", validator:["min:0", "max:115", "numeric"]},
                 {title:"Gender", field:"gender", sorter:"string", hozAlign: "center", editor:"select", editorParams:{
                     values:{
-                        "Male":"M",
-                        "Female":"F",
+                        "M":"Male",
+                        "F":"Female",
                     }
                     }},
-                // TODO() - FIGURE OUT HOW TO DISPLAY HELP-TEXT ON TABLE-COLUMNS
                 {title:"LDL Cholesterol", field:"ldlc", editor:"input", sorter:"number", hozAlign:"center", validator:["min:0", "max:400", "numeric"]},
                 {title:"TOT Cholesterol", field: "totc", editor:"input", sorter:"number", hozAlign:"center", validator:["min:0", "max:400", "numeric"]},
                 {title:"TX Status", field:"txstat", sorter:"string", hozAlign:"center", editor: "select", editorParams:{
