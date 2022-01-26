@@ -526,19 +526,18 @@
     <script type = "text/javascript">
         // Sample Data
         var tableData = [
-            {id:1, person:"Grandparent #1", age:"88", gender:"M", ldlc:"200", totc:"215", txstat:"Unknown", cadstat:"Known - Positive", cadage:"80", dnadxstat:"Known - Negative"},
-            {id:2, person: "Grandparent #2", age:"90", gender:"F", ldlc: "210", totc:"215", txstat:"Unknown", cadstat:"Known - Positive", cadage:"80", dnadxstat:"Known - Negative" },
-            {id:3, person:"Sibling #1", age: "65", gender:"M", ldlc:"183", totc:"215", txstat:"Unknown", cadstat:"Known - Positive", cadage:"80", dnadxstat:"Known - Negative"},
-            {id:4, person:"Sibling #2", age:"66", gender:"M", ldlc:"177", totc:"215", txstat:"Unknown", cadstat:"Known - Positive", cadage:"80", dnadxstat:"Known - Negative"},
-            {id:5, person:"Parent #1", age:"60", gender:"M", ldlc:"205", totc:"215", txstat:"Unknown", cadstat:"Known - Positive", cadage:"80", dnadxstat:"Known - Negative"},
-            {id:6, person:"Parent #2", age: "58", gender:"F", ldlc:"233", totc:"215", txstat:"Unknown", cadstat:"Known - Positive", cadage:"80", dnadxstat:"Known - Negative"},
-            {id:7, person:"Child #1", age:"36", gender:"F", ldlc:"205", totc:"215", txstat:"Unknown", cadstat:"Known - Positive", cadage:"80", dnadxstat:"Known - Negative"},
-            {id:8, person:"Child #2", age:"34", gender:"M", ldlc:"177", totc:"215", txstat:"Unknown", cadstat:"Known - Positive", cadage:"80", dnadxstat:"Known - Negative"},
-            {id:9, person:"Child #3", age:"30", gender:"F", ldlc:"170", totc:"215", txstat:"Unknown", cadstat:"Known - Positive", cadage:"80", dnadxstat:"Known - Negative"},
+            {id:1, person:"Grandparent #1", age:"0", gender:"M", ldlc:"0", totc:"0", txstat:"Negative", cadstat:"Negative", cadage:"0", dnadxstat:"Negative"},
+            {id:2, person: "Grandparent #2", age:"0", gender:"F", ldlc: "0", totc:"0", txstat:"Negative", cadstat:"Negative", cadage:"0", dnadxstat:"Negative" },
+            {id:3, person:"Sibling #1", age: "0", gender:"M", ldlc:"0", totc:"0", txstat:"Negative", cadstat:"Negative", cadage:"0", dnadxstat:"Negative"},
+            {id:4, person:"Sibling #2", age:"0", gender:"M", ldlc:"0", totc:"0", txstat:"Negative", cadstat:"Negative", cadage:"0", dnadxstat:"Negative"},
+            {id:5, person:"Parent #1", age:"0", gender:"M", ldlc:"0", totc:"0", txstat:"Negative", cadstat:"Negative", cadage:"0", dnadxstat:"Negative"},
+            {id:6, person:"Parent #2", age: "0", gender:"F", ldlc:"0", totc:"0", txstat:"Negative", cadstat:"Negative", cadage:"0", dnadxstat:"Negative"},
+            {id:7, person:"Child #1", age:"0", gender:"F", ldlc:"0", totc:"0", txstat:"Negative", cadstat:"Negative", cadage:"0", dnadxstat:"Negative"},
+            {id:8, person:"Child #2", age:"0", gender:"M", ldlc:"0", totc:"0", txstat:"Negative", cadstat:"Negative", cadage:"0", dnadxstat:"Negative"},
+            {id:9, person:"Child #3", age:"0", gender:"F", ldlc:"0", totc:"0", txstat:"Negative", cadstat:"Negative", cadage:"0", dnadxstat:"Negative"},
         ];
 
         var table = new Tabulator("#example-table", {
-            height:200, // Set height of table to enable virtual DOM
             data:tableData, // Load initial data into table
             layout:"fitColumns", // Fit columns to width of table (optional)
             columns: [ // Define Table Columns
@@ -556,24 +555,24 @@
                 {title:"TOT Cholesterol", field: "totc", editor:"input", sorter:"number", hozAlign:"center", validator:["min:0", "max:400", "numeric"]},
                 {title:"TX Status", field:"txstat", sorter:"string", hozAlign:"center", editor: "select", editorParams:{
                     values:{
-                        "Known & Negative":"Known - Negative",
-                        "Known & Positive":"Known - Positive",
-                        "Unknown Status":"Unknown Status",
+                        "Negative":"Known & Negative",
+                        "Positive":"Known & Positive",
+                        "Unknown":"Unknown Status",
                     }
                     }},
                 {title:"CAD Status", field:"cadstat", sorter:"string", hozAlign:"center", editor: "select", editorParams:{
                     values:{
-                        "Known & Negative":"Known - Negative",
-                        "Known & Positive":"Known - Positive",
-                        "Unknown Status":"Unknown Status",
+                        "Negative":"Known & Negative",
+                        "Positive":"Known & Positive",
+                        "Unknown":"Unknown Status",
                     }
                     }},
                 {title:"CAD Onset Age", field:"cadage", editor:"input", sorter:"number", hozAlign:"center", validator:["min:0", "max:115", "numeric"]},
                 {title:"DNA-DX Status", field:"dnadxstat", hozAlign:"center", editor:"select", editorParams:{
                     values:{
-                        "Known and Negative":"Known and Negative",
-                        "Known and Positive":"Known and Positive",
-                        "Unknown Status":"Unknown Status",
+                        "Negative":"Known & Negative",
+                        "Positive":"Known & Positive",
+                        "Unknown":"Unknown Status",
                     }
                     }},
             ],
