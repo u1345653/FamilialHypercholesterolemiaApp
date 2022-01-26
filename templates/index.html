@@ -6,7 +6,14 @@
     <link href="dist/css/tabulator.css" rel="stylesheet">
 </head>
 <body>
-    <div id = "example-table" class = "tabulator" role = "grid" tabulator-layout = "fitColumns" style = "height: auto;">
+    <div>
+        <h1 class = "h2">FH Calculator</h1>
+        <p>Tabulator JS-Library Draft </p>
+    </div>
+    <br>
+    <form id = "table_data" method = "POST">
+        {# Table HTML Contents #}
+        <div id = "example-table" class = "tabulator" role = "grid" tabulator-layout = "fitColumns" style = "height: auto;">
         <div class = "tabulator-header" role = "rowgroup" style = "padding-right: 0px;">
 
             {# Table Headers: Holds all Column headers inside table header #}
@@ -562,10 +569,18 @@
             </div>
         </div>
     </div>
+        <br>
+
+        {# Button Submitting Data #}
+        {# TODO() - TRY TO PRINT TABLE-DATA IN CONSOLE, TO SEE IF TABLE DATA CAN BE IDENTIFIED ON A PER-CELL BASIS #}
+        {# TODO() - TRY TO ADD BOOTSTRAP-CSS WITHIN THE <HEAD> TAG TO STYLIZE BUTTON #}
+        <button id = "button" value = "Generate Results" class = "btn btn-secondary">Generate Results</button>
+    </form>
     <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.0.10/dist/js/tabulator.min.js"></script>
     <script type="text/javascript" src="dist/js/tabulator.min.js"></script>
     <script type = "text/javascript">
-        // Sample Data
+
+        // Table Data for each respective Person included in Family Pedigree -- Includes default values
         var tableData = [
             {id:1, person:"Grandparent #1", age:"0", gender:"M", ldlc:"0", totc:"0", txstat:"Negative", cadstat:"Negative", cadage:"0", dnadxstat:"Negative"},
             {id:2, person: "Grandparent #2", age:"0", gender:"F", ldlc: "0", totc:"0", txstat:"Negative", cadstat:"Negative", cadage:"0", dnadxstat:"Negative" },
@@ -578,6 +593,7 @@
             {id:9, person:"Child #3", age:"0", gender:"F", ldlc:"0", totc:"0", txstat:"Negative", cadstat:"Negative", cadage:"0", dnadxstat:"Negative"},
         ];
 
+        // TODO() - RESEARCH PER CELL CALLBACKS FOR WHEN MOUSE ENTERS AND LEAVES: http://tabulator.info/docs/5.0/callbacks
         var table = new Tabulator("#example-table", {
             height:"100%",  // Configuring Table Height
             data:tableData, // Load initial data into table
