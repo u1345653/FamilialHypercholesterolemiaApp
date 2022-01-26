@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tabulator Test</title>
+    <link href="https://unpkg.com/tabulator-tables@5.0.10/dist/css/tabulator.min.css" rel="stylesheet">
+    <link href="dist/css/tabulator.css" rel="stylesheet">
+</head>
+<body>
+    <div id = "example-table" class = "tabulator" role = "grid" tabulator-layout = "fitColumns" style = "height: auto;">
+        <div class = "tabulator-header" role = "rowgroup" style = "padding-right: 0px;">
+            <div class = "tabulator-headers" role = "row" style = "margin-left: 0px;">
+                <div class = "tabulator-col tabulator-sortable" role = "columnheader" aria-sort = "none" tabulator-field = "person" title style = "min-width: 40px; width: 150px; height: 24px;">
+                    <div class = "tabulator-col-content">
+                        <div class = "tabulator-col-title-holder">
+                            <div class = "tabulator-col-title">Name</div>
+                            <div class = "tabulator-col-sorter">
+                                <div class = "tabulator-arrow"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "tabulator-col-resize-handle"></div>
+                    <div class = "tabulator-col-resize-handle prev"></div>
+                </div>
+                <div class = "tabulator-col tabulator-sortable" role = "columnheader" aria-sort = "none" tabulator-field = "age" title style = "min-width: 40px; width: 150px; height: 24px;">
+                    <div class = "tabulator-col-content">
+                        <div class = "tabulator-col-title-holder">
+                            <div class = "tabulator-col-title">Age</div>
+                            <div class = "tabulator-col-sorter">
+                                <div class = "tabulator-arrow"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "tabulator-col-resize-handle"></div>
+                    <div class = "tabulator-col-resize-handle prev"></div>
+                </div>
+                <div class = "tabulator-col tabulator-sortable" role = "columnheader" aria-sort = "none" tabulator-field = "gender" title style = "min-width: 40px; width: 150px; height: 24px;">
+                    <div class = "tabulator-col-content">
+                        <div class = "tabulator-col-title-holder">
+                            <div class = "tabulator-col-title">Favourite Color</div>
+                            <div class = "tabulator-col-sorter">
+                                <div class = "tabulator-arrow"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "tabulator-col-resize-handle"></div>
+                    <div class = "tabulator-col-resize-handle prev"></div>
+                </div>
+                <div class = "tabulator-col tabulator-sortable" role = "columnheader" aria-sort = "none" tabulator-field = "ldlc" title style = "min-width: 40px; width: 150px; height: 24px;">
+                    <div class = "tabulator-col-content">
+                        <div class = "tabulator-col-title-holder">
+                            <div class = "tabulator-col-title">Date of Birth</div>
+                            <div class = "tabulator-col-sorter">
+                                <div class = "tabulator-arrow"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "tabulator-col-resize-handle"></div>
+                    <div class = "tabulator-col-resize-handle prev"></div>
+                </div>
+                <div class = "tabulator-col tabulator-sortable" role = "columnheader" aria-sort = "none" tabulator-field = "totc" title style = "min-width: 40px; width: 150px; height: 24px;">
+                    <div class = "tabulator-col-content">
+                        <div class = "tabulator-col-title-holder">
+                            <div class = "tabulator-col-title">Favourite Color</div>
+                            <div class = "tabulator-col-sorter">
+                                <div class = "tabulator-arrow"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "tabulator-col-resize-handle"></div>
+                    <div class = "tabulator-col-resize-handle prev"></div>
+                </div>
+                <div class = "tabulator-col tabulator-sortable" role = "columnheader" aria-sort = "none" tabulator-field = "txstat" title style = "min-width: 40px; width: 150px; height: 24px;">
+                    <div class = "tabulator-col-content">
+                        <div class = "tabulator-col-title-holder">
+                            <div class = "tabulator-col-title">Date of Birth</div>
+                            <div class = "tabulator-col-sorter">
+                                <div class = "tabulator-arrow"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "tabulator-col-resize-handle"></div>
+                    <div class = "tabulator-col-resize-handle prev"></div>
+                </div>
+                <div class = "tabulator-col tabulator-sortable" role = "columnheader" aria-sort = "none" tabulator-field = "cadstat" title style = "min-width: 40px; width: 150px; height: 24px;">
+                    <div class = "tabulator-col-content">
+                        <div class = "tabulator-col-title-holder">
+                            <div class = "tabulator-col-title">Favourite Color</div>
+                            <div class = "tabulator-col-sorter">
+                                <div class = "tabulator-arrow"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "tabulator-col-resize-handle"></div>
+                    <div class = "tabulator-col-resize-handle prev"></div>
+                </div>
+                <div class = "tabulator-col tabulator-sortable" role = "columnheader" aria-sort = "none" tabulator-field = "cadage" title style = "min-width: 40px; width: 150px; height: 24px;">
+                    <div class = "tabulator-col-content">
+                        <div class = "tabulator-col-title-holder">
+                            <div class = "tabulator-col-title">Date of Birth</div>
+                            <div class = "tabulator-col-sorter">
+                                <div class = "tabulator-arrow"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "tabulator-col-resize-handle"></div>
+                    <div class = "tabulator-col-resize-handle prev"></div>
+                </div>
+                <div class = "tabulator-col tabulator-sortable" role = "columnheader" aria-sort = "none" tabulator-field = "dnadxstat" title style = "min-width: 40px; width: 150px; height: 24px;">
+                    <div class = "tabulator-col-content">
+                        <div class = "tabulator-col-title-holder">
+                            <div class = "tabulator-col-title">Date of Birth</div>
+                            <div class = "tabulator-col-sorter">
+                                <div class = "tabulator-arrow"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "tabulator-col-resize-handle"></div>
+                    <div class = "tabulator-col-resize-handle prev"></div>
+                </div>
+            </div>
+            <div class = "tabulator-frozen-rows-holder"></div>
+            <div class = "tabulator-tableholder" tabindex = "0" role = "rowgroup" style = "min-height: calc(100% - 25px); height: calc(100% - 25px); max-height: auto;">
+                <div class = "tabulator-table" role = "rowgroup" style = "padding-top: 0px; padding-bottom: 0px;">
+                    <div class = "tabulator-row tabulator-selectable tabulator-row-odd" role = "row" style = "padding-left: 0px;">
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "person" title style = "width: 150px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "age" aria-label = "12" title style = "width: 583px; text-align: left; min-width: 30px; position: relative; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                            <div style = "position: relative; width: 100%; height: 100%;">
+                                <div data-max="100" data-min="0" style = "display: inline-block; position: absolute; width: 12%; background-color: rgb(45, 194, 20); height: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "gender" title style = "width: 583px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "ldlc" title style = "width:584px; text-align: center; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "totc" title style = "width: 150px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "txstat" aria-label = "12" title style = "width: 583px; text-align: left; min-width: 30px; position: relative; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                            <div style = "position: relative; width: 100%; height: 100%;">
+                                <div data-max="100" data-min="0" style = "display: inline-block; position: absolute; width: 12%; background-color: rgb(45, 194, 20); height: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "cadstat" title style = "width: 583px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "cadage" title style = "width:584px; text-align: center; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "dnadxstat" title style = "width:584px; text-align: center; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                    </div>
+                    <div class = "tabulator-row tabulator-selectable tabulator-row-even" role = "row" style = "padding-left: 0px;">
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "person" title style = "width: 150px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "age" aria-label = "12" title style = "width: 583px; text-align: left; min-width: 30px; position: relative; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                            <div style = "position: relative; width: 100%; height: 100%;">
+                                <div data-max="100" data-min="0" style = "display: inline-block; position: absolute; width: 12%; background-color: rgb(45, 194, 20); height: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "gender" title style = "width: 583px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "ldlc" title style = "width:584px; text-align: center; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "totc" title style = "width: 150px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "txstat" aria-label = "12" title style = "width: 583px; text-align: left; min-width: 30px; position: relative; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                            <div style = "position: relative; width: 100%; height: 100%;">
+                                <div data-max="100" data-min="0" style = "display: inline-block; position: absolute; width: 12%; background-color: rgb(45, 194, 20); height: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "cadstat" title style = "width: 583px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "cadage" title style = "width:584px; text-align: center; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "dnadxstat" title style = "width:584px; text-align: center; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                    </div>
+                    <div class = "tabulator-row tabulator-selectable tabulator-row-odd" role = "row" style = "padding-left: 0px;">
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "person" title style = "width: 150px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "age" aria-label = "12" title style = "width: 583px; text-align: left; min-width: 30px; position: relative; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                            <div style = "position: relative; width: 100%; height: 100%;">
+                                <div data-max="100" data-min="0" style = "display: inline-block; position: absolute; width: 12%; background-color: rgb(45, 194, 20); height: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "gender" title style = "width: 583px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "ldlc" title style = "width:584px; text-align: center; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "totc" title style = "width: 150px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "txstat" aria-label = "12" title style = "width: 583px; text-align: left; min-width: 30px; position: relative; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                            <div style = "position: relative; width: 100%; height: 100%;">
+                                <div data-max="100" data-min="0" style = "display: inline-block; position: absolute; width: 12%; background-color: rgb(45, 194, 20); height: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "cadstat" title style = "width: 583px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "cadage" title style = "width:584px; text-align: center; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "dnadxstat" title style = "width:584px; text-align: center; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                    </div>
+                    <div class = "tabulator-row tabulator-selectable tabulator-row-even" role = "row" style = "padding-left: 0px;">
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "person" title style = "width: 150px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "age" aria-label = "12" title style = "width: 583px; text-align: left; min-width: 30px; position: relative; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                            <div style = "position: relative; width: 100%; height: 100%;">
+                                <div data-max="100" data-min="0" style = "display: inline-block; position: absolute; width: 12%; background-color: rgb(45, 194, 20); height: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "gender" title style = "width: 583px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "ldlc" title style = "width:584px; text-align: center; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "totc" title style = "width: 150px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "txstat" aria-label = "12" title style = "width: 583px; text-align: left; min-width: 30px; position: relative; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                            <div style = "position: relative; width: 100%; height: 100%;">
+                                <div data-max="100" data-min="0" style = "display: inline-block; position: absolute; width: 12%; background-color: rgb(45, 194, 20); height: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "cadstat" title style = "width: 583px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "cadage" title style = "width:584px; text-align: center; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "dnadxstat" title style = "width:584px; text-align: center; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                    </div>
+                    <div class = "tabulator-row tabulator-selectable tabulator-row-odd" role = "row" style = "padding-left: 0px;">
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "person" title style = "width: 150px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "age" aria-label = "12" title style = "width: 583px; text-align: left; min-width: 30px; position: relative; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                            <div style = "position: relative; width: 100%; height: 100%;">
+                                <div data-max="100" data-min="0" style = "display: inline-block; position: absolute; width: 12%; background-color: rgb(45, 194, 20); height: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "gender" title style = "width: 583px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "ldlc" title style = "width:584px; text-align: center; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "totc" title style = "width: 150px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "txstat" aria-label = "12" title style = "width: 583px; text-align: left; min-width: 30px; position: relative; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                            <div style = "position: relative; width: 100%; height: 100%;">
+                                <div data-max="100" data-min="0" style = "display: inline-block; position: absolute; width: 12%; background-color: rgb(45, 194, 20); height: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "cadstat" title style = "width: 583px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "cadage" title style = "width:584px; text-align: center; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "dnadxstat" title style = "width:584px; text-align: center; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                    </div>
+                    <div class = "tabulator-row tabulator-selectable tabulator-row-even" role = "row" style = "padding-left: 0px;">
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "person" title style = "width: 150px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "age" aria-label = "12" title style = "width: 583px; text-align: left; min-width: 30px; position: relative; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                            <div style = "position: relative; width: 100%; height: 100%;">
+                                <div data-max="100" data-min="0" style = "display: inline-block; position: absolute; width: 12%; background-color: rgb(45, 194, 20); height: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "gender" title style = "width: 583px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "ldlc" title style = "width:584px; text-align: center; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "totc" title style = "width: 150px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "txstat" aria-label = "12" title style = "width: 583px; text-align: left; min-width: 30px; position: relative; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                            <div style = "position: relative; width: 100%; height: 100%;">
+                                <div data-max="100" data-min="0" style = "display: inline-block; position: absolute; width: 12%; background-color: rgb(45, 194, 20); height: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "cadstat" title style = "width: 583px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "cadage" title style = "width:584px; text-align: center; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "dnadxstat" title style = "width:584px; text-align: center; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                    </div>
+                    <div class = "tabulator-row tabulator-selectable tabulator-row-odd" role = "row" style = "padding-left: 0px;">
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "person" title style = "width: 150px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "age" aria-label = "12" title style = "width: 583px; text-align: left; min-width: 30px; position: relative; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                            <div style = "position: relative; width: 100%; height: 100%;">
+                                <div data-max="100" data-min="0" style = "display: inline-block; position: absolute; width: 12%; background-color: rgb(45, 194, 20); height: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "gender" title style = "width: 583px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "ldlc" title style = "width:584px; text-align: center; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "totc" title style = "width: 150px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "txstat" aria-label = "12" title style = "width: 583px; text-align: left; min-width: 30px; position: relative; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                            <div style = "position: relative; width: 100%; height: 100%;">
+                                <div data-max="100" data-min="0" style = "display: inline-block; position: absolute; width: 12%; background-color: rgb(45, 194, 20); height: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "cadstat" title style = "width: 583px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "cadage" title style = "width:584px; text-align: center; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "dnadxstat" title style = "width:584px; text-align: center; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                    </div>
+                    <div class = "tabulator-row tabulator-selectable tabulator-row-even" role = "row" style = "padding-left: 0px;">
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "person" title style = "width: 150px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "age" aria-label = "12" title style = "width: 583px; text-align: left; min-width: 30px; position: relative; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                            <div style = "position: relative; width: 100%; height: 100%;">
+                                <div data-max="100" data-min="0" style = "display: inline-block; position: absolute; width: 12%; background-color: rgb(45, 194, 20); height: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "gender" title style = "width: 583px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "ldlc" title style = "width:584px; text-align: center; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "totc" title style = "width: 150px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "txstat" aria-label = "12" title style = "width: 583px; text-align: left; min-width: 30px; position: relative; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                            <div style = "position: relative; width: 100%; height: 100%;">
+                                <div data-max="100" data-min="0" style = "display: inline-block; position: absolute; width: 12%; background-color: rgb(45, 194, 20); height: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "cadstat" title style = "width: 583px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "cadage" title style = "width:584px; text-align: center; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "dnadxstat" title style = "width:584px; text-align: center; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                    </div>
+                    <div class = "tabulator-row tabulator-selectable tabulator-row-odd" role = "row" style = "padding-left: 0px;">
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "person" title style = "width: 150px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "age" aria-label = "12" title style = "width: 583px; text-align: left; min-width: 30px; position: relative; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                            <div style = "position: relative; width: 100%; height: 100%;">
+                                <div data-max="100" data-min="0" style = "display: inline-block; position: absolute; width: 12%; background-color: rgb(45, 194, 20); height: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "gender" title style = "width: 583px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "ldlc" title style = "width:584px; text-align: center; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "totc" title style = "width: 150px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "txstat" aria-label = "12" title style = "width: 583px; text-align: left; min-width: 30px; position: relative; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                            <div style = "position: relative; width: 100%; height: 100%;">
+                                <div data-max="100" data-min="0" style = "display: inline-block; position: absolute; width: 12%; background-color: rgb(45, 194, 20); height: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "cadstat" title style = "width: 583px; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "cadage" title style = "width:584px; text-align: center; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                        <div class = "tabulator-cell" role = "gridcell" tabulator-field = "dnadxstat" title style = "width:584px; text-align: center; height: 24px;">
+                            <div class = "tabulator-col-resize-handle"></div>
+                            <div class = "tabulator-col-resize-handle prev"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.0.10/dist/js/tabulator.min.js"></script>
+    <script type="text/javascript" src="dist/js/tabulator.min.js"></script>
+    <script type = "text/javascript">
+        // Sample Data
+        var tableData = [
+            {id:1, person:"Grandparent #1", age:"88", gender:"M", ldlc:"200", totc:"215", txstat:"Unknown", cadstat:"Known - Positive", cadage:"80", dnadxstat:"Known - Negative"},
+            {id:2, person: "Grandparent #2", age:"90", gender:"F", ldlc: "210", totc:"215", txstat:"Unknown", cadstat:"Known - Positive", cadage:"80", dnadxstat:"Known - Negative" },
+            {id:3, person:"Sibling #1", age: "65", gender:"M", ldlc:"183", totc:"215", txstat:"Unknown", cadstat:"Known - Positive", cadage:"80", dnadxstat:"Known - Negative"},
+            {id:4, person:"Sibling #2", age:"66", gender:"M", ldlc:"177", totc:"215", txstat:"Unknown", cadstat:"Known - Positive", cadage:"80", dnadxstat:"Known - Negative"},
+            {id:5, person:"Parent #1", age:"60", gender:"M", ldlc:"205", totc:"215", txstat:"Unknown", cadstat:"Known - Positive", cadage:"80", dnadxstat:"Known - Negative"},
+            {id:6, person:"Parent #2", age: "58", gender:"F", ldlc:"233", totc:"215", txstat:"Unknown", cadstat:"Known - Positive", cadage:"80", dnadxstat:"Known - Negative"},
+            {id:7, person:"Child #1", age:"36", gender:"F", ldlc:"205", totc:"215", txstat:"Unknown", cadstat:"Known - Positive", cadage:"80", dnadxstat:"Known - Negative"},
+            {id:8, person:"Child #2", age:"34", gender:"M", ldlc:"177", totc:"215", txstat:"Unknown", cadstat:"Known - Positive", cadage:"80", dnadxstat:"Known - Negative"},
+            {id:9, person:"Child #3", age:"30", gender:"F", ldlc:"170", totc:"215", txstat:"Unknown", cadstat:"Known - Positive", cadage:"80", dnadxstat:"Known - Negative"},
+        ];
+
+        var table = new Tabulator("#example-table", {
+            height:200, // Set height of table to enable virtual DOM
+            data:tableData, // Load initial data into table
+            layout:"fitColumns", // Fit columns to width of table (optional)
+            columns: [ // Define Table Columns
+                {title:"Person", field:"person", sorter: "string", hozAlign: "left"},
+                {title:"Age", field:"age", sorter:"number", hozAlign:"center"},
+                {title:"Gender", field:"gender", sorter:"string", hozAlign: "center"},
+                {title:"LDL Cholesterol", field:"ldlc", sorter:"number", hozAlign:"center"},
+                {title:"TOT Cholesterol", field: "totc", sorter:"number", hozAlign:"center"},
+                {title:"TX Status", field:"txstat", sorter:"string", hozAlign:"center"},
+                {title:"CAD Status", field:"cadstat", sorter:"string", hozAlign:"center"},
+                {title:"CAD Onset Age", field:"cadage", sorter:"number", hozAlign:"center"},
+                {title:"DNA-DX Status", field:"dnadxstat", sorter:"string", hozAlign:"center"},
+            ],
+            rowClick:function(e, row){ // Trigger an alert message when the row is clicked
+                alert("Row " + row.getIndex() + " Clicked!!!")
+            }
+        });
+    </script>
+</body>
+</html>
