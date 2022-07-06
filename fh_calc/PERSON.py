@@ -1,4 +1,5 @@
 class Person(object):
+
   def __init__( self, pedigree_position):
     self.pedigree_position = pedigree_position
     self.age = 0
@@ -30,30 +31,23 @@ class Person(object):
     elif pedigree_position == 9:
       self.pedigree_role = 'Child 3'
 
-  def add_age(self, age):
-    self.age = age
-    return age
+  def get_age(self):
+    return self.age
 
-  def add_gender(self, gender):
-    self.gender = gender
-    return gender
+  def get_gender(self):
+    return self.gender
 
-  def add_ldl_cholesterol(self, ldl_cholesterol):
-    self.ldl_cholesterol = ldl_cholesterol
-    return ldl_cholesterol
+  def get_ldl_cholesterol(self):
+    return self.ldl_cholesterol
 
-  def add_total_cholesterol(self, total_cholesterol):
-    self.total_cholesterol = total_cholesterol
-    return total_cholesterol
+  def get_total_cholesterol(self):
+    return self.total_cholesterol
 
-  def add_cad_status(self, coronary_artery_status):
-    self.coronary_artery_status = coronary_artery_status
-    return coronary_artery_status
+  def get_cad_status(self):
+    return self.coronary_artery_status
 
-  def add_cad_age(self, coronary_artery_age):
-    self.coronary_artery_age = coronary_artery_age
-    return coronary_artery_age
+  def get_cad_age(self):
+    return self.coronary_artery_age
 
-  def add_dna_dx_status(self, dna_dx_status):
-    self.dna_dx_status = dna_dx_status
-    return dna_dx_status
+  def get_dna_dx_status(self):
+    return self.dna_dx_status
